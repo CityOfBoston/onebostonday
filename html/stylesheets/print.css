@@ -1,0 +1,21 @@
+@charset "UTF-8";
+/* line 1, ../../build/sass/print.scss */
+body {
+      padding: 0;
+}
+
+/* line 5, ../../build/sass/print.scss */
+a {
+      text-decoration: underline;
+}
+
+/* line 9, ../../build/sass/print.scss */
+a[href]:after {
+      content: " (" attr(href) ")";
+}
+
+/* line 14, ../../build/sass/print.scss */
+a[href="#"],
+a[href="javascript:"] {
+      content: "";
+}
