@@ -5,4 +5,10 @@ $(function() {
             body.removeClass("disable-hover");
         }, 250);
     }, !1);
+    var popupWindow = function() {
+        $("a[data-popup]").on("click", function(event) {
+            event.preventDefault(), window.open($(this)[0].href);
+        });
+    };
+    popupWindow();
 });
