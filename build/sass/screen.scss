@@ -5,6 +5,27 @@ img{
 	max-width:100%;
 }
 
+h1,h2,h3,h4,h5,h6,strong,b{
+	font-family:$font-bold;
+}
+
+h1{
+	font-size:2.2em;
+}
+
+h2{
+	font-size:1.875em;
+}
+
+h3{
+	font-size:1.2em;
+}
+
+p{
+	font-size:1em;
+	line-height:1.43;
+}
+
 @import "partials/main-nav";
 
 .intro{
@@ -12,7 +33,30 @@ img{
 	height:100vh;
 	background-image:image-url('skyline.jpg');
 	background-size:cover;
+	margin-top:68px;
+	position:relative;
 	.logo{
 		display:none;
 	}
+	.copy{
+		@extend %absolute-middle;
+		top:33%;
+		width:100%;
+		color:#fff;
+		padding:10px;
+	}
+	.block{
+		position:relative;
+		height:100%;
+		z-index:2;
+	}
+	p{
+		margin:1em 0;
+	}
+}
+
+.overlay{
+	@include position(fixed, 0px 0px 0px 0px);
+	z-index:1;
+	background-color:rgba($primary,.7);
 }

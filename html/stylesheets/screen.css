@@ -154,6 +154,20 @@ a {
   transition: all 0.3s ease-in-out;
 }
 
+/* line 126, ../../build/sass/partials/_base.scss */
+.intro .copy {
+  position: absolute;
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  left: 50%;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  -moz-transform: translateY(-50%) translateX(-50%);
+  -ms-transform: translateY(-50%) translateX(-50%);
+  -o-transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%);
+}
+
 /* line 137, ../../build/sass/partials/_base.scss */
 body, html {
   display: block;
@@ -950,6 +964,32 @@ img {
   max-width: 100%;
 }
 
+/* line 8, ../../build/sass/screen.scss */
+h1, h2, h3, h4, h5, h6, strong, b {
+  font-family: "Gotham SSm B";
+}
+
+/* line 12, ../../build/sass/screen.scss */
+h1 {
+  font-size: 2.2em;
+}
+
+/* line 16, ../../build/sass/screen.scss */
+h2 {
+  font-size: 1.875em;
+}
+
+/* line 20, ../../build/sass/screen.scss */
+h3 {
+  font-size: 1.2em;
+}
+
+/* line 24, ../../build/sass/screen.scss */
+p {
+  font-size: 1em;
+  line-height: 1.43;
+}
+
 /* line 1, ../../build/sass/partials/_main-nav.scss */
 .main-nav {
   text-transform: uppercase;
@@ -961,48 +1001,49 @@ img {
   right: 0px;
   bottom: auto;
   left: 0px;
+  z-index: 8;
 }
-/* line 7, ../../build/sass/partials/_main-nav.scss */
+/* line 8, ../../build/sass/partials/_main-nav.scss */
 .main-nav li a {
   color: #fff;
   display: block;
   padding: 10px;
 }
-/* line 12, ../../build/sass/partials/_main-nav.scss */
+/* line 13, ../../build/sass/partials/_main-nav.scss */
 .main-nav img, .main-nav svg {
   width: 100%;
   max-width: 77px;
   margin: 0 auto;
   float: left;
 }
-/* line 18, ../../build/sass/partials/_main-nav.scss */
+/* line 19, ../../build/sass/partials/_main-nav.scss */
 .main-nav ul {
   clear: both;
   max-height: 0px;
   overflow: hidden;
 }
-/* line 24, ../../build/sass/partials/_main-nav.scss */
+/* line 25, ../../build/sass/partials/_main-nav.scss */
 .main-nav.active ul {
   max-height: 600px;
   padding: 20px 0;
 }
 
 @media all and (min-width: 860px) {
-  /* line 31, ../../build/sass/partials/_main-nav.scss */
+  /* line 32, ../../build/sass/partials/_main-nav.scss */
   .burger-box {
     display: none;
   }
 
-  /* line 35, ../../build/sass/partials/_main-nav.scss */
+  /* line 36, ../../build/sass/partials/_main-nav.scss */
   .main-nav {
     height: 68px;
   }
-  /* line 37, ../../build/sass/partials/_main-nav.scss */
+  /* line 38, ../../build/sass/partials/_main-nav.scss */
   .main-nav .block {
     position: relative;
     height: 100%;
   }
-  /* line 41, ../../build/sass/partials/_main-nav.scss */
+  /* line 42, ../../build/sass/partials/_main-nav.scss */
   .main-nav img, .main-nav svg {
     position: absolute;
     top: 50%;
@@ -1016,7 +1057,7 @@ img {
     transform: translateY(-50%);
     z-index: 2;
   }
-  /* line 46, ../../build/sass/partials/_main-nav.scss */
+  /* line 47, ../../build/sass/partials/_main-nav.scss */
   .main-nav ul {
     max-height: 100px;
     width: 100%;
@@ -1032,24 +1073,55 @@ img {
     transform: translateX(-50%) translateY(-50%);
     z-index: 1;
   }
-  /* line 52, ../../build/sass/partials/_main-nav.scss */
+  /* line 53, ../../build/sass/partials/_main-nav.scss */
   .main-nav ul li {
     display: inline-block;
   }
-  /* line 56, ../../build/sass/partials/_main-nav.scss */
+  /* line 57, ../../build/sass/partials/_main-nav.scss */
   .main-nav li a {
     padding: 10px 30px;
   }
 }
-/* line 10, ../../build/sass/screen.scss */
+/* line 31, ../../build/sass/screen.scss */
 .intro {
   min-height: 700px;
   height: 100vh;
-  background-image: url('../img/skyline.jpg');
+  background-image: url('../img/skyline.jpg?1428516762');
+  background-size: cover;
+  margin-top: 68px;
+  position: relative;
 }
-/* line 14, ../../build/sass/screen.scss */
+/* line 38, ../../build/sass/screen.scss */
 .intro .logo {
   display: none;
+}
+/* line 41, ../../build/sass/screen.scss */
+.intro .copy {
+  top: 33%;
+  width: 100%;
+  color: #fff;
+  padding: 10px;
+}
+/* line 48, ../../build/sass/screen.scss */
+.intro .block {
+  position: relative;
+  height: 100%;
+  z-index: 2;
+}
+/* line 53, ../../build/sass/screen.scss */
+.intro p {
+  margin: 1em 0;
+}
+
+/* line 58, ../../build/sass/screen.scss */
+.overlay {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: 1;
+  background-color: rgba(47, 150, 248, 0.7);
 }
 
 /*# sourceMappingURL=screen.css.map */
