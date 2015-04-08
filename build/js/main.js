@@ -73,13 +73,28 @@ $(function(){
 	/*//////////////////////////////////////
     //  community section
     //////////////////////////////////////*/
+
+    var video = '<iframe src="https://player.vimeo.com/video/124313553?autoplay=1&title=0&byline=0&portrait=0" width="500" height="213" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+    $('.video span').on('click',function(){
+		$('.video span').fadeOut(function(){
+			$('.video img').remove();
+			$('.video').append(video);
+			$('.video').fitVids();
+		});
+    });
+
+    var middleSlide = (Math.ceil( ($('.slider .activity').length / 2) ) - 1);
+
+    console.log(middleSlide);
+
 	$('.slider').slick({
 		slide: '.activity',
 		dots: true,
 		infinite: true,
 		speed: 300,
 		slidesToShow: 1,
-		adaptiveHeight: true
+		adaptiveHeight: true,
+		initialSlide: middleSlide
 	});
 
 

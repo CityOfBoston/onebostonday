@@ -1,0 +1,35 @@
+.city{
+	background-color:$light;
+}
+
+.video{
+	position:relative;
+	width:100%;
+	max-width:750px;
+	margin:0 auto 60px;
+	img{
+		width:100%;
+	}
+	span{
+		@extend %absolute-middle;
+		text-transform:uppercase;
+		font-size:1.2em;
+		color:#fff;
+		cursor:pointer;
+		width:80px;
+		text-align:center;
+		line-height:1.22;
+		margin-top:20px;
+		svg{
+		  width: 80px;
+		  height: 80px;
+		  padding: 20px 17px 20px 23px;
+		  background-color: $dark;
+		  margin-bottom:5px;
+		  @include border-radius(50%);
+		  use{
+		  	fill:#fff;
+		  }
+		}
+	}
+}

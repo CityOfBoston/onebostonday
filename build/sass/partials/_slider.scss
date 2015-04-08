@@ -146,7 +146,7 @@ $slick-opacity-not-active: 0.25 !default;
     cursor: pointer;
     background: transparent;
     color: transparent;
-    top: 50%;
+    top: 120px;
     margin-top: -10px;
     padding: 0;
     border: none;
@@ -191,6 +191,13 @@ $slick-opacity-not-active: 0.25 !default;
     }
 }
 
+@media all and(min-width:800px){
+    .slick-prev,
+    .slick-next{
+        top:175px;
+    }
+}
+
 /* Dots */
 
 .slick-slider {
@@ -199,7 +206,7 @@ $slick-opacity-not-active: 0.25 !default;
 
 .slick-dots {
     position: absolute;
-    bottom: -45px;
+    bottom: -5px;
     list-style: none;
     display: block;
     text-align: center;
@@ -252,5 +259,11 @@ $slick-opacity-not-active: 0.25 !default;
             color: $slick-dot-color-active;
             opacity: $slick-opacity-default;
         }
+    }
+}
+
+@media all and(min-width:800px){
+    .slick-dots{
+        bottom:-75px;
     }
 }
