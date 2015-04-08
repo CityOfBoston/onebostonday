@@ -16,18 +16,26 @@ $twitter:#469aea;
 $instagram: #1b3f67;
 $linkedin: #3574af;
 
+$primary:#2F96F8;
+
+$dark:#222;
+$light:#EAE4E5;
+
 /*//////////////////////////////////////
 //  fonts
 //////////////////////////////////////*/
 $font-sans: helvetica;
 $font-serif: georgia;
 
+$font-thin:"Gotham SSm A";
+$font-bold:"Gotham SSm B";
+
 /*//////////////////////////////////////
 //  extension on skeleton
 //////////////////////////////////////*/
 $grid-columns: 12;
-$width:1200px;
-$max-width:1200px;
+$width:930px;
+$max-width:930px;
 $font-size:10;
 $paragraph-size:1.6;
 
@@ -58,6 +66,10 @@ input:focus, textarea:focus{
 
 button,input[type="submit"]{
     cursor:pointer;
+}
+
+a{
+    text-decoration: none;
 }
 
 /*//////////////////////////////////////
@@ -128,7 +140,8 @@ body,html{
 }
 
 body{
-    font-size:62.5%;
     position:relative;
+    font-size:16px;
+    font-family:"Gotham SSm A";
 }
 

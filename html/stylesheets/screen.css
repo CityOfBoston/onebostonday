@@ -82,14 +82,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /*//////////////////////////////////////
 //  extension on skeleton
 //////////////////////////////////////*/
-/* line 34, ../../build/sass/partials/_base.scss */
+/* line 42, ../../build/sass/partials/_base.scss */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 38, ../../build/sass/partials/_base.scss */
+/* line 46, ../../build/sass/partials/_base.scss */
 .block {
   *zoom: 1;
 }
@@ -103,29 +103,34 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   clear: both;
 }
 
-/* line 43, ../../build/sass/partials/_base.scss */
+/* line 51, ../../build/sass/partials/_base.scss */
 .disable-hover {
   pointer-events: none;
 }
 
-/* line 47, ../../build/sass/partials/_base.scss */
+/* line 55, ../../build/sass/partials/_base.scss */
 b, strong {
   font-weight: 700;
 }
 
-/* line 51, ../../build/sass/partials/_base.scss */
+/* line 59, ../../build/sass/partials/_base.scss */
 i, em {
   font-style: italic;
 }
 
-/* line 55, ../../build/sass/partials/_base.scss */
+/* line 63, ../../build/sass/partials/_base.scss */
 input:focus, textarea:focus {
   outline: none;
 }
 
-/* line 59, ../../build/sass/partials/_base.scss */
+/* line 67, ../../build/sass/partials/_base.scss */
 button, input[type="submit"] {
   cursor: pointer;
+}
+
+/* line 71, ../../build/sass/partials/_base.scss */
+a {
+  text-decoration: none;
 }
 
 /*//////////////////////////////////////
@@ -134,24 +139,917 @@ button, input[type="submit"] {
 /*//////////////////////////////////////
 //  silent classes
 //////////////////////////////////////*/
-/* line 88, ../../build/sass/partials/_base.scss */
+/* line 100, ../../build/sass/partials/_base.scss */
 .block {
-  max-width: 1200px;
+  max-width: 930px;
   width: 100%;
   margin: 0 auto;
   display: block;
 }
 
-/* line 125, ../../build/sass/partials/_base.scss */
+/* line 117, ../../build/sass/partials/_base.scss */
+.burger-box, .main-nav ul {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+/* line 137, ../../build/sass/partials/_base.scss */
 body, html {
   display: block;
   height: 100%;
 }
 
-/* line 130, ../../build/sass/partials/_base.scss */
+/* line 142, ../../build/sass/partials/_base.scss */
 body {
-  font-size: 62.5%;
   position: relative;
+  font-size: 16px;
+  font-family: "Gotham SSm A";
+}
+
+/* line 1, ../../build/sass/partials/_burger.scss */
+.burger-box {
+  position: fixed;
+  top: 13px;
+  right: 10px;
+  z-index: 12;
+  width: 35px;
+  height: 35px;
+  margin: 0 auto;
+  display: block;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  -ms-transform: scale3d(1, 1, 1);
+  -o-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  background-color: rgba(255, 255, 255, 0);
+}
+/* line 11, ../../build/sass/partials/_burger.scss */
+.burger-box.open {
+  background-color: white;
+}
+
+/* line 16, ../../build/sass/partials/_burger.scss */
+.burger,
+.burger:before,
+.burger:after {
+  position: absolute;
+  top: 16px;
+  left: 6px;
+  width: 24px;
+  height: 3px;
+  background: #fff;
+}
+
+/* line 27, ../../build/sass/partials/_burger.scss */
+.burger:before {
+  top: -8px;
+  left: 0;
+  content: "";
+}
+
+/* line 33, ../../build/sass/partials/_burger.scss */
+.burger:after {
+  top: 8px;
+  left: 0;
+  content: "";
+}
+
+/* line 39, ../../build/sass/partials/_burger.scss */
+.open .burger {
+  -webkit-animation: burger-open 0.3s forwards;
+  -moz-animation: burger-open 0.3s forwards;
+  animation: burger-open 0.3s forwards;
+}
+
+/* line 43, ../../build/sass/partials/_burger.scss */
+.open .burger:before {
+  -webkit-animation: burger-top-open 0.3s forwards;
+  -moz-animation: burger-top-open 0.3s forwards;
+  animation: burger-top-open 0.3s forwards;
+}
+
+/* line 47, ../../build/sass/partials/_burger.scss */
+.open .burger:after {
+  -webkit-animation: burger-bot-open 0.3s forwards;
+  -moz-animation: burger-bot-open 0.3s forwards;
+  animation: burger-bot-open 0.3s forwards;
+}
+
+/* line 51, ../../build/sass/partials/_burger.scss */
+.closed .burger {
+  -webkit-animation: burger-closed 0.3s forwards;
+  -moz-animation: burger-closed 0.3s forwards;
+  animation: burger-closed 0.3s forwards;
+}
+
+/* line 55, ../../build/sass/partials/_burger.scss */
+.closed .burger:before {
+  -webkit-animation: burger-top-closed 0.3s forwards;
+  -moz-animation: burger-top-closed 0.3s forwards;
+  animation: burger-top-closed 0.3s forwards;
+}
+
+/* line 59, ../../build/sass/partials/_burger.scss */
+.closed .burger:after {
+  -webkit-animation: burger-bot-closed 0.3s forwards;
+  -moz-animation: burger-bot-closed 0.3s forwards;
+  animation: burger-bot-closed 0.3s forwards;
+}
+
+@-webkit-keyframes burger-open {
+  0% {
+    background: #2f96f8;
+  }
+  50% {
+    background: #2f96f8;
+  }
+  51% {
+    background: rgba(47, 150, 248, 0);
+  }
+  100% {
+    background: rgba(47, 150, 248, 0);
+  }
+}
+@-moz-keyframes burger-open {
+  0% {
+    background: #2f96f8;
+  }
+  50% {
+    background: #2f96f8;
+  }
+  51% {
+    background: rgba(47, 150, 248, 0);
+  }
+  100% {
+    background: rgba(47, 150, 248, 0);
+  }
+}
+@-o-keyframes burger-open {
+  0% {
+    background: #2f96f8;
+  }
+  50% {
+    background: #2f96f8;
+  }
+  51% {
+    background: rgba(47, 150, 248, 0);
+  }
+  100% {
+    background: rgba(47, 150, 248, 0);
+  }
+}
+@keyframes burger-open {
+  0% {
+    background: #2f96f8;
+  }
+  50% {
+    background: #2f96f8;
+  }
+  51% {
+    background: rgba(47, 150, 248, 0);
+  }
+  100% {
+    background: rgba(47, 150, 248, 0);
+  }
+}
+@-webkit-keyframes burger-top-open {
+  0% {
+    top: -8px;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+    background-color: #2F96F8;
+  }
+  50% {
+    top: 0;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+    background-color: #2F96F8;
+  }
+  90% {
+    top: 0;
+    -webkit-transform: rotate3d(0, 0, 1, 55deg);
+    -moz-transform: rotate3d(0, 0, 1, 55deg);
+    -ms-transform: rotate3d(0, 0, 1, 55deg);
+    -o-transform: rotate3d(0, 0, 1, 55deg);
+    transform: rotate3d(0, 0, 1, 55deg);
+    background-color: #2F96F8;
+  }
+  100% {
+    top: 0;
+    -webkit-transform: rotate3d(0, 0, 1, 45deg);
+    -moz-transform: rotate3d(0, 0, 1, 45deg);
+    -ms-transform: rotate3d(0, 0, 1, 45deg);
+    -o-transform: rotate3d(0, 0, 1, 45deg);
+    transform: rotate3d(0, 0, 1, 45deg);
+    background-color: #2F96F8;
+  }
+}
+@-moz-keyframes burger-top-open {
+  0% {
+    top: -8px;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+    background-color: #2F96F8;
+  }
+  50% {
+    top: 0;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+    background-color: #2F96F8;
+  }
+  90% {
+    top: 0;
+    -webkit-transform: rotate3d(0, 0, 1, 55deg);
+    -moz-transform: rotate3d(0, 0, 1, 55deg);
+    -ms-transform: rotate3d(0, 0, 1, 55deg);
+    -o-transform: rotate3d(0, 0, 1, 55deg);
+    transform: rotate3d(0, 0, 1, 55deg);
+    background-color: #2F96F8;
+  }
+  100% {
+    top: 0;
+    -webkit-transform: rotate3d(0, 0, 1, 45deg);
+    -moz-transform: rotate3d(0, 0, 1, 45deg);
+    -ms-transform: rotate3d(0, 0, 1, 45deg);
+    -o-transform: rotate3d(0, 0, 1, 45deg);
+    transform: rotate3d(0, 0, 1, 45deg);
+    background-color: #2F96F8;
+  }
+}
+@-o-keyframes burger-top-open {
+  0% {
+    top: -8px;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+    background-color: #2F96F8;
+  }
+  50% {
+    top: 0;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+    background-color: #2F96F8;
+  }
+  90% {
+    top: 0;
+    -webkit-transform: rotate3d(0, 0, 1, 55deg);
+    -moz-transform: rotate3d(0, 0, 1, 55deg);
+    -ms-transform: rotate3d(0, 0, 1, 55deg);
+    -o-transform: rotate3d(0, 0, 1, 55deg);
+    transform: rotate3d(0, 0, 1, 55deg);
+    background-color: #2F96F8;
+  }
+  100% {
+    top: 0;
+    -webkit-transform: rotate3d(0, 0, 1, 45deg);
+    -moz-transform: rotate3d(0, 0, 1, 45deg);
+    -ms-transform: rotate3d(0, 0, 1, 45deg);
+    -o-transform: rotate3d(0, 0, 1, 45deg);
+    transform: rotate3d(0, 0, 1, 45deg);
+    background-color: #2F96F8;
+  }
+}
+@keyframes burger-top-open {
+  0% {
+    top: -8px;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+    background-color: #2F96F8;
+  }
+  50% {
+    top: 0;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+    background-color: #2F96F8;
+  }
+  90% {
+    top: 0;
+    -webkit-transform: rotate3d(0, 0, 1, 55deg);
+    -moz-transform: rotate3d(0, 0, 1, 55deg);
+    -ms-transform: rotate3d(0, 0, 1, 55deg);
+    -o-transform: rotate3d(0, 0, 1, 55deg);
+    transform: rotate3d(0, 0, 1, 55deg);
+    background-color: #2F96F8;
+  }
+  100% {
+    top: 0;
+    -webkit-transform: rotate3d(0, 0, 1, 45deg);
+    -moz-transform: rotate3d(0, 0, 1, 45deg);
+    -ms-transform: rotate3d(0, 0, 1, 45deg);
+    -o-transform: rotate3d(0, 0, 1, 45deg);
+    transform: rotate3d(0, 0, 1, 45deg);
+    background-color: #2F96F8;
+  }
+}
+@-webkit-keyframes burger-bot-open {
+  0% {
+    top: 8px;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+    background-color: #2F96F8;
+  }
+  50% {
+    top: 0;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+    background-color: #2F96F8;
+  }
+  90% {
+    top: 0;
+    -webkit-transform: rotate3d(0, 0, 1, -55deg);
+    -moz-transform: rotate3d(0, 0, 1, -55deg);
+    -ms-transform: rotate3d(0, 0, 1, -55deg);
+    -o-transform: rotate3d(0, 0, 1, -55deg);
+    transform: rotate3d(0, 0, 1, -55deg);
+    background-color: #2F96F8;
+  }
+  100% {
+    top: 0;
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+    -moz-transform: rotate3d(0, 0, 1, -45deg);
+    -ms-transform: rotate3d(0, 0, 1, -45deg);
+    -o-transform: rotate3d(0, 0, 1, -45deg);
+    transform: rotate3d(0, 0, 1, -45deg);
+    background-color: #2F96F8;
+  }
+}
+@-moz-keyframes burger-bot-open {
+  0% {
+    top: 8px;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+    background-color: #2F96F8;
+  }
+  50% {
+    top: 0;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+    background-color: #2F96F8;
+  }
+  90% {
+    top: 0;
+    -webkit-transform: rotate3d(0, 0, 1, -55deg);
+    -moz-transform: rotate3d(0, 0, 1, -55deg);
+    -ms-transform: rotate3d(0, 0, 1, -55deg);
+    -o-transform: rotate3d(0, 0, 1, -55deg);
+    transform: rotate3d(0, 0, 1, -55deg);
+    background-color: #2F96F8;
+  }
+  100% {
+    top: 0;
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+    -moz-transform: rotate3d(0, 0, 1, -45deg);
+    -ms-transform: rotate3d(0, 0, 1, -45deg);
+    -o-transform: rotate3d(0, 0, 1, -45deg);
+    transform: rotate3d(0, 0, 1, -45deg);
+    background-color: #2F96F8;
+  }
+}
+@-o-keyframes burger-bot-open {
+  0% {
+    top: 8px;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+    background-color: #2F96F8;
+  }
+  50% {
+    top: 0;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+    background-color: #2F96F8;
+  }
+  90% {
+    top: 0;
+    -webkit-transform: rotate3d(0, 0, 1, -55deg);
+    -moz-transform: rotate3d(0, 0, 1, -55deg);
+    -ms-transform: rotate3d(0, 0, 1, -55deg);
+    -o-transform: rotate3d(0, 0, 1, -55deg);
+    transform: rotate3d(0, 0, 1, -55deg);
+    background-color: #2F96F8;
+  }
+  100% {
+    top: 0;
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+    -moz-transform: rotate3d(0, 0, 1, -45deg);
+    -ms-transform: rotate3d(0, 0, 1, -45deg);
+    -o-transform: rotate3d(0, 0, 1, -45deg);
+    transform: rotate3d(0, 0, 1, -45deg);
+    background-color: #2F96F8;
+  }
+}
+@keyframes burger-bot-open {
+  0% {
+    top: 8px;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+    background-color: #2F96F8;
+  }
+  50% {
+    top: 0;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+    background-color: #2F96F8;
+  }
+  90% {
+    top: 0;
+    -webkit-transform: rotate3d(0, 0, 1, -55deg);
+    -moz-transform: rotate3d(0, 0, 1, -55deg);
+    -ms-transform: rotate3d(0, 0, 1, -55deg);
+    -o-transform: rotate3d(0, 0, 1, -55deg);
+    transform: rotate3d(0, 0, 1, -55deg);
+    background-color: #2F96F8;
+  }
+  100% {
+    top: 0;
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+    -moz-transform: rotate3d(0, 0, 1, -45deg);
+    -ms-transform: rotate3d(0, 0, 1, -45deg);
+    -o-transform: rotate3d(0, 0, 1, -45deg);
+    transform: rotate3d(0, 0, 1, -45deg);
+    background-color: #2F96F8;
+  }
+}
+@-webkit-keyframes burger-closed {
+  0% {
+    background: rgba(255, 255, 255, 0);
+  }
+  50% {
+    background: rgba(255, 255, 255, 0);
+  }
+  255% {
+    background: white;
+  }
+  100% {
+    background: white;
+  }
+}
+@-moz-keyframes burger-closed {
+  0% {
+    background: rgba(255, 255, 255, 0);
+  }
+  50% {
+    background: rgba(255, 255, 255, 0);
+  }
+  255% {
+    background: white;
+  }
+  100% {
+    background: white;
+  }
+}
+@-o-keyframes burger-closed {
+  0% {
+    background: rgba(255, 255, 255, 0);
+  }
+  50% {
+    background: rgba(255, 255, 255, 0);
+  }
+  255% {
+    background: white;
+  }
+  100% {
+    background: white;
+  }
+}
+@keyframes burger-closed {
+  0% {
+    background: rgba(255, 255, 255, 0);
+  }
+  50% {
+    background: rgba(255, 255, 255, 0);
+  }
+  255% {
+    background: white;
+  }
+  100% {
+    background: white;
+  }
+}
+@-webkit-keyframes burger-top-closed {
+  0% {
+    top: 0;
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+    -moz-transform: rotate3d(0, 0, 1, -45deg);
+    -ms-transform: rotate3d(0, 0, 1, -45deg);
+    -o-transform: rotate3d(0, 0, 1, -45deg);
+    transform: rotate3d(0, 0, 1, -45deg);
+  }
+  50% {
+    top: 0;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+  90% {
+    top: -10px;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+  100% {
+    top: -8px;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+}
+@-moz-keyframes burger-top-closed {
+  0% {
+    top: 0;
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+    -moz-transform: rotate3d(0, 0, 1, -45deg);
+    -ms-transform: rotate3d(0, 0, 1, -45deg);
+    -o-transform: rotate3d(0, 0, 1, -45deg);
+    transform: rotate3d(0, 0, 1, -45deg);
+  }
+  50% {
+    top: 0;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+  90% {
+    top: -10px;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+  100% {
+    top: -8px;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+}
+@-o-keyframes burger-top-closed {
+  0% {
+    top: 0;
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+    -moz-transform: rotate3d(0, 0, 1, -45deg);
+    -ms-transform: rotate3d(0, 0, 1, -45deg);
+    -o-transform: rotate3d(0, 0, 1, -45deg);
+    transform: rotate3d(0, 0, 1, -45deg);
+  }
+  50% {
+    top: 0;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+  90% {
+    top: -10px;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+  100% {
+    top: -8px;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+}
+@keyframes burger-top-closed {
+  0% {
+    top: 0;
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+    -moz-transform: rotate3d(0, 0, 1, -45deg);
+    -ms-transform: rotate3d(0, 0, 1, -45deg);
+    -o-transform: rotate3d(0, 0, 1, -45deg);
+    transform: rotate3d(0, 0, 1, -45deg);
+  }
+  50% {
+    top: 0;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+  90% {
+    top: -10px;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+  100% {
+    top: -8px;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+}
+@-webkit-keyframes burger-bot-closed {
+  0% {
+    top: 0;
+    -webkit-transform: rotate3d(0, 0, 1, 45deg);
+    -moz-transform: rotate3d(0, 0, 1, 45deg);
+    -ms-transform: rotate3d(0, 0, 1, 45deg);
+    -o-transform: rotate3d(0, 0, 1, 45deg);
+    transform: rotate3d(0, 0, 1, 45deg);
+  }
+  50% {
+    top: 0;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+  90% {
+    top: 10px;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+  100% {
+    top: 8px;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+}
+@-moz-keyframes burger-bot-closed {
+  0% {
+    top: 0;
+    -webkit-transform: rotate3d(0, 0, 1, 45deg);
+    -moz-transform: rotate3d(0, 0, 1, 45deg);
+    -ms-transform: rotate3d(0, 0, 1, 45deg);
+    -o-transform: rotate3d(0, 0, 1, 45deg);
+    transform: rotate3d(0, 0, 1, 45deg);
+  }
+  50% {
+    top: 0;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+  90% {
+    top: 10px;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+  100% {
+    top: 8px;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+}
+@-o-keyframes burger-bot-closed {
+  0% {
+    top: 0;
+    -webkit-transform: rotate3d(0, 0, 1, 45deg);
+    -moz-transform: rotate3d(0, 0, 1, 45deg);
+    -ms-transform: rotate3d(0, 0, 1, 45deg);
+    -o-transform: rotate3d(0, 0, 1, 45deg);
+    transform: rotate3d(0, 0, 1, 45deg);
+  }
+  50% {
+    top: 0;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+  90% {
+    top: 10px;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+  100% {
+    top: 8px;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+}
+@keyframes burger-bot-closed {
+  0% {
+    top: 0;
+    -webkit-transform: rotate3d(0, 0, 1, 45deg);
+    -moz-transform: rotate3d(0, 0, 1, 45deg);
+    -ms-transform: rotate3d(0, 0, 1, 45deg);
+    -o-transform: rotate3d(0, 0, 1, 45deg);
+    transform: rotate3d(0, 0, 1, 45deg);
+  }
+  50% {
+    top: 0;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+  90% {
+    top: 10px;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+  100% {
+    top: 8px;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+}
+/* line 4, ../../build/sass/screen.scss */
+img {
+  max-width: 100%;
+}
+
+/* line 1, ../../build/sass/partials/_main-nav.scss */
+.main-nav {
+  text-transform: uppercase;
+  background-color: #2F96F8;
+  padding: 10px;
+  text-align: center;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: auto;
+  left: 0px;
+}
+/* line 7, ../../build/sass/partials/_main-nav.scss */
+.main-nav li a {
+  color: #fff;
+  display: block;
+  padding: 10px;
+}
+/* line 12, ../../build/sass/partials/_main-nav.scss */
+.main-nav img, .main-nav svg {
+  width: 100%;
+  max-width: 77px;
+  margin: 0 auto;
+  float: left;
+}
+/* line 18, ../../build/sass/partials/_main-nav.scss */
+.main-nav ul {
+  clear: both;
+  max-height: 0px;
+  overflow: hidden;
+}
+/* line 24, ../../build/sass/partials/_main-nav.scss */
+.main-nav.active ul {
+  max-height: 600px;
+  padding: 20px 0;
+}
+
+@media all and (min-width: 860px) {
+  /* line 31, ../../build/sass/partials/_main-nav.scss */
+  .burger-box {
+    display: none;
+  }
+
+  /* line 35, ../../build/sass/partials/_main-nav.scss */
+  .main-nav {
+    height: 68px;
+  }
+  /* line 37, ../../build/sass/partials/_main-nav.scss */
+  .main-nav .block {
+    position: relative;
+    height: 100%;
+  }
+  /* line 41, ../../build/sass/partials/_main-nav.scss */
+  .main-nav img, .main-nav svg {
+    position: absolute;
+    top: 50%;
+    right: auto;
+    bottom: auto;
+    left: 0px;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 2;
+  }
+  /* line 46, ../../build/sass/partials/_main-nav.scss */
+  .main-nav ul {
+    max-height: 100px;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    right: auto;
+    bottom: auto;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 1;
+  }
+  /* line 52, ../../build/sass/partials/_main-nav.scss */
+  .main-nav ul li {
+    display: inline-block;
+  }
+  /* line 56, ../../build/sass/partials/_main-nav.scss */
+  .main-nav li a {
+    padding: 10px 30px;
+  }
+}
+/* line 10, ../../build/sass/screen.scss */
+.intro {
+  min-height: 700px;
+  height: 100vh;
+  background-image: url('../img/skyline.jpg');
+}
+/* line 14, ../../build/sass/screen.scss */
+.intro .logo {
+  display: none;
 }
 
 /*# sourceMappingURL=screen.css.map */

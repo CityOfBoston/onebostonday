@@ -1,4 +1,19 @@
 $(function(){
+	/*//////////////////////////////////////
+    //  Burger mobile menu
+    //////////////////////////////////////*/
+    $('.burger-box').on('click', function(event){
+        event.preventDefault();
+        if ($(this).hasClass('open')) {
+            $(this).removeClass('open').addClass('closed');
+            $('.main-nav').removeClass('active');
+        }
+        else {
+            $(this).addClass('open').removeClass('closed') ;
+            $('.main-nav').addClass('active');
+        }
+    });
+
 	/*/////////////////////////
 	// 60fps scroll paints
 	/////////////////////////*/

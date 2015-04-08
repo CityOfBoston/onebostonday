@@ -1,0 +1,175 @@
+.burger-box {
+    @include position(fixed, 13px 10px 0 0);
+    z-index:12;
+    width: 35px;
+    height: 35px;
+    margin: 0 auto;
+    display: block;
+    @include transform(scale3d(1,1,1));
+    background-color:rgba(#fff,0);
+    @extend %default-transition;
+    &.open{
+        background-color:rgba(#fff, 1);
+    }
+}
+
+.burger,
+.burger:before,
+.burger:after {
+    position: absolute;
+    top: 16px;
+    left: 6px;
+    width: 24px;
+    height: 3px;
+    background: #fff;
+}
+
+.burger:before {
+    top: -8px;
+    left: 0;
+    content: "";
+}
+
+.burger:after {
+    top: 8px;
+    left: 0;
+    content: "";
+}
+
+.open .burger {
+    @include animation(burger-open 0.3s forwards);
+}
+
+.open .burger:before {
+    @include animation(burger-top-open 0.3s forwards);
+}
+
+.open .burger:after {
+    @include animation(burger-bot-open 0.3s forwards);
+}
+
+.closed .burger {
+    @include animation(burger-closed 0.3s forwards);
+}
+
+.closed .burger:before {
+    @include animation(burger-top-closed 0.3s forwards);
+}
+
+.closed .burger:after {
+    @include animation(burger-bot-closed 0.3s forwards);
+}
+
+@include keyframes(burger-open){
+    0% {
+        background: rgba($primary, 1);
+    }
+    50% {
+        background: rgba($primary, 1);
+    }
+    51% {
+        background: rgba($primary, 0);
+    }
+    100% {
+        background: rgba($primary, 0);
+    }
+}
+
+@include keyframes(burger-top-open){
+    0% {
+        top: -8px;
+        @include transform(none);
+        background-color:$primary;
+    }
+    50% {
+        top: 0;
+        @include transform(none);
+        background-color:$primary;
+    }
+    90% {
+        top: 0;
+        @include transform(rotate3d(0, 0, 1, 55deg));
+        background-color:$primary;
+    }
+    100% {
+        top: 0;
+        @include transform(rotate3d(0, 0, 1, 45deg));
+        background-color:$primary;
+    }
+}
+
+@include keyframes(burger-bot-open){
+    0% {
+        top: 8px;
+        @include transform(none);
+        background-color:$primary;
+    }
+    50% {
+        top: 0;
+        @include transform(none);
+        background-color:$primary;
+    }
+    90% {
+        top: 0;
+        @include transform(rotate3d(0, 0, 1, -55deg));
+        background-color:$primary;
+    }
+    100% {
+        top: 0;
+        @include transform(rotate3d(0, 0, 1, -45deg));
+        background-color:$primary;
+    }
+}
+
+@include keyframes(burger-closed){
+    0% {
+        background: rgba(#fff, 0);
+    }
+    50% {
+        background: rgba(#fff, 0);
+    }
+    255% {
+        background: rgba(#fff, 1);
+    }
+    100% {
+        background: rgba(#fff, 1);
+    }
+}
+
+@include keyframes(burger-top-closed){
+    0% {
+        top: 0;
+        @include transform(rotate3d(0,0,1,-45deg));
+    }
+    50% {
+        top: 0;
+        @include transform(none);
+    }
+    90% {
+        top: -10px;
+        @include transform(none);
+    }
+    100% {
+        top: -8px;
+        @include transform(none);
+    }
+}
+
+@include keyframes(burger-bot-closed){
+    0% {
+        top: 0;
+        @include transform(rotate3d(0,0,1,45deg));
+    }
+    50% {
+        top: 0;
+        @include transform(none);
+    }
+    90% {
+        top: 10px;
+        @include transform(none);
+    }
+    100% {
+        top: 8px;
+        @include transform(none);
+    }
+}

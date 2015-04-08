@@ -1,4 +1,9 @@
 $(function() {
+    $(".burger-box").on("click", function(event) {
+        event.preventDefault(), $(this).hasClass("open") ? ($(this).removeClass("open").addClass("closed"), 
+        $(".main-nav").removeClass("active")) : ($(this).addClass("open").removeClass("closed"), 
+        $(".main-nav").addClass("active"));
+    });
     var timer, body = $("body");
     $(window).on("scroll", function() {
         body.hasClass("disable-hover") || body.addClass("disable-hover"), timer = setTimeout(function() {

@@ -1,1 +1,18 @@
 @import "partials/base";
+@import "partials/burger";
+
+img{
+	max-width:100%;
+}
+
+@import "partials/main-nav";
+
+.intro{
+	min-height:700px;
+	height:100vh;
+	background-image:image-url('skyline.jpg');
+	background-size:cover;
+	.logo{
+		display:none;
+	}
+}
