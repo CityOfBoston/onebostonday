@@ -4,7 +4,7 @@
 img{
 	max-width:100%;
 }
-
+@import "partials/slider";
 @import "partials/main-nav";
 @import "partials/intro";
 
@@ -32,7 +32,6 @@ img{
 	background-color:$light;
 }
 
-
 .community{
 	background-image:image-url('community.jpg');
 	background-size:cover;
@@ -40,10 +39,13 @@ img{
 	color:#fff;
 	padding-bottom:60px;
 	height:calc(100vh - 68px);
-	min-height:540px;
-	.block{
+	min-height:780px;
+	.block,.slider{
 		position:relative;
 		z-index:2;
+	}
+	.slider{
+		padding:25px 0;
 	}
 	.section-intro{
 		color:#fff;
@@ -52,20 +54,16 @@ img{
 		background-color:rgba(#2A0037,.77);
 		z-index:1;
 	}
-	figure img{
-		@include border-radius(50%);
-		@include box-shadow(0px 0px 0px 3px rgba(#fff,1));
-		padding:10px;
-		max-width:180px;
-		display:block;
-		margin:0 auto 20px;
-	}
-
-	.block.slider > div{
-		display:none;
-	}
-	.block.slider .activity-1{
-		display:block;
+	figure{
+		margin:10px 0;
+		& > img{
+			@include border-radius(50%);
+			@include box-shadow(0px 0px 0px 3px rgba(#fff,1));
+			padding:10px;
+			max-width:180px;
+			display:block;
+			margin:0 auto 20px;
+		}
 	}
 
 	.blockquote{
@@ -86,20 +84,30 @@ img{
 
 	.copy{
 		padding:0 10px;
+		& > p{
+			margin-bottom:40px;
+			& + a{
+				text-transform:uppercase;
+				color:#fff;
+			}
+		}
 	}
 
-	.copy > p{
-		margin-bottom:40px;
-		& + a{
-			text-transform:uppercase;
-			color:#fff;
+	.slick-dots{
+		bottom:-75px;
+		li{
+			border:2px solid;
+			@include border-radius(50%);
+			&.slick-active{
+				background-color:#fff;
+			}
 		}
 	}
 }
 
 @media all and(min-width:800px){
 	.community{
-		.block.slider{
+		.activity .block{
 			@include outer-container();
 		}
 		figure{

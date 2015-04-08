@@ -8,7 +8,14 @@ $(function() {
         }
         $(".main-nav").css("background-color", bg);
     };
-    colorChangeIntroID = setInterval(colorChangeIntro, 10), $(".burger-box").on("click", function(event) {
+    colorChangeIntroID = setInterval(colorChangeIntro, 10), $(".slider").slick({
+        slide: ".activity",
+        dots: !0,
+        infinite: !0,
+        speed: 300,
+        slidesToShow: 1,
+        adaptiveHeight: !0
+    }), $(".burger-box").on("click", function(event) {
         event.preventDefault(), $(this).hasClass("open") ? ($(this).removeClass("open").addClass("closed"), 
         $(".main-nav").removeClass("active")) : ($(this).addClass("open").removeClass("closed"), 
         $(".main-nav").addClass("active"));

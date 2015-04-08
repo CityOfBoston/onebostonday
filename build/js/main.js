@@ -69,6 +69,20 @@ $(function(){
 	};
 	colorChangeIntroID = setInterval(colorChangeIntro, 10);
 
+	
+	/*//////////////////////////////////////
+    //  community section
+    //////////////////////////////////////*/
+	$('.slider').slick({
+		slide: '.activity',
+		dots: true,
+		infinite: true,
+		speed: 300,
+		slidesToShow: 1,
+		adaptiveHeight: true
+	});
+
+
 	/*//////////////////////////////////////
     //  Burger mobile menu
     //////////////////////////////////////*/
