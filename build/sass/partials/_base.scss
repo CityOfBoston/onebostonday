@@ -145,3 +145,44 @@ body{
     font-family:"Gotham SSm A";
 }
 
+h1,h2,h3,h4,h5,h6,strong,b{
+    font-family:$font-bold;
+}
+
+h1{
+    font-size:2.2em;
+}
+
+h2{
+    font-size:1.875em;
+    text-transform: uppercase;
+}
+
+h3{
+    font-size:1.2em;
+}
+
+p{
+    font-size:1em;
+    line-height:1.43;
+}
+
+.overlay{
+    @include position(absolute, 0px 0px 0px 0px);
+    z-index:1;
+    background-color:rgba($primary,.7);
+}
+
+.section-intro{
+    text-align:center;
+    padding:60px 10px;
+    h2{
+        margin-bottom:1em;
+        display:block;
+    }
+    p{
+        max-width:520px;
+        margin:0 auto;
+        line-height:1.7;
+    }
+}

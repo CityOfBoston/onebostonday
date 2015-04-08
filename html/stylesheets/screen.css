@@ -155,7 +155,7 @@ a {
 }
 
 /* line 126, ../../build/sass/partials/_base.scss */
-.intro .copy {
+.intro .copy, .video span {
   position: absolute;
   top: 50%;
   right: auto;
@@ -179,6 +179,61 @@ body {
   position: relative;
   font-size: 16px;
   font-family: "Gotham SSm A";
+}
+
+/* line 148, ../../build/sass/partials/_base.scss */
+h1, h2, h3, h4, h5, h6, strong, b {
+  font-family: "Gotham SSm B";
+}
+
+/* line 152, ../../build/sass/partials/_base.scss */
+h1 {
+  font-size: 2.2em;
+}
+
+/* line 156, ../../build/sass/partials/_base.scss */
+h2 {
+  font-size: 1.875em;
+  text-transform: uppercase;
+}
+
+/* line 161, ../../build/sass/partials/_base.scss */
+h3 {
+  font-size: 1.2em;
+}
+
+/* line 165, ../../build/sass/partials/_base.scss */
+p {
+  font-size: 1em;
+  line-height: 1.43;
+}
+
+/* line 170, ../../build/sass/partials/_base.scss */
+.overlay {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: 1;
+  background-color: rgba(47, 150, 248, 0.7);
+}
+
+/* line 176, ../../build/sass/partials/_base.scss */
+.section-intro {
+  text-align: center;
+  padding: 60px 10px;
+}
+/* line 179, ../../build/sass/partials/_base.scss */
+.section-intro h2 {
+  margin-bottom: 1em;
+  display: block;
+}
+/* line 183, ../../build/sass/partials/_base.scss */
+.section-intro p {
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.7;
 }
 
 /* line 1, ../../build/sass/partials/_burger.scss */
@@ -964,32 +1019,6 @@ img {
   max-width: 100%;
 }
 
-/* line 8, ../../build/sass/screen.scss */
-h1, h2, h3, h4, h5, h6, strong, b {
-  font-family: "Gotham SSm B";
-}
-
-/* line 12, ../../build/sass/screen.scss */
-h1 {
-  font-size: 2.2em;
-}
-
-/* line 16, ../../build/sass/screen.scss */
-h2 {
-  font-size: 1.875em;
-}
-
-/* line 20, ../../build/sass/screen.scss */
-h3 {
-  font-size: 1.2em;
-}
-
-/* line 24, ../../build/sass/screen.scss */
-p {
-  font-size: 1em;
-  line-height: 1.43;
-}
-
 /* line 1, ../../build/sass/partials/_main-nav.scss */
 .main-nav {
   text-transform: uppercase;
@@ -1001,49 +1030,52 @@ p {
   right: 0px;
   bottom: auto;
   left: 0px;
+  -webkit-transition: background-color 1s ease-in-out;
+  -moz-transition: background-color 1s ease-in-out;
+  transition: background-color 1s ease-in-out;
   z-index: 8;
 }
-/* line 8, ../../build/sass/partials/_main-nav.scss */
+/* line 9, ../../build/sass/partials/_main-nav.scss */
 .main-nav li a {
   color: #fff;
   display: block;
   padding: 10px;
 }
-/* line 13, ../../build/sass/partials/_main-nav.scss */
+/* line 14, ../../build/sass/partials/_main-nav.scss */
 .main-nav img, .main-nav svg {
   width: 100%;
   max-width: 77px;
   margin: 0 auto;
   float: left;
 }
-/* line 19, ../../build/sass/partials/_main-nav.scss */
+/* line 20, ../../build/sass/partials/_main-nav.scss */
 .main-nav ul {
   clear: both;
   max-height: 0px;
   overflow: hidden;
 }
-/* line 25, ../../build/sass/partials/_main-nav.scss */
+/* line 26, ../../build/sass/partials/_main-nav.scss */
 .main-nav.active ul {
   max-height: 600px;
   padding: 20px 0;
 }
 
 @media all and (min-width: 860px) {
-  /* line 32, ../../build/sass/partials/_main-nav.scss */
+  /* line 33, ../../build/sass/partials/_main-nav.scss */
   .burger-box {
     display: none;
   }
 
-  /* line 36, ../../build/sass/partials/_main-nav.scss */
+  /* line 37, ../../build/sass/partials/_main-nav.scss */
   .main-nav {
     height: 68px;
   }
-  /* line 38, ../../build/sass/partials/_main-nav.scss */
+  /* line 39, ../../build/sass/partials/_main-nav.scss */
   .main-nav .block {
     position: relative;
     height: 100%;
   }
-  /* line 42, ../../build/sass/partials/_main-nav.scss */
+  /* line 43, ../../build/sass/partials/_main-nav.scss */
   .main-nav img, .main-nav svg {
     position: absolute;
     top: 50%;
@@ -1057,7 +1089,7 @@ p {
     transform: translateY(-50%);
     z-index: 2;
   }
-  /* line 47, ../../build/sass/partials/_main-nav.scss */
+  /* line 48, ../../build/sass/partials/_main-nav.scss */
   .main-nav ul {
     max-height: 100px;
     width: 100%;
@@ -1073,55 +1105,212 @@ p {
     transform: translateX(-50%) translateY(-50%);
     z-index: 1;
   }
-  /* line 53, ../../build/sass/partials/_main-nav.scss */
+  /* line 54, ../../build/sass/partials/_main-nav.scss */
   .main-nav ul li {
     display: inline-block;
   }
-  /* line 57, ../../build/sass/partials/_main-nav.scss */
+  /* line 58, ../../build/sass/partials/_main-nav.scss */
   .main-nav li a {
     padding: 10px 30px;
   }
 }
-/* line 31, ../../build/sass/screen.scss */
+/* line 1, ../../build/sass/partials/_intro.scss */
 .intro {
-  min-height: 700px;
-  height: 100vh;
+  min-height: 500px;
+  height: calc(100vh - 64px);
   background-image: url('../img/skyline.jpg?1428516762');
   background-size: cover;
-  margin-top: 68px;
+  margin-top: 64px;
   position: relative;
 }
-/* line 38, ../../build/sass/screen.scss */
+/* line 8, ../../build/sass/partials/_intro.scss */
 .intro .logo {
   display: none;
 }
-/* line 41, ../../build/sass/screen.scss */
+/* line 11, ../../build/sass/partials/_intro.scss */
 .intro .copy {
-  top: 33%;
+  top: 40%;
   width: 100%;
   color: #fff;
   padding: 10px;
 }
-/* line 48, ../../build/sass/screen.scss */
+/* line 18, ../../build/sass/partials/_intro.scss */
 .intro .block {
   position: relative;
   height: 100%;
   z-index: 2;
 }
-/* line 53, ../../build/sass/screen.scss */
+/* line 23, ../../build/sass/partials/_intro.scss */
 .intro p {
   margin: 1em 0;
 }
+/* line 26, ../../build/sass/partials/_intro.scss */
+.intro h1, .intro p, .intro h3 {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -webkit-transition: all 0.6s ease-in;
+  -moz-transition: all 0.6s ease-in;
+  transition: all 0.6s ease-in;
+  position: relative;
+  top: 20px;
+}
 
-/* line 58, ../../build/sass/screen.scss */
-.overlay {
-  position: fixed;
+/* line 35, ../../build/sass/partials/_intro.scss */
+.ready .intro h1, .ready .intro p, .ready .intro h3 {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
   top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
+}
+/* line 39, ../../build/sass/partials/_intro.scss */
+.ready .intro h1 {
+  -webkit-transition-delay: 0.5s;
+  -moz-transition-delay: 0.5s;
+  transition-delay: 0.5s;
+}
+/* line 42, ../../build/sass/partials/_intro.scss */
+.ready .intro p {
+  -webkit-transition-delay: 1s;
+  -moz-transition-delay: 1s;
+  transition-delay: 1s;
+}
+/* line 45, ../../build/sass/partials/_intro.scss */
+.ready .intro h3 {
+  -webkit-transition-delay: 2s;
+  -moz-transition-delay: 2s;
+  transition-delay: 2s;
+}
+
+@media all and (min-width: 800px) {
+  /* line 51, ../../build/sass/partials/_intro.scss */
+  .intro {
+    position: relative;
+    min-height: 530px;
+  }
+  /* line 54, ../../build/sass/partials/_intro.scss */
+  .intro .block {
+    *zoom: 1;
+    max-width: 930px;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    top: 50%;
+    right: auto;
+    bottom: auto;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    height: auto;
+  }
+  /* line 17, ../../build/sass/bourbon/addons/_clearfix.scss */
+  .intro .block:before, .intro .block:after {
+    content: " ";
+    display: table;
+  }
+  /* line 23, ../../build/sass/bourbon/addons/_clearfix.scss */
+  .intro .block:after {
+    clear: both;
+  }
+  /* line 60, ../../build/sass/partials/_intro.scss */
+  .intro .logo {
+    display: block;
+  }
+  /* line 62, ../../build/sass/partials/_intro.scss */
+  .intro .logo img, .intro .logo svg {
+    width: 100%;
+    position: relative;
+    top: 15px;
+  }
+  /* line 67, ../../build/sass/partials/_intro.scss */
+  .intro .logo svg {
+    height: 200px;
+  }
+  /* line 71, ../../build/sass/partials/_intro.scss */
+  .intro .copy {
+    position: static;
+    -webkit-transform: translateX(0) translateY(0);
+    -moz-transform: translateX(0) translateY(0);
+    -ms-transform: translateX(0) translateY(0);
+    -o-transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0);
+  }
+  /* line 75, ../../build/sass/partials/_intro.scss */
+  .intro .logo, .intro .copy {
+    display: block;
+    float: left;
+    margin-right: 2.35765%;
+    width: 48.82117%;
+  }
+  /* line 33, ../../build/sass/neat/grid/_span-columns.scss */
+  .intro .logo:last-child, .intro .copy:last-child {
+    margin-right: 0;
+  }
+}
+/* line 11, ../../build/sass/screen.scss */
+.video {
+  position: relative;
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto 60px;
+}
+/* line 16, ../../build/sass/screen.scss */
+.video img {
+  width: 100%;
+}
+/* line 19, ../../build/sass/screen.scss */
+.video span {
+  text-transform: uppercase;
+  font-size: 1.2em;
+  color: #fff;
+  cursor: pointer;
+  width: 80px;
+  text-align: center;
+  line-height: 1.22;
+}
+
+/* line 31, ../../build/sass/screen.scss */
+.city {
+  background-color: #EAE4E5;
+}
+
+/* line 36, ../../build/sass/screen.scss */
+.community {
+  background-image: url('../img/community.jpg?1428523748');
+  background-size: cover;
+  position: relative;
+  color: #fff;
+}
+/* line 41, ../../build/sass/screen.scss */
+.community .block {
+  position: relative;
+  z-index: 2;
+}
+/* line 45, ../../build/sass/screen.scss */
+.community .section-intro {
+  color: #fff;
+}
+/* line 48, ../../build/sass/screen.scss */
+.community .overlay {
+  background-color: rgba(42, 0, 55, 0.77);
   z-index: 1;
-  background-color: rgba(47, 150, 248, 0.7);
+}
+/* line 53, ../../build/sass/screen.scss */
+.community figure img {
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  box-shadow: 0px 0px 0px 5px white;
+  padding: 20px;
+}
+/* line 59, ../../build/sass/screen.scss */
+.community .block.slider > div {
+  display: none;
+}
+/* line 62, ../../build/sass/screen.scss */
+.community .block.slider .activity-1 {
+  display: block;
 }
 
 /*# sourceMappingURL=screen.css.map */

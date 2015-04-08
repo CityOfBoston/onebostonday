@@ -1,4 +1,74 @@
 $(function(){
+
+	var body = $('body');
+	body.addClass('ready');
+
+			// BG
+			// TYPE
+			// MARK
+			
+	var colors = [
+		[
+			'#0099FA',
+			'#FFFFFF',
+			'#0B004E'
+		],
+		[
+			'#FF0000',
+			'#FFFFFF',
+			'#0B004E'
+		],
+		[
+			'#00B969',
+			'#FFFFFF',
+			'#0B004E'
+		],
+		[
+			'#000000',
+			'#FFFFFF',
+			'#878787'
+		],
+		[
+			'#E7AE08',
+			'#0B004E',
+			'#FFFFFF'
+		],
+		[
+			'#8A5ADE',
+			'#FFFFFF',
+			'#000000'
+		]
+	];
+
+
+	// DYNAMICALLY CHANGES COLOR VALUES ACROSS THE SITE
+	var currentColor = 1;
+	var setColors = function(){
+		var totalColors = colors.length;
+
+		if(currentColor === totalColors){
+			currentColor = 1;
+		}
+		else{
+			currentColor++;
+		}
+
+		body.data('bg',colors[(currentColor-1)][0]);
+		body.data('type',colors[(currentColor-1)][1]);	
+		body.data('mark',colors[(currentColor-1)][2]);
+	};
+	//colorChangeID = setInterval(setColors, 6000);
+
+	// GRABS THOSE COLORS IN FOR THE INTRO
+	var colorChangeIntro = function(){
+		var bg = body.data('bg');
+		var type = body.data('type');
+		var mark = body.data('mark');
+
+		$('.main-nav').css('background-color',bg);
+	};
+	colorChangeIntroID = setInterval(colorChangeIntro, 10);
+
 	/*//////////////////////////////////////
     //  Burger mobile menu
     //////////////////////////////////////*/
@@ -13,21 +83,6 @@ $(function(){
             $('.main-nav').addClass('active');
         }
     });
-
-	/*/////////////////////////
-	// 60fps scroll paints
-	/////////////////////////*/
-	var body = $('body');
-	var timer;
-	$(window).on("scroll", function(){
-		if(! body.hasClass('disable-hover')){
-			body.addClass('disable-hover');
-		}
-		timer = setTimeout(function(){
-			body.removeClass('disable-hover');
-		}, 250);
-	}, false);
-
 
 	/*/////////////////////////
 	// Split up query strings

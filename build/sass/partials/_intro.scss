@@ -1,0 +1,79 @@
+.intro{
+	min-height:500px;
+	height:calc(100vh - 64px);
+	background-image:image-url('skyline.jpg');
+	background-size:cover;
+	margin-top:64px;
+	position:relative;
+	.logo{
+		display:none;
+	}
+	.copy{
+		@extend %absolute-middle;
+		top:40%;
+		width:100%;
+		color:#fff;
+		padding:10px;
+	}
+	.block{
+		position:relative;
+		height:100%;
+		z-index:2;
+	}
+	p{
+		margin:1em 0;
+	}
+	h1,p,h3{
+		@include opacity(0);
+		@include transition(all .6s ease-in);
+		position:relative;
+		top:20px;
+	}
+}
+
+.ready .intro{
+	h1,p,h3{
+		@include opacity(1);
+		top:0px;
+	}
+	h1{
+		@include transition-delay(.5s);
+	}
+	p{
+		@include transition-delay(1s);
+	}
+	h3{
+		@include transition-delay(2s);
+	}
+}
+
+@media all and(min-width:800px){
+	.intro{
+		position:relative;
+		min-height:530px;
+		.block{
+			@include outer-container();
+			@include position(absolute, 50% auto auto 50%);
+			@include transform(translateX(-50%) translateY(-50%));
+			height:auto;
+		}
+		.logo{
+			display:block;
+			img,svg{
+				width:100%;
+				position:relative;
+				top:15px;
+			}
+			svg{
+				height:200px;
+			}
+		}
+		.copy{
+			position:static;
+			@include transform(translateX(0) translateY(0));
+		}
+		.logo,.copy{
+			@include span-columns(6);
+		}
+	}
+}
