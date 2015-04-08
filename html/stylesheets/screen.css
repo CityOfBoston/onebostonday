@@ -1281,36 +1281,119 @@ img {
   background-size: cover;
   position: relative;
   color: #fff;
+  padding-bottom: 60px;
+  height: calc(100vh - 68px);
+  min-height: 540px;
 }
-/* line 41, ../../build/sass/screen.scss */
+/* line 44, ../../build/sass/screen.scss */
 .community .block {
   position: relative;
   z-index: 2;
 }
-/* line 45, ../../build/sass/screen.scss */
+/* line 48, ../../build/sass/screen.scss */
 .community .section-intro {
   color: #fff;
 }
-/* line 48, ../../build/sass/screen.scss */
+/* line 51, ../../build/sass/screen.scss */
 .community .overlay {
   background-color: rgba(42, 0, 55, 0.77);
   z-index: 1;
 }
-/* line 53, ../../build/sass/screen.scss */
+/* line 55, ../../build/sass/screen.scss */
 .community figure img {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
-  box-shadow: 0px 0px 0px 5px white;
-  padding: 20px;
+  box-shadow: 0px 0px 0px 3px white;
+  padding: 10px;
+  max-width: 180px;
+  display: block;
+  margin: 0 auto 20px;
 }
-/* line 59, ../../build/sass/screen.scss */
+/* line 64, ../../build/sass/screen.scss */
 .community .block.slider > div {
   display: none;
 }
-/* line 62, ../../build/sass/screen.scss */
+/* line 67, ../../build/sass/screen.scss */
 .community .block.slider .activity-1 {
   display: block;
+}
+/* line 71, ../../build/sass/screen.scss */
+.community .blockquote {
+  margin-bottom: 30px;
+}
+/* line 73, ../../build/sass/screen.scss */
+.community .blockquote q {
+  font-size: 1.5em;
+  line-height: 1.2;
+  display: block;
+  margin-bottom: 15px;
+}
+/* line 78, ../../build/sass/screen.scss */
+.community .blockquote q:before {
+  content: '"';
+}
+/* line 82, ../../build/sass/screen.scss */
+.community .blockquote cite {
+  font-size: 1.2em;
+}
+/* line 87, ../../build/sass/screen.scss */
+.community .copy {
+  padding: 0 10px;
+}
+/* line 91, ../../build/sass/screen.scss */
+.community .copy > p {
+  margin-bottom: 40px;
+}
+/* line 93, ../../build/sass/screen.scss */
+.community .copy > p + a {
+  text-transform: uppercase;
+  color: #fff;
+}
+
+@media all and (min-width: 800px) {
+  /* line 102, ../../build/sass/screen.scss */
+  .community .block.slider {
+    *zoom: 1;
+    max-width: 930px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* line 17, ../../build/sass/bourbon/addons/_clearfix.scss */
+  .community .block.slider:before, .community .block.slider:after {
+    content: " ";
+    display: table;
+  }
+  /* line 23, ../../build/sass/bourbon/addons/_clearfix.scss */
+  .community .block.slider:after {
+    clear: both;
+  }
+  /* line 105, ../../build/sass/screen.scss */
+  .community figure {
+    display: block;
+    float: left;
+    margin-right: 2.35765%;
+    width: 48.82117%;
+  }
+  /* line 33, ../../build/sass/neat/grid/_span-columns.scss */
+  .community figure:last-child {
+    margin-right: 0;
+  }
+  /* line 107, ../../build/sass/screen.scss */
+  .community figure img {
+    max-width: 300px;
+  }
+  /* line 111, ../../build/sass/screen.scss */
+  .community .copy {
+    display: block;
+    float: left;
+    margin-right: 2.35765%;
+    width: 48.82117%;
+  }
+  /* line 33, ../../build/sass/neat/grid/_span-columns.scss */
+  .community .copy:last-child {
+    margin-right: 0;
+  }
 }
 
 /*# sourceMappingURL=screen.css.map */
