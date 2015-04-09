@@ -150,7 +150,7 @@ a {
 }
 
 /* line 119, ../../build/sass/partials/_base.scss */
-.burger-box, .main-nav ul, .no-touch .follow button svg use {
+.burger-box, .main-nav ul, .feed li.twitter .actions ul, .no-touch .follow button svg use {
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -1724,15 +1724,23 @@ img {
 .social .feed {
   display: block;
   min-height: 200px;
-  background-color: red;
   margin-bottom: 20px;
 }
+/* line 10, ../../build/sass/partials/_get-involved.scss */
+.social .feed h5 {
+  text-transform: uppercase;
+  font-size: .8125em;
+}
+/* line 14, ../../build/sass/partials/_get-involved.scss */
+.social .feed > ul {
+  margin: 20px 0;
+}
 
-/* line 13, ../../build/sass/partials/_get-involved.scss */
+/* line 19, ../../build/sass/partials/_get-involved.scss */
 .craft-tweet {
   position: relative;
 }
-/* line 15, ../../build/sass/partials/_get-involved.scss */
+/* line 21, ../../build/sass/partials/_get-involved.scss */
 .craft-tweet header {
   border-bottom: 1px solid rgba(34, 34, 34, 0.5);
   padding: 20px 0 15px;
@@ -1740,13 +1748,13 @@ img {
   font-size: 1.33em;
   text-align: center;
 }
-/* line 22, ../../build/sass/partials/_get-involved.scss */
+/* line 28, ../../build/sass/partials/_get-involved.scss */
 .craft-tweet svg {
   position: absolute;
   top: 50%;
   right: auto;
   bottom: auto;
-  left: 10px;
+  left: 15px;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
@@ -1755,25 +1763,30 @@ img {
   width: 32px;
   height: 32px;
 }
-/* line 26, ../../build/sass/partials/_get-involved.scss */
+/* line 32, ../../build/sass/partials/_get-involved.scss */
 .craft-tweet svg use {
   fill: #469aea;
 }
-/* line 30, ../../build/sass/partials/_get-involved.scss */
+/* line 36, ../../build/sass/partials/_get-involved.scss */
 .craft-tweet .craft {
   position: relative;
   background-color: #fff;
   box-shadow: 0px 1px 12px rgba(34, 34, 34, 0.5) inset;
 }
-/* line 35, ../../build/sass/partials/_get-involved.scss */
+/* line 41, ../../build/sass/partials/_get-involved.scss */
 .craft-tweet .count {
   position: absolute;
   top: auto;
   right: 10px;
   bottom: 7px;
   left: auto;
+  color: #888888;
 }
-/* line 38, ../../build/sass/partials/_get-involved.scss */
+/* line 44, ../../build/sass/partials/_get-involved.scss */
+.craft-tweet .count b {
+  color: #E9171E;
+}
+/* line 48, ../../build/sass/partials/_get-involved.scss */
 .craft-tweet textarea, .craft-tweet button.tweet {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -1782,11 +1795,11 @@ img {
   appearance: none;
   border: none;
 }
-/* line 42, ../../build/sass/partials/_get-involved.scss */
+/* line 52, ../../build/sass/partials/_get-involved.scss */
 .craft-tweet textarea {
   margin: 15px 15px 0px;
   width: calc(100% - 30px);
-  min-height: 200px;
+  min-height: 150px;
   resize: none;
   font-size: 1.2em;
 }
@@ -1818,7 +1831,7 @@ img {
   color: #a2a2a2;
   font-style: italic;
 }
-/* line 55, ../../build/sass/partials/_get-involved.scss */
+/* line 65, ../../build/sass/partials/_get-involved.scss */
 .craft-tweet button.tweet {
   background-color: #469aea;
   width: 100%;
@@ -1829,13 +1842,9 @@ img {
   font-size: 1em;
   color: #fff;
 }
-/* line 65, ../../build/sass/partials/_get-involved.scss */
-.craft-tweet .tweet-link {
-  display: block;
-}
 
 @media all and (min-width: 800px) {
-  /* line 72, ../../build/sass/partials/_get-involved.scss */
+  /* line 79, ../../build/sass/partials/_get-involved.scss */
   .get-involved .social {
     *zoom: 1;
     max-width: 930px;
@@ -1851,7 +1860,7 @@ img {
   .get-involved .social:after {
     clear: both;
   }
-  /* line 75, ../../build/sass/partials/_get-involved.scss */
+  /* line 82, ../../build/sass/partials/_get-involved.scss */
   .get-involved .feed, .get-involved .craft-tweet {
     display: block;
     float: left;
@@ -1862,47 +1871,219 @@ img {
   .get-involved .feed:last-child, .get-involved .craft-tweet:last-child {
     margin-right: 0;
   }
+  /* line 85, ../../build/sass/partials/_get-involved.scss */
+  .get-involved .craft-tweet {
+    padding-left: 25px;
+  }
 }
-/* line 14, ../../build/sass/screen.scss */
-.downloads {
-  min-height: 300px;
-  background-color: #fff;
+/* line 93, ../../build/sass/partials/_get-involved.scss */
+.feed li.twitter {
+  *zoom: 1;
+  max-width: 930px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 17, ../../build/sass/bourbon/addons/_clearfix.scss */
+.feed li.twitter:before, .feed li.twitter:after {
+  content: " ";
+  display: table;
+}
+/* line 23, ../../build/sass/bourbon/addons/_clearfix.scss */
+.feed li.twitter:after {
+  clear: both;
+}
+/* line 96, ../../build/sass/partials/_get-involved.scss */
+.feed li.twitter .profile-image {
+  display: block;
+  float: left;
+  margin-right: 2.35765%;
+  width: 23.23176%;
+  padding-right: 10px;
+}
+/* line 33, ../../build/sass/neat/grid/_span-columns.scss */
+.feed li.twitter .profile-image:last-child {
+  margin-right: 0;
+}
+/* line 97, ../../build/sass/partials/_get-involved.scss */
+.feed li.twitter .tweet {
+  display: block;
+  float: left;
+  margin-right: 2.35765%;
+  width: 74.41059%;
+  margin-right: 0px;
+}
+/* line 33, ../../build/sass/neat/grid/_span-columns.scss */
+.feed li.twitter .tweet:last-child {
+  margin-right: 0;
+}
+/* line 99, ../../build/sass/partials/_get-involved.scss */
+.feed li.twitter .tweet-header {
+  margin-bottom: 1em;
+}
+/* line 101, ../../build/sass/partials/_get-involved.scss */
+.feed li.twitter .tweet-header h4, .feed li.twitter .tweet-header a {
+  display: inline-block;
+}
+/* line 104, ../../build/sass/partials/_get-involved.scss */
+.feed li.twitter .tweet-header a {
+  color: #a2a2a2;
+}
+/* line 107, ../../build/sass/partials/_get-involved.scss */
+.feed li.twitter .tweet-header a.time {
+  float: right;
+}
+/* line 112, ../../build/sass/partials/_get-involved.scss */
+.feed li.twitter .actions {
+  float: left;
+  width: 100%;
+}
+/* line 115, ../../build/sass/partials/_get-involved.scss */
+.feed li.twitter .actions ul {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
+  opacity: 0.2;
+  *zoom: 1;
+  max-width: 930px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 17, ../../build/sass/bourbon/addons/_clearfix.scss */
+.feed li.twitter .actions ul:before, .feed li.twitter .actions ul:after {
+  content: " ";
+  display: table;
+}
+/* line 23, ../../build/sass/bourbon/addons/_clearfix.scss */
+.feed li.twitter .actions ul:after {
+  clear: both;
+}
+/* line 119, ../../build/sass/partials/_get-involved.scss */
+.feed li.twitter .actions ul li {
+  display: block;
+  float: left;
+  margin-right: 2.35765%;
+  width: 31.76157%;
+}
+/* line 33, ../../build/sass/neat/grid/_span-columns.scss */
+.feed li.twitter .actions ul li:last-child {
+  margin-right: 0;
+}
+/* line 122, ../../build/sass/partials/_get-involved.scss */
+.feed li.twitter .actions ul a {
+  display: block;
+}
+/* line 125, ../../build/sass/partials/_get-involved.scss */
+.feed li.twitter .actions ul svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+  margin: 0 auto;
 }
 
-/* line 19, ../../build/sass/screen.scss */
+@media all and (min-width: 800px) {
+  /* line 136, ../../build/sass/partials/_get-involved.scss */
+  .feed li.twitter .actions {
+    display: block;
+    float: left;
+    margin-right: 2.35765%;
+    width: 74.41059%;
+    float: right;
+  }
+  /* line 33, ../../build/sass/neat/grid/_span-columns.scss */
+  .feed li.twitter .actions:last-child {
+    margin-right: 0;
+  }
+}
+/* line 143, ../../build/sass/partials/_get-involved.scss */
+.no-touch .feed li:hover .actions ul {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+}
+
+/* line 148, ../../build/sass/partials/_get-involved.scss */
+.feed li.instagram > img {
+  width: 100%;
+}
+/* line 151, ../../build/sass/partials/_get-involved.scss */
+.feed li.instagram .insta-header {
+  margin: 10px 0 15px;
+  display: block;
+  *zoom: 1;
+}
+/* line 17, ../../build/sass/bourbon/addons/_clearfix.scss */
+.feed li.instagram .insta-header:before, .feed li.instagram .insta-header:after {
+  content: " ";
+  display: table;
+}
+/* line 23, ../../build/sass/bourbon/addons/_clearfix.scss */
+.feed li.instagram .insta-header:after {
+  clear: both;
+}
+/* line 155, ../../build/sass/partials/_get-involved.scss */
+.feed li.instagram .insta-header h4, .feed li.instagram .insta-header a {
+  display: inline-block;
+}
+/* line 158, ../../build/sass/partials/_get-involved.scss */
+.feed li.instagram .insta-header a {
+  color: #a2a2a2;
+}
+/* line 161, ../../build/sass/partials/_get-involved.scss */
+.feed li.instagram .insta-header h4 {
+  float: left;
+}
+/* line 164, ../../build/sass/partials/_get-involved.scss */
+.feed li.instagram .insta-header > a {
+  float: right;
+}
+/* line 168, ../../build/sass/partials/_get-involved.scss */
+.feed li.instagram p {
+  clear: both;
+}
+
+/* line 173, ../../build/sass/partials/_get-involved.scss */
+.feed > ul > li {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #767676;
+}
+/* line 177, ../../build/sass/partials/_get-involved.scss */
+.feed > ul > li:last-child {
+  margin-bottom: 0px;
+  border-bottom: none;
+}
+
+/* line 1, ../../build/sass/partials/_footer.scss */
 .main-footer {
   background-color: #EAE4E5;
   border-top: 1px solid rgba(34, 34, 34, 0.5);
   padding: 40px 10px;
 }
-/* line 23, ../../build/sass/screen.scss */
+/* line 5, ../../build/sass/partials/_footer.scss */
 .main-footer img {
   display: block;
   margin: 0 auto 15px;
   max-width: 115px;
   width: 100%;
 }
-/* line 29, ../../build/sass/screen.scss */
+/* line 11, ../../build/sass/partials/_footer.scss */
 .main-footer p {
   font-size: .75em;
 }
-/* line 32, ../../build/sass/screen.scss */
+/* line 14, ../../build/sass/partials/_footer.scss */
 .main-footer .site-info {
   display: block;
   margin-bottom: 40px;
 }
-/* line 36, ../../build/sass/screen.scss */
+/* line 18, ../../build/sass/partials/_footer.scss */
 .main-footer .follow {
   margin: 15px 0 30px;
   display: block;
 }
-/* line 39, ../../build/sass/screen.scss */
+/* line 21, ../../build/sass/partials/_footer.scss */
 .main-footer .follow h5 {
   font-size: 1.2em;
   text-align: center;
   padding-bottom: 10px;
 }
-/* line 44, ../../build/sass/screen.scss */
+/* line 26, ../../build/sass/partials/_footer.scss */
 .main-footer .follow button {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -1914,7 +2095,7 @@ img {
   display: block;
   margin: 0 auto;
 }
-/* line 51, ../../build/sass/screen.scss */
+/* line 33, ../../build/sass/partials/_footer.scss */
 .main-footer .follow ul {
   *zoom: 1;
   max-width: 930px;
@@ -1930,7 +2111,7 @@ img {
 .main-footer .follow ul:after {
   clear: both;
 }
-/* line 54, ../../build/sass/screen.scss */
+/* line 36, ../../build/sass/partials/_footer.scss */
 .main-footer .follow li {
   display: block;
   float: left;
@@ -1941,31 +2122,31 @@ img {
 .main-footer .follow li:last-child {
   margin-right: 0;
 }
-/* line 57, ../../build/sass/screen.scss */
+/* line 39, ../../build/sass/partials/_footer.scss */
 .main-footer .follow svg {
   width: 40px;
   height: 40px;
 }
 
-/* line 69, ../../build/sass/screen.scss */
+/* line 51, ../../build/sass/partials/_footer.scss */
 .no-touch button.flickr:hover svg use {
   fill: #FF0070;
 }
-/* line 75, ../../build/sass/screen.scss */
+/* line 57, ../../build/sass/partials/_footer.scss */
 .no-touch button.twitter:hover svg use {
   fill: #469aea;
 }
-/* line 81, ../../build/sass/screen.scss */
+/* line 63, ../../build/sass/partials/_footer.scss */
 .no-touch button.instagram:hover svg use {
   fill: #1b3f67;
 }
-/* line 87, ../../build/sass/screen.scss */
+/* line 69, ../../build/sass/partials/_footer.scss */
 .no-touch button.facebook:hover svg use {
   fill: #3c5290;
 }
 
 @media all and (min-width: 650px) {
-  /* line 95, ../../build/sass/screen.scss */
+  /* line 77, ../../build/sass/partials/_footer.scss */
   .main-footer > .block {
     *zoom: 1;
     max-width: 930px;
@@ -1981,7 +2162,7 @@ img {
   .main-footer > .block:after {
     clear: both;
   }
-  /* line 98, ../../build/sass/screen.scss */
+  /* line 80, ../../build/sass/partials/_footer.scss */
   .main-footer .site-info {
     display: block;
     float: left;
@@ -1993,12 +2174,12 @@ img {
   .main-footer .site-info:last-child {
     margin-right: 0;
   }
-  /* line 101, ../../build/sass/screen.scss */
+  /* line 83, ../../build/sass/partials/_footer.scss */
   .main-footer .site-info img {
     float: left;
     margin-right: 15px;
   }
-  /* line 106, ../../build/sass/screen.scss */
+  /* line 88, ../../build/sass/partials/_footer.scss */
   .main-footer .follow {
     display: block;
     float: left;
@@ -2011,11 +2192,11 @@ img {
   }
 }
 @media all and (min-width: 915px) {
-  /* line 114, ../../build/sass/screen.scss */
+  /* line 96, ../../build/sass/partials/_footer.scss */
   .main-footer button {
     padding: 0px 14px 0px 0px;
   }
-  /* line 117, ../../build/sass/screen.scss */
+  /* line 99, ../../build/sass/partials/_footer.scss */
   .main-footer .site-info {
     display: block;
     float: left;
@@ -2026,16 +2207,16 @@ img {
   .main-footer .site-info:last-child {
     margin-right: 0;
   }
-  /* line 119, ../../build/sass/screen.scss */
+  /* line 101, ../../build/sass/partials/_footer.scss */
   .main-footer .site-info img {
     margin-right: 30px;
   }
-  /* line 122, ../../build/sass/screen.scss */
+  /* line 104, ../../build/sass/partials/_footer.scss */
   .main-footer .site-info p {
     max-width: 200px;
     float: left;
   }
-  /* line 127, ../../build/sass/screen.scss */
+  /* line 109, ../../build/sass/partials/_footer.scss */
   .main-footer .follow {
     display: block;
     float: left;
@@ -2047,17 +2228,17 @@ img {
   .main-footer .follow:last-child {
     margin-right: 0;
   }
-  /* line 130, ../../build/sass/screen.scss */
+  /* line 112, ../../build/sass/partials/_footer.scss */
   .main-footer .follow h5 {
     text-align: left;
     font-size: .9em;
     margin-bottom: 10px;
   }
-  /* line 135, ../../build/sass/screen.scss */
+  /* line 117, ../../build/sass/partials/_footer.scss */
   .main-footer .follow li {
     width: auto;
   }
-  /* line 138, ../../build/sass/screen.scss */
+  /* line 120, ../../build/sass/partials/_footer.scss */
   .main-footer .follow button.facebook svg {
     width: 44px;
     height: 44px;
@@ -2065,6 +2246,11 @@ img {
     top: -6px;
     left: -14px;
   }
+}
+/* line 15, ../../build/sass/screen.scss */
+.downloads {
+  min-height: 300px;
+  background-color: #fff;
 }
 
 /*# sourceMappingURL=screen.css.map */

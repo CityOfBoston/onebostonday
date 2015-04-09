@@ -6,8 +6,14 @@
 .social .feed{
 	display:block;
 	min-height:200px;
-	background-color:red;
 	margin-bottom:20px;
+	h5{
+		text-transform: uppercase;
+		font-size:.8125em;
+	}
+	& > ul{
+		margin:20px 0;
+	}
 }
 
 .craft-tweet{
@@ -20,7 +26,7 @@
 		text-align:center;
 	}
 	svg{
-		@include position(absolute, 50% auto auto 10px);
+		@include position(absolute, 50% auto auto 15px);
 		@include transform(translateY(-50%));
 		@include size(32px);
 		use{
@@ -34,6 +40,10 @@
 	}
 	.count{
 		@include position(absolute, auto 10px 7px auto);
+		color:lighten($dark, 40%);
+		b{
+			color:#E9171E;
+		}
 	}
 	textarea,button.tweet{
 		@include appearance(none);
@@ -42,7 +52,7 @@
 	textarea{
 		margin:15px 15px 0px;
 		width:calc(100% - 30px);
-		min-height:200px;
+		min-height:150px;
 		resize:none;
 		font-size:1.2em;
 		@include placeholder{
@@ -62,9 +72,6 @@
 		font-size:1em;
 		color:#fff;
 	}
-	.tweet-link{
-		display:block;
-	}
 }
 
 @media all and(min-width:800px){
@@ -75,5 +82,100 @@
 		.feed,.craft-tweet{
 			@include span-columns(6);
 		}
+		.craft-tweet{
+			padding-left:25px;
+		}
+	}
+}
+
+
+
+.feed li.twitter{
+	@include outer-container();
+
+	.profile-image{ @include span-columns(3); padding-right:10px;}
+	.tweet{ @include span-columns(9); margin-right:0px; }
+
+	.tweet-header{
+		margin-bottom:1em;
+		h4,a{
+			display:inline-block;
+		}
+		a{
+			color:lighten($dark,50%);
+		}
+		a.time{
+			float:right;
+		}
+	}
+
+	.actions{
+		float:left;
+		width:100%;
+		ul{
+			@include opacity(0.2);
+			@include outer-container();
+			@extend %default-transition;
+			li{
+				@include span-columns(4);
+			}
+			a{
+				display:block;
+			}
+			svg{
+				@include size(18px);
+				display:block;
+				margin:0 auto;
+			}
+		}
+	}
+}
+
+@media all and(min-width:800px){
+	.feed li.twitter{
+		.actions{
+			@include span-columns(9);
+			float:right;
+		}
+	}
+}
+
+.no-touch .feed li:hover .actions ul{
+	@include opacity(1);
+}
+
+.feed li.instagram{
+	& > img{
+		width:100%;
+	}
+	.insta-header{
+		margin:10px 0 15px;
+		display:block;
+		@include clearfix();
+		h4,a{
+			display:inline-block;
+		}
+		a{
+			color:lighten($dark,50%);
+		}
+		h4{
+			float:left;
+		}
+		& > a{
+			float:right;
+		}
+	}
+	p{
+		clear:both;
+	}
+}
+
+.feed > ul > li{
+	margin-bottom:20px;
+	padding-bottom:20px;
+	border-bottom:1px solid lighten($dark,33%);
+	&:last-child{
+		margin-bottom:0px;
+		border-bottom:none;
 	}
 }
