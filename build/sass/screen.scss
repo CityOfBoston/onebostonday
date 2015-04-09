@@ -9,65 +9,138 @@ img{
 @import "partials/intro";
 @import "partials/city";
 @import "partials/community";
+@import "partials/get-involved";
 
-.get-involved{
-	padding:0 10px 60px 10px;
-	background-color:$light;
+.downloads{
+	min-height:300px;
+	background-color:#fff;
 }
 
-.craft-tweet{
-	position:relative;
-	header{
-		border-bottom:1px solid rgba($dark,.5);
-		padding:20px 0 15px;
-		position:relative;
-		font-size:1.33em;
-		text-align:center;
+.main-footer{
+	background-color:$light;
+	border-top:1px solid rgba($dark,.5);
+	padding:40px 10px;
+	img{
+		display:block;
+		margin:0 auto 15px;
+		max-width:115px;
+		width:100%;
 	}
-	svg{
-		@include position(absolute, 50% auto auto 10px);
-		@include transform(translateY(-50%));
-		@include size(32px);
-		use{
+	p{
+		font-size:.75em;
+	}
+	.site-info{
+		display:block;
+		margin-bottom:40px;
+	}
+	.follow{
+		margin:15px 0 30px;
+		display:block;
+		h5{
+			font-size:1.2em;
+			text-align:center;
+			padding-bottom:10px;
+		}
+		button{
+			@include appearance(none);
+			background-color:transparent;
+			border:none;
+			display:block;
+			margin:0 auto;
+		}
+		ul{
+			@include outer-container();
+		}
+		li{
+			@include span-columns(4);
+		}
+		svg{
+			@include size(40px);
+		}
+	}
+}
+
+.no-touch{
+	.follow button svg use{
+		@extend %default-transition;
+	}
+
+	button.flickr:hover{
+		svg use{
+			fill:$flickr;
+		}
+	}
+
+	button.twitter:hover{
+		svg use{
 			fill:$twitter;
 		}
 	}
-	.craft{
-		position:relative;
-		background-color:#fff;
-		@include box-shadow(0px 1px 12px rgba($dark,.5) inset);
-	}
-	.count{
-		@include position(absolute, auto 10px 7px auto);
-	}
-	textarea,button.tweet{
-		@include appearance(none);
-		border:none;
-	}
-	textarea{
-		margin:15px 15px 0px;
-		width:calc(100% - 30px);
-		min-height:200px;
-		resize:none;
-		font-size:1.2em;
-		@include placeholder{
-			font-size:1em;
-			font-family:Georgia, 'Times New Roman', Times, serif !important;
-			color:lighten($dark, 50%);
-			font-style:italic;
+
+	button.instagram:hover{
+		svg use{
+			fill:$instagram;
 		}
 	}
-	button.tweet{
-		background-color:$twitter;
-		width:100%;
-		display:block;
-		margin:10px auto auto auto;
-		text-transform:uppercase;
-		padding:15px 0;
-		font-size:1em;
-		color:#fff;
+
+	button.facebook:hover{
+		svg use{
+			fill:$facebook;
+		}
 	}
-	.tweet-link{
-		display:block;
+}
+
+@media all and(min-width:650px){
+	.main-footer{
+		& > .block{
+			@include outer-container();
+		}
+		.site-info{
+			@include span-columns(12);
+			margin-bottom:20px;
+			img{
+				float:left;
+				margin-right:15px;
+			}
+		}
+		.follow{
+			@include span-columns(6);
+		}
+	}
+}
+
+@media all and(min-width:915px){
+	.main-footer{
+		button{
+			padding:0px 14px 0px 0px;
+		}
+		.site-info{
+			@include span-columns(5);
+			img{
+				margin-right:30px;
+			}
+			p{
+				max-width:200px;
+				float:left;
+			}
+		}
+		.follow{
+			@include span-columns(3.5);
+			margin-top:0px;
+			h5{
+				text-align:left;
+				font-size:.9em;
+				margin-bottom:10px;
+			}
+			li{
+				width:auto;
+			}
+			button.facebook svg{
+				@include size(44px);
+				position:relative;
+				top:-6px;
+				left:-14px;
+			}
+		}
 	}
 }
