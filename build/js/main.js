@@ -71,7 +71,7 @@ $(function(){
 
 	
 	/*//////////////////////////////////////
-    //  community section
+    //  video toggle
     //////////////////////////////////////*/
 
     var video = '<iframe src="https://player.vimeo.com/video/124313553?autoplay=1&title=0&byline=0&portrait=0" width="500" height="213" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
@@ -97,6 +97,31 @@ $(function(){
 		initialSlide: middleSlide
 	});
 
+	/*//////////////////////////////////////
+    //  for onebostonday tweet box
+    //////////////////////////////////////*/
+	var tweetString = "For #OneBostonDay, ";
+	$('button.tweet').on('click',function(){
+		tweetValue = $('.craft textarea').val();
+		finalTweet = encodeURIComponent(tweetString + tweetValue);
+		tweetIntent = "https://twitter.com/intent/tweet?text="+finalTweet+"&related=marty_walsh,notifyboston";
+
+		popItUp(tweetIntent,300,600);
+	});
+
+	var characterCount = 100;
+	$('.craft textarea').on('focus',function(){
+		$(this).on('keyup',function(){
+			var length = $(this).val().length;
+			var charactersLeft = characterCount - length;
+			if(charactersLeft <= 0){
+				$('.craft span').html("Your tweet is too long :( <b>"+charactersLeft+"</b>");
+			}
+			else{
+				$('.craft span').text(charactersLeft);
+			}
+		});
+	});
 
 	/*//////////////////////////////////////
     //  Burger mobile menu
@@ -139,4 +164,10 @@ $(function(){
 		});
 	};
 	popupWindow();
+
+	var popItUp = function(url,height,width) {
+        newwindow=window.open(url,'name','height='+height+',width='+width);
+        if (window.focus) {newwindow.focus();}
+        return false;
+    };
 });

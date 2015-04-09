@@ -127,9 +127,10 @@ input:focus, textarea:focus {
 /* line 67, ../../build/sass/partials/_base.scss */
 button, input[type="submit"] {
   cursor: pointer;
+  outline: none;
 }
 
-/* line 71, ../../build/sass/partials/_base.scss */
+/* line 72, ../../build/sass/partials/_base.scss */
 a {
   text-decoration: none;
 }
@@ -140,7 +141,7 @@ a {
 /*//////////////////////////////////////
 //  silent classes
 //////////////////////////////////////*/
-/* line 100, ../../build/sass/partials/_base.scss */
+/* line 101, ../../build/sass/partials/_base.scss */
 .block {
   max-width: 930px;
   width: 100%;
@@ -148,14 +149,14 @@ a {
   display: block;
 }
 
-/* line 117, ../../build/sass/partials/_base.scss */
+/* line 118, ../../build/sass/partials/_base.scss */
 .burger-box, .main-nav ul {
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 
-/* line 126, ../../build/sass/partials/_base.scss */
+/* line 127, ../../build/sass/partials/_base.scss */
 .intro .copy, .video span {
   position: absolute;
   top: 50%;
@@ -169,47 +170,48 @@ a {
   transform: translateY(-50%) translateX(-50%);
 }
 
-/* line 137, ../../build/sass/partials/_base.scss */
+/* line 138, ../../build/sass/partials/_base.scss */
 body, html {
   display: block;
   height: 100%;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* line 142, ../../build/sass/partials/_base.scss */
+/* line 144, ../../build/sass/partials/_base.scss */
 body {
   position: relative;
   font-size: 16px;
   font-family: "Gotham SSm A";
 }
 
-/* line 148, ../../build/sass/partials/_base.scss */
+/* line 150, ../../build/sass/partials/_base.scss */
 h1, h2, h3, h4, h5, h6, strong, b {
   font-family: "Gotham SSm B";
 }
 
-/* line 152, ../../build/sass/partials/_base.scss */
+/* line 154, ../../build/sass/partials/_base.scss */
 h1 {
   font-size: 2.2em;
 }
 
-/* line 156, ../../build/sass/partials/_base.scss */
+/* line 158, ../../build/sass/partials/_base.scss */
 h2 {
   font-size: 1.875em;
   text-transform: uppercase;
 }
 
-/* line 161, ../../build/sass/partials/_base.scss */
+/* line 163, ../../build/sass/partials/_base.scss */
 h3 {
   font-size: 1.2em;
 }
 
-/* line 165, ../../build/sass/partials/_base.scss */
+/* line 167, ../../build/sass/partials/_base.scss */
 p {
   font-size: 1em;
   line-height: 1.43;
 }
 
-/* line 170, ../../build/sass/partials/_base.scss */
+/* line 172, ../../build/sass/partials/_base.scss */
 .overlay {
   position: absolute;
   top: 0px;
@@ -220,17 +222,17 @@ p {
   background-color: rgba(47, 150, 248, 0.7);
 }
 
-/* line 176, ../../build/sass/partials/_base.scss */
+/* line 178, ../../build/sass/partials/_base.scss */
 .section-intro {
   text-align: center;
   padding: 60px 10px;
 }
-/* line 179, ../../build/sass/partials/_base.scss */
+/* line 181, ../../build/sass/partials/_base.scss */
 .section-intro h2 {
   margin-bottom: 1em;
   display: block;
 }
-/* line 183, ../../build/sass/partials/_base.scss */
+/* line 185, ../../build/sass/partials/_base.scss */
 .section-intro p {
   max-width: 520px;
   margin: 0 auto;
@@ -1714,6 +1716,117 @@ img {
     bottom: auto;
     left: -13px;
   }
+}
+/* line 13, ../../build/sass/screen.scss */
+.get-involved {
+  padding: 0 10px 60px 10px;
+  background-color: #EAE4E5;
+}
+
+/* line 18, ../../build/sass/screen.scss */
+.craft-tweet {
+  position: relative;
+}
+/* line 20, ../../build/sass/screen.scss */
+.craft-tweet header {
+  border-bottom: 1px solid rgba(34, 34, 34, 0.5);
+  padding: 20px 0 15px;
+  position: relative;
+  font-size: 1.33em;
+  text-align: center;
+}
+/* line 27, ../../build/sass/screen.scss */
+.craft-tweet svg {
+  position: absolute;
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  left: 10px;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+}
+/* line 31, ../../build/sass/screen.scss */
+.craft-tweet svg use {
+  fill: #469aea;
+}
+/* line 35, ../../build/sass/screen.scss */
+.craft-tweet .craft {
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0px 1px 12px rgba(34, 34, 34, 0.5) inset;
+}
+/* line 40, ../../build/sass/screen.scss */
+.craft-tweet .count {
+  position: absolute;
+  top: auto;
+  right: 10px;
+  bottom: 7px;
+  left: auto;
+}
+/* line 43, ../../build/sass/screen.scss */
+.craft-tweet textarea, .craft-tweet button.tweet {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  border: none;
+}
+/* line 47, ../../build/sass/screen.scss */
+.craft-tweet textarea {
+  margin: 15px 15px 0px;
+  width: calc(100% - 30px);
+  min-height: 200px;
+  resize: none;
+  font-size: 1.2em;
+}
+/* line 8, ../../build/sass/bourbon/css3/_placeholder.scss */
+.craft-tweet textarea::-webkit-input-placeholder {
+  font-size: 1em;
+  font-family: Georgia, 'Times New Roman', Times, serif !important;
+  color: #a2a2a2;
+  font-style: italic;
+}
+/* line 14, ../../build/sass/bourbon/css3/_placeholder.scss */
+.craft-tweet textarea:-moz-placeholder {
+  font-size: 1em;
+  font-family: Georgia, 'Times New Roman', Times, serif !important;
+  color: #a2a2a2;
+  font-style: italic;
+}
+/* line 19, ../../build/sass/bourbon/css3/_placeholder.scss */
+.craft-tweet textarea::-moz-placeholder {
+  font-size: 1em;
+  font-family: Georgia, 'Times New Roman', Times, serif !important;
+  color: #a2a2a2;
+  font-style: italic;
+}
+/* line 24, ../../build/sass/bourbon/css3/_placeholder.scss */
+.craft-tweet textarea:-ms-input-placeholder {
+  font-size: 1em;
+  font-family: Georgia, 'Times New Roman', Times, serif !important;
+  color: #a2a2a2;
+  font-style: italic;
+}
+/* line 60, ../../build/sass/screen.scss */
+.craft-tweet button.tweet {
+  background-color: #469aea;
+  width: 100%;
+  display: block;
+  margin: 10px auto auto auto;
+  text-transform: uppercase;
+  padding: 15px 0;
+  font-size: 1em;
+  color: #fff;
+}
+/* line 70, ../../build/sass/screen.scss */
+.craft-tweet .tweet-link {
+  display: block;
 }
 
 /*# sourceMappingURL=screen.css.map */

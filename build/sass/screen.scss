@@ -9,3 +9,65 @@ img{
 @import "partials/intro";
 @import "partials/city";
 @import "partials/community";
+
+.get-involved{
+	padding:0 10px 60px 10px;
+	background-color:$light;
+}
+
+.craft-tweet{
+	position:relative;
+	header{
+		border-bottom:1px solid rgba($dark,.5);
+		padding:20px 0 15px;
+		position:relative;
+		font-size:1.33em;
+		text-align:center;
+	}
+	svg{
+		@include position(absolute, 50% auto auto 10px);
+		@include transform(translateY(-50%));
+		@include size(32px);
+		use{
+			fill:$twitter;
+		}
+	}
+	.craft{
+		position:relative;
+		background-color:#fff;
+		@include box-shadow(0px 1px 12px rgba($dark,.5) inset);
+	}
+	.count{
+		@include position(absolute, auto 10px 7px auto);
+	}
+	textarea,button.tweet{
+		@include appearance(none);
+		border:none;
+	}
+	textarea{
+		margin:15px 15px 0px;
+		width:calc(100% - 30px);
+		min-height:200px;
+		resize:none;
+		font-size:1.2em;
+		@include placeholder{
+			font-size:1em;
+			font-family:Georgia, 'Times New Roman', Times, serif !important;
+			color:lighten($dark, 50%);
+			font-style:italic;
+		}
+	}
+	button.tweet{
+		background-color:$twitter;
+		width:100%;
+		display:block;
+		margin:10px auto auto auto;
+		text-transform:uppercase;
+		padding:15px 0;
+		font-size:1em;
+		color:#fff;
+	}
+	.tweet-link{
+		display:block;
+	}
+}

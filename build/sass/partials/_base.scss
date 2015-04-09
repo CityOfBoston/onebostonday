@@ -66,6 +66,7 @@ input:focus, textarea:focus{
 
 button,input[type="submit"]{
     cursor:pointer;
+    outline:none;
 }
 
 a{
@@ -137,6 +138,7 @@ a{
 body,html{
     display:block;
     height:100%;
+    -webkit-font-smoothing: antialiased;
 }
 
 body{
