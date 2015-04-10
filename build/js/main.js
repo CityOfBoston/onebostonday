@@ -86,8 +86,7 @@ $(function(){
     /*//////////////////////////////////////
     //  video toggle
     //////////////////////////////////////*/
-
-    var video = '<iframe src="https://player.vimeo.com/video/124548366?autoplay=1" width="500" height="367" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+    var video = '<iframe src="https://player.vimeo.com/video/124662459?autoplay=1" width="500" height="367" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
     $('.video span').on('click',function(){
         $('.video span').fadeOut(function(){
             $('.video img').remove();
@@ -101,8 +100,6 @@ $(function(){
     //  community slider
     //////////////////////////////////////*/
     var middleSlide = (Math.ceil( ($('.slider .activity').length / 2) ) - 1);
-    console.log(middleSlide);
-
     $('.slider').slick({
         slide: '.activity',
         dots: true,
@@ -146,6 +143,7 @@ $(function(){
     
         $.ajax({
             url:'/feeds/' + file,
+            dataType:'json',
             success:function(response){
                 var totalPosts = response.data.length;
     
@@ -210,7 +208,6 @@ $(function(){
             $(response).find("td > a").each(function(){
                 file = $(this).attr("href");
             });
-         
             loadFeed(file);
         }
     });
@@ -300,6 +297,31 @@ $(function(){
             $('.main-nav').addClass('active');
         }
     });
+
+    /*//////////////////////////////////////
+    //  logos
+    //////////////////////////////////////*/
+    var loadLogos = function(){
+        $('.anyday-logos li a').each(function(){
+            var image = $(this).data('image');
+            $(this).css({
+                'background-image':'url(../img/logos/'+image+')'
+            });
+        });
+    };
+
+    /*
+    var loadTheLogos = setInterval(function(){
+        
+    },1000);
+
+    function scrollDistance(){
+        var toTop = $(document).scrollTop();
+        return toTop;
+    }
+    */
+   loadLogos();
+
 
     /*//////////////////////////////////////
     //  footer links

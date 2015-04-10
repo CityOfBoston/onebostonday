@@ -34,6 +34,9 @@
 			@include span-columns(6);
 		}
 	}
+	.profile-picture img{
+		border:2px solid lighten($dark, 80%);
+	}
 	.anyday-logos{
 		li{
 			@include omega(2n);
@@ -43,6 +46,9 @@
 			display:block;
 			width:100%;
 			background-color:lighten($dark,.33);
+			background-size:80%;
+			background-position:center;
+			border:2px solid lighten($dark, 80%);
 			&:before{
 				content:" ";
 				display:block;

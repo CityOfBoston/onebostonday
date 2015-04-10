@@ -46,33 +46,45 @@
 	}
 }
 
-.no-touch{
-	.follow button svg use{
-		@extend %default-transition;
-	}
+.follow button svg use{
+	@extend %default-transition;
+}
 
-	button.flickr:hover{
-		svg use{
-			fill:$flickr;
-		}
+button.flickr{
+	position:relative;
+	&:after{
+		content:" ";
+		display:block;
+		background-color:#787878;
+		@include size(18px);
+		z-index:1;
+		@include position(absolute, 50% auto auto 3px);
+		@include transform(translateY(-50%));
 	}
-
-	button.twitter:hover{
-		svg use{
-			fill:$twitter;
-		}
+	svg{
+		position:relative;
+		z-index:2;
 	}
-
-	button.instagram:hover{
-		svg use{
-			fill:$instagram;
-		}
+	svg use{
+		fill:$dark;
 	}
+}
 
-	button.facebook:hover{
-		svg use{
-			fill:$facebook;
-		}
+button.twitter{
+	svg use{
+		fill:$twitter;
+	}
+}
+
+button.instagram{
+	svg use{
+		fill:$instagram;
+	}
+}
+
+button.facebook{
+	svg use{
+		fill:$facebook;
 	}
 }
 
@@ -120,12 +132,6 @@
 			}
 			li{
 				width:auto;
-			}
-			button.facebook svg{
-				@include size(44px);
-				position:relative;
-				top:-6px;
-				left:-14px;
 			}
 		}
 	}
