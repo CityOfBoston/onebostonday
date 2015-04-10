@@ -72,7 +72,7 @@ $(function(){
    /*//////////////////////////////////////
     //  smooth scrolling
     //////////////////////////////////////*/
-    $('.main-nav ul a').on('click',function(event){
+    $('.main-nav a').on('click',function(event){
         event.preventDefault();
         var target = $(this).attr('href');
         var distance = ( $(target).offset().top - $('.main-nav').height() );
@@ -81,6 +81,7 @@ $(function(){
             scrollTop: distance + 'px'
         });
     });
+
 
     /*//////////////////////////////////////
     //  video toggle
@@ -109,8 +110,7 @@ $(function(){
         speed: 300,
         slidesToShow: 1,
         adaptiveHeight: true,
-        initialSlide: middleSlide,
-        touchThreshold: 3
+        initialSlide: middleSlide
     });
 
     /*//////////////////////////////////////
@@ -142,60 +142,76 @@ $(function(){
     /*//////////////////////////////////////
     //  get feed
     //////////////////////////////////////*/
+    var loadFeed = function(file) {
+    
+        $.ajax({
+            url:'/feeds/' + file,
+            success:function(response){
+                var totalPosts = response.data.length;
+    
+                if(totalPosts > 54){
+                    totalPosts = 54;
+                }
+    
+                for (i=0;i<response.data.length;i++){
+                    var post = response.data[i];
+                    if(post.provider === "twitter"){
+                        twitterTemplate(post.userimageurl,post.full_name,post.username,post.created_at,post.social_id,post.message);
+                    }
+                    else if(post.provider === "instagram"){
+                        instagramTemplate(post.image,post.full_name,post.username,post.created_at,post.social_id,post.message);
+                    }
+                }
+    
+                if($(window).width() < 800){
+                    $('.feed > ul').slick({
+                        slide: 'li',
+                        dots: true,
+                        arrows: false,
+                        infinite: false,
+                        speed: 300,
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        rows:6,
+                        adaptiveHeight: true,
+                    });
+    
+                    setTimeout(function(){
+                        $('.feed ul.slick-dots').clone().insertBefore($('.feed .slick-list')).addClass('above-dots');
+                    },300);
+    
+                    $('.feed > ul').on('swipe', function(event, slick, direction){
+                        $('.slick-dots.above-dots li').each(function(){
+                            $(this).removeClass('slick-active');
+                        });
+                        $('.slick-dots.above-dots li:nth-child('+(slick.currentSlide + 1)+')').addClass('slick-active');
+                    });
+    
+                    $('body').on('click','.slick-dots.above-dots li',function(){
+                        var page = ($(this).index() + 1);
+                        $('.feed > ul').slick('slickGoTo',page);
+    
+                         $('.slick-dots.above-dots li').each(function(){
+                            $(this).removeClass('slick-active');
+                        });
+                        $('.slick-dots.above-dots li:nth-child('+page+')').addClass('slick-active');
+                    });
+                }
+            }
+        });
+    
+    };
+    
+    var file = "";
+            
     $.ajax({
-        url:'http://siphon.hhcctech.com/api/container/1',
-        success:function(response){
-            var totalPosts = response.data.length;
-
-            if(totalPosts > 54){
-                totalPosts = 54;
-            }
-
-            for (i=0;i<response.data.length;i++){
-                var post = response.data[i];
-                if(post.provider === "twitter"){
-                    twitterTemplate(post.userimageurl,post.full_name,post.username,post.created_at,post.social_id,post.message);
-                }
-                else if(post.provider === "instagram"){
-                    instagramTemplate(post.image,post.full_name,post.username,post.created_at,post.social_id,post.message);
-                }
-            }
-
-            if($(window).width() < 800){
-                $('.feed > ul').slick({
-                    slide: 'li',
-                    dots: true,
-                    arrows: false,
-                    infinite: false,
-                    speed: 300,
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    rows:6,
-                    adaptiveHeight: true,
-                    touchThreshold: 3
-                });
-
-                setTimeout(function(){
-                    $('.feed ul.slick-dots').clone().insertBefore($('.feed .slick-list')).addClass('above-dots');
-                },300);
-
-                $('.feed > ul').on('swipe', function(event, slick, direction){
-                    $('.slick-dots.above-dots li').each(function(){
-                        $(this).removeClass('slick-active');
-                    });
-                    $('.slick-dots.above-dots li:nth-child('+(slick.currentSlide + 1)+')').addClass('slick-active');
-                });
-
-                $('body').on('click','.slick-dots.above-dots li',function(){
-                    var page = ($(this).index() + 1);
-                    $('.feed > ul').slick('slickGoTo',page);
-
-                     $('.slick-dots.above-dots li').each(function(){
-                        $(this).removeClass('slick-active');
-                    });
-                    $('.slick-dots.above-dots li:nth-child('+page+')').addClass('slick-active');
-                });
-            }
+        url: "/feeds",
+        success: function(response){
+            $(response).find("td > a").each(function(){
+                file = $(this).attr("href");
+            });
+         
+            loadFeed(file);
         }
     });
 

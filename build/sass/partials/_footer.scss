@@ -10,6 +10,10 @@
 	}
 	p{
 		font-size:.75em;
+		margin-bottom:1em;
+		a{
+			color:$primary;
+		}
 	}
 	.site-info{
 		display:block;

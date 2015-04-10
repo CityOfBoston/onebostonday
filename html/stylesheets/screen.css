@@ -2210,17 +2210,29 @@ img {
 .downloads .anyday-logos li:nth-child(2n+1) {
   clear: left;
 }
+/* line 42, ../../build/sass/partials/_downloads.scss */
+.downloads .anyday-logos a {
+  display: block;
+  width: 100%;
+  background-color: #232323;
+}
+/* line 46, ../../build/sass/partials/_downloads.scss */
+.downloads .anyday-logos a:before {
+  content: " ";
+  display: block;
+  padding-top: 50%;
+}
 
 @media all and (min-width: 700px) {
-  /* line 47, ../../build/sass/partials/_downloads.scss */
+  /* line 57, ../../build/sass/partials/_downloads.scss */
   .downloads h4 {
     float: left;
   }
-  /* line 50, ../../build/sass/partials/_downloads.scss */
+  /* line 60, ../../build/sass/partials/_downloads.scss */
   .downloads button {
     float: right;
   }
-  /* line 53, ../../build/sass/partials/_downloads.scss */
+  /* line 63, ../../build/sass/partials/_downloads.scss */
   .downloads ul {
     *zoom: 1;
   }
@@ -2233,7 +2245,7 @@ img {
   .downloads ul:after {
     clear: both;
   }
-  /* line 56, ../../build/sass/partials/_downloads.scss */
+  /* line 66, ../../build/sass/partials/_downloads.scss */
   .downloads .logo-container {
     *zoom: 1;
     max-width: 930px;
@@ -2249,7 +2261,7 @@ img {
   .downloads .logo-container:after {
     clear: both;
   }
-  /* line 58, ../../build/sass/partials/_downloads.scss */
+  /* line 68, ../../build/sass/partials/_downloads.scss */
   .downloads .logo-container .profile-picture {
     display: block;
     float: left;
@@ -2260,7 +2272,7 @@ img {
   .downloads .logo-container .profile-picture:last-child {
     margin-right: 0;
   }
-  /* line 61, ../../build/sass/partials/_downloads.scss */
+  /* line 71, ../../build/sass/partials/_downloads.scss */
   .downloads .logo-container .anyday-logos {
     display: block;
     float: left;
@@ -2271,16 +2283,16 @@ img {
   .downloads .logo-container .anyday-logos:last-child {
     margin-right: 0;
   }
-  /* line 66, ../../build/sass/partials/_downloads.scss */
+  /* line 76, ../../build/sass/partials/_downloads.scss */
   .downloads .profile-picture ul, .downloads .anyday-logos ul {
     width: 100%;
     float: left;
   }
-  /* line 71, ../../build/sass/partials/_downloads.scss */
+  /* line 81, ../../build/sass/partials/_downloads.scss */
   .downloads .profile-picture {
     padding-right: 50px;
   }
-  /* line 73, ../../build/sass/partials/_downloads.scss */
+  /* line 83, ../../build/sass/partials/_downloads.scss */
   .downloads .profile-picture li {
     display: block;
     float: left;
@@ -2293,15 +2305,15 @@ img {
   .downloads .profile-picture li:last-child {
     margin-right: 0;
   }
-  /* line 80, ../../build/sass/partials/_downloads.scss */
+  /* line 90, ../../build/sass/partials/_downloads.scss */
   .downloads .anyday-logos h4 {
     width: 50%;
   }
-  /* line 83, ../../build/sass/partials/_downloads.scss */
+  /* line 93, ../../build/sass/partials/_downloads.scss */
   .downloads .anyday-logos ul {
     margin-top: 20px;
   }
-  /* line 86, ../../build/sass/partials/_downloads.scss */
+  /* line 96, ../../build/sass/partials/_downloads.scss */
   .downloads .anyday-logos li {
     display: block;
     float: left;
@@ -2392,24 +2404,29 @@ img {
 /* line 11, ../../build/sass/partials/_footer.scss */
 .main-footer p {
   font-size: .75em;
+  margin-bottom: 1em;
 }
 /* line 14, ../../build/sass/partials/_footer.scss */
+.main-footer p a {
+  color: #2F96F8;
+}
+/* line 18, ../../build/sass/partials/_footer.scss */
 .main-footer .site-info {
   display: block;
   margin-bottom: 40px;
 }
-/* line 18, ../../build/sass/partials/_footer.scss */
+/* line 22, ../../build/sass/partials/_footer.scss */
 .main-footer .follow {
   margin: 15px 0 30px;
   display: block;
 }
-/* line 21, ../../build/sass/partials/_footer.scss */
+/* line 25, ../../build/sass/partials/_footer.scss */
 .main-footer .follow h5 {
   font-size: 1.2em;
   text-align: center;
   padding-bottom: 10px;
 }
-/* line 26, ../../build/sass/partials/_footer.scss */
+/* line 30, ../../build/sass/partials/_footer.scss */
 .main-footer .follow button {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -2421,7 +2438,7 @@ img {
   display: block;
   margin: 0 auto;
 }
-/* line 33, ../../build/sass/partials/_footer.scss */
+/* line 37, ../../build/sass/partials/_footer.scss */
 .main-footer .follow ul {
   *zoom: 1;
   max-width: 930px;
@@ -2437,7 +2454,7 @@ img {
 .main-footer .follow ul:after {
   clear: both;
 }
-/* line 36, ../../build/sass/partials/_footer.scss */
+/* line 40, ../../build/sass/partials/_footer.scss */
 .main-footer .follow li {
   display: block;
   float: left;
@@ -2448,31 +2465,31 @@ img {
 .main-footer .follow li:last-child {
   margin-right: 0;
 }
-/* line 39, ../../build/sass/partials/_footer.scss */
+/* line 43, ../../build/sass/partials/_footer.scss */
 .main-footer .follow svg {
   width: 40px;
   height: 40px;
 }
 
-/* line 51, ../../build/sass/partials/_footer.scss */
+/* line 55, ../../build/sass/partials/_footer.scss */
 .no-touch button.flickr:hover svg use {
   fill: #FF0070;
 }
-/* line 57, ../../build/sass/partials/_footer.scss */
+/* line 61, ../../build/sass/partials/_footer.scss */
 .no-touch button.twitter:hover svg use {
   fill: #469aea;
 }
-/* line 63, ../../build/sass/partials/_footer.scss */
+/* line 67, ../../build/sass/partials/_footer.scss */
 .no-touch button.instagram:hover svg use {
   fill: #1b3f67;
 }
-/* line 69, ../../build/sass/partials/_footer.scss */
+/* line 73, ../../build/sass/partials/_footer.scss */
 .no-touch button.facebook:hover svg use {
   fill: #3c5290;
 }
 
 @media all and (min-width: 650px) {
-  /* line 77, ../../build/sass/partials/_footer.scss */
+  /* line 81, ../../build/sass/partials/_footer.scss */
   .main-footer > .block {
     *zoom: 1;
     max-width: 930px;
@@ -2488,7 +2505,7 @@ img {
   .main-footer > .block:after {
     clear: both;
   }
-  /* line 80, ../../build/sass/partials/_footer.scss */
+  /* line 84, ../../build/sass/partials/_footer.scss */
   .main-footer .site-info {
     display: block;
     float: left;
@@ -2500,12 +2517,12 @@ img {
   .main-footer .site-info:last-child {
     margin-right: 0;
   }
-  /* line 83, ../../build/sass/partials/_footer.scss */
+  /* line 87, ../../build/sass/partials/_footer.scss */
   .main-footer .site-info img {
     float: left;
     margin-right: 15px;
   }
-  /* line 88, ../../build/sass/partials/_footer.scss */
+  /* line 92, ../../build/sass/partials/_footer.scss */
   .main-footer .follow {
     display: block;
     float: left;
@@ -2518,11 +2535,11 @@ img {
   }
 }
 @media all and (min-width: 915px) {
-  /* line 96, ../../build/sass/partials/_footer.scss */
+  /* line 100, ../../build/sass/partials/_footer.scss */
   .main-footer button {
     padding: 0px 14px 0px 0px;
   }
-  /* line 99, ../../build/sass/partials/_footer.scss */
+  /* line 103, ../../build/sass/partials/_footer.scss */
   .main-footer .site-info {
     display: block;
     float: left;
@@ -2533,16 +2550,16 @@ img {
   .main-footer .site-info:last-child {
     margin-right: 0;
   }
-  /* line 101, ../../build/sass/partials/_footer.scss */
+  /* line 105, ../../build/sass/partials/_footer.scss */
   .main-footer .site-info img {
     margin-right: 30px;
   }
-  /* line 104, ../../build/sass/partials/_footer.scss */
+  /* line 108, ../../build/sass/partials/_footer.scss */
   .main-footer .site-info p {
     max-width: 200px;
     float: left;
   }
-  /* line 109, ../../build/sass/partials/_footer.scss */
+  /* line 113, ../../build/sass/partials/_footer.scss */
   .main-footer .follow {
     display: block;
     float: left;
@@ -2554,17 +2571,17 @@ img {
   .main-footer .follow:last-child {
     margin-right: 0;
   }
-  /* line 112, ../../build/sass/partials/_footer.scss */
+  /* line 116, ../../build/sass/partials/_footer.scss */
   .main-footer .follow h5 {
     text-align: left;
     font-size: .9em;
     margin-bottom: 10px;
   }
-  /* line 117, ../../build/sass/partials/_footer.scss */
+  /* line 121, ../../build/sass/partials/_footer.scss */
   .main-footer .follow li {
     width: auto;
   }
-  /* line 120, ../../build/sass/partials/_footer.scss */
+  /* line 124, ../../build/sass/partials/_footer.scss */
   .main-footer .follow button.facebook svg {
     width: 44px;
     height: 44px;

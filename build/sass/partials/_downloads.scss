@@ -39,6 +39,16 @@
 			@include omega(2n);
 			margin-bottom:7px;
 		}
+		a{
+			display:block;
+			width:100%;
+			background-color:lighten($dark,.33);
+			&:before{
+				content:" ";
+				display:block;
+				padding-top:50%;
+			}
+		}
 	}
 }
 
