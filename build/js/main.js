@@ -67,7 +67,7 @@ $(function(){
 
         $('.main-nav').css('background-color',bg);
     };
-    colorChangeIntroID = setInterval(colorChangeIntro, 10);
+   // colorChangeIntroID = setInterval(colorChangeIntro, 10);
 
     
     /*//////////////////////////////////////
@@ -137,7 +137,7 @@ $(function(){
             if(totalPosts > 54){
                 totalPosts = 54;
             }
-            
+
             for (i=0;i<response.data.length;i++){
                 var post = response.data[i];
                 if(post.provider === "twitter"){

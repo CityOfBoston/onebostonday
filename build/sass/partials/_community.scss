@@ -56,6 +56,14 @@
 			& + a{
 				text-transform:uppercase;
 				color:#fff;
+				svg{
+					@include size(1em);
+					use{ fill:#fff; }
+					position:relative;
+					top:2px;
+					left:0px;
+					@extend %default-transition;
+				}
 			}
 		}
 	}
@@ -69,6 +77,10 @@
 			}
 		}
 	}
+}
+
+.no-touch .copy > p + a:hover svg{
+	left:10px;
 }
 
 @media all and(min-width:800px){

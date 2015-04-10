@@ -1,14 +1,6 @@
 $(function() {
     var body = $("body");
     body.addClass("ready");
-    var colorChangeIntro = function() {
-        {
-            var bg = body.data("bg");
-            body.data("type"), body.data("mark");
-        }
-        $(".main-nav").css("background-color", bg);
-    };
-    colorChangeIntroID = setInterval(colorChangeIntro, 10);
     var video = '<iframe src="https://player.vimeo.com/video/124548366?autoplay=1" width="500" height="367" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
     $(".video span").on("click", function() {
         $(".video span").fadeOut(function() {

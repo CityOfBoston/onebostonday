@@ -150,7 +150,7 @@ a {
 }
 
 /* line 119, ../../build/sass/partials/_base.scss */
-.burger-box, .main-nav ul, .feed li.twitter .actions ul, .no-touch .follow button svg use {
+.burger-box, .main-nav ul, .community .copy > p + a svg, .feed li.twitter .actions ul, .no-touch .follow button svg use {
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -1288,10 +1288,10 @@ img {
 }
 /* line 247, ../../build/sass/partials/_slider.scss */
 .slick-dots li button:before {
+  content: " ";
   position: absolute;
   top: 0;
   left: 0;
-  content: "•";
   width: 20px;
   height: 20px;
   font-family: "none";
@@ -1663,20 +1663,37 @@ img {
   text-transform: uppercase;
   color: #fff;
 }
-/* line 64, ../../build/sass/partials/_community.scss */
+/* line 59, ../../build/sass/partials/_community.scss */
+.community .copy > p + a svg {
+  width: 1em;
+  height: 1em;
+  position: relative;
+  top: 2px;
+  left: 0px;
+}
+/* line 61, ../../build/sass/partials/_community.scss */
+.community .copy > p + a svg use {
+  fill: #fff;
+}
+/* line 72, ../../build/sass/partials/_community.scss */
 .community .slick-dots li {
   border: 2px solid;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
-/* line 67, ../../build/sass/partials/_community.scss */
+/* line 75, ../../build/sass/partials/_community.scss */
 .community .slick-dots li.slick-active {
   background-color: #fff;
 }
 
+/* line 82, ../../build/sass/partials/_community.scss */
+.no-touch .copy > p + a:hover svg {
+  left: 10px;
+}
+
 @media all and (min-width: 800px) {
-  /* line 76, ../../build/sass/partials/_community.scss */
+  /* line 88, ../../build/sass/partials/_community.scss */
   .community .activity .block {
     *zoom: 1;
     max-width: 930px;
@@ -1692,7 +1709,7 @@ img {
   .community .activity .block:after {
     clear: both;
   }
-  /* line 79, ../../build/sass/partials/_community.scss */
+  /* line 91, ../../build/sass/partials/_community.scss */
   .community figure {
     display: block;
     float: left;
@@ -1703,11 +1720,11 @@ img {
   .community figure:last-child {
     margin-right: 0;
   }
-  /* line 81, ../../build/sass/partials/_community.scss */
+  /* line 93, ../../build/sass/partials/_community.scss */
   .community figure img {
     max-width: 300px;
   }
-  /* line 85, ../../build/sass/partials/_community.scss */
+  /* line 97, ../../build/sass/partials/_community.scss */
   .community .copy {
     display: block;
     float: left;
@@ -1718,7 +1735,7 @@ img {
   .community .copy:last-child {
     margin-right: 0;
   }
-  /* line 88, ../../build/sass/partials/_community.scss */
+  /* line 100, ../../build/sass/partials/_community.scss */
   .community .blockquote q:before {
     position: absolute;
     top: 0px;
@@ -1812,7 +1829,7 @@ img {
 }
 /* line 54, ../../build/sass/partials/_get-involved.scss */
 .craft-tweet textarea {
-  margin: 15px 15px 0px;
+  margin: 15px 15px 12px;
   width: calc(100% - 30px);
   min-height: 150px;
   resize: none;
@@ -1898,13 +1915,17 @@ img {
     max-height: 700px;
     overflow-y: scroll;
   }
+  /* line 97, ../../build/sass/partials/_get-involved.scss */
+  .get-involved .social .feed h5 {
+    font-isze: 1.2;
+  }
 
-  /* line 98, ../../build/sass/partials/_get-involved.scss */
+  /* line 101, ../../build/sass/partials/_get-involved.scss */
   ::-webkit-scrollbar-track {
     width: 0px;
   }
 }
-/* line 105, ../../build/sass/partials/_get-involved.scss */
+/* line 108, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter {
   *zoom: 1;
   max-width: 930px;
@@ -1920,7 +1941,7 @@ img {
 .feed li.twitter:after {
   clear: both;
 }
-/* line 108, ../../build/sass/partials/_get-involved.scss */
+/* line 111, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter .profile-image {
   display: block;
   float: left;
@@ -1932,7 +1953,7 @@ img {
 .feed li.twitter .profile-image:last-child {
   margin-right: 0;
 }
-/* line 109, ../../build/sass/partials/_get-involved.scss */
+/* line 112, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter .tweet {
   display: block;
   float: left;
@@ -1944,28 +1965,28 @@ img {
 .feed li.twitter .tweet:last-child {
   margin-right: 0;
 }
-/* line 111, ../../build/sass/partials/_get-involved.scss */
+/* line 114, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter .tweet-header {
   margin-bottom: 1em;
 }
-/* line 113, ../../build/sass/partials/_get-involved.scss */
+/* line 116, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter .tweet-header h4, .feed li.twitter .tweet-header a {
   display: inline-block;
 }
-/* line 116, ../../build/sass/partials/_get-involved.scss */
+/* line 119, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter .tweet-header a {
   color: #a2a2a2;
 }
-/* line 119, ../../build/sass/partials/_get-involved.scss */
+/* line 122, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter .tweet-header a.time {
   float: right;
 }
-/* line 124, ../../build/sass/partials/_get-involved.scss */
+/* line 127, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter .actions {
   float: left;
   width: 100%;
 }
-/* line 127, ../../build/sass/partials/_get-involved.scss */
+/* line 130, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter .actions ul {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
   opacity: 0.2;
@@ -1983,7 +2004,7 @@ img {
 .feed li.twitter .actions ul:after {
   clear: both;
 }
-/* line 131, ../../build/sass/partials/_get-involved.scss */
+/* line 134, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter .actions ul li {
   display: block;
   float: left;
@@ -1994,11 +2015,11 @@ img {
 .feed li.twitter .actions ul li:last-child {
   margin-right: 0;
 }
-/* line 134, ../../build/sass/partials/_get-involved.scss */
+/* line 137, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter .actions ul a {
   display: block;
 }
-/* line 137, ../../build/sass/partials/_get-involved.scss */
+/* line 140, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter .actions ul svg {
   width: 18px;
   height: 18px;
@@ -2007,7 +2028,7 @@ img {
 }
 
 @media all and (min-width: 800px) {
-  /* line 148, ../../build/sass/partials/_get-involved.scss */
+  /* line 151, ../../build/sass/partials/_get-involved.scss */
   .feed li.twitter .actions {
     display: block;
     float: left;
@@ -2020,17 +2041,17 @@ img {
     margin-right: 0;
   }
 }
-/* line 155, ../../build/sass/partials/_get-involved.scss */
+/* line 158, ../../build/sass/partials/_get-involved.scss */
 .no-touch .feed li:hover .actions ul {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
 
-/* line 160, ../../build/sass/partials/_get-involved.scss */
+/* line 163, ../../build/sass/partials/_get-involved.scss */
 .feed li.instagram > img {
   width: 100%;
 }
-/* line 163, ../../build/sass/partials/_get-involved.scss */
+/* line 166, ../../build/sass/partials/_get-involved.scss */
 .feed li.instagram .insta-header {
   margin: 10px 0 15px;
   display: block;
@@ -2045,28 +2066,28 @@ img {
 .feed li.instagram .insta-header:after {
   clear: both;
 }
-/* line 167, ../../build/sass/partials/_get-involved.scss */
+/* line 170, ../../build/sass/partials/_get-involved.scss */
 .feed li.instagram .insta-header h4, .feed li.instagram .insta-header a {
   display: inline-block;
 }
-/* line 170, ../../build/sass/partials/_get-involved.scss */
+/* line 173, ../../build/sass/partials/_get-involved.scss */
 .feed li.instagram .insta-header a {
   color: #a2a2a2;
 }
-/* line 173, ../../build/sass/partials/_get-involved.scss */
+/* line 176, ../../build/sass/partials/_get-involved.scss */
 .feed li.instagram .insta-header h4 {
   float: left;
 }
-/* line 176, ../../build/sass/partials/_get-involved.scss */
+/* line 179, ../../build/sass/partials/_get-involved.scss */
 .feed li.instagram .insta-header > a {
   float: right;
 }
-/* line 180, ../../build/sass/partials/_get-involved.scss */
+/* line 183, ../../build/sass/partials/_get-involved.scss */
 .feed li.instagram p {
   clear: both;
 }
 
-/* line 185, ../../build/sass/partials/_get-involved.scss */
+/* line 188, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter, .feed li.instagram {
   margin-bottom: 20px;
   padding-bottom: 20px;
@@ -2074,26 +2095,27 @@ img {
 }
 
 @media all and (min-width: 800px) {
-  /* line 193, ../../build/sass/partials/_get-involved.scss */
+  /* line 196, ../../build/sass/partials/_get-involved.scss */
   .feed li.twitter:last-child, .feed li.instagram:last-child, .feed .slick-slide:last-child {
     margin-bottom: 0px;
     border-bottom: none;
   }
 }
-/* line 200, ../../build/sass/partials/_get-involved.scss */
-.slick-dots.above-dots {
+/* line 203, ../../build/sass/partials/_get-involved.scss */
+.feed .slick-dots.above-dots {
   bottom: auto;
   top: -27px;
 }
 
-/* line 205, ../../build/sass/partials/_get-involved.scss */
+/* line 208, ../../build/sass/partials/_get-involved.scss */
 .feed .slick-dots {
   width: 100%;
   background-color: rgba(34, 34, 34, 0.5);
   padding: 5px 0;
   left: 0px;
+  bottom: 0px;
 }
-/* line 210, ../../build/sass/partials/_get-involved.scss */
+/* line 214, ../../build/sass/partials/_get-involved.scss */
 .feed .slick-dots li {
   width: 15px;
   height: 15px;
@@ -2103,7 +2125,7 @@ img {
   border: 1px solid #fff;
   margin: 0 7px;
 }
-/* line 216, ../../build/sass/partials/_get-involved.scss */
+/* line 220, ../../build/sass/partials/_get-involved.scss */
 .feed .slick-dots .slick-active {
   background-color: #fff;
 }
@@ -2309,6 +2331,201 @@ img {
 .downloads {
   min-height: 300px;
   background-color: #fff;
+}
+/* line 18, ../../build/sass/screen.scss */
+.downloads button {
+  text-transform: uppercase;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #2F96F8;
+  text-align: center;
+  font-size: .815em;
+  padding: 10px;
+  color: #2F96F8;
+  display: block;
+  margin: 0 auto 20px;
+}
+/* line 30, ../../build/sass/screen.scss */
+.downloads h4 {
+  border-top: 1px solid;
+  font-size: 1.2em;
+  padding: 10px 0 20px;
+  line-height: 1.33;
+}
+/* line 36, ../../build/sass/screen.scss */
+.downloads img {
+  width: 100%;
+}
+/* line 39, ../../build/sass/screen.scss */
+.downloads .logo-container {
+  padding: 0 10px;
+}
+/* line 42, ../../build/sass/screen.scss */
+.downloads .profile-picture, .downloads .anyday-logos {
+  margin-bottom: 30px;
+}
+/* line 44, ../../build/sass/screen.scss */
+.downloads .profile-picture ul, .downloads .anyday-logos ul {
+  *zoom: 1;
+  max-width: 930px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 17, ../../build/sass/bourbon/addons/_clearfix.scss */
+.downloads .profile-picture ul:before, .downloads .profile-picture ul:after, .downloads .anyday-logos ul:before, .downloads .anyday-logos ul:after {
+  content: " ";
+  display: table;
+}
+/* line 23, ../../build/sass/bourbon/addons/_clearfix.scss */
+.downloads .profile-picture ul:after, .downloads .anyday-logos ul:after {
+  clear: both;
+}
+/* line 47, ../../build/sass/screen.scss */
+.downloads .profile-picture li, .downloads .anyday-logos li {
+  display: block;
+  float: left;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+}
+/* line 33, ../../build/sass/neat/grid/_span-columns.scss */
+.downloads .profile-picture li:last-child, .downloads .anyday-logos li:last-child {
+  margin-right: 0;
+}
+/* line 52, ../../build/sass/screen.scss */
+.downloads .anyday-logos li {
+  margin-bottom: 7px;
+}
+/* line 70, ../../build/sass/neat/grid/_omega.scss */
+.downloads .anyday-logos li:nth-child(2n) {
+  margin-right: 0;
+}
+/* line 75, ../../build/sass/neat/grid/_omega.scss */
+.downloads .anyday-logos li:nth-child(2n+1) {
+  clear: left;
+}
+
+@media all and (min-width: 700px) {
+  /* line 61, ../../build/sass/screen.scss */
+  .downloads h4 {
+    float: left;
+  }
+  /* line 64, ../../build/sass/screen.scss */
+  .downloads button {
+    float: right;
+  }
+  /* line 67, ../../build/sass/screen.scss */
+  .downloads ul {
+    *zoom: 1;
+  }
+  /* line 17, ../../build/sass/bourbon/addons/_clearfix.scss */
+  .downloads ul:before, .downloads ul:after {
+    content: " ";
+    display: table;
+  }
+  /* line 23, ../../build/sass/bourbon/addons/_clearfix.scss */
+  .downloads ul:after {
+    clear: both;
+  }
+  /* line 70, ../../build/sass/screen.scss */
+  .downloads .logo-container {
+    *zoom: 1;
+    max-width: 930px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* line 17, ../../build/sass/bourbon/addons/_clearfix.scss */
+  .downloads .logo-container:before, .downloads .logo-container:after {
+    content: " ";
+    display: table;
+  }
+  /* line 23, ../../build/sass/bourbon/addons/_clearfix.scss */
+  .downloads .logo-container:after {
+    clear: both;
+  }
+  /* line 72, ../../build/sass/screen.scss */
+  .downloads .logo-container .profile-picture {
+    display: block;
+    float: left;
+    margin-right: 2.35765%;
+    width: 34.5764%;
+  }
+  /* line 33, ../../build/sass/neat/grid/_span-columns.scss */
+  .downloads .logo-container .profile-picture:last-child {
+    margin-right: 0;
+  }
+  /* line 75, ../../build/sass/screen.scss */
+  .downloads .logo-container .anyday-logos {
+    display: block;
+    float: left;
+    margin-right: 2.35765%;
+    width: 63.06595%;
+  }
+  /* line 33, ../../build/sass/neat/grid/_span-columns.scss */
+  .downloads .logo-container .anyday-logos:last-child {
+    margin-right: 0;
+  }
+  /* line 80, ../../build/sass/screen.scss */
+  .downloads .profile-picture ul, .downloads .anyday-logos ul {
+    width: 100%;
+    float: left;
+  }
+  /* line 85, ../../build/sass/screen.scss */
+  .downloads .profile-picture {
+    padding-right: 50px;
+  }
+  /* line 87, ../../build/sass/screen.scss */
+  .downloads .profile-picture li {
+    display: block;
+    float: left;
+    margin-right: 2.35765%;
+    width: 100%;
+    padding-right: 45px;
+    margin-bottom: 25px;
+  }
+  /* line 33, ../../build/sass/neat/grid/_span-columns.scss */
+  .downloads .profile-picture li:last-child {
+    margin-right: 0;
+  }
+  /* line 94, ../../build/sass/screen.scss */
+  .downloads .anyday-logos h4 {
+    width: 50%;
+  }
+  /* line 97, ../../build/sass/screen.scss */
+  .downloads .anyday-logos ul {
+    margin-top: 20px;
+  }
+  /* line 100, ../../build/sass/screen.scss */
+  .downloads .anyday-logos li {
+    display: block;
+    float: left;
+    margin-right: 2.35765%;
+    width: 31.76157%;
+    margin-bottom: 32px;
+  }
+  /* line 6, ../../build/sass/neat/grid/_omega-reset.scss */
+  .downloads .anyday-logos li:nth-child(2n) {
+    margin-right: 2.35765%;
+  }
+  /* line 7, ../../build/sass/neat/grid/_omega-reset.scss */
+  .downloads .anyday-logos li:nth-child(2n+1) {
+    clear: none;
+  }
+  /* line 70, ../../build/sass/neat/grid/_omega.scss */
+  .downloads .anyday-logos li:nth-child(3n) {
+    margin-right: 0;
+  }
+  /* line 75, ../../build/sass/neat/grid/_omega.scss */
+  .downloads .anyday-logos li:nth-child(3n+1) {
+    clear: left;
+  }
+  /* line 33, ../../build/sass/neat/grid/_span-columns.scss */
+  .downloads .anyday-logos li:last-child {
+    margin-right: 0;
+  }
 }
 
 /*# sourceMappingURL=screen.css.map */

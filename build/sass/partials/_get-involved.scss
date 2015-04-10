@@ -52,7 +52,7 @@
 		border:none;
 	}
 	textarea{
-		margin:15px 15px 0px;
+		margin:15px 15px 12px;
 		width:calc(100% - 30px);
 		min-height:150px;
 		resize:none;
@@ -93,6 +93,9 @@
 			margin:20px 0;
 			max-height:700px;
 			overflow-y:scroll;
+		}
+		.social .feed h5{
+			font-isze:1.2;
 		}
 	}
 	::-webkit-scrollbar-track{
@@ -197,7 +200,7 @@
 	}
 }
 
-.slick-dots.above-dots{
+.feed .slick-dots.above-dots{
 	bottom:auto;
 	top:-27px;
 }
@@ -207,6 +210,7 @@
 	background-color:rgba($dark,.5);
 	padding:5px 0;
 	left:0px;
+	bottom:0px;
 	li{
 		@include size(15px);
 		@include border-radius(50%);
