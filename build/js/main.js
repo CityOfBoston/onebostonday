@@ -126,7 +126,7 @@ $(function(){
         $(this).on('keyup',function(){
             var length = $(this).val().length;
             var charactersLeft = characterCount - length;
-            if(charactersLeft <= 0){
+            if(charactersLeft < 0){
                 $('.craft span').html("Your tweet is too long :( <b>"+charactersLeft+"</b>");
             }
             else{
