@@ -7,6 +7,7 @@
 	display:block;
 	min-height:200px;
 	margin-bottom:20px;
+	position:relative;
 	h5{
 		text-transform: uppercase;
 		font-size:.8125em;
@@ -15,6 +16,28 @@
 		margin:40px 0 20px;
 		background-color:#fff;
 		padding:10px;
+		min-height:430px;
+	}
+}
+
+@include keyframes(spin){
+	0%{
+		@include transform(rotate(0deg));
+	}
+	100%{
+		@include transform(rotate(360deg));
+	}
+}
+
+.feed svg.icon-spinner{
+	@include animation(spin 2s linear infinite);
+	@extend %absolute-middle;
+	top:20%;
+	z-index:2;
+	@include size(60px);
+	margin-left:-15px;
+	use{
+		fill:lighten($dark,50%);
 	}
 }
 
@@ -95,11 +118,8 @@
 			overflow-y:scroll;
 		}
 		.social .feed h5{
-			font-size:1.2em;
+			font-size:1em;
 		}
-	}
-	::-webkit-scrollbar-track{
-		width:0px;
 	}
 }
 

@@ -157,7 +157,7 @@ a {
 }
 
 /* line 128, ../../build/sass/partials/_base.scss */
-.intro .copy, .video span {
+.intro .copy, .video span, .feed svg.icon-spinner {
   position: absolute;
   top: 50%;
   right: auto;
@@ -1754,24 +1754,106 @@ img {
   display: block;
   min-height: 200px;
   margin-bottom: 20px;
+  position: relative;
 }
-/* line 10, ../../build/sass/partials/_get-involved.scss */
+/* line 11, ../../build/sass/partials/_get-involved.scss */
 .social .feed h5 {
   text-transform: uppercase;
   font-size: .8125em;
 }
-/* line 14, ../../build/sass/partials/_get-involved.scss */
+/* line 15, ../../build/sass/partials/_get-involved.scss */
 .social .feed > ul {
   margin: 40px 0 20px;
   background-color: #fff;
   padding: 10px;
+  min-height: 430px;
 }
 
-/* line 21, ../../build/sass/partials/_get-involved.scss */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+/* line 32, ../../build/sass/partials/_get-involved.scss */
+.feed svg.icon-spinner {
+  -webkit-animation: spin 2s linear infinite;
+  -moz-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  top: 20%;
+  z-index: 2;
+  width: 60px;
+  height: 60px;
+  margin-left: -15px;
+}
+/* line 39, ../../build/sass/partials/_get-involved.scss */
+.feed svg.icon-spinner use {
+  fill: #a2a2a2;
+}
+
+/* line 44, ../../build/sass/partials/_get-involved.scss */
 .craft-tweet {
   position: relative;
 }
-/* line 23, ../../build/sass/partials/_get-involved.scss */
+/* line 46, ../../build/sass/partials/_get-involved.scss */
 .craft-tweet header {
   border-bottom: 1px solid rgba(34, 34, 34, 0.5);
   padding: 20px 0 15px;
@@ -1779,7 +1861,7 @@ img {
   font-size: 1.33em;
   text-align: center;
 }
-/* line 30, ../../build/sass/partials/_get-involved.scss */
+/* line 53, ../../build/sass/partials/_get-involved.scss */
 .craft-tweet svg {
   position: absolute;
   top: 50%;
@@ -1794,17 +1876,17 @@ img {
   width: 32px;
   height: 32px;
 }
-/* line 34, ../../build/sass/partials/_get-involved.scss */
+/* line 57, ../../build/sass/partials/_get-involved.scss */
 .craft-tweet svg use {
   fill: #469aea;
 }
-/* line 38, ../../build/sass/partials/_get-involved.scss */
+/* line 61, ../../build/sass/partials/_get-involved.scss */
 .craft-tweet .craft {
   position: relative;
   background-color: #fff;
   box-shadow: 0px 1px 12px rgba(34, 34, 34, 0.5) inset;
 }
-/* line 43, ../../build/sass/partials/_get-involved.scss */
+/* line 66, ../../build/sass/partials/_get-involved.scss */
 .craft-tweet .count {
   position: absolute;
   top: auto;
@@ -1813,11 +1895,11 @@ img {
   left: auto;
   color: #888888;
 }
-/* line 46, ../../build/sass/partials/_get-involved.scss */
+/* line 69, ../../build/sass/partials/_get-involved.scss */
 .craft-tweet .count b {
   color: #E9171E;
 }
-/* line 50, ../../build/sass/partials/_get-involved.scss */
+/* line 73, ../../build/sass/partials/_get-involved.scss */
 .craft-tweet textarea, .craft-tweet button.tweet {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -1826,7 +1908,7 @@ img {
   appearance: none;
   border: none;
 }
-/* line 54, ../../build/sass/partials/_get-involved.scss */
+/* line 77, ../../build/sass/partials/_get-involved.scss */
 .craft-tweet textarea {
   margin: 15px 15px 12px;
   width: calc(100% - 30px);
@@ -1862,7 +1944,7 @@ img {
   color: #a2a2a2;
   font-style: italic;
 }
-/* line 67, ../../build/sass/partials/_get-involved.scss */
+/* line 90, ../../build/sass/partials/_get-involved.scss */
 .craft-tweet button.tweet {
   background-color: #469aea;
   width: 100%;
@@ -1875,7 +1957,7 @@ img {
 }
 
 @media all and (min-width: 800px) {
-  /* line 81, ../../build/sass/partials/_get-involved.scss */
+  /* line 104, ../../build/sass/partials/_get-involved.scss */
   .get-involved .social {
     *zoom: 1;
     max-width: 930px;
@@ -1891,7 +1973,7 @@ img {
   .get-involved .social:after {
     clear: both;
   }
-  /* line 84, ../../build/sass/partials/_get-involved.scss */
+  /* line 107, ../../build/sass/partials/_get-involved.scss */
   .get-involved .feed, .get-involved .craft-tweet {
     display: block;
     float: left;
@@ -1902,29 +1984,24 @@ img {
   .get-involved .feed:last-child, .get-involved .craft-tweet:last-child {
     margin-right: 0;
   }
-  /* line 87, ../../build/sass/partials/_get-involved.scss */
+  /* line 110, ../../build/sass/partials/_get-involved.scss */
   .get-involved .craft-tweet {
     padding-left: 25px;
     position: relative;
     top: 120px;
   }
-  /* line 92, ../../build/sass/partials/_get-involved.scss */
+  /* line 115, ../../build/sass/partials/_get-involved.scss */
   .get-involved .social .feed > ul {
     margin: 20px 0;
     max-height: 700px;
     overflow-y: scroll;
   }
-  /* line 97, ../../build/sass/partials/_get-involved.scss */
+  /* line 120, ../../build/sass/partials/_get-involved.scss */
   .get-involved .social .feed h5 {
-    font-size: 1.2em;
-  }
-
-  /* line 101, ../../build/sass/partials/_get-involved.scss */
-  ::-webkit-scrollbar-track {
-    width: 0px;
+    font-size: 1em;
   }
 }
-/* line 108, ../../build/sass/partials/_get-involved.scss */
+/* line 128, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter {
   *zoom: 1;
   max-width: 930px;
@@ -1940,7 +2017,7 @@ img {
 .feed li.twitter:after {
   clear: both;
 }
-/* line 111, ../../build/sass/partials/_get-involved.scss */
+/* line 131, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter .profile-image {
   display: block;
   float: left;
@@ -1952,7 +2029,7 @@ img {
 .feed li.twitter .profile-image:last-child {
   margin-right: 0;
 }
-/* line 112, ../../build/sass/partials/_get-involved.scss */
+/* line 132, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter .tweet {
   display: block;
   float: left;
@@ -1964,28 +2041,28 @@ img {
 .feed li.twitter .tweet:last-child {
   margin-right: 0;
 }
-/* line 114, ../../build/sass/partials/_get-involved.scss */
+/* line 134, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter .tweet-header {
   margin-bottom: 1em;
 }
-/* line 116, ../../build/sass/partials/_get-involved.scss */
+/* line 136, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter .tweet-header h4, .feed li.twitter .tweet-header a {
   display: inline-block;
 }
-/* line 119, ../../build/sass/partials/_get-involved.scss */
+/* line 139, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter .tweet-header a {
   color: #a2a2a2;
 }
-/* line 122, ../../build/sass/partials/_get-involved.scss */
+/* line 142, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter .tweet-header a.time {
   float: right;
 }
-/* line 127, ../../build/sass/partials/_get-involved.scss */
+/* line 147, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter .actions {
   float: left;
   width: 100%;
 }
-/* line 130, ../../build/sass/partials/_get-involved.scss */
+/* line 150, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter .actions ul {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
   opacity: 0.2;
@@ -2003,7 +2080,7 @@ img {
 .feed li.twitter .actions ul:after {
   clear: both;
 }
-/* line 134, ../../build/sass/partials/_get-involved.scss */
+/* line 154, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter .actions ul li {
   display: block;
   float: left;
@@ -2014,11 +2091,11 @@ img {
 .feed li.twitter .actions ul li:last-child {
   margin-right: 0;
 }
-/* line 137, ../../build/sass/partials/_get-involved.scss */
+/* line 157, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter .actions ul a {
   display: block;
 }
-/* line 140, ../../build/sass/partials/_get-involved.scss */
+/* line 160, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter .actions ul svg {
   width: 18px;
   height: 18px;
@@ -2027,7 +2104,7 @@ img {
 }
 
 @media all and (min-width: 800px) {
-  /* line 151, ../../build/sass/partials/_get-involved.scss */
+  /* line 171, ../../build/sass/partials/_get-involved.scss */
   .feed li.twitter .actions {
     display: block;
     float: left;
@@ -2040,17 +2117,17 @@ img {
     margin-right: 0;
   }
 }
-/* line 158, ../../build/sass/partials/_get-involved.scss */
+/* line 178, ../../build/sass/partials/_get-involved.scss */
 .no-touch .feed li:hover .actions ul {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
 
-/* line 163, ../../build/sass/partials/_get-involved.scss */
+/* line 183, ../../build/sass/partials/_get-involved.scss */
 .feed li.instagram > img {
   width: 100%;
 }
-/* line 166, ../../build/sass/partials/_get-involved.scss */
+/* line 186, ../../build/sass/partials/_get-involved.scss */
 .feed li.instagram .insta-header {
   margin: 10px 0 15px;
   display: block;
@@ -2065,28 +2142,28 @@ img {
 .feed li.instagram .insta-header:after {
   clear: both;
 }
-/* line 170, ../../build/sass/partials/_get-involved.scss */
+/* line 190, ../../build/sass/partials/_get-involved.scss */
 .feed li.instagram .insta-header h4, .feed li.instagram .insta-header a {
   display: inline-block;
 }
-/* line 173, ../../build/sass/partials/_get-involved.scss */
+/* line 193, ../../build/sass/partials/_get-involved.scss */
 .feed li.instagram .insta-header a {
   color: #a2a2a2;
 }
-/* line 176, ../../build/sass/partials/_get-involved.scss */
+/* line 196, ../../build/sass/partials/_get-involved.scss */
 .feed li.instagram .insta-header h4 {
   float: left;
 }
-/* line 179, ../../build/sass/partials/_get-involved.scss */
+/* line 199, ../../build/sass/partials/_get-involved.scss */
 .feed li.instagram .insta-header > a {
   float: right;
 }
-/* line 183, ../../build/sass/partials/_get-involved.scss */
+/* line 203, ../../build/sass/partials/_get-involved.scss */
 .feed li.instagram p {
   clear: both;
 }
 
-/* line 188, ../../build/sass/partials/_get-involved.scss */
+/* line 208, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter, .feed li.instagram {
   margin-bottom: 20px;
   padding-bottom: 20px;
@@ -2094,19 +2171,19 @@ img {
 }
 
 @media all and (min-width: 800px) {
-  /* line 196, ../../build/sass/partials/_get-involved.scss */
+  /* line 216, ../../build/sass/partials/_get-involved.scss */
   .feed li.twitter:last-child, .feed li.instagram:last-child, .feed .slick-slide:last-child {
     margin-bottom: 0px;
     border-bottom: none;
   }
 }
-/* line 203, ../../build/sass/partials/_get-involved.scss */
+/* line 223, ../../build/sass/partials/_get-involved.scss */
 .feed .slick-dots.above-dots {
   bottom: auto;
   top: -27px;
 }
 
-/* line 208, ../../build/sass/partials/_get-involved.scss */
+/* line 228, ../../build/sass/partials/_get-involved.scss */
 .feed .slick-dots {
   width: 100%;
   background-color: rgba(34, 34, 34, 0.5);
@@ -2114,7 +2191,7 @@ img {
   left: 0px;
   bottom: 0px;
 }
-/* line 214, ../../build/sass/partials/_get-involved.scss */
+/* line 234, ../../build/sass/partials/_get-involved.scss */
 .feed .slick-dots li {
   width: 15px;
   height: 15px;
@@ -2124,7 +2201,7 @@ img {
   border: 1px solid #fff;
   margin: 0 7px;
 }
-/* line 220, ../../build/sass/partials/_get-involved.scss */
+/* line 240, ../../build/sass/partials/_get-involved.scss */
 .feed .slick-dots .slick-active {
   background-color: #fff;
 }
