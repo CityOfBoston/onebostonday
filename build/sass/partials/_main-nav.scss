@@ -49,6 +49,7 @@
 			width:100%;
 			@include position(absolute, 50% auto auto 50%);
 			@include transform(translateX(-50%) translateY(-50%));
+			@include transition(none);
 			z-index:1;
 			li{
 				display:inline-block;

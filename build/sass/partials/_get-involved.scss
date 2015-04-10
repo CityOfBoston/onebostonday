@@ -12,7 +12,9 @@
 		font-size:.8125em;
 	}
 	& > ul{
-		margin:20px 0;
+		margin:40px 0 20px;
+		background-color:#fff;
+		padding:10px;
 	}
 }
 
@@ -84,7 +86,17 @@
 		}
 		.craft-tweet{
 			padding-left:25px;
+			position:relative;
+			top:120px;
 		}
+		.social .feed > ul{
+			margin:20px 0;
+			max-height:700px;
+			overflow-y:scroll;
+		}
+	}
+	::-webkit-scrollbar-track{
+		width:0px;
 	}
 }
 
@@ -170,12 +182,38 @@
 	}
 }
 
-.feed > ul > li{
+.feed li.twitter,.feed li.instagram{
 	margin-bottom:20px;
 	padding-bottom:20px;
 	border-bottom:1px solid lighten($dark,33%);
-	&:last-child{
-		margin-bottom:0px;
-		border-bottom:none;
+}
+
+@media all and(min-width:800px){
+	.feed li.twitter,.feed li.instagram,.feed .slick-slide{
+			&:last-child{
+			margin-bottom:0px;
+			border-bottom:none;
+		}
+	}
+}
+
+.slick-dots.above-dots{
+	bottom:auto;
+	top:-27px;
+}
+
+.feed .slick-dots{
+	width:100%;
+	background-color:rgba($dark,.5);
+	padding:5px 0;
+	left:0px;
+	li{
+		@include size(15px);
+		@include border-radius(50%);
+		border:1px solid #fff;
+		margin:0 7px;
+	}
+	.slick-active{
+		background-color:#fff;
 	}
 }
