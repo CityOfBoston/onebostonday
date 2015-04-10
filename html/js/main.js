@@ -72,7 +72,7 @@ $(function(){
    /*//////////////////////////////////////
     //  smooth scrolling
     //////////////////////////////////////*/
-    $('.main-nav a').on('click',function(event){
+    $('.main-nav ul a').on('click',function(event){
         event.preventDefault();
         var target = $(this).attr('href');
         var distance = ( $(target).offset().top - $('.main-nav').height() );
@@ -81,7 +81,6 @@ $(function(){
             scrollTop: distance + 'px'
         });
     });
-
 
     /*//////////////////////////////////////
     //  video toggle
@@ -110,7 +109,8 @@ $(function(){
         speed: 300,
         slidesToShow: 1,
         adaptiveHeight: true,
-        initialSlide: middleSlide
+        initialSlide: middleSlide,
+        touchThreshold: 3
     });
 
     /*//////////////////////////////////////
@@ -172,6 +172,7 @@ $(function(){
                     slidesToScroll: 1,
                     rows:6,
                     adaptiveHeight: true,
+                    touchThreshold: 3
                 });
 
                 setTimeout(function(){
