@@ -1,0 +1,36 @@
+.press{
+	margin-top:66px;
+	min-height:calc(90vh - 66px);
+	padding:40px 10px;
+	h2{
+		text-align:center;
+	}
+	a{
+		color:$primary;
+	}
+	time{
+		margin:0 10px;
+		display:inline-block;	
+		&:before,&:after{
+			content:"-";
+			display:inline-block;
+		}
+	}
+	span{
+		font-style:italic;
+	}
+	ul{
+		padding:20px 0;
+		max-width:650px;
+		margin:0 auto;
+	}
+	li{
+		line-height:1.44;
+		margin-bottom:20px;
+		padding-bottom:20px;
+		border-bottom:1px solid rgba($dark,.2);
+		&:last-child{
+			border-bottom:none;
+		}
+	}
+}

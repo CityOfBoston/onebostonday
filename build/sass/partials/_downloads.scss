@@ -1,0 +1,94 @@
+.downloads{
+	min-height:300px;
+	background-color:#fff;
+	button{
+		text-transform: uppercase;
+		@include appearance(none);
+		background-color:transparent;
+		border:2px solid $primary;
+		text-align:center;
+		font-size:.815em;
+		padding:10px;
+		color:$primary;
+		display:block;
+		margin:0 auto 20px;
+	}
+	h4{
+		border-top:1px solid;
+		font-size:1.2em;
+		padding:10px 0 20px;
+		line-height:1.33;
+	}
+	img{
+		width:100%;
+	}
+	.logo-container{
+		padding:0 10px;
+	}
+	.profile-picture,.anyday-logos{
+		margin-bottom:30px;
+		ul{
+			@include outer-container();
+		}
+		li{
+			@include span-columns(6);
+		}
+	}
+	.anyday-logos{
+		li{
+			@include omega(2n);
+			margin-bottom:7px;
+		}
+	}
+}
+
+@media all and(min-width:700px){
+	.downloads{
+		h4{
+			float:left;
+		}
+		button{
+			float:right;
+		}
+		ul{
+			@include clearfix();
+		}
+		.logo-container{
+			@include outer-container();
+			.profile-picture{
+				@include span-columns(4.33);
+			}
+			.anyday-logos{
+				@include span-columns(7.67);
+			}
+		}
+		.profile-picture,.anyday-logos{
+			ul{
+				width:100%;
+				float:left;
+			}
+		}
+		.profile-picture{
+			padding-right:50px;
+			li{
+				@include span-columns(12);
+				padding-right:45px;
+				margin-bottom:25px;
+			}
+		}
+		.anyday-logos{
+			h4{
+				width:50%;
+			}
+			ul{
+				margin-top:20px;
+			}
+			li{
+				@include omega-reset(2n);
+				@include omega(3n);
+				@include span-columns(4);
+				margin-bottom:32px;
+			}
+		}
+	}
+}

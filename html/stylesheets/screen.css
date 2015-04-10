@@ -2130,6 +2130,252 @@ img {
   background-color: #fff;
 }
 
+/* line 1, ../../build/sass/partials/_downloads.scss */
+.downloads {
+  min-height: 300px;
+  background-color: #fff;
+}
+/* line 4, ../../build/sass/partials/_downloads.scss */
+.downloads button {
+  text-transform: uppercase;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #2F96F8;
+  text-align: center;
+  font-size: .815em;
+  padding: 10px;
+  color: #2F96F8;
+  display: block;
+  margin: 0 auto 20px;
+}
+/* line 16, ../../build/sass/partials/_downloads.scss */
+.downloads h4 {
+  border-top: 1px solid;
+  font-size: 1.2em;
+  padding: 10px 0 20px;
+  line-height: 1.33;
+}
+/* line 22, ../../build/sass/partials/_downloads.scss */
+.downloads img {
+  width: 100%;
+}
+/* line 25, ../../build/sass/partials/_downloads.scss */
+.downloads .logo-container {
+  padding: 0 10px;
+}
+/* line 28, ../../build/sass/partials/_downloads.scss */
+.downloads .profile-picture, .downloads .anyday-logos {
+  margin-bottom: 30px;
+}
+/* line 30, ../../build/sass/partials/_downloads.scss */
+.downloads .profile-picture ul, .downloads .anyday-logos ul {
+  *zoom: 1;
+  max-width: 930px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 17, ../../build/sass/bourbon/addons/_clearfix.scss */
+.downloads .profile-picture ul:before, .downloads .profile-picture ul:after, .downloads .anyday-logos ul:before, .downloads .anyday-logos ul:after {
+  content: " ";
+  display: table;
+}
+/* line 23, ../../build/sass/bourbon/addons/_clearfix.scss */
+.downloads .profile-picture ul:after, .downloads .anyday-logos ul:after {
+  clear: both;
+}
+/* line 33, ../../build/sass/partials/_downloads.scss */
+.downloads .profile-picture li, .downloads .anyday-logos li {
+  display: block;
+  float: left;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+}
+/* line 33, ../../build/sass/neat/grid/_span-columns.scss */
+.downloads .profile-picture li:last-child, .downloads .anyday-logos li:last-child {
+  margin-right: 0;
+}
+/* line 38, ../../build/sass/partials/_downloads.scss */
+.downloads .anyday-logos li {
+  margin-bottom: 7px;
+}
+/* line 70, ../../build/sass/neat/grid/_omega.scss */
+.downloads .anyday-logos li:nth-child(2n) {
+  margin-right: 0;
+}
+/* line 75, ../../build/sass/neat/grid/_omega.scss */
+.downloads .anyday-logos li:nth-child(2n+1) {
+  clear: left;
+}
+
+@media all and (min-width: 700px) {
+  /* line 47, ../../build/sass/partials/_downloads.scss */
+  .downloads h4 {
+    float: left;
+  }
+  /* line 50, ../../build/sass/partials/_downloads.scss */
+  .downloads button {
+    float: right;
+  }
+  /* line 53, ../../build/sass/partials/_downloads.scss */
+  .downloads ul {
+    *zoom: 1;
+  }
+  /* line 17, ../../build/sass/bourbon/addons/_clearfix.scss */
+  .downloads ul:before, .downloads ul:after {
+    content: " ";
+    display: table;
+  }
+  /* line 23, ../../build/sass/bourbon/addons/_clearfix.scss */
+  .downloads ul:after {
+    clear: both;
+  }
+  /* line 56, ../../build/sass/partials/_downloads.scss */
+  .downloads .logo-container {
+    *zoom: 1;
+    max-width: 930px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* line 17, ../../build/sass/bourbon/addons/_clearfix.scss */
+  .downloads .logo-container:before, .downloads .logo-container:after {
+    content: " ";
+    display: table;
+  }
+  /* line 23, ../../build/sass/bourbon/addons/_clearfix.scss */
+  .downloads .logo-container:after {
+    clear: both;
+  }
+  /* line 58, ../../build/sass/partials/_downloads.scss */
+  .downloads .logo-container .profile-picture {
+    display: block;
+    float: left;
+    margin-right: 2.35765%;
+    width: 34.5764%;
+  }
+  /* line 33, ../../build/sass/neat/grid/_span-columns.scss */
+  .downloads .logo-container .profile-picture:last-child {
+    margin-right: 0;
+  }
+  /* line 61, ../../build/sass/partials/_downloads.scss */
+  .downloads .logo-container .anyday-logos {
+    display: block;
+    float: left;
+    margin-right: 2.35765%;
+    width: 63.06595%;
+  }
+  /* line 33, ../../build/sass/neat/grid/_span-columns.scss */
+  .downloads .logo-container .anyday-logos:last-child {
+    margin-right: 0;
+  }
+  /* line 66, ../../build/sass/partials/_downloads.scss */
+  .downloads .profile-picture ul, .downloads .anyday-logos ul {
+    width: 100%;
+    float: left;
+  }
+  /* line 71, ../../build/sass/partials/_downloads.scss */
+  .downloads .profile-picture {
+    padding-right: 50px;
+  }
+  /* line 73, ../../build/sass/partials/_downloads.scss */
+  .downloads .profile-picture li {
+    display: block;
+    float: left;
+    margin-right: 2.35765%;
+    width: 100%;
+    padding-right: 45px;
+    margin-bottom: 25px;
+  }
+  /* line 33, ../../build/sass/neat/grid/_span-columns.scss */
+  .downloads .profile-picture li:last-child {
+    margin-right: 0;
+  }
+  /* line 80, ../../build/sass/partials/_downloads.scss */
+  .downloads .anyday-logos h4 {
+    width: 50%;
+  }
+  /* line 83, ../../build/sass/partials/_downloads.scss */
+  .downloads .anyday-logos ul {
+    margin-top: 20px;
+  }
+  /* line 86, ../../build/sass/partials/_downloads.scss */
+  .downloads .anyday-logos li {
+    display: block;
+    float: left;
+    margin-right: 2.35765%;
+    width: 31.76157%;
+    margin-bottom: 32px;
+  }
+  /* line 6, ../../build/sass/neat/grid/_omega-reset.scss */
+  .downloads .anyday-logos li:nth-child(2n) {
+    margin-right: 2.35765%;
+  }
+  /* line 7, ../../build/sass/neat/grid/_omega-reset.scss */
+  .downloads .anyday-logos li:nth-child(2n+1) {
+    clear: none;
+  }
+  /* line 70, ../../build/sass/neat/grid/_omega.scss */
+  .downloads .anyday-logos li:nth-child(3n) {
+    margin-right: 0;
+  }
+  /* line 75, ../../build/sass/neat/grid/_omega.scss */
+  .downloads .anyday-logos li:nth-child(3n+1) {
+    clear: left;
+  }
+  /* line 33, ../../build/sass/neat/grid/_span-columns.scss */
+  .downloads .anyday-logos li:last-child {
+    margin-right: 0;
+  }
+}
+/* line 1, ../../build/sass/partials/_press.scss */
+.press {
+  margin-top: 66px;
+  min-height: calc(90vh - 66px);
+  padding: 40px 10px;
+}
+/* line 5, ../../build/sass/partials/_press.scss */
+.press h2 {
+  text-align: center;
+}
+/* line 8, ../../build/sass/partials/_press.scss */
+.press a {
+  color: #2F96F8;
+}
+/* line 11, ../../build/sass/partials/_press.scss */
+.press time {
+  margin: 0 10px;
+  display: inline-block;
+}
+/* line 14, ../../build/sass/partials/_press.scss */
+.press time:before, .press time:after {
+  content: "-";
+  display: inline-block;
+}
+/* line 19, ../../build/sass/partials/_press.scss */
+.press span {
+  font-style: italic;
+}
+/* line 22, ../../build/sass/partials/_press.scss */
+.press ul {
+  padding: 20px 0;
+  max-width: 650px;
+  margin: 0 auto;
+}
+/* line 27, ../../build/sass/partials/_press.scss */
+.press li {
+  line-height: 1.44;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(34, 34, 34, 0.2);
+}
+/* line 32, ../../build/sass/partials/_press.scss */
+.press li:last-child {
+  border-bottom: none;
+}
+
 /* line 1, ../../build/sass/partials/_footer.scss */
 .main-footer {
   background-color: #EAE4E5;
@@ -2325,206 +2571,6 @@ img {
     position: relative;
     top: -6px;
     left: -14px;
-  }
-}
-/* line 15, ../../build/sass/screen.scss */
-.downloads {
-  min-height: 300px;
-  background-color: #fff;
-}
-/* line 18, ../../build/sass/screen.scss */
-.downloads button {
-  text-transform: uppercase;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
-  -o-appearance: none;
-  appearance: none;
-  background-color: transparent;
-  border: 2px solid #2F96F8;
-  text-align: center;
-  font-size: .815em;
-  padding: 10px;
-  color: #2F96F8;
-  display: block;
-  margin: 0 auto 20px;
-}
-/* line 30, ../../build/sass/screen.scss */
-.downloads h4 {
-  border-top: 1px solid;
-  font-size: 1.2em;
-  padding: 10px 0 20px;
-  line-height: 1.33;
-}
-/* line 36, ../../build/sass/screen.scss */
-.downloads img {
-  width: 100%;
-}
-/* line 39, ../../build/sass/screen.scss */
-.downloads .logo-container {
-  padding: 0 10px;
-}
-/* line 42, ../../build/sass/screen.scss */
-.downloads .profile-picture, .downloads .anyday-logos {
-  margin-bottom: 30px;
-}
-/* line 44, ../../build/sass/screen.scss */
-.downloads .profile-picture ul, .downloads .anyday-logos ul {
-  *zoom: 1;
-  max-width: 930px;
-  margin-left: auto;
-  margin-right: auto;
-}
-/* line 17, ../../build/sass/bourbon/addons/_clearfix.scss */
-.downloads .profile-picture ul:before, .downloads .profile-picture ul:after, .downloads .anyday-logos ul:before, .downloads .anyday-logos ul:after {
-  content: " ";
-  display: table;
-}
-/* line 23, ../../build/sass/bourbon/addons/_clearfix.scss */
-.downloads .profile-picture ul:after, .downloads .anyday-logos ul:after {
-  clear: both;
-}
-/* line 47, ../../build/sass/screen.scss */
-.downloads .profile-picture li, .downloads .anyday-logos li {
-  display: block;
-  float: left;
-  margin-right: 2.35765%;
-  width: 48.82117%;
-}
-/* line 33, ../../build/sass/neat/grid/_span-columns.scss */
-.downloads .profile-picture li:last-child, .downloads .anyday-logos li:last-child {
-  margin-right: 0;
-}
-/* line 52, ../../build/sass/screen.scss */
-.downloads .anyday-logos li {
-  margin-bottom: 7px;
-}
-/* line 70, ../../build/sass/neat/grid/_omega.scss */
-.downloads .anyday-logos li:nth-child(2n) {
-  margin-right: 0;
-}
-/* line 75, ../../build/sass/neat/grid/_omega.scss */
-.downloads .anyday-logos li:nth-child(2n+1) {
-  clear: left;
-}
-
-@media all and (min-width: 700px) {
-  /* line 61, ../../build/sass/screen.scss */
-  .downloads h4 {
-    float: left;
-  }
-  /* line 64, ../../build/sass/screen.scss */
-  .downloads button {
-    float: right;
-  }
-  /* line 67, ../../build/sass/screen.scss */
-  .downloads ul {
-    *zoom: 1;
-  }
-  /* line 17, ../../build/sass/bourbon/addons/_clearfix.scss */
-  .downloads ul:before, .downloads ul:after {
-    content: " ";
-    display: table;
-  }
-  /* line 23, ../../build/sass/bourbon/addons/_clearfix.scss */
-  .downloads ul:after {
-    clear: both;
-  }
-  /* line 70, ../../build/sass/screen.scss */
-  .downloads .logo-container {
-    *zoom: 1;
-    max-width: 930px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  /* line 17, ../../build/sass/bourbon/addons/_clearfix.scss */
-  .downloads .logo-container:before, .downloads .logo-container:after {
-    content: " ";
-    display: table;
-  }
-  /* line 23, ../../build/sass/bourbon/addons/_clearfix.scss */
-  .downloads .logo-container:after {
-    clear: both;
-  }
-  /* line 72, ../../build/sass/screen.scss */
-  .downloads .logo-container .profile-picture {
-    display: block;
-    float: left;
-    margin-right: 2.35765%;
-    width: 34.5764%;
-  }
-  /* line 33, ../../build/sass/neat/grid/_span-columns.scss */
-  .downloads .logo-container .profile-picture:last-child {
-    margin-right: 0;
-  }
-  /* line 75, ../../build/sass/screen.scss */
-  .downloads .logo-container .anyday-logos {
-    display: block;
-    float: left;
-    margin-right: 2.35765%;
-    width: 63.06595%;
-  }
-  /* line 33, ../../build/sass/neat/grid/_span-columns.scss */
-  .downloads .logo-container .anyday-logos:last-child {
-    margin-right: 0;
-  }
-  /* line 80, ../../build/sass/screen.scss */
-  .downloads .profile-picture ul, .downloads .anyday-logos ul {
-    width: 100%;
-    float: left;
-  }
-  /* line 85, ../../build/sass/screen.scss */
-  .downloads .profile-picture {
-    padding-right: 50px;
-  }
-  /* line 87, ../../build/sass/screen.scss */
-  .downloads .profile-picture li {
-    display: block;
-    float: left;
-    margin-right: 2.35765%;
-    width: 100%;
-    padding-right: 45px;
-    margin-bottom: 25px;
-  }
-  /* line 33, ../../build/sass/neat/grid/_span-columns.scss */
-  .downloads .profile-picture li:last-child {
-    margin-right: 0;
-  }
-  /* line 94, ../../build/sass/screen.scss */
-  .downloads .anyday-logos h4 {
-    width: 50%;
-  }
-  /* line 97, ../../build/sass/screen.scss */
-  .downloads .anyday-logos ul {
-    margin-top: 20px;
-  }
-  /* line 100, ../../build/sass/screen.scss */
-  .downloads .anyday-logos li {
-    display: block;
-    float: left;
-    margin-right: 2.35765%;
-    width: 31.76157%;
-    margin-bottom: 32px;
-  }
-  /* line 6, ../../build/sass/neat/grid/_omega-reset.scss */
-  .downloads .anyday-logos li:nth-child(2n) {
-    margin-right: 2.35765%;
-  }
-  /* line 7, ../../build/sass/neat/grid/_omega-reset.scss */
-  .downloads .anyday-logos li:nth-child(2n+1) {
-    clear: none;
-  }
-  /* line 70, ../../build/sass/neat/grid/_omega.scss */
-  .downloads .anyday-logos li:nth-child(3n) {
-    margin-right: 0;
-  }
-  /* line 75, ../../build/sass/neat/grid/_omega.scss */
-  .downloads .anyday-logos li:nth-child(3n+1) {
-    clear: left;
-  }
-  /* line 33, ../../build/sass/neat/grid/_span-columns.scss */
-  .downloads .anyday-logos li:last-child {
-    margin-right: 0;
   }
 }
 
