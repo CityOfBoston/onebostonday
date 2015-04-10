@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0" />
+	<title>Feed Test</title>
+	
+</head>
+
+<body>
+    
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js"></script>
+    <script>
+        $(function(){
+            
+            var file = "";
+            
+            $.ajax({
+                url: "/feed-test",
+                success: function(response){
+                    $(response).find("td > a").each(function(){
+                        file = $(this).attr("href");
+                    });
+                 
+                    alert("Path: /feed-test/" + file);
+                }
+            });
+            
+        });    
+    </script>
+</body>
+
+</html>
