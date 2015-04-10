@@ -115,13 +115,13 @@ $(function(){
     var tweetString = "For #OneBostonDay, ";
     $('button.tweet').on('click',function(){
         tweetValue = $('.craft textarea').val();
-        finalTweet = encodeURIComponent(tweetString + tweetValue);
+        finalTweet = encodeURIComponent(tweetString + tweetValue + " what will you do?");
         tweetIntent = "https://twitter.com/intent/tweet?text="+finalTweet+"&related=marty_walsh,notifyboston";
 
         popItUp(tweetIntent,300,600);
     });
 
-    var characterCount = 100;
+    var characterCount = 103;
     $('.craft textarea').on('focus',function(){
         $(this).on('keyup',function(){
             var length = $(this).val().length;
