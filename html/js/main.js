@@ -127,6 +127,96 @@ $(function(){
     });
 
     /*//////////////////////////////////////
+    //  get feed
+    //////////////////////////////////////*/
+    $.ajax({
+        url:'http://siphon.hhcctech.com/api/container/1',
+        success:function(response){
+            console.log(response);
+            for (i=0;i<response.data.length;i++){
+                var post = response.data[i];
+                if(post.provider === "twitter"){
+                    twitterTemplate(post.userimageurl,post.full_name,post.username,post.created_at,post.social_id,post.message);
+                }
+                else if(post.provider === "instagram"){
+                    instagramTemplate(post.image,post.full_name,post.username,post.created_at,post.social_id,post.message);
+                }
+            }
+        }
+    });
+
+    $('body').on('click','.actions a',function(event){
+        event.preventDefault();
+        popItUp($(this).attr('href'),300,600);
+    });
+
+    var twitterTemplate = function(profileImage,twitterName,twitterUser,twitterTime,twitterTweetUrl,twitterTweetEntity){
+        var intentReply = 'https://twitter.com/intent/tweet?in_reply_to='+twitterTweetUrl;
+        var intentRetweet = 'https://twitter.com/intent/retweet?tweet_id='+twitterTweetUrl;
+        var intentFavorite = 'https://twitter.com/intent/favorite?tweet_id='+twitterTweetUrl;
+
+        var twitterMarkup="";
+        twitterMarkup += "<li class=\"twitter\">";
+        twitterMarkup += "    <div class=\"profile-image\">";
+        twitterMarkup += "        <img src=\""+ profileImage +"\">";
+        twitterMarkup += "    <\/div>";
+        twitterMarkup += "    <div class=\"tweet\">";
+        twitterMarkup += "        <header class=\"tweet-header\">";
+        twitterMarkup += "            <h4>"+ twitterName +"<\/h4>";
+        twitterMarkup += "            <a class=\"handle\" href=\"https:\/\/twitter.com\/"+ twitterUser +"\" target=\"_blank\">@"+ twitterUser +"<\/a>";
+        twitterMarkup += "            <a class=\"time\" href=\"https:\/\/twitter.com\/"+ twitterUser +"\/status\/"+ twitterTweetUrl +"\" target=\"_blank\" title=\" "+twitterTime+" \"><\/a>";
+        twitterMarkup += "        <\/header>";
+        twitterMarkup += "        <div class=\"tweet-entity\">";
+        twitterMarkup += "            <p>"+ twitterTweetEntity +"<\/p>";
+        twitterMarkup += "        <\/div>";
+        twitterMarkup += "    <\/div>";
+        twitterMarkup += "    <div class=\"actions\">";
+        twitterMarkup += "        <ul>";
+        twitterMarkup += "            <li>";
+        twitterMarkup += "                <a href=\""+intentReply+"\">";
+        twitterMarkup += "                    <svg class=\"icon icon-reply\"><use xlink:href=\"#icon-reply\"><\/use><\/svg>";
+        twitterMarkup += "                <\/a>";
+        twitterMarkup += "            <\/li>";
+        twitterMarkup += "            <li>";
+        twitterMarkup += "                <a href=\""+intentRetweet+"\">";
+        twitterMarkup += "                    <svg class=\"icon icon-retweet\"><use xlink:href=\"#icon-retweet\"><\/use><\/svg>";
+        twitterMarkup += "                <\/a>";
+        twitterMarkup += "            <\/li>";
+        twitterMarkup += "            <li>";
+        twitterMarkup += "                <a href=\""+intentFavorite+"\">";
+        twitterMarkup += "                    <svg class=\"icon icon-star\"><use xlink:href=\"#icon-star\"><\/use><\/svg>";
+        twitterMarkup += "                <\/a>";
+        twitterMarkup += "            <\/li>";
+        twitterMarkup += "        <\/ul>";
+        twitterMarkup += "    <\/div>";
+        twitterMarkup += "<\/li>";
+
+        $('.feed > ul').append(twitterMarkup);
+        $('.feed a').timeago();
+    };
+
+    var instagramTemplate = function(instaImage,instaName,instaUsername,instaTime,instaUrl,instaBody){
+        var instaUserFullName = instaName;
+
+        if(typeof instaName === undefined || instaName.length === 0){
+            instaUserFullName = instaUsername;
+        }
+
+        var instagramMarkup="";
+        instagramMarkup += "<li class=\"instagram\">";
+        instagramMarkup += "    <img src=\""+ instaImage +"\">";
+        instagramMarkup += "    <header class=\"insta-header\">";
+        instagramMarkup += "        <h4><a href=\"https:\/\/instagram.com\/"+instaUsername+"\">"+instaUserFullName+"<\/a><\/h4>";
+        instagramMarkup += "        <a class=\"time\" href=\"https:\/\/instagram.com\/p\/"+instaUrl+"\" target=\"_blank\" title=\" "+instaTime+" \"><\/a>";
+        instagramMarkup += "    <\/header>";
+        instagramMarkup += "    <p>"+ instaBody +"<\/p>";
+        instagramMarkup += "<\/li>";
+
+        $('.feed > ul').append(instagramMarkup);
+        $('.feed a').timeago();
+    };
+
+    /*//////////////////////////////////////
     //  Burger mobile menu
     //////////////////////////////////////*/
     $('.burger-box').on('click', function(event){
