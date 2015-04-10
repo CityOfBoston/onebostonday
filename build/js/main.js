@@ -99,7 +99,6 @@ $(function(){
     /*//////////////////////////////////////
     //  community slider
     //////////////////////////////////////*/
-    var middleSlide = (Math.ceil( ($('.slider .activity').length / 2) ) - 1);
     $('.slider').slick({
         slide: '.activity',
         dots: true,
@@ -107,7 +106,7 @@ $(function(){
         speed: 300,
         slidesToShow: 1,
         adaptiveHeight: true,
-        initialSlide: middleSlide
+        initialSlide: 1
     });
 
     /*//////////////////////////////////////
