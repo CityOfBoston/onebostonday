@@ -16,13 +16,13 @@
             var file = "";
             
             $.ajax({
-                url: "/feed-test",
+                url: "/feeds",
                 success: function(response){
                     $(response).find("td > a").each(function(){
                         file = $(this).attr("href");
                     });
                  
-                    alert("Path: /feed-test/" + file);
+                    alert("Path: /feeds/" + file);
                 }
             });
             
