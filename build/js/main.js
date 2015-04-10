@@ -106,7 +106,7 @@ $(function(){
         speed: 300,
         slidesToShow: 1,
         adaptiveHeight: true,
-        initialSlide: 1
+        initialSlide: 0
     });
 
     /*//////////////////////////////////////
