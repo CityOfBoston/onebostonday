@@ -210,6 +210,8 @@ $(function(){
             $(response).find("td > a").each(function(){
                 file = $(this).attr("href");
             });
+            
+            alert(file);
          
             loadFeed(file);
         }
