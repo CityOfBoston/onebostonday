@@ -2364,32 +2364,27 @@ img {
 }
 /* line 11, ../../build/sass/partials/_press.scss */
 .press time {
-  margin: 0 10px;
+  margin: 0 15px;
   display: inline-block;
 }
-/* line 14, ../../build/sass/partials/_press.scss */
-.press time:before, .press time:after {
-  content: "-";
-  display: inline-block;
-}
-/* line 19, ../../build/sass/partials/_press.scss */
+/* line 15, ../../build/sass/partials/_press.scss */
 .press span {
   font-style: italic;
 }
-/* line 22, ../../build/sass/partials/_press.scss */
+/* line 18, ../../build/sass/partials/_press.scss */
 .press ul {
   padding: 20px 0;
   max-width: 650px;
   margin: 0 auto;
 }
-/* line 27, ../../build/sass/partials/_press.scss */
+/* line 23, ../../build/sass/partials/_press.scss */
 .press li {
   line-height: 1.44;
   margin-bottom: 20px;
   padding-bottom: 20px;
   border-bottom: 1px solid rgba(34, 34, 34, 0.2);
 }
-/* line 32, ../../build/sass/partials/_press.scss */
+/* line 28, ../../build/sass/partials/_press.scss */
 .press li:last-child {
   border-bottom: none;
 }

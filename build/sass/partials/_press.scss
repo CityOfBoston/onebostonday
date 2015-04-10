@@ -9,12 +9,8 @@
 		color:$primary;
 	}
 	time{
-		margin:0 10px;
+		margin:0 15px;
 		display:inline-block;	
-		&:before,&:after{
-			content:"-";
-			display:inline-block;
-		}
 	}
 	span{
 		font-style:italic;
