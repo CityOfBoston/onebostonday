@@ -69,7 +69,20 @@ $(function(){
     };
    // colorChangeIntroID = setInterval(colorChangeIntro, 10);
 
-    
+   /*//////////////////////////////////////
+    //  smooth scrolling
+    //////////////////////////////////////*/
+    $('.main-nav a').on('click',function(event){
+        event.preventDefault();
+        var target = $(this).attr('href');
+        var distance = ( $(target).offset().top - $('.main-nav').height() );
+
+        $('html,body').animate({
+            scrollTop: distance + 'px'
+        });
+    });
+
+
     /*//////////////////////////////////////
     //  video toggle
     //////////////////////////////////////*/
