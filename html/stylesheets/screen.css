@@ -1385,27 +1385,26 @@ img {
   /* line 47, ../../build/sass/partials/_main-nav.scss */
   .main-nav ul {
     max-height: 100px;
-    width: 100%;
     position: absolute;
     top: 50%;
-    right: auto;
+    right: 0px;
     bottom: auto;
-    left: 50%;
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    -moz-transform: translateX(-50%) translateY(-50%);
-    -ms-transform: translateX(-50%) translateY(-50%);
-    -o-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
+    left: auto;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
     -webkit-transition: none;
     -moz-transition: none;
     transition: none;
     z-index: 1;
   }
-  /* line 54, ../../build/sass/partials/_main-nav.scss */
+  /* line 53, ../../build/sass/partials/_main-nav.scss */
   .main-nav ul li {
     display: inline-block;
   }
-  /* line 58, ../../build/sass/partials/_main-nav.scss */
+  /* line 57, ../../build/sass/partials/_main-nav.scss */
   .main-nav li a {
     padding: 10px 30px;
   }

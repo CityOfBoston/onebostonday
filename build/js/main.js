@@ -41,7 +41,7 @@ $(function(){
     ];
 
 
-    // DYNAMICALLY CHANGES COLOR VALUES ACROSS THE SITE
+    // DYNACALLY CHANGES COLOR VALUES ACROSS THE SITE
     var currentColor = 1;
     var setColors = function(){
         var totalColors = colors.length;
