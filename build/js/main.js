@@ -146,6 +146,7 @@ $(function(){
     
         $.ajax({
             url:'/feeds/' + file,
+            dataType: 'json',
             success:function(response){
                 var totalPosts = response.data.length;
     
@@ -210,8 +211,6 @@ $(function(){
             $(response).find("td > a").each(function(){
                 file = $(this).attr("href");
             });
-            
-            alert(file);
          
             loadFeed(file);
         }
