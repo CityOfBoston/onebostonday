@@ -197,21 +197,25 @@ $(function(){
                         touchThreshold: 3
                     });
     
+                    // adding dots above the slider
                     setTimeout(function(){
                         $('.feed ul.slick-dots').clone().insertBefore($('.feed .slick-list')).addClass('above-dots');
                     },300);
     
                     $('.feed > ul').on('swipe', function(event, slick, direction){
+                        // update top dot location on swipe
                         $('.slick-dots.above-dots li').each(function(){
                             $(this).removeClass('slick-active');
                         });
                         $('.slick-dots.above-dots li:nth-child('+(slick.currentSlide + 1)+')').addClass('slick-active');
                     
+                        // lazy load images on swipe
                         $('.slick-slide[data-slick-index="'+slick.currentSlide+'"] img').each(function(){
                             $(this).attr('src',$(this).data('original'));
                         });
                     });
-    
+        
+                    // when a user taps the top dots, move to that index
                     $('body').on('click','.slick-dots.above-dots li',function(){
                         var page = ($(this).index() + 1);
                         $('.feed > ul').slick('slickGoTo',page);
@@ -235,8 +239,8 @@ $(function(){
             $(response).find("td > a").each(function(){
                 file = $(this).attr("href");
             });
-            //loadFeed(file);
-            loadFeed('../feeds/feed_1428692898.json');
+            loadFeed(file);
+            //loadFeed('../feeds/feed_1428692898.json');
         }
     });
 
