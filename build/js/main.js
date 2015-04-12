@@ -151,6 +151,8 @@ $(function(){
                 if(totalPosts > 54){
                     totalPosts = 54;
                 }
+
+                //console.log(totalPosts);
     
                 for (i=0;i<response.data.length;i++){
                     var post = response.data[i];
@@ -209,7 +211,7 @@ $(function(){
             $(response).find("td > a").each(function(){
                 file = $(this).attr("href");
             });
-            loadFeed(file);
+            //loadFeed(file);
         }
     });
 
