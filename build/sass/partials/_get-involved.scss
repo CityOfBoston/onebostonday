@@ -47,7 +47,7 @@
 		border-bottom:1px solid rgba($dark,.5);
 		padding:20px 0 15px;
 		position:relative;
-		font-size:1.33em;
+		font-size:1.1em;
 		text-align:center;
 	}
 	svg{
@@ -111,6 +111,9 @@
 			padding-left:25px;
 			position:relative;
 			top:120px;
+			header{
+				font-size:1.33em;
+			}
 		}
 		.social .feed > ul{
 			margin:20px 0;
