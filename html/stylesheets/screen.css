@@ -2239,7 +2239,7 @@ img {
   background-color: #fff;
 }
 /* line 4, ../../build/sass/partials/_downloads.scss */
-.downloads button {
+.downloads a.package {
   text-transform: uppercase;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -2255,26 +2255,30 @@ img {
   display: block;
   margin: 0 auto 20px;
 }
-/* line 16, ../../build/sass/partials/_downloads.scss */
+/* line 15, ../../build/sass/partials/_downloads.scss */
+.downloads a.package:before {
+  content: none;
+}
+/* line 19, ../../build/sass/partials/_downloads.scss */
 .downloads h4 {
   border-top: 1px solid;
   font-size: 1.2em;
   padding: 10px 0 20px;
   line-height: 1.33;
 }
-/* line 22, ../../build/sass/partials/_downloads.scss */
+/* line 25, ../../build/sass/partials/_downloads.scss */
 .downloads img {
   width: 100%;
 }
-/* line 25, ../../build/sass/partials/_downloads.scss */
+/* line 28, ../../build/sass/partials/_downloads.scss */
 .downloads .logo-container {
   padding: 0 10px;
 }
-/* line 28, ../../build/sass/partials/_downloads.scss */
+/* line 31, ../../build/sass/partials/_downloads.scss */
 .downloads .profile-picture, .downloads .anyday-logos {
   margin-bottom: 30px;
 }
-/* line 30, ../../build/sass/partials/_downloads.scss */
+/* line 33, ../../build/sass/partials/_downloads.scss */
 .downloads .profile-picture ul, .downloads .anyday-logos ul {
   *zoom: 1;
   max-width: 930px;
@@ -2290,7 +2294,7 @@ img {
 .downloads .profile-picture ul:after, .downloads .anyday-logos ul:after {
   clear: both;
 }
-/* line 33, ../../build/sass/partials/_downloads.scss */
+/* line 36, ../../build/sass/partials/_downloads.scss */
 .downloads .profile-picture li, .downloads .anyday-logos li {
   display: block;
   float: left;
@@ -2301,8 +2305,8 @@ img {
 .downloads .profile-picture li:last-child, .downloads .anyday-logos li:last-child {
   margin-right: 0;
 }
-/* line 36, ../../build/sass/partials/_downloads.scss */
-.downloads .profile-picture a, .downloads .anyday-logos a {
+/* line 39, ../../build/sass/partials/_downloads.scss */
+.downloads .profile-picture li a, .downloads .anyday-logos li a {
   display: block;
   width: 100%;
   background-color: #eeeeee;
@@ -2310,20 +2314,20 @@ img {
   background-position: center;
   border: 2px solid #eeeeee;
 }
-/* line 43, ../../build/sass/partials/_downloads.scss */
-.downloads .profile-picture a:before, .downloads .anyday-logos a:before {
+/* line 46, ../../build/sass/partials/_downloads.scss */
+.downloads .profile-picture li a:before, .downloads .anyday-logos li a:before {
   content: " ";
   display: block;
 }
-/* line 49, ../../build/sass/partials/_downloads.scss */
+/* line 52, ../../build/sass/partials/_downloads.scss */
 .downloads .profile-picture img {
   border: 2px solid #eeeeee;
 }
-/* line 53, ../../build/sass/partials/_downloads.scss */
+/* line 56, ../../build/sass/partials/_downloads.scss */
 .downloads .profile-picture a:before {
   padding-top: 100%;
 }
-/* line 58, ../../build/sass/partials/_downloads.scss */
+/* line 61, ../../build/sass/partials/_downloads.scss */
 .downloads .anyday-logos li {
   margin-bottom: 7px;
 }
@@ -2335,21 +2339,21 @@ img {
 .downloads .anyday-logos li:nth-child(2n+1) {
   clear: left;
 }
-/* line 62, ../../build/sass/partials/_downloads.scss */
+/* line 65, ../../build/sass/partials/_downloads.scss */
 .downloads .anyday-logos a:before {
   padding-top: 50%;
 }
 
 @media all and (min-width: 700px) {
-  /* line 70, ../../build/sass/partials/_downloads.scss */
+  /* line 73, ../../build/sass/partials/_downloads.scss */
   .downloads h4 {
     float: left;
   }
-  /* line 73, ../../build/sass/partials/_downloads.scss */
-  .downloads button {
+  /* line 76, ../../build/sass/partials/_downloads.scss */
+  .downloads a.package {
     float: right;
   }
-  /* line 76, ../../build/sass/partials/_downloads.scss */
+  /* line 79, ../../build/sass/partials/_downloads.scss */
   .downloads ul {
     *zoom: 1;
   }
@@ -2362,7 +2366,7 @@ img {
   .downloads ul:after {
     clear: both;
   }
-  /* line 79, ../../build/sass/partials/_downloads.scss */
+  /* line 82, ../../build/sass/partials/_downloads.scss */
   .downloads .logo-container {
     *zoom: 1;
     max-width: 930px;
@@ -2378,7 +2382,7 @@ img {
   .downloads .logo-container:after {
     clear: both;
   }
-  /* line 81, ../../build/sass/partials/_downloads.scss */
+  /* line 84, ../../build/sass/partials/_downloads.scss */
   .downloads .logo-container .profile-picture {
     display: block;
     float: left;
@@ -2389,7 +2393,7 @@ img {
   .downloads .logo-container .profile-picture:last-child {
     margin-right: 0;
   }
-  /* line 84, ../../build/sass/partials/_downloads.scss */
+  /* line 87, ../../build/sass/partials/_downloads.scss */
   .downloads .logo-container .anyday-logos {
     display: block;
     float: left;
@@ -2400,16 +2404,16 @@ img {
   .downloads .logo-container .anyday-logos:last-child {
     margin-right: 0;
   }
-  /* line 89, ../../build/sass/partials/_downloads.scss */
+  /* line 92, ../../build/sass/partials/_downloads.scss */
   .downloads .profile-picture ul, .downloads .anyday-logos ul {
     width: 100%;
     float: left;
   }
-  /* line 94, ../../build/sass/partials/_downloads.scss */
+  /* line 97, ../../build/sass/partials/_downloads.scss */
   .downloads .profile-picture {
     padding-right: 50px;
   }
-  /* line 96, ../../build/sass/partials/_downloads.scss */
+  /* line 99, ../../build/sass/partials/_downloads.scss */
   .downloads .profile-picture li {
     display: block;
     float: left;
@@ -2422,15 +2426,15 @@ img {
   .downloads .profile-picture li:last-child {
     margin-right: 0;
   }
-  /* line 103, ../../build/sass/partials/_downloads.scss */
+  /* line 106, ../../build/sass/partials/_downloads.scss */
   .downloads .anyday-logos h4 {
     width: 50%;
   }
-  /* line 106, ../../build/sass/partials/_downloads.scss */
+  /* line 109, ../../build/sass/partials/_downloads.scss */
   .downloads .anyday-logos ul {
     margin-top: 20px;
   }
-  /* line 109, ../../build/sass/partials/_downloads.scss */
+  /* line 112, ../../build/sass/partials/_downloads.scss */
   .downloads .anyday-logos li {
     display: block;
     float: left;

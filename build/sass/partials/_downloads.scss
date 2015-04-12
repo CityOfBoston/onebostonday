@@ -1,7 +1,7 @@
 .downloads{
 	min-height:300px;
 	background-color:#fff;
-	button{
+	a.package{
 		text-transform: uppercase;
 		@include appearance(none);
 		background-color:transparent;
@@ -12,6 +12,9 @@
 		color:$primary;
 		display:block;
 		margin:0 auto 20px;
+		&:before{
+			content:none;
+		}
 	}
 	h4{
 		border-top:1px solid;
@@ -33,7 +36,7 @@
 		li{
 			@include span-columns(6);
 		}
-		a{
+		li a{
 			display:block;
 			width:100%;
 			background-color:lighten($dark, 80%);
@@ -70,7 +73,7 @@
 		h4{
 			float:left;
 		}
-		button{
+		a.package{
 			float:right;
 		}
 		ul{
