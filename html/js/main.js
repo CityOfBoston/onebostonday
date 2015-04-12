@@ -136,7 +136,8 @@ $(function() {
             }), $(this).attr("href", "../img/logos/" + image), Modernizr.adownload || $(this).attr("target", "_blank");
         });
     }, loadTheLogos = setInterval(function() {
-        scrollDistance() > $(".downloads").offset().top && (loadLogos(), clearInterval(loadTheLogos));
+        $(".press").length <= 0 && scrollDistance() > $(".downloads").offset().top && (loadLogos(), 
+        clearInterval(loadTheLogos));
     }, 50);
     $(".mayor .flickr").on("click", function() {
         window.open("https://www.flickr.com/people/bosmayorsoffice/", "_blank");

@@ -328,9 +328,11 @@ $(function(){
     };
 
     var loadTheLogos = setInterval(function(){
-        if(scrollDistance() > $('.downloads').offset().top){
-            loadLogos();
-            clearInterval(loadTheLogos);
+        if( $('.press').length <= 0){
+            if(scrollDistance() > $('.downloads').offset().top){
+                loadLogos();
+                clearInterval(loadTheLogos);
+            }
         }
     },50);
 

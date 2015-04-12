@@ -242,7 +242,7 @@ p {
 }
 /* line 181, ../../build/sass/partials/_base.scss */
 .section-intro p {
-  max-width: 520px;
+  max-width: 540px;
   margin: 0 auto;
   line-height: 1.7;
 }
@@ -1421,7 +1421,7 @@ img {
 .intro {
   min-height: 500px;
   height: calc(100vh - 64px);
-  background-image: url('../img/skyline.jpg?1428593596');
+  background-image: url('../img/skyline.jpg?1428864040');
   background-size: cover;
   margin-top: 64px;
   position: relative;
