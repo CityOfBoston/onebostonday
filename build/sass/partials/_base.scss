@@ -25,11 +25,8 @@ $light:#EAE4E5;
 /*//////////////////////////////////////
 //  fonts
 //////////////////////////////////////*/
-$font-sans: helvetica;
+$font-sans: 'Gotham SSm A', 'Gotham SSm B';
 $font-serif: georgia;
-
-$font-thin:"Gotham SSm A";
-$font-bold:"Gotham SSm B";
 
 /*//////////////////////////////////////
 //  extension on skeleton
@@ -81,15 +78,6 @@ a{
 /*//////////////////////////////////////
 //  mixins
 //////////////////////////////////////*/
-
-@mixin font-size($size, $line-spacing: 1.3, $letter-spacing: .09){
-    font-size:($size*$font-size) + px;
-    line-height:($size*$line-spacing) + px;
-
-    font-size:($size) + rem;
-    line-height:($size*$line-spacing) + rem;
-    // letter-spacing:($letter-spacing) + rem;
-}
 
 @mixin input-placeholder {
     &:-moz-placeholder { @content; }
@@ -149,12 +137,14 @@ body,html{
 body{
     position:relative;
     font-size:16px;
-    font-family:"Gotham SSm A";
+    font-family:$font-sans;
+    font-weight:400;
     overflow-x:hidden;
 }
 
 h1,h2,h3,h4,h5,h6,strong,b{
-    font-family:$font-bold;
+    font-family:$font-sans;
+    font-weight:500;
 }
 
 h1{
