@@ -12,6 +12,7 @@
 		color:$primary;
 		display:block;
 		margin:0 auto 20px;
+		@extend %default-transition;
 		&:before{
 			content:none;
 		}
@@ -30,11 +31,27 @@
 	}
 	.profile-picture,.anyday-logos{
 		margin-bottom:30px;
+		span{
+			@include position(absolute, auto 0px -40px 0px);
+			@extend %default-transition;
+			background-color:$primary;
+			padding:5px;
+			svg{
+				@include size(20px);
+				margin:0 auto;
+				display:block;
+				use{
+					fill:#fff;
+				}
+			}
+		}
 		ul{
 			@include outer-container();
 		}
 		li{
 			@include span-columns(6);
+			position:relative;
+			overflow:hidden;
 		}
 		li a{
 			display:block;
@@ -43,6 +60,7 @@
 			background-size:80%;
 			background-position:center;
 			border:2px solid lighten($dark, 80%);
+			@extend %default-transition;
 			&:before{
 				content:" ";
 				display:block;
@@ -64,6 +82,19 @@
 		}
 		a:before{
 			padding-top:50%;
+		}
+	}
+}
+
+.no-touch{
+	a.package:hover{
+		color:#fff;
+		background-color:$primary;
+	}
+	.profile-picture a:hover,.anyday-logos a:hover{
+		border-color:$primary;
+		span{
+			bottom:0px;
 		}
 	}
 }
@@ -98,8 +129,11 @@
 			padding-right:50px;
 			li{
 				@include span-columns(12);
-				padding-right:45px;
 				margin-bottom:25px;
+				padding-right:45px;
+				span{
+					right:45px;
+				}
 			}
 		}
 		.anyday-logos{

@@ -152,8 +152,9 @@ $slick-opacity-not-active: 0.25 !default;
     border: none;
     outline: none;
     padding:20px;
-    @include border-radius(50%);
     border:2px solid #fff;
+    @include border-radius(50%);
+    @extend %default-transition;
     &:hover, &:focus {
         outline: none;
         background: transparent;
@@ -165,6 +166,7 @@ $slick-opacity-not-active: 0.25 !default;
         width:3px;
         height:15px;
         background-color:#fff;
+         @extend %default-transition;
         @include position(absolute, 40% auto auto 45%);
         @include transform(translateX(-50%) translateY(-50%) rotate(45deg));
     }
@@ -204,6 +206,18 @@ $slick-opacity-not-active: 0.25 !default;
     }
 }
 
+.no-touch{
+    .slick-next,
+    .slick-prev{
+        &:hover{
+            background-color:#fff;
+            &:before,&:after{
+                background-color:$primary;
+            }
+        }
+    }
+}
+
 /* Dots */
 
 .slick-slider {
@@ -226,6 +240,7 @@ $slick-opacity-not-active: 0.25 !default;
         margin: 0 5px;
         padding: 0;
         cursor: pointer;
+        @extend %default-transition;
         button {
             border: 0;
             background: transparent;
@@ -272,4 +287,8 @@ $slick-opacity-not-active: 0.25 !default;
     .slick-dots{
         bottom:-75px;
     }
+}
+
+.no-touch .slick-dots li:hover{
+    background-color:#fff;
 }

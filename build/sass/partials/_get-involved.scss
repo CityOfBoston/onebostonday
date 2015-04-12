@@ -17,7 +17,20 @@
 		background-color:#fff;
 		padding:10px;
 		min-height:430px;
+		li:first-child{
+			@include opacity(0);
+			@include transform(scale(0));
+			max-height:0px;
+			overflow:hidden;
+			@include transition(all .6s ease-in-out);
+		}
 	}
+}
+
+.no-touch .tracked .social .feed > ul li:first-child{
+	@include opacity(1);
+	@include transform(scale(1));
+	max-height:700px;
 }
 
 @include keyframes(spin){
@@ -92,7 +105,12 @@
 		padding:15px 0;
 		font-size:1em;
 		color:#fff;
+		@extend %default-transition;
 	}
+}
+
+.no-touch button.tweet:hover{
+	background-color:darken($twitter,20%);
 }
 
 .no-touch .craft-tweet{
@@ -148,6 +166,7 @@
 		}
 		a{
 			color:lighten($dark,50%);
+			@extend %default-transition;
 		}
 		a.time{
 			float:right;
@@ -176,6 +195,10 @@
 	}
 }
 
+.no-touch .feed li.twitter .tweet-header a:hover{
+	color:$primary;
+}
+
 @media all and(min-width:800px){
 	.feed li.twitter{
 		.actions{
@@ -202,6 +225,7 @@
 		}
 		a{
 			color:lighten($dark,50%);
+			@extend %default-transition;
 		}
 		h4{
 			float:left;
@@ -213,6 +237,10 @@
 	p{
 		clear:both;
 	}
+}
+
+.no-touch .feed li.instagram .insta-header a:hover{
+	color:$primary;
 }
 
 .feed li.twitter,.feed li.instagram{

@@ -155,7 +155,10 @@ a {
 }
 
 /* line 111, ../../build/sass/partials/_base.scss */
-.burger-box, .main-nav ul, .community .copy > p + a svg, .feed li.twitter .actions ul, .follow button svg use {
+.burger-box, .slick-prev,
+.slick-next, .slick-prev:before, .slick-prev:after,
+.slick-next:before,
+.slick-next:after, .slick-dots li, .main-nav ul, .video span, .video span svg, .video span svg use, .community .copy > p + a, .community .copy > p + a svg, .community .copy > p + a svg use, .craft-tweet button.tweet, .feed li.twitter .tweet-header a, .feed li.twitter .actions ul, .feed li.instagram .insta-header a, .downloads a.package, .downloads .profile-picture span, .downloads .anyday-logos span, .downloads .profile-picture li a, .downloads .anyday-logos li a, .main-footer p a, .main-footer .follow button, .follow button svg use {
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -245,6 +248,11 @@ p {
   max-width: 540px;
   margin: 0 auto;
   line-height: 1.7;
+}
+
+/* line 188, ../../build/sass/partials/_base.scss */
+img {
+  max-width: 100%;
 }
 
 /* line 1, ../../build/sass/partials/_burger.scss */
@@ -1025,11 +1033,6 @@ p {
     transform: none;
   }
 }
-/* line 4, ../../build/sass/screen.scss */
-img {
-  max-width: 100%;
-}
-
 /* Slider */
 /* line 5, ../../build/sass/partials/_slider.scss */
 .slick-slider {
@@ -1155,12 +1158,12 @@ img {
   border: none;
   outline: none;
   padding: 20px;
+  border: 2px solid #fff;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
-  border: 2px solid #fff;
 }
-/* line 157, ../../build/sass/partials/_slider.scss */
+/* line 158, ../../build/sass/partials/_slider.scss */
 .slick-prev:hover, .slick-prev:focus,
 .slick-next:hover,
 .slick-next:focus {
@@ -1168,7 +1171,7 @@ img {
   background: transparent;
   color: transparent;
 }
-/* line 162, ../../build/sass/partials/_slider.scss */
+/* line 163, ../../build/sass/partials/_slider.scss */
 .slick-prev:before, .slick-prev:after,
 .slick-next:before,
 .slick-next:after {
@@ -1188,7 +1191,7 @@ img {
   -o-transform: translateX(-50%) translateY(-50%) rotate(45deg);
   transform: translateX(-50%) translateY(-50%) rotate(45deg);
 }
-/* line 171, ../../build/sass/partials/_slider.scss */
+/* line 173, ../../build/sass/partials/_slider.scss */
 .slick-prev:after,
 .slick-next:after {
   top: 60%;
@@ -1199,20 +1202,20 @@ img {
   transform: translateX(-50%) translateY(-50%) rotate(-45deg);
 }
 
-/* line 177, ../../build/sass/partials/_slider.scss */
+/* line 179, ../../build/sass/partials/_slider.scss */
 .slick-prev {
   left: 10px;
 }
 
-/* line 181, ../../build/sass/partials/_slider.scss */
+/* line 183, ../../build/sass/partials/_slider.scss */
 .slick-next {
   right: 10px;
 }
-/* line 183, ../../build/sass/partials/_slider.scss */
+/* line 185, ../../build/sass/partials/_slider.scss */
 .slick-next:before, .slick-next:after {
   left: 55%;
 }
-/* line 186, ../../build/sass/partials/_slider.scss */
+/* line 188, ../../build/sass/partials/_slider.scss */
 .slick-next:before {
   -webkit-transform: translateX(-50%) translateY(-50%) rotate(135deg);
   -moz-transform: translateX(-50%) translateY(-50%) rotate(135deg);
@@ -1220,7 +1223,7 @@ img {
   -o-transform: translateX(-50%) translateY(-50%) rotate(135deg);
   transform: translateX(-50%) translateY(-50%) rotate(135deg);
 }
-/* line 189, ../../build/sass/partials/_slider.scss */
+/* line 191, ../../build/sass/partials/_slider.scss */
 .slick-next:after {
   -webkit-transform: translateX(-50%) translateY(-50%) rotate(-135deg);
   -moz-transform: translateX(-50%) translateY(-50%) rotate(-135deg);
@@ -1230,29 +1233,41 @@ img {
 }
 
 @media all and (min-width: 800px) {
-  /* line 195, ../../build/sass/partials/_slider.scss */
+  /* line 197, ../../build/sass/partials/_slider.scss */
   .slick-prev,
   .slick-next {
     top: 175px;
   }
 
-  /* line 199, ../../build/sass/partials/_slider.scss */
+  /* line 201, ../../build/sass/partials/_slider.scss */
   .slick-prev {
     left: 25px;
   }
 
-  /* line 202, ../../build/sass/partials/_slider.scss */
+  /* line 204, ../../build/sass/partials/_slider.scss */
   .slick-next {
     right: 25px;
   }
 }
+/* line 212, ../../build/sass/partials/_slider.scss */
+.no-touch .slick-next:hover,
+.no-touch .slick-prev:hover {
+  background-color: #fff;
+}
+/* line 214, ../../build/sass/partials/_slider.scss */
+.no-touch .slick-next:hover:before, .no-touch .slick-next:hover:after,
+.no-touch .slick-prev:hover:before,
+.no-touch .slick-prev:hover:after {
+  background-color: #2F96F8;
+}
+
 /* Dots */
-/* line 209, ../../build/sass/partials/_slider.scss */
+/* line 223, ../../build/sass/partials/_slider.scss */
 .slick-slider {
   margin-bottom: 30px;
 }
 
-/* line 213, ../../build/sass/partials/_slider.scss */
+/* line 227, ../../build/sass/partials/_slider.scss */
 .slick-dots {
   position: absolute;
   bottom: -5px;
@@ -1262,7 +1277,7 @@ img {
   padding: 0;
   width: 100%;
 }
-/* line 221, ../../build/sass/partials/_slider.scss */
+/* line 235, ../../build/sass/partials/_slider.scss */
 .slick-dots li {
   position: relative;
   display: inline-block;
@@ -1272,7 +1287,7 @@ img {
   padding: 0;
   cursor: pointer;
 }
-/* line 229, ../../build/sass/partials/_slider.scss */
+/* line 244, ../../build/sass/partials/_slider.scss */
 .slick-dots li button {
   border: 0;
   background: transparent;
@@ -1286,15 +1301,15 @@ img {
   padding: 5px;
   cursor: pointer;
 }
-/* line 241, ../../build/sass/partials/_slider.scss */
+/* line 256, ../../build/sass/partials/_slider.scss */
 .slick-dots li button:hover, .slick-dots li button:focus {
   outline: none;
 }
-/* line 243, ../../build/sass/partials/_slider.scss */
+/* line 258, ../../build/sass/partials/_slider.scss */
 .slick-dots li button:hover:before, .slick-dots li button:focus:before {
   opacity: 1;
 }
-/* line 247, ../../build/sass/partials/_slider.scss */
+/* line 262, ../../build/sass/partials/_slider.scss */
 .slick-dots li button:before {
   content: " ";
   position: absolute;
@@ -1311,18 +1326,23 @@ img {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/* line 264, ../../build/sass/partials/_slider.scss */
+/* line 279, ../../build/sass/partials/_slider.scss */
 .slick-dots li.slick-active button:before {
   color: black;
   opacity: 0.75;
 }
 
 @media all and (min-width: 800px) {
-  /* line 272, ../../build/sass/partials/_slider.scss */
+  /* line 287, ../../build/sass/partials/_slider.scss */
   .slick-dots {
     bottom: -75px;
   }
 }
+/* line 292, ../../build/sass/partials/_slider.scss */
+.no-touch .slick-dots li:hover {
+  background-color: #fff;
+}
+
 /* line 1, ../../build/sass/partials/_main-nav.scss */
 .main-nav {
   text-transform: uppercase;
@@ -1414,7 +1434,17 @@ img {
   }
   /* line 57, ../../build/sass/partials/_main-nav.scss */
   .main-nav li a {
-    padding: 10px 30px;
+    padding: 12px 0px 8px;
+    margin: 0 30px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0);
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+  /* line 62, ../../build/sass/partials/_main-nav.scss */
+  .main-nav li a:hover, .main-nav li a .active {
+    padding: 12px 0 4px;
+    border-bottom: 2px solid white;
   }
 }
 /* line 1, ../../build/sass/partials/_intro.scss */
@@ -1430,24 +1460,31 @@ img {
 .intro .logo {
   display: none;
 }
-/* line 11, ../../build/sass/partials/_intro.scss */
+/* line 10, ../../build/sass/partials/_intro.scss */
+.intro .logo .number-one {
+  -webkit-transition: all 0.6s ease-in;
+  -moz-transition: all 0.6s ease-in;
+  transition: all 0.6s ease-in;
+  fill: #2F96F8;
+}
+/* line 15, ../../build/sass/partials/_intro.scss */
 .intro .copy {
   top: 40%;
   width: 100%;
   color: #fff;
   padding: 10px;
 }
-/* line 18, ../../build/sass/partials/_intro.scss */
+/* line 22, ../../build/sass/partials/_intro.scss */
 .intro .block {
   position: relative;
   height: 100%;
   z-index: 2;
 }
-/* line 23, ../../build/sass/partials/_intro.scss */
+/* line 27, ../../build/sass/partials/_intro.scss */
 .intro p {
   margin: 1em 0;
 }
-/* line 26, ../../build/sass/partials/_intro.scss */
+/* line 30, ../../build/sass/partials/_intro.scss */
 .intro h1, .intro p, .intro h3 {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
@@ -1458,38 +1495,45 @@ img {
   top: 20px;
 }
 
-/* line 35, ../../build/sass/partials/_intro.scss */
+/* line 39, ../../build/sass/partials/_intro.scss */
 .ready .intro h1, .ready .intro p, .ready .intro h3 {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
   top: 0px;
 }
-/* line 39, ../../build/sass/partials/_intro.scss */
+/* line 43, ../../build/sass/partials/_intro.scss */
 .ready .intro h1 {
   -webkit-transition-delay: 0.5s;
   -moz-transition-delay: 0.5s;
   transition-delay: 0.5s;
 }
-/* line 42, ../../build/sass/partials/_intro.scss */
+/* line 46, ../../build/sass/partials/_intro.scss */
 .ready .intro p {
   -webkit-transition-delay: 1s;
   -moz-transition-delay: 1s;
   transition-delay: 1s;
 }
-/* line 45, ../../build/sass/partials/_intro.scss */
+/* line 49, ../../build/sass/partials/_intro.scss */
 .ready .intro h3 {
   -webkit-transition-delay: 2s;
   -moz-transition-delay: 2s;
   transition-delay: 2s;
 }
+/* line 52, ../../build/sass/partials/_intro.scss */
+.ready .intro .logo .number-one {
+  fill: #fff;
+  -webkit-transition-delay: 1s;
+  -moz-transition-delay: 1s;
+  transition-delay: 1s;
+}
 
 @media all and (min-width: 800px) {
-  /* line 51, ../../build/sass/partials/_intro.scss */
+  /* line 59, ../../build/sass/partials/_intro.scss */
   .intro {
     position: relative;
     min-height: 530px;
   }
-  /* line 54, ../../build/sass/partials/_intro.scss */
+  /* line 62, ../../build/sass/partials/_intro.scss */
   .intro .block {
     *zoom: 1;
     max-width: 930px;
@@ -1516,21 +1560,21 @@ img {
   .intro .block:after {
     clear: both;
   }
-  /* line 60, ../../build/sass/partials/_intro.scss */
+  /* line 68, ../../build/sass/partials/_intro.scss */
   .intro .logo {
     display: block;
   }
-  /* line 62, ../../build/sass/partials/_intro.scss */
+  /* line 70, ../../build/sass/partials/_intro.scss */
   .intro .logo img, .intro .logo svg {
     width: 100%;
     position: relative;
     top: 15px;
   }
-  /* line 67, ../../build/sass/partials/_intro.scss */
+  /* line 75, ../../build/sass/partials/_intro.scss */
   .intro .logo svg {
     height: 200px;
   }
-  /* line 71, ../../build/sass/partials/_intro.scss */
+  /* line 79, ../../build/sass/partials/_intro.scss */
   .intro .copy {
     position: static;
     -webkit-transform: translateX(0) translateY(0);
@@ -1539,7 +1583,7 @@ img {
     -o-transform: translateX(0) translateY(0);
     transform: translateX(0) translateY(0);
   }
-  /* line 75, ../../build/sass/partials/_intro.scss */
+  /* line 83, ../../build/sass/partials/_intro.scss */
   .intro .logo, .intro .copy {
     display: block;
     float: left;
@@ -1578,10 +1622,13 @@ img {
   line-height: 1.22;
   margin-top: 20px;
 }
-/* line 23, ../../build/sass/partials/_city.scss */
+/* line 24, ../../build/sass/partials/_city.scss */
 .video span svg {
-  width: 60px;
-  height: 60px;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
   padding: 20px 17px 20px 23px;
   background-color: #222;
   margin-bottom: 5px;
@@ -1589,23 +1636,33 @@ img {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
-/* line 29, ../../build/sass/partials/_city.scss */
+/* line 31, ../../build/sass/partials/_city.scss */
 .video span svg use {
   fill: #fff;
 }
 
 @media all and (min-width: 600px) {
-  /* line 38, ../../build/sass/partials/_city.scss */
+  /* line 41, ../../build/sass/partials/_city.scss */
   .video span {
     font-size: 1.2em;
   }
-  /* line 40, ../../build/sass/partials/_city.scss */
+  /* line 43, ../../build/sass/partials/_city.scss */
   .video span svg {
     width: 80px;
     height: 80px;
     padding: 20px 17px 20px 23px;
   }
 }
+/* line 52, ../../build/sass/partials/_city.scss */
+.no-touch .video span:hover svg {
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  transform: scale(1.2);
+  background-color: #2F96F8;
+}
+
 /* line 1, ../../build/sass/partials/_community.scss */
 .community {
   background-image: url('../img/community.jpg?1428593596');
@@ -1644,45 +1701,61 @@ img {
   -webkit-border-radius: 50%;
   border-radius: 50%;
   box-shadow: 0px 0px 0px 3px white;
-  padding: 10px;
+  padding: 15px;
   max-width: 150px;
   display: block;
   margin: 0 auto 20px;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  -webkit-transform: scale(0.5);
+  -moz-transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  -o-transform: scale(0.5);
+  transform: scale(0.5);
 }
-/* line 35, ../../build/sass/partials/_community.scss */
+/* line 36, ../../build/sass/partials/_community.scss */
+.community .activity.slick-active figure > img {
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+/* line 40, ../../build/sass/partials/_community.scss */
 .community .blockquote {
   margin-bottom: 30px;
   position: relative;
 }
-/* line 38, ../../build/sass/partials/_community.scss */
+/* line 43, ../../build/sass/partials/_community.scss */
 .community .blockquote q {
   font-size: 1.5em;
   line-height: 1.2;
   display: block;
   margin-bottom: 15px;
 }
-/* line 43, ../../build/sass/partials/_community.scss */
+/* line 48, ../../build/sass/partials/_community.scss */
 .community .blockquote q:before {
   content: '“';
 }
-/* line 47, ../../build/sass/partials/_community.scss */
+/* line 52, ../../build/sass/partials/_community.scss */
 .community .blockquote cite {
   font-size: 1.2em;
 }
-/* line 52, ../../build/sass/partials/_community.scss */
+/* line 57, ../../build/sass/partials/_community.scss */
 .community .copy {
   padding: 0 10px;
 }
-/* line 54, ../../build/sass/partials/_community.scss */
+/* line 59, ../../build/sass/partials/_community.scss */
 .community .copy > p {
   margin-bottom: 40px;
 }
-/* line 56, ../../build/sass/partials/_community.scss */
+/* line 61, ../../build/sass/partials/_community.scss */
 .community .copy > p + a {
   text-transform: uppercase;
   color: #fff;
 }
-/* line 59, ../../build/sass/partials/_community.scss */
+/* line 65, ../../build/sass/partials/_community.scss */
 .community .copy > p + a svg {
   width: 1em;
   height: 1em;
@@ -1690,29 +1763,37 @@ img {
   top: 2px;
   left: 0px;
 }
-/* line 61, ../../build/sass/partials/_community.scss */
+/* line 67, ../../build/sass/partials/_community.scss */
 .community .copy > p + a svg use {
   fill: #fff;
 }
-/* line 72, ../../build/sass/partials/_community.scss */
+/* line 81, ../../build/sass/partials/_community.scss */
 .community .slick-dots li {
   border: 2px solid;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
-/* line 75, ../../build/sass/partials/_community.scss */
+/* line 84, ../../build/sass/partials/_community.scss */
 .community .slick-dots li.slick-active {
   background-color: #fff;
 }
 
-/* line 82, ../../build/sass/partials/_community.scss */
+/* line 91, ../../build/sass/partials/_community.scss */
+.no-touch .copy > p + a:hover {
+  color: #2F96F8;
+}
+/* line 93, ../../build/sass/partials/_community.scss */
 .no-touch .copy > p + a:hover svg {
   left: 10px;
 }
+/* line 95, ../../build/sass/partials/_community.scss */
+.no-touch .copy > p + a:hover svg use {
+  fill: #2F96F8;
+}
 
 @media all and (min-width: 800px) {
-  /* line 88, ../../build/sass/partials/_community.scss */
+  /* line 101, ../../build/sass/partials/_community.scss */
   .community .activity .block {
     *zoom: 1;
     max-width: 930px;
@@ -1728,7 +1809,7 @@ img {
   .community .activity .block:after {
     clear: both;
   }
-  /* line 91, ../../build/sass/partials/_community.scss */
+  /* line 104, ../../build/sass/partials/_community.scss */
   .community figure {
     display: block;
     float: left;
@@ -1739,11 +1820,11 @@ img {
   .community figure:last-child {
     margin-right: 0;
   }
-  /* line 93, ../../build/sass/partials/_community.scss */
+  /* line 106, ../../build/sass/partials/_community.scss */
   .community figure img {
     max-width: 300px;
   }
-  /* line 97, ../../build/sass/partials/_community.scss */
+  /* line 110, ../../build/sass/partials/_community.scss */
   .community .copy {
     display: block;
     float: left;
@@ -1754,7 +1835,7 @@ img {
   .community .copy:last-child {
     margin-right: 0;
   }
-  /* line 100, ../../build/sass/partials/_community.scss */
+  /* line 113, ../../build/sass/partials/_community.scss */
   .community .blockquote q:before {
     position: absolute;
     top: 0px;
@@ -1787,6 +1868,33 @@ img {
   background-color: #fff;
   padding: 10px;
   min-height: 430px;
+}
+/* line 20, ../../build/sass/partials/_get-involved.scss */
+.social .feed > ul li:first-child {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+  max-height: 0px;
+  overflow: hidden;
+  -webkit-transition: all 0.6s ease-in-out;
+  -moz-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
+}
+
+/* line 30, ../../build/sass/partials/_get-involved.scss */
+.no-touch .tracked .social .feed > ul li:first-child {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+  max-height: 700px;
 }
 
 @-webkit-keyframes spin {
@@ -1853,7 +1961,7 @@ img {
     transform: rotate(360deg);
   }
 }
-/* line 32, ../../build/sass/partials/_get-involved.scss */
+/* line 45, ../../build/sass/partials/_get-involved.scss */
 .feed svg.icon-spinner {
   -webkit-animation: spin 2s linear infinite;
   -moz-animation: spin 2s linear infinite;
@@ -1864,16 +1972,16 @@ img {
   height: 60px;
   margin-left: -15px;
 }
-/* line 39, ../../build/sass/partials/_get-involved.scss */
+/* line 52, ../../build/sass/partials/_get-involved.scss */
 .feed svg.icon-spinner use {
   fill: #a2a2a2;
 }
 
-/* line 44, ../../build/sass/partials/_get-involved.scss */
+/* line 57, ../../build/sass/partials/_get-involved.scss */
 .craft-tweet {
   position: relative;
 }
-/* line 46, ../../build/sass/partials/_get-involved.scss */
+/* line 59, ../../build/sass/partials/_get-involved.scss */
 .craft-tweet header {
   border-bottom: 1px solid rgba(34, 34, 34, 0.5);
   padding: 20px 0 15px;
@@ -1881,7 +1989,7 @@ img {
   font-size: 1.1em;
   text-align: center;
 }
-/* line 53, ../../build/sass/partials/_get-involved.scss */
+/* line 66, ../../build/sass/partials/_get-involved.scss */
 .craft-tweet svg {
   position: absolute;
   top: 50%;
@@ -1896,21 +2004,21 @@ img {
   width: 32px;
   height: 32px;
 }
-/* line 57, ../../build/sass/partials/_get-involved.scss */
+/* line 70, ../../build/sass/partials/_get-involved.scss */
 .craft-tweet svg use {
   fill: #469aea;
 }
-/* line 61, ../../build/sass/partials/_get-involved.scss */
+/* line 74, ../../build/sass/partials/_get-involved.scss */
 .craft-tweet .craft {
   position: relative;
   background-color: #fff;
   box-shadow: 0px 1px 12px rgba(34, 34, 34, 0.5) inset;
 }
-/* line 66, ../../build/sass/partials/_get-involved.scss */
+/* line 79, ../../build/sass/partials/_get-involved.scss */
 .craft-tweet .count {
   display: none;
 }
-/* line 69, ../../build/sass/partials/_get-involved.scss */
+/* line 82, ../../build/sass/partials/_get-involved.scss */
 .craft-tweet textarea, .craft-tweet button.tweet {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -1919,7 +2027,7 @@ img {
   appearance: none;
   border: none;
 }
-/* line 73, ../../build/sass/partials/_get-involved.scss */
+/* line 86, ../../build/sass/partials/_get-involved.scss */
 .craft-tweet textarea {
   margin: 15px 15px 12px;
   width: calc(100% - 30px);
@@ -1955,7 +2063,7 @@ img {
   color: #a2a2a2;
   font-style: italic;
 }
-/* line 86, ../../build/sass/partials/_get-involved.scss */
+/* line 99, ../../build/sass/partials/_get-involved.scss */
 .craft-tweet button.tweet {
   background-color: #469aea;
   width: 100%;
@@ -1967,7 +2075,12 @@ img {
   color: #fff;
 }
 
-/* line 99, ../../build/sass/partials/_get-involved.scss */
+/* line 112, ../../build/sass/partials/_get-involved.scss */
+.no-touch button.tweet:hover {
+  background-color: #1567b5;
+}
+
+/* line 117, ../../build/sass/partials/_get-involved.scss */
 .no-touch .craft-tweet .count {
   display: block;
   position: absolute;
@@ -1977,13 +2090,13 @@ img {
   left: auto;
   color: #888888;
 }
-/* line 103, ../../build/sass/partials/_get-involved.scss */
+/* line 121, ../../build/sass/partials/_get-involved.scss */
 .no-touch .craft-tweet .count b {
   color: #E9171E;
 }
 
 @media all and (min-width: 800px) {
-  /* line 111, ../../build/sass/partials/_get-involved.scss */
+  /* line 129, ../../build/sass/partials/_get-involved.scss */
   .get-involved .social {
     *zoom: 1;
     max-width: 930px;
@@ -1999,7 +2112,7 @@ img {
   .get-involved .social:after {
     clear: both;
   }
-  /* line 114, ../../build/sass/partials/_get-involved.scss */
+  /* line 132, ../../build/sass/partials/_get-involved.scss */
   .get-involved .feed, .get-involved .craft-tweet {
     display: block;
     float: left;
@@ -2010,28 +2123,28 @@ img {
   .get-involved .feed:last-child, .get-involved .craft-tweet:last-child {
     margin-right: 0;
   }
-  /* line 117, ../../build/sass/partials/_get-involved.scss */
+  /* line 135, ../../build/sass/partials/_get-involved.scss */
   .get-involved .craft-tweet {
     padding-left: 25px;
     position: relative;
     top: 120px;
   }
-  /* line 121, ../../build/sass/partials/_get-involved.scss */
+  /* line 139, ../../build/sass/partials/_get-involved.scss */
   .get-involved .craft-tweet header {
     font-size: 1.33em;
   }
-  /* line 125, ../../build/sass/partials/_get-involved.scss */
+  /* line 143, ../../build/sass/partials/_get-involved.scss */
   .get-involved .social .feed > ul {
     margin: 20px 0;
     max-height: 700px;
     overflow-y: scroll;
   }
-  /* line 130, ../../build/sass/partials/_get-involved.scss */
+  /* line 148, ../../build/sass/partials/_get-involved.scss */
   .get-involved .social .feed h5 {
     font-size: .9em;
   }
 }
-/* line 138, ../../build/sass/partials/_get-involved.scss */
+/* line 156, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter {
   *zoom: 1;
   max-width: 930px;
@@ -2047,7 +2160,7 @@ img {
 .feed li.twitter:after {
   clear: both;
 }
-/* line 141, ../../build/sass/partials/_get-involved.scss */
+/* line 159, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter .profile-image {
   display: block;
   float: left;
@@ -2059,7 +2172,7 @@ img {
 .feed li.twitter .profile-image:last-child {
   margin-right: 0;
 }
-/* line 142, ../../build/sass/partials/_get-involved.scss */
+/* line 160, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter .tweet {
   display: block;
   float: left;
@@ -2071,28 +2184,28 @@ img {
 .feed li.twitter .tweet:last-child {
   margin-right: 0;
 }
-/* line 144, ../../build/sass/partials/_get-involved.scss */
+/* line 162, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter .tweet-header {
   margin-bottom: 1em;
 }
-/* line 146, ../../build/sass/partials/_get-involved.scss */
+/* line 164, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter .tweet-header h4, .feed li.twitter .tweet-header a {
   display: inline-block;
 }
-/* line 149, ../../build/sass/partials/_get-involved.scss */
+/* line 167, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter .tweet-header a {
   color: #a2a2a2;
 }
-/* line 152, ../../build/sass/partials/_get-involved.scss */
+/* line 171, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter .tweet-header a.time {
   float: right;
 }
-/* line 157, ../../build/sass/partials/_get-involved.scss */
+/* line 176, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter .actions {
   float: left;
   width: 100%;
 }
-/* line 160, ../../build/sass/partials/_get-involved.scss */
+/* line 179, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter .actions ul {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
   opacity: 0.2;
@@ -2110,7 +2223,7 @@ img {
 .feed li.twitter .actions ul:after {
   clear: both;
 }
-/* line 164, ../../build/sass/partials/_get-involved.scss */
+/* line 183, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter .actions ul li {
   display: block;
   float: left;
@@ -2121,11 +2234,11 @@ img {
 .feed li.twitter .actions ul li:last-child {
   margin-right: 0;
 }
-/* line 167, ../../build/sass/partials/_get-involved.scss */
+/* line 186, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter .actions ul a {
   display: block;
 }
-/* line 170, ../../build/sass/partials/_get-involved.scss */
+/* line 189, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter .actions ul svg {
   width: 18px;
   height: 18px;
@@ -2133,8 +2246,13 @@ img {
   margin: 0 auto;
 }
 
+/* line 198, ../../build/sass/partials/_get-involved.scss */
+.no-touch .feed li.twitter .tweet-header a:hover {
+  color: #2F96F8;
+}
+
 @media all and (min-width: 800px) {
-  /* line 181, ../../build/sass/partials/_get-involved.scss */
+  /* line 204, ../../build/sass/partials/_get-involved.scss */
   .feed li.twitter .actions {
     display: block;
     float: left;
@@ -2147,17 +2265,17 @@ img {
     margin-right: 0;
   }
 }
-/* line 188, ../../build/sass/partials/_get-involved.scss */
+/* line 211, ../../build/sass/partials/_get-involved.scss */
 .no-touch .feed li:hover .actions ul {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
 
-/* line 193, ../../build/sass/partials/_get-involved.scss */
+/* line 216, ../../build/sass/partials/_get-involved.scss */
 .feed li.instagram > img {
   width: 100%;
 }
-/* line 196, ../../build/sass/partials/_get-involved.scss */
+/* line 219, ../../build/sass/partials/_get-involved.scss */
 .feed li.instagram .insta-header {
   margin: 10px 0 15px;
   display: block;
@@ -2172,28 +2290,33 @@ img {
 .feed li.instagram .insta-header:after {
   clear: both;
 }
-/* line 200, ../../build/sass/partials/_get-involved.scss */
+/* line 223, ../../build/sass/partials/_get-involved.scss */
 .feed li.instagram .insta-header h4, .feed li.instagram .insta-header a {
   display: inline-block;
 }
-/* line 203, ../../build/sass/partials/_get-involved.scss */
+/* line 226, ../../build/sass/partials/_get-involved.scss */
 .feed li.instagram .insta-header a {
   color: #a2a2a2;
 }
-/* line 206, ../../build/sass/partials/_get-involved.scss */
+/* line 230, ../../build/sass/partials/_get-involved.scss */
 .feed li.instagram .insta-header h4 {
   float: left;
 }
-/* line 209, ../../build/sass/partials/_get-involved.scss */
+/* line 233, ../../build/sass/partials/_get-involved.scss */
 .feed li.instagram .insta-header > a {
   float: right;
 }
-/* line 213, ../../build/sass/partials/_get-involved.scss */
+/* line 237, ../../build/sass/partials/_get-involved.scss */
 .feed li.instagram p {
   clear: both;
 }
 
-/* line 218, ../../build/sass/partials/_get-involved.scss */
+/* line 242, ../../build/sass/partials/_get-involved.scss */
+.no-touch .feed li.instagram .insta-header a:hover {
+  color: #2F96F8;
+}
+
+/* line 246, ../../build/sass/partials/_get-involved.scss */
 .feed li.twitter, .feed li.instagram {
   margin-bottom: 20px;
   padding-bottom: 20px;
@@ -2201,19 +2324,19 @@ img {
 }
 
 @media all and (min-width: 800px) {
-  /* line 226, ../../build/sass/partials/_get-involved.scss */
+  /* line 254, ../../build/sass/partials/_get-involved.scss */
   .feed li.twitter:last-child, .feed li.instagram:last-child, .feed .slick-slide:last-child {
     margin-bottom: 0px;
     border-bottom: none;
   }
 }
-/* line 233, ../../build/sass/partials/_get-involved.scss */
+/* line 261, ../../build/sass/partials/_get-involved.scss */
 .feed .slick-dots.above-dots {
   bottom: auto;
   top: -27px;
 }
 
-/* line 238, ../../build/sass/partials/_get-involved.scss */
+/* line 266, ../../build/sass/partials/_get-involved.scss */
 .feed .slick-dots {
   width: 100%;
   background-color: rgba(34, 34, 34, 0.5);
@@ -2221,7 +2344,7 @@ img {
   left: 0px;
   bottom: 0px;
 }
-/* line 244, ../../build/sass/partials/_get-involved.scss */
+/* line 272, ../../build/sass/partials/_get-involved.scss */
 .feed .slick-dots li {
   width: 15px;
   height: 15px;
@@ -2231,7 +2354,7 @@ img {
   border: 1px solid #fff;
   margin: 0 7px;
 }
-/* line 250, ../../build/sass/partials/_get-involved.scss */
+/* line 278, ../../build/sass/partials/_get-involved.scss */
 .feed .slick-dots .slick-active {
   background-color: #fff;
 }
@@ -2258,30 +2381,51 @@ img {
   display: block;
   margin: 0 auto 20px;
 }
-/* line 15, ../../build/sass/partials/_downloads.scss */
+/* line 16, ../../build/sass/partials/_downloads.scss */
 .downloads a.package:before {
   content: none;
 }
-/* line 19, ../../build/sass/partials/_downloads.scss */
+/* line 20, ../../build/sass/partials/_downloads.scss */
 .downloads h4 {
   border-top: 1px solid;
   font-size: 1.1em;
   padding: 10px 0 20px;
   line-height: 1.33;
 }
-/* line 25, ../../build/sass/partials/_downloads.scss */
+/* line 26, ../../build/sass/partials/_downloads.scss */
 .downloads img {
   width: 100%;
 }
-/* line 28, ../../build/sass/partials/_downloads.scss */
+/* line 29, ../../build/sass/partials/_downloads.scss */
 .downloads .logo-container {
   padding: 0 10px;
 }
-/* line 31, ../../build/sass/partials/_downloads.scss */
+/* line 32, ../../build/sass/partials/_downloads.scss */
 .downloads .profile-picture, .downloads .anyday-logos {
   margin-bottom: 30px;
 }
-/* line 33, ../../build/sass/partials/_downloads.scss */
+/* line 34, ../../build/sass/partials/_downloads.scss */
+.downloads .profile-picture span, .downloads .anyday-logos span {
+  position: absolute;
+  top: auto;
+  right: 0px;
+  bottom: -40px;
+  left: 0px;
+  background-color: #2F96F8;
+  padding: 5px;
+}
+/* line 39, ../../build/sass/partials/_downloads.scss */
+.downloads .profile-picture span svg, .downloads .anyday-logos span svg {
+  width: 20px;
+  height: 20px;
+  margin: 0 auto;
+  display: block;
+}
+/* line 43, ../../build/sass/partials/_downloads.scss */
+.downloads .profile-picture span svg use, .downloads .anyday-logos span svg use {
+  fill: #fff;
+}
+/* line 48, ../../build/sass/partials/_downloads.scss */
 .downloads .profile-picture ul, .downloads .anyday-logos ul {
   *zoom: 1;
   max-width: 930px;
@@ -2297,18 +2441,20 @@ img {
 .downloads .profile-picture ul:after, .downloads .anyday-logos ul:after {
   clear: both;
 }
-/* line 36, ../../build/sass/partials/_downloads.scss */
+/* line 51, ../../build/sass/partials/_downloads.scss */
 .downloads .profile-picture li, .downloads .anyday-logos li {
   display: block;
   float: left;
   margin-right: 2.35765%;
   width: 48.82117%;
+  position: relative;
+  overflow: hidden;
 }
 /* line 33, ../../build/sass/neat/grid/_span-columns.scss */
 .downloads .profile-picture li:last-child, .downloads .anyday-logos li:last-child {
   margin-right: 0;
 }
-/* line 39, ../../build/sass/partials/_downloads.scss */
+/* line 56, ../../build/sass/partials/_downloads.scss */
 .downloads .profile-picture li a, .downloads .anyday-logos li a {
   display: block;
   width: 100%;
@@ -2317,20 +2463,20 @@ img {
   background-position: center;
   border: 2px solid #eeeeee;
 }
-/* line 46, ../../build/sass/partials/_downloads.scss */
+/* line 64, ../../build/sass/partials/_downloads.scss */
 .downloads .profile-picture li a:before, .downloads .anyday-logos li a:before {
   content: " ";
   display: block;
 }
-/* line 52, ../../build/sass/partials/_downloads.scss */
+/* line 70, ../../build/sass/partials/_downloads.scss */
 .downloads .profile-picture img {
   border: 2px solid #eeeeee;
 }
-/* line 56, ../../build/sass/partials/_downloads.scss */
+/* line 74, ../../build/sass/partials/_downloads.scss */
 .downloads .profile-picture a:before {
   padding-top: 100%;
 }
-/* line 61, ../../build/sass/partials/_downloads.scss */
+/* line 79, ../../build/sass/partials/_downloads.scss */
 .downloads .anyday-logos li {
   margin-bottom: 7px;
 }
@@ -2342,21 +2488,35 @@ img {
 .downloads .anyday-logos li:nth-child(2n+1) {
   clear: left;
 }
-/* line 65, ../../build/sass/partials/_downloads.scss */
+/* line 83, ../../build/sass/partials/_downloads.scss */
 .downloads .anyday-logos a:before {
   padding-top: 50%;
 }
 
+/* line 90, ../../build/sass/partials/_downloads.scss */
+.no-touch a.package:hover {
+  color: #fff;
+  background-color: #2F96F8;
+}
+/* line 94, ../../build/sass/partials/_downloads.scss */
+.no-touch .profile-picture a:hover, .no-touch .anyday-logos a:hover {
+  border-color: #2F96F8;
+}
+/* line 96, ../../build/sass/partials/_downloads.scss */
+.no-touch .profile-picture a:hover span, .no-touch .anyday-logos a:hover span {
+  bottom: 0px;
+}
+
 @media all and (min-width: 700px) {
-  /* line 73, ../../build/sass/partials/_downloads.scss */
+  /* line 104, ../../build/sass/partials/_downloads.scss */
   .downloads h4 {
     float: left;
   }
-  /* line 76, ../../build/sass/partials/_downloads.scss */
+  /* line 107, ../../build/sass/partials/_downloads.scss */
   .downloads a.package {
     float: right;
   }
-  /* line 79, ../../build/sass/partials/_downloads.scss */
+  /* line 110, ../../build/sass/partials/_downloads.scss */
   .downloads ul {
     *zoom: 1;
   }
@@ -2369,7 +2529,7 @@ img {
   .downloads ul:after {
     clear: both;
   }
-  /* line 82, ../../build/sass/partials/_downloads.scss */
+  /* line 113, ../../build/sass/partials/_downloads.scss */
   .downloads .logo-container {
     *zoom: 1;
     max-width: 930px;
@@ -2385,7 +2545,7 @@ img {
   .downloads .logo-container:after {
     clear: both;
   }
-  /* line 84, ../../build/sass/partials/_downloads.scss */
+  /* line 115, ../../build/sass/partials/_downloads.scss */
   .downloads .logo-container .profile-picture {
     display: block;
     float: left;
@@ -2396,7 +2556,7 @@ img {
   .downloads .logo-container .profile-picture:last-child {
     margin-right: 0;
   }
-  /* line 87, ../../build/sass/partials/_downloads.scss */
+  /* line 118, ../../build/sass/partials/_downloads.scss */
   .downloads .logo-container .anyday-logos {
     display: block;
     float: left;
@@ -2407,37 +2567,41 @@ img {
   .downloads .logo-container .anyday-logos:last-child {
     margin-right: 0;
   }
-  /* line 92, ../../build/sass/partials/_downloads.scss */
+  /* line 123, ../../build/sass/partials/_downloads.scss */
   .downloads .profile-picture ul, .downloads .anyday-logos ul {
     width: 100%;
     float: left;
   }
-  /* line 97, ../../build/sass/partials/_downloads.scss */
+  /* line 128, ../../build/sass/partials/_downloads.scss */
   .downloads .profile-picture {
     padding-right: 50px;
   }
-  /* line 99, ../../build/sass/partials/_downloads.scss */
+  /* line 130, ../../build/sass/partials/_downloads.scss */
   .downloads .profile-picture li {
     display: block;
     float: left;
     margin-right: 2.35765%;
     width: 100%;
-    padding-right: 45px;
     margin-bottom: 25px;
+    padding-right: 45px;
   }
   /* line 33, ../../build/sass/neat/grid/_span-columns.scss */
   .downloads .profile-picture li:last-child {
     margin-right: 0;
   }
-  /* line 106, ../../build/sass/partials/_downloads.scss */
+  /* line 134, ../../build/sass/partials/_downloads.scss */
+  .downloads .profile-picture li span {
+    right: 45px;
+  }
+  /* line 140, ../../build/sass/partials/_downloads.scss */
   .downloads .anyday-logos h4 {
     width: 50%;
   }
-  /* line 109, ../../build/sass/partials/_downloads.scss */
+  /* line 143, ../../build/sass/partials/_downloads.scss */
   .downloads .anyday-logos ul {
     margin-top: 20px;
   }
-  /* line 112, ../../build/sass/partials/_downloads.scss */
+  /* line 146, ../../build/sass/partials/_downloads.scss */
   .downloads .anyday-logos li {
     display: block;
     float: left;
@@ -2528,24 +2692,25 @@ img {
 /* line 14, ../../build/sass/partials/_footer.scss */
 .main-footer p a {
   color: #2F96F8;
+  border-bottom: 1px solid rgba(47, 150, 248, 0);
 }
-/* line 18, ../../build/sass/partials/_footer.scss */
+/* line 20, ../../build/sass/partials/_footer.scss */
 .main-footer .site-info {
   display: block;
   margin-bottom: 40px;
 }
-/* line 22, ../../build/sass/partials/_footer.scss */
+/* line 24, ../../build/sass/partials/_footer.scss */
 .main-footer .follow {
   margin: 15px 0 30px;
   display: block;
 }
-/* line 25, ../../build/sass/partials/_footer.scss */
+/* line 27, ../../build/sass/partials/_footer.scss */
 .main-footer .follow h5 {
   font-size: 1.2em;
   text-align: center;
   padding-bottom: 10px;
 }
-/* line 30, ../../build/sass/partials/_footer.scss */
+/* line 32, ../../build/sass/partials/_footer.scss */
 .main-footer .follow button {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -2558,7 +2723,7 @@ img {
   margin: 0 auto;
   padding: 0px;
 }
-/* line 38, ../../build/sass/partials/_footer.scss */
+/* line 41, ../../build/sass/partials/_footer.scss */
 .main-footer .follow ul {
   *zoom: 1;
   max-width: 930px;
@@ -2574,7 +2739,7 @@ img {
 .main-footer .follow ul:after {
   clear: both;
 }
-/* line 41, ../../build/sass/partials/_footer.scss */
+/* line 44, ../../build/sass/partials/_footer.scss */
 .main-footer .follow li {
   display: block;
   float: left;
@@ -2585,17 +2750,27 @@ img {
 .main-footer .follow li:last-child {
   margin-right: 0;
 }
-/* line 44, ../../build/sass/partials/_footer.scss */
+/* line 47, ../../build/sass/partials/_footer.scss */
 .main-footer .follow svg {
   width: 40px;
   height: 40px;
 }
 
-/* line 54, ../../build/sass/partials/_footer.scss */
+/* line 55, ../../build/sass/partials/_footer.scss */
+.no-touch .main-footer p a:hover {
+  border-bottom: 1px solid #2f96f8;
+}
+/* line 58, ../../build/sass/partials/_footer.scss */
+.no-touch .main-footer .follow button:hover {
+  padding-bottom: 4px;
+  margin-top: -4px;
+}
+
+/* line 67, ../../build/sass/partials/_footer.scss */
 button.flickr {
   position: relative;
 }
-/* line 56, ../../build/sass/partials/_footer.scss */
+/* line 69, ../../build/sass/partials/_footer.scss */
 button.flickr:after {
   content: " ";
   display: block;
@@ -2614,33 +2789,33 @@ button.flickr:after {
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-/* line 65, ../../build/sass/partials/_footer.scss */
+/* line 78, ../../build/sass/partials/_footer.scss */
 button.flickr svg {
   position: relative;
   z-index: 2;
 }
-/* line 69, ../../build/sass/partials/_footer.scss */
+/* line 82, ../../build/sass/partials/_footer.scss */
 button.flickr svg use {
   fill: #222;
 }
 
-/* line 75, ../../build/sass/partials/_footer.scss */
+/* line 88, ../../build/sass/partials/_footer.scss */
 button.twitter svg use {
   fill: #469aea;
 }
 
-/* line 81, ../../build/sass/partials/_footer.scss */
+/* line 94, ../../build/sass/partials/_footer.scss */
 button.instagram svg use {
   fill: #1b3f67;
 }
 
-/* line 87, ../../build/sass/partials/_footer.scss */
+/* line 100, ../../build/sass/partials/_footer.scss */
 button.facebook svg use {
   fill: #3c5290;
 }
 
 @media all and (min-width: 650px) {
-  /* line 94, ../../build/sass/partials/_footer.scss */
+  /* line 107, ../../build/sass/partials/_footer.scss */
   .main-footer > .block {
     *zoom: 1;
     max-width: 930px;
@@ -2656,7 +2831,7 @@ button.facebook svg use {
   .main-footer > .block:after {
     clear: both;
   }
-  /* line 97, ../../build/sass/partials/_footer.scss */
+  /* line 110, ../../build/sass/partials/_footer.scss */
   .main-footer .site-info {
     display: block;
     float: left;
@@ -2668,12 +2843,12 @@ button.facebook svg use {
   .main-footer .site-info:last-child {
     margin-right: 0;
   }
-  /* line 100, ../../build/sass/partials/_footer.scss */
+  /* line 113, ../../build/sass/partials/_footer.scss */
   .main-footer .site-info img {
     float: left;
     margin-right: 15px;
   }
-  /* line 105, ../../build/sass/partials/_footer.scss */
+  /* line 118, ../../build/sass/partials/_footer.scss */
   .main-footer .follow {
     display: block;
     float: left;
@@ -2686,11 +2861,11 @@ button.facebook svg use {
   }
 }
 @media all and (min-width: 915px) {
-  /* line 113, ../../build/sass/partials/_footer.scss */
+  /* line 126, ../../build/sass/partials/_footer.scss */
   .main-footer button {
     padding: 0px 14px 0px 0px;
   }
-  /* line 116, ../../build/sass/partials/_footer.scss */
+  /* line 129, ../../build/sass/partials/_footer.scss */
   .main-footer .site-info {
     display: block;
     float: left;
@@ -2701,16 +2876,16 @@ button.facebook svg use {
   .main-footer .site-info:last-child {
     margin-right: 0;
   }
-  /* line 118, ../../build/sass/partials/_footer.scss */
+  /* line 131, ../../build/sass/partials/_footer.scss */
   .main-footer .site-info img {
     margin-right: 30px;
   }
-  /* line 121, ../../build/sass/partials/_footer.scss */
+  /* line 134, ../../build/sass/partials/_footer.scss */
   .main-footer .site-info p {
     max-width: 200px;
     float: left;
   }
-  /* line 126, ../../build/sass/partials/_footer.scss */
+  /* line 139, ../../build/sass/partials/_footer.scss */
   .main-footer .follow {
     display: block;
     float: left;
@@ -2722,18 +2897,18 @@ button.facebook svg use {
   .main-footer .follow:last-child {
     margin-right: 0;
   }
-  /* line 129, ../../build/sass/partials/_footer.scss */
+  /* line 142, ../../build/sass/partials/_footer.scss */
   .main-footer .follow h5 {
     text-align: left;
     font-size: .9em;
     margin-bottom: 10px;
   }
-  /* line 134, ../../build/sass/partials/_footer.scss */
+  /* line 147, ../../build/sass/partials/_footer.scss */
   .main-footer .follow li {
     width: auto;
   }
 }
-/* line 17, ../../build/sass/screen.scss */
+/* line 1, ../../build/sass/partials/_fallback.scss */
 .oldie {
   background-color: #fff;
   position: fixed;
@@ -2743,26 +2918,26 @@ button.facebook svg use {
   left: 0px;
   z-index: 9999;
 }
-/* line 21, ../../build/sass/screen.scss */
+/* line 5, ../../build/sass/partials/_fallback.scss */
 .oldie .block {
   max-width: 720px;
   display: block;
   margin: 0 auto;
   text-align: center;
 }
-/* line 26, ../../build/sass/screen.scss */
+/* line 10, ../../build/sass/partials/_fallback.scss */
 .oldie .block h1, .oldie .block p {
   margin-bottom: 10px;
   line-height: 1.33;
   color: #222;
 }
-/* line 31, ../../build/sass/screen.scss */
+/* line 15, ../../build/sass/partials/_fallback.scss */
 .oldie .block h1 {
   max-width: 600px;
   line-height: 1.1;
   margin: 0 auto 30px;
 }
-/* line 36, ../../build/sass/screen.scss */
+/* line 20, ../../build/sass/partials/_fallback.scss */
 .oldie .block img {
   display: block;
   max-width: 300px;
@@ -2771,41 +2946,41 @@ button.facebook svg use {
   bottom: -25px;
   z-index: -1;
 }
-/* line 44, ../../build/sass/screen.scss */
+/* line 28, ../../build/sass/partials/_fallback.scss */
 .oldie .block a {
   color: #2F96F8;
 }
-/* line 48, ../../build/sass/screen.scss */
+/* line 32, ../../build/sass/partials/_fallback.scss */
 .oldie .more-info {
   border-top: 2px solid #eeeeee;
   border-bottom: 2px solid #eeeeee;
   margin-top: 20px;
   padding: 20px 0 10px;
 }
-/* line 53, ../../build/sass/screen.scss */
+/* line 37, ../../build/sass/partials/_fallback.scss */
 .oldie .more-info p {
   color: #626262;
 }
-/* line 56, ../../build/sass/screen.scss */
+/* line 40, ../../build/sass/partials/_fallback.scss */
 .oldie .more-info p.cta {
   font-size: 1.2em;
 }
-/* line 60, ../../build/sass/screen.scss */
+/* line 44, ../../build/sass/partials/_fallback.scss */
 .oldie .footer {
   margin-top: 40px;
   font-size: .8125em;
 }
-/* line 63, ../../build/sass/screen.scss */
+/* line 47, ../../build/sass/partials/_fallback.scss */
 .oldie .footer a {
   color: #626262;
   padding-bottom: 2px;
   border-bottom: 1px solid;
 }
-/* line 68, ../../build/sass/screen.scss */
+/* line 52, ../../build/sass/partials/_fallback.scss */
 .oldie .footer .privacy {
   float: left;
 }
-/* line 71, ../../build/sass/screen.scss */
+/* line 55, ../../build/sass/partials/_fallback.scss */
 .oldie .footer .cityofboston {
   float: right;
 }

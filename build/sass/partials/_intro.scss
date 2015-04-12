@@ -7,6 +7,10 @@
 	position:relative;
 	.logo{
 		display:none;
+		.number-one{
+			@include transition(all .6s ease-in);
+			fill:$primary;
+		}
 	}
 	.copy{
 		@extend %absolute-middle;
@@ -44,6 +48,10 @@
 	}
 	h3{
 		@include transition-delay(2s);
+	}
+	.logo .number-one{
+		fill:#fff;
+		@include transition-delay(1s);
 	}
 }
 

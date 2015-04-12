@@ -1,9 +1,5 @@
 @import "partials/base";
 @import "partials/burger";
-
-img{
-	max-width:100%;
-}
 @import "partials/slider";
 @import "partials/main-nav";
 @import "partials/intro";
@@ -14,62 +10,4 @@ img{
 @import "partials/press";
 @import "partials/footer";
 
-.oldie{
-	background-color:#fff;
-	@include position(fixed, 0px 0px 0px 0px);
-	z-index:9999;
-	.block{
-		max-width:720px;
-		display:block;
-		margin:0 auto;
-		text-align:center;
-		h1,p{
-			margin-bottom:10px;
-			line-height:1.33;
-			color:$dark;
-		}
-		h1{
-			max-width:600px;
-			line-height:1.1;
-			margin:0 auto 30px;
-		}
-		img{
-			display:block;
-			max-width:300px;
-			margin:0 auto;
-			position:relative;
-			bottom:-25px;
-			z-index:-1;
-		}
-		a{
-			color:$primary;
-		}
-	}
-	.more-info{
-		border-top:2px solid lighten($dark,80%);
-		border-bottom:2px solid lighten($dark,80%);
-		margin-top:20px;
-		padding:20px 0 10px;
-		p{
-			color:lighten($dark,25%);
-		}
-		p.cta{
-			font-size:1.2em;
-		}
-	}
-	.footer{
-		margin-top:40px;
-		font-size:.8125em;
-		a{
-			color:lighten($dark,25%);
-			padding-bottom:2px;
-			border-bottom:1px solid;
-		}
-		.privacy{
-			float:left;
-		}
-		.cityofboston{
-			float:right;
-		}
-	}
-}
+@import "partials/fallback";

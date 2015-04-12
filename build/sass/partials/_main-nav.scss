@@ -55,7 +55,14 @@
 			}
 		}
 		li a{
-			padding:10px 30px;
+			padding:12px 0px 8px;
+			margin:0 30px;
+			border-bottom:2px solid rgba(#fff,0);
+			@include transition(all .3s ease-in-out);
+			&:hover,.active{
+				padding:12px 0 4px;
+				border-bottom:2px solid rgba(#fff,1);
+			}
 		}
 	}
 }

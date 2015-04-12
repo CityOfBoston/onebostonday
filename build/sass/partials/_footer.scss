@@ -13,6 +13,8 @@
 		margin-bottom:1em;
 		a{
 			color:$primary;
+			border-bottom:1px solid rgba($primary,0);
+			@extend %default-transition;
 		}
 	}
 	.site-info{
@@ -29,6 +31,7 @@
 		}
 		button{
 			@include appearance(none);
+			@extend %default-transition;
 			background-color:transparent;
 			border:none;
 			display:block;
@@ -47,6 +50,16 @@
 	}
 }
 
+
+.no-touch .main-footer{
+	p a:hover{
+		border-bottom:1px solid rgba($primary,1);
+	}
+	.follow button:hover{
+		padding-bottom:4px;
+		margin-top:-4px;
+	}
+}
 .follow button svg use{
 	@extend %default-transition;
 }
