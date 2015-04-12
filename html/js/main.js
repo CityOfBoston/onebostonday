@@ -261,10 +261,12 @@ $(function(){
             $(response).find("td > a").each(function(){
                 file = $(this).attr("href");
             });
-            //loadFeed(file);
-            loadFeed('../feeds/feed.json');
+            loadFeed(file);
+            //loadFeed('../feeds/feed.json');
         }
     });
+
+    
 
     $('body').on('click','.actions a',function(event){
         event.preventDefault();
