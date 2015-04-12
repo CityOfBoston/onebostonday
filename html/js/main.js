@@ -305,25 +305,30 @@ $(function(){
     //  logos
     //////////////////////////////////////*/
     var loadLogos = function(){
-        $('.anyday-logos li a').each(function(){
+        $('.downloads li a').each(function(){
             var image = $(this).data('image');
             $(this).css({
                 'background-image':'url(../img/logos/'+image+')'
             });
+            $(this).attr('href','../img/logos/'+image);
+
+            if(! Modernizr.adownload){
+                $(this).attr('target','_blank');
+            }
         });
     };
 
-    /*
     var loadTheLogos = setInterval(function(){
-        
-    },1000);
+        if(scrollDistance() > $('.downloads').offset().top){
+            loadLogos();
+            clearInterval(loadTheLogos);
+        }
+    },50);
 
     function scrollDistance(){
         var toTop = $(document).scrollTop();
         return toTop;
     }
-    */
-   loadLogos();
 
 
     /*//////////////////////////////////////

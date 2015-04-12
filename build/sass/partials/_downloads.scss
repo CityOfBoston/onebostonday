@@ -33,27 +33,34 @@
 		li{
 			@include span-columns(6);
 		}
-	}
-	.profile-picture img{
-		border:2px solid lighten($dark, 80%);
-	}
-	.anyday-logos{
-		li{
-			@include omega(2n);
-			margin-bottom:7px;
-		}
 		a{
 			display:block;
 			width:100%;
-			background-color:lighten($dark,.33);
+			background-color:lighten($dark, 80%);
 			background-size:80%;
 			background-position:center;
 			border:2px solid lighten($dark, 80%);
 			&:before{
 				content:" ";
 				display:block;
-				padding-top:50%;
 			}
+		}
+	}
+	.profile-picture img{
+		border:2px solid lighten($dark, 80%);
+	}
+	.profile-picture{
+		a:before{
+			padding-top:100%;
+		}
+	}
+	.anyday-logos{
+		li{
+			@include omega(2n);
+			margin-bottom:7px;
+		}
+		a:before{
+			padding-top:50%;
 		}
 	}
 }
