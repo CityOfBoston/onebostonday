@@ -12,6 +12,7 @@
 	}
 	span{
 		@extend %absolute-middle;
+		top:45%;
 		@extend %default-transition;
 		text-transform:uppercase;
 		font-size:1em;
@@ -22,16 +23,17 @@
 		line-height:1.22;
 		margin-top:20px;
 		svg{
-		  @include transform(scale(1));
-		  padding: 20px 17px 20px 23px;
-		  background-color: $dark;
-		  margin-bottom:5px;
-		  @include border-radius(50%);
-		  @extend %default-transition;
-		  use{
-		  	@extend %default-transition;
-		  	fill:#fff;
-		  }
+			@include size(70px);
+			@include transform(scale(1));
+			padding: 20px 17px 20px 23px;
+			background-color: $dark;
+			margin-bottom:5px;
+			@include border-radius(50%);
+			@extend %default-transition;
+			use{
+				@extend %default-transition;
+				fill:#fff;
+			}
 		}
 	}
 }
@@ -39,6 +41,7 @@
 @media all and(min-width:600px){
 	.video{
 		span{
+			top:50%;
 			font-size:1.2em;
 			svg{
 				@include size(80px);

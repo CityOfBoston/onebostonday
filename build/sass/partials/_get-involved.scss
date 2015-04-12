@@ -17,14 +17,15 @@
 		background-color:#fff;
 		padding:10px;
 		min-height:430px;
-		li:first-child{
-			@include opacity(0);
-			@include transform(scale(0));
-			max-height:0px;
-			overflow:hidden;
-			@include transition(all .6s ease-in-out);
-		}
 	}
+}
+
+.no-touch .social .feed  ul li:first-child{
+	@include opacity(0);
+	@include transform(scale(0));
+	max-height:0px;
+	overflow:hidden;
+	@include transition(all .6s ease-in-out);
 }
 
 .no-touch .tracked .social .feed > ul li:first-child{

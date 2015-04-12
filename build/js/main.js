@@ -192,11 +192,11 @@ $(function(){
                     $('.feed img').lazyload();
                 }
                 else{
+                    console.log('lazy');
                     $('.feed img').lazyload({
                         container: $('.feed ul')
                     });
                 }
-
 
                 // CAROUSEL FOR MOBILE
                 if($(window).width() < 800){
@@ -261,8 +261,8 @@ $(function(){
             $(response).find("td > a").each(function(){
                 file = $(this).attr("href");
             });
-            loadFeed(file);
-            //loadFeed('../feeds/feed.json');
+            //loadFeed(file);
+            loadFeed('../feeds/feed.json');
         }
     });
 

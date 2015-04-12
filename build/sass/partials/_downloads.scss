@@ -32,10 +32,10 @@
 	.profile-picture,.anyday-logos{
 		margin-bottom:30px;
 		span{
-			@include position(absolute, auto 0px -40px 0px);
+			@include position(absolute, auto 0px -40px auto);
 			@extend %default-transition;
 			background-color:$primary;
-			padding:5px;
+			padding:5px 20px;
 			svg{
 				@include size(20px);
 				margin:0 auto;
