@@ -1567,7 +1567,7 @@ img {
 /* line 13, ../../build/sass/partials/_city.scss */
 .video span {
   text-transform: uppercase;
-  font-size: 1.2em;
+  font-size: 1em;
   color: #fff;
   cursor: pointer;
   width: 80px;
@@ -1577,8 +1577,8 @@ img {
 }
 /* line 23, ../../build/sass/partials/_city.scss */
 .video span svg {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   padding: 20px 17px 20px 23px;
   background-color: #222;
   margin-bottom: 5px;
@@ -1586,11 +1586,23 @@ img {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
-/* line 30, ../../build/sass/partials/_city.scss */
+/* line 29, ../../build/sass/partials/_city.scss */
 .video span svg use {
   fill: #fff;
 }
 
+@media all and (min-width: 600px) {
+  /* line 38, ../../build/sass/partials/_city.scss */
+  .video span {
+    font-size: 1.2em;
+  }
+  /* line 40, ../../build/sass/partials/_city.scss */
+  .video span svg {
+    width: 80px;
+    height: 80px;
+    padding: 20px 17px 20px 23px;
+  }
+}
 /* line 1, ../../build/sass/partials/_community.scss */
 .community {
   background-image: url('../img/community.jpg?1428593596');
