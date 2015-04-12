@@ -187,36 +187,37 @@ body {
   position: relative;
   font-size: 16px;
   font-family: "Gotham SSm A";
+  overflow-x: hidden;
 }
 
-/* line 155, ../../build/sass/partials/_base.scss */
+/* line 156, ../../build/sass/partials/_base.scss */
 h1, h2, h3, h4, h5, h6, strong, b {
   font-family: "Gotham SSm B";
 }
 
-/* line 159, ../../build/sass/partials/_base.scss */
+/* line 160, ../../build/sass/partials/_base.scss */
 h1 {
   font-size: 2.2em;
 }
 
-/* line 163, ../../build/sass/partials/_base.scss */
+/* line 164, ../../build/sass/partials/_base.scss */
 h2 {
   font-size: 1.875em;
   text-transform: uppercase;
 }
 
-/* line 168, ../../build/sass/partials/_base.scss */
+/* line 169, ../../build/sass/partials/_base.scss */
 h3 {
   font-size: 1.2em;
 }
 
-/* line 172, ../../build/sass/partials/_base.scss */
+/* line 173, ../../build/sass/partials/_base.scss */
 p {
   font-size: 1em;
   line-height: 1.43;
 }
 
-/* line 177, ../../build/sass/partials/_base.scss */
+/* line 178, ../../build/sass/partials/_base.scss */
 .overlay {
   position: absolute;
   top: 0px;
@@ -227,17 +228,17 @@ p {
   background-color: rgba(47, 150, 248, 0.7);
 }
 
-/* line 183, ../../build/sass/partials/_base.scss */
+/* line 184, ../../build/sass/partials/_base.scss */
 .section-intro {
   text-align: center;
   padding: 60px 10px;
 }
-/* line 186, ../../build/sass/partials/_base.scss */
+/* line 187, ../../build/sass/partials/_base.scss */
 .section-intro h2 {
   margin-bottom: 1em;
   display: block;
 }
-/* line 190, ../../build/sass/partials/_base.scss */
+/* line 191, ../../build/sass/partials/_base.scss */
 .section-intro p {
   max-width: 520px;
   margin: 0 auto;
