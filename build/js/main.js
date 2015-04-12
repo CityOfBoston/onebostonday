@@ -124,7 +124,8 @@ $(function(){
         popItUp(tweetIntent,300,600);
     });
 
-    var characterCount = 102;
+    var characterCount = 103;
+    $('.craft span').text(characterCount);
     $('.craft textarea').on('focus',function(){
         $(this).on('keyup',function(){
             var length = $(this).val().length;
