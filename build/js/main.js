@@ -73,6 +73,7 @@ $(function(){
     //  smooth scrolling
     //////////////////////////////////////*/
     $('.main-nav ul a').on('click',function(event){
+        ga('send', 'event', 'main navigation', $(this).text()) ;
         if($('.press').length <= 0){
             event.preventDefault();
             var target = $(this).attr('href');
@@ -90,6 +91,7 @@ $(function(){
     //////////////////////////////////////*/
     var video = '<iframe src="https://player.vimeo.com/video/124662459?autoplay=1" width="500" height="367" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
     $('.video span').on('click',function(){
+        ga('send', 'event', 'video', 'watched') ;
         $('.video span').fadeOut(function(){
             $('.video img').remove();
             $('.video').append(video);
@@ -110,6 +112,10 @@ $(function(){
         adaptiveHeight: true,
         initialSlide: 0,
         touchThreshold: 3
+    });
+
+    $('.activity .copy a').on('click',function(){
+        ga('send', 'event', 'community learn more', $(this).attr('href'));
     });
 
     /*//////////////////////////////////////
@@ -137,6 +143,16 @@ $(function(){
                 $('.craft span').text(charactersLeft);
             }
         });
+    });
+
+    $('.craft-tweet button.tweet').on('click',function(){
+        if(Modernizr.touch){
+            ga('send', 'event', 'get involved', 'tweet clicked: mobile') ;
+        }
+        else{
+            ga('send', 'event', 'get involved', 'tweet clicked: desktop -' + $('.craft span').html()) ;
+        }
+        
     });
 
     /*//////////////////////////////////////
@@ -201,8 +217,13 @@ $(function(){
                     setTimeout(function(){
                         $('.feed ul.slick-dots').clone().insertBefore($('.feed .slick-list')).addClass('above-dots');
                     },300);
-    
+                    
+                    var swipeCounter = 0;
                     $('.feed > ul').on('swipe', function(event, slick, direction){
+                        // log the swipe
+                        ga('send', 'event', 'social feed', 'swipe: '+swipeCounter);
+                        swipeCounter++;
+
                         // update top dot location on swipe
                         $('.slick-dots.above-dots li').each(function(){
                             $(this).removeClass('slick-active');
@@ -232,21 +253,23 @@ $(function(){
     };
     
     var file = "";
-            
+    
+
     $.ajax({
         url: "/feeds",
         success: function(response){
             $(response).find("td > a").each(function(){
                 file = $(this).attr("href");
             });
-            loadFeed(file);
-            //loadFeed('../feeds/feed_1428692898.json');
+            //loadFeed(file);
+            loadFeed('../feeds/feed.json');
         }
     });
 
     $('body').on('click','.actions a',function(event){
         event.preventDefault();
         popItUp($(this).attr('href'),300,600);
+        ga('send', 'event', 'feed twitter action', $(this).find('svg').attr('class')) ;
     });
 
     var twitterTemplate = function(profileImage,twitterName,twitterUser,twitterTime,twitterTweetUrl,twitterTweetEntity){
@@ -323,10 +346,14 @@ $(function(){
         if ($(this).hasClass('open')) {
             $(this).removeClass('open').addClass('closed');
             $('.main-nav').removeClass('active');
+
+            ga('send', 'event', 'mobile menu', 'close') ;
         }
         else {
             $(this).addClass('open').removeClass('closed') ;
             $('.main-nav').addClass('active');
+
+            ga('send', 'event', 'mobile menu', 'open') ;
         }
     });
 
@@ -346,6 +373,14 @@ $(function(){
             }
         });
     };
+
+    $('.downloads li a').on('click',function(){
+        ga('send', 'event', 'logo download', $(this).data('image')) ;
+    });
+
+    $('a.package').on('click',function(){
+        ga('send', 'event', 'logo download', 'all .zip') ;
+    });
 
     var loadTheLogos = setInterval(function(){
         if( $('.press').length <= 0){
