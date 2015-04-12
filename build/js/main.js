@@ -170,7 +170,19 @@ $(function(){
                         instagramTemplate(post.image,post.full_name,post.username,post.created_at,post.social_id,post.message);
                     }
                 }
-    
+
+                // lazy loading
+                if($(window).width() < 800){
+                    $('.feed img').lazyload();
+                }
+                else{
+                    $('.feed img').lazyload({
+                        container: $('.feed ul')
+                    });
+                }
+
+
+                // CAROUSEL FOR MOBILE
                 if($(window).width() < 800){
                     $('.feed > ul').slick({
                         slide: 'li',
@@ -194,6 +206,10 @@ $(function(){
                             $(this).removeClass('slick-active');
                         });
                         $('.slick-dots.above-dots li:nth-child('+(slick.currentSlide + 1)+')').addClass('slick-active');
+                    
+                        $('.slick-slide[data-slick-index="'+slick.currentSlide+'"] img').each(function(){
+                            $(this).attr('src',$(this).data('original'));
+                        });
                     });
     
                     $('body').on('click','.slick-dots.above-dots li',function(){
@@ -219,8 +235,8 @@ $(function(){
             $(response).find("td > a").each(function(){
                 file = $(this).attr("href");
             });
-            loadFeed(file);
-            //loadFeed('../feeds/feed_1428692898.json');
+            //loadFeed(file);
+            loadFeed('../feeds/feed_1428692898.json');
         }
     });
 
@@ -237,7 +253,7 @@ $(function(){
         var twitterMarkup="";
         twitterMarkup += "<li class=\"twitter\">";
         twitterMarkup += "    <div class=\"profile-image\">";
-        twitterMarkup += "        <img src=\""+ profileImage +"\">";
+        twitterMarkup += "        <img data-original=\""+ profileImage +"\" src=\"\/img\/preloader-small.gif\">";
         twitterMarkup += "    <\/div>";
         twitterMarkup += "    <div class=\"tweet\">";
         twitterMarkup += "        <header class=\"tweet-header\">";
@@ -283,7 +299,7 @@ $(function(){
 
         var instagramMarkup="";
         instagramMarkup += "<li class=\"instagram\">";
-        instagramMarkup += "    <img src=\""+ instaImage +"\">";
+        instagramMarkup += "    <img data-original=\""+ instaImage +"\" src=\"\/img\/preloader-large.gif\"> ";
         instagramMarkup += "    <header class=\"insta-header\">";
         instagramMarkup += "        <h4><a href=\"https:\/\/instagram.com\/"+instaUsername+"\">"+instaUserFullName+"<\/a><\/h4>";
         instagramMarkup += "        <a class=\"time\" href=\"https:\/\/instagram.com\/p\/"+instaUrl+"\" target=\"_blank\" title=\" "+instaTime+" \"><\/a>";
