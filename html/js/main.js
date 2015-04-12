@@ -349,12 +349,29 @@ $(function(){
 
     var loadTheLogos = setInterval(function(){
         if( $('.press').length <= 0){
-            if(scrollDistance() > $('.downloads').offset().top){
+            if(scrollDistance() > ( $('.downloads').offset().top - $('.downloads').height()) ){
                 loadLogos();
                 clearInterval(loadTheLogos);
             }
         }
     },50);
+
+    /*//////////////////////////////////////
+    //  virtual page tracking
+    //////////////////////////////////////*/
+    $(window).on("scroll",function(){
+        var currentScroll = ( scrollDistance() + $('.main-nav').height() );
+        $("section").each(function(){
+            offset = ($(this).offset());
+            if(currentScroll > offset.top && ! $(this).hasClass('tracked')){
+                $(this).addClass('tracked');
+                ga('send', 'pageview',{ 
+                    'page': '/'+ $(this).attr('id'),
+                    'title': $(this).attr('id'),
+                });
+            }
+        });
+    });
 
     function scrollDistance(){
         var toTop = $(document).scrollTop();
@@ -363,16 +380,20 @@ $(function(){
 
 
     /*//////////////////////////////////////
-    //  footer links
+    //  footer links & footer analytics
     //////////////////////////////////////*/
     $('.mayor .flickr').on('click',function(){
         window.open('https://www.flickr.com/people/bosmayorsoffice/', '_blank');
+        ga('send', 'event', 'footer social', $(this).attr('class'));
     });
     $('.mayor .twitter').on('click',function(){
         window.open('https://twitter.com/marty_walsh', '_blank');
     });
     $('.mayor .facebook').on('click',function(){
         window.open('https://www.facebook.com/VoteMartyWalsh', '_blank');
+    });
+    $('.mayor button').on('click',function(){
+         ga('send', 'event', 'footer social', 'mayor:' + $(this).attr('class'));
     });
 
     $('.city .instagram').on('click',function(){
@@ -384,7 +405,24 @@ $(function(){
     $('.city .facebook').on('click',function(){
         window.open('https://www.facebook.com/cityofboston', '_blank');
     });
+    $('.city button').on('click',function(){
+         ga('send', 'event', 'footer social', 'city:' + $(this).attr('class'));
+    });
 
+    $('.cityofboston-link').on('click',function(){
+        ga('send', 'event', 'footer link', 'city of boston website');
+    });
+    $('.privacy-policy').on('click',function(){
+        ga('send', 'event', 'footer link', 'privacy policy');
+    });
+
+    /*//////////////////////////////////////
+    //  press tracking
+    //////////////////////////////////////*/
+    $('.press a').on('click',function(){
+        ga('send', 'event', 'press link', $(this).text());
+    });
+    
 
     /*/////////////////////////
     // Split up query strings
