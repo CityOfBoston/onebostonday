@@ -266,8 +266,6 @@ $(function(){
         }
     });
 
-    
-
     $('body').on('click','.actions a',function(event){
         event.preventDefault();
         popItUp($(this).attr('href'),300,600);
