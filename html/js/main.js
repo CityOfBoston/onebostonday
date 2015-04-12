@@ -72,7 +72,7 @@ $(function(){
    /*//////////////////////////////////////
     //  smooth scrolling
     //////////////////////////////////////*/
-    $('.main-nav a').on('click',function(event){
+    $('.main-nav ul a').on('click',function(event){
         if($('.press').length <= 0){
             event.preventDefault();
             var target = $(this).attr('href');
@@ -108,7 +108,8 @@ $(function(){
         speed: 300,
         slidesToShow: 1,
         adaptiveHeight: true,
-        initialSlide: 0
+        initialSlide: 0,
+        touchThreshold: 3
     });
 
     /*//////////////////////////////////////
@@ -141,20 +142,25 @@ $(function(){
     //  get feed
     //////////////////////////////////////*/
     var loadFeed = function(file) {
-    
         $.ajax({
             url:'/feeds/' + file,
             dataType:'json',
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            },
             success:function(response){
+
+                $('.feed .icon-spinner').fadeOut(function(){
+                    $(this).remove();
+                });
+
                 var totalPosts = response.data.length;
     
                 if(totalPosts > 54){
                     totalPosts = 54;
                 }
-
-                //console.log(totalPosts);
     
-                for (i=0;i<response.data.length;i++){
+                for (i=0;i<totalPosts;i++){
                     var post = response.data[i];
                     if(post.provider === "twitter"){
                         twitterTemplate(post.userimageurl,post.full_name,post.username,post.created_at,post.social_id,post.message);
@@ -175,6 +181,7 @@ $(function(){
                         slidesToScroll: 1,
                         rows:6,
                         adaptiveHeight: true,
+                        touchThreshold: 3
                     });
     
                     setTimeout(function(){
@@ -211,7 +218,8 @@ $(function(){
             $(response).find("td > a").each(function(){
                 file = $(this).attr("href");
             });
-            //loadFeed(file);
+            loadFeed(file);
+            //loadFeed('../feeds/feed_1428692898.json');
         }
     });
 
