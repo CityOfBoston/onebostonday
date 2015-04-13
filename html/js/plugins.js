@@ -353,11 +353,6 @@ ga('send', 'pageview');
                 // Substring the nodeValue attribute of the text nodes based on the match boundaries
                 el.nodeValue = el.nodeValue.substring(0, el.nodeValue.indexOf(m[1]));
                 tail.nodeValue = tail.nodeValue.substring(tail.nodeValue.indexOf(m[1]) + m[1].length);
-              
-                console.log('value: ' + el.nodeValue);
-                console.log('tail : ' + tail.nodeValue);
-              
-                console.log('link: ' + m[1]);
 
                 // Rebuild the DOM inserting the new anchor element between the split text nodes
                 $(el).after(tail).after($('<a target="_blank"></a>').attr("href", m[1]).html(m[1]));
