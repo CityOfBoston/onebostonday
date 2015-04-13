@@ -38,10 +38,10 @@
 	}
 
 	.blockquote{
-		margin-bottom:30px;
+		margin-bottom:20px;
 		position:relative;
 		q{
-			font-size:1.5em;
+			font-size:1.3em;
 			line-height:1.2;
 			display:block;
 			margin-bottom:15px;
@@ -50,28 +50,31 @@
 			}
 		}
 		cite{
-			font-size:1.2em;
+			font-size:1.15em;
 		}
 	}
 
 	.copy{
 		padding:0 10px;
-		& > p{
-			margin-bottom:40px;
-			& + a{
-				text-transform:uppercase;
-				color:#fff;
+		p{
+			font-size:.9em;
+		}
+		& > p + a{
+			margin-top:30px;
+			margin-bottom:20px;
+			display:block;
+			text-transform:uppercase;
+			color:#fff;
+			@extend %default-transition;
+			svg{
+				@include size(1em);
+				use{ fill:#fff; }
+				position:relative;
+				top:2px;
+				left:0px;
 				@extend %default-transition;
-				svg{
-					@include size(1em);
-					use{ fill:#fff; }
-					position:relative;
-					top:2px;
-					left:0px;
+				use{
 					@extend %default-transition;
-					use{
-						@extend %default-transition;
-					}
 				}
 			}
 		}
@@ -109,9 +112,24 @@
 		}
 		.copy{
 			@include span-columns(6);
+			p{
+				font-size:1em;
+			}
+			& > p + a{
+				margin-top:40px;
+			}
 		}
-		.blockquote q:before{
-			@include position(absolute,0px auto auto -13px);
+		.blockquote{
+			margin-bottom:20px;
+			q{
+				font-size:1.5em;
+				&:before{
+					@include position(absolute,0px auto auto -13px);
+				}
+			}
+			cite{
+				font-size:1.3em;
+			}
 		}
 	}
 }
