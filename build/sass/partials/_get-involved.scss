@@ -136,7 +136,7 @@
 		.craft-tweet{
 			padding-left:25px;
 			position:relative;
-			top:120px;
+			top:35px;
 			header{
 				font-size:1.33em;
 			}
@@ -151,8 +151,6 @@
 		}
 	}
 }
-
-
 
 .feed li.twitter{
 	@include outer-container();
