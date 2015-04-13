@@ -203,49 +203,22 @@ $(function(){
                 if($(window).width() < 800){
                     $('.feed > ul').slick({
                         slide: 'li',
-                        dots: true,
+                        dots: false,
                         arrows: false,
-                        infinite: false,
+                        infinite: true,
                         speed: 300,
                         slidesToShow: 1,
                         slidesToScroll: 1,
-                        rows:6,
+                        rows:3,
                         adaptiveHeight: true,
                         touchThreshold: 3
                     });
-    
-                    // adding dots above the slider
-                    setTimeout(function(){
-                        $('.feed ul.slick-dots').clone().insertBefore($('.feed .slick-list')).addClass('above-dots');
-                    },300);
                     
                     var swipeCounter = 0;
                     $('.feed > ul').on('swipe', function(event, slick, direction){
                         // log the swipe
                         ga('send', 'event', 'social feed', 'swipe: '+swipeCounter);
                         swipeCounter++;
-
-                        // update top dot location on swipe
-                        $('.slick-dots.above-dots li').each(function(){
-                            $(this).removeClass('slick-active');
-                        });
-                        $('.slick-dots.above-dots li:nth-child('+(slick.currentSlide + 1)+')').addClass('slick-active');
-                    
-                        // lazy load images on swipe
-                        $('.slick-slide[data-slick-index="'+slick.currentSlide+'"] img').each(function(){
-                            $(this).attr('src',$(this).data('original'));
-                        });
-                    });
-        
-                    // when a user taps the top dots, move to that index
-                    $('body').on('click','.slick-dots.above-dots li',function(){
-                        var page = ($(this).index() + 1);
-                        $('.feed > ul').slick('slickGoTo',page);
-    
-                         $('.slick-dots.above-dots li').each(function(){
-                            $(this).removeClass('slick-active');
-                        });
-                        $('.slick-dots.above-dots li:nth-child('+page+')').addClass('slick-active');
                     });
                 }
             }

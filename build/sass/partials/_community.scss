@@ -4,8 +4,8 @@
 	background-position:center center;
 	position:relative;
 	color:#fff;
-	padding-bottom:60px;
-	min-height:780px;
+	padding-bottom:20px;
+	min-height:600px;
 	.block,.slider{
 		position:relative;
 		z-index:2;
@@ -15,10 +15,7 @@
 	}
 	.section-intro{
 		color:#fff;
-	}
-	.overlay{
-		background-color:rgba(#2A0037,.77);
-		z-index:1;
+		padding:60px 10px 30px;
 	}
 	figure{
 		margin:10px 0;
@@ -79,7 +76,6 @@
 			}
 		}
 	}
-
 	.slick-dots{
 		li{
 			border:2px solid;
@@ -101,6 +97,11 @@
 
 @media all and(min-width:800px){
 	.community{
+		min-height:780px;
+		padding-bottom:60px;
+		.section-header{
+			padding:60px 10px;
+		}
 		.activity .block{
 			@include outer-container();
 		}

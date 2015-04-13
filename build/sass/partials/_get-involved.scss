@@ -11,9 +11,34 @@
 	h5{
 		text-transform: uppercase;
 		font-size:.8125em;
+		line-height:1.33;
+		margin-bottom:20px;
+	}
+	.slick-slider{
+		margin-bottom:0px;
+	}
+	.swipe-to-slide{
+		width:100%;
+		background-color:$dark;
+		color:#fff;
+		padding:7px;
+		font-size:.8em;
+		text-align:center;
+		text-transform: uppercase;
+		span{
+			display:inline;
+			padding:0 7px;
+		}
+		svg{
+			@include size(.9em);
+			display:inline;
+			use{
+				fill:#fff;
+			}
+		}
 	}
 	& > ul{
-		margin:40px 0 20px;
+		//margin:40px 0 20px;
 		background-color:#fff;
 		padding:10px;
 		min-height:430px;
@@ -141,19 +166,25 @@
 				font-size:1.33em;
 			}
 		}
-		.social .feed > ul{
-			margin:20px 0;
-			max-height:700px;
-			overflow-y:scroll;
-		}
-		.social .feed h5{
-			font-size:.9em;
+		.social .feed{
+			h5{
+				font-size:.9em;
+			}
+			& > ul{
+				margin:20px 0;
+				max-height:500px;
+				overflow-y:scroll;
+			}
+			.swipe-to-slide{
+				display:none;
+			}
 		}
 	}
 }
 
 .feed li.twitter{
 	@include outer-container();
+	overflow:hidden;
 
 	.profile-image{ @include span-columns(3); padding-right:10px;}
 	.tweet{ @include span-columns(9); margin-right:0px; }
