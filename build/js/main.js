@@ -194,7 +194,6 @@ $(function(){
                     $('.feed img').lazyload();
                 }
                 else{
-                    console.log('lazy');
                     $('.feed img').lazyload({
                         container: $('.feed ul')
                     });
