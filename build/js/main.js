@@ -187,6 +187,8 @@ $(function(){
                     }
                 }
 
+                $(".feed ul .tweet-entity").anchorTextUrls();
+
                 // lazy loading
                 if($(window).width() < 800){
                     $('.feed img').lazyload();
