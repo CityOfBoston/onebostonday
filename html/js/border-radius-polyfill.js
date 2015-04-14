@@ -8,4 +8,5 @@ $(function(){
 	fixImage($('.activity.joshuaeaton'),'joshuaeaton-fallback.png');
 	fixImage($('.activity.wzlx'),'wzlx-fallback.png');
 	fixImage($('.activity.ibasis'),'ibasis-fallback.png');
+	fixImage($('.activity.johnhancock'),'johnhancock-fallback.png');
 });
