@@ -21,6 +21,7 @@
 		margin:10px 0;
 		& > img{
 			@include border-radius(50%);
+			border-radius:50%;
 			@include box-shadow(0px 0px 0px 3px rgba(#fff,1));
 			padding:15px;
 			max-width:150px;
