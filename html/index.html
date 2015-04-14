@@ -172,7 +172,7 @@
                     </header>
                 </div>
                 <div class="slider">
-                    <div class="activity">
+                    <div class="activity stfrancishouse">
                         <div class="block">
                             <figure>
                                 <img src="/img/ftfrancishouse.jpg" alt="St. Francis House">
@@ -188,7 +188,7 @@
                         </div>
                     </div>
 
-                    <div class="activity">
+                    <div class="activity wzlx">
                         <div class="block">
                             <figure>
                                 <img src="/img/wzlx.jpg" alt="100.7 WZLX Radio Station">
@@ -204,7 +204,7 @@
                         </div>
                     </div>
 
-                    <div class="activity">
+                    <div class="activity joshuaeaton">
                         <div class="block">
                             <figure>
                                 <img src="/img/joshuaeaton.jpg" alt="Joshua Eaton Elementary School">
@@ -219,7 +219,7 @@
                         </div>
                     </div>
 
-                    <div class="activity">
+                    <div class="activity ibasis">
                         <div class="block">
                             <figure>
                                 <img src="/img/ibasis.jpg" alt="iBasis Running Group">
@@ -362,11 +362,17 @@
         <script>window.jQuery || document.write('<script src="/js/vendor/jquery.js"><\/script>')</script>
         <script src="/js/plugins.js"></script>
         <script type="text/javascript">
-            Modernizr.load({
-              test: Modernizr.svg && Modernizr.rgba && Modernizr.opacity,
-              yep : '/js/main.js',
-              nope: '/js/fallback.js'
-            });
+            Modernizr.load([
+                {
+                    test: Modernizr.svg && Modernizr.rgba && Modernizr.opacity,
+                    yep : '/js/main.js',
+                    nope: '/js/fallback.js'
+                },
+                {
+                    test: ! Modernizr.borderradius,
+                    nope: '/js/border-radius-polyfill.js'
+                }
+            ]);
         </script>
     </body>
 </html>
