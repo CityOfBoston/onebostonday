@@ -4,7 +4,7 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="X-UA-Compatible" content="IE=9">
         <meta charset="utf-8">
         <title>One Boston Day</title>
         <meta name="description" content="April 15th marks the beginning of a new annual Boston tradition: One Boston Day. This day will be a celebration of the resiliency, generosity, and strength of the people that make Boston the great city it is.">
@@ -172,9 +172,10 @@
                     </header>
                 </div>
                 <div class="slider">
-                    <div class="activity">
+
+                    <div class="activity stfrancishouse">
                         <div class="block">
-                            <figure>
+                            <figure class="activity-image">
                                 <img src="/img/ftfrancishouse.jpg" alt="St. Francis House">
                             </figure>
                             <div class="copy">
@@ -184,13 +185,13 @@
                                 </blockquote>
                                 <p>St. Francis House, the largest day shelter in New England, is partnering with the Hyatt Regency Boston to help their underprivileged and homeless guests get new, clean sneakers. Footwear is one of the most in-demand and important clothing items the shelter collects.</p>
                                 <a href="http://regencyboston.hyatt.com/en/hotel/news-and-events/news-listing/StFrancisSneakerDonation.html" target="_blank">learn more <svg class="icon icon-arrow-right"><use xlink:href="#icon-arrow-right"></use></svg></a>
-                        </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="activity">
+                    <div class="activity wzlx">
                         <div class="block">
-                            <figure>
+                            <figure class="activity-image">
                                 <img src="/img/wzlx.jpg" alt="100.7 WZLX Radio Station">
                             </figure>
                             <div class="copy">
@@ -204,9 +205,9 @@
                         </div>
                     </div>
 
-                    <div class="activity">
+                    <div class="activity joshuaeaton">
                         <div class="block">
-                            <figure>
+                            <figure class="activity-image">
                                 <img src="/img/joshuaeaton.jpg" alt="Joshua Eaton Elementary School">
                             </figure>
                             <div class="copy">
@@ -219,9 +220,24 @@
                         </div>
                     </div>
 
-                    <div class="activity">
+                    <div class="activity johnhancock">
                         <div class="block">
-                            <figure>
+                            <figure class="activity-image">
+                                <img src="/img/johnhancock.jpg" alt="John Hancock">
+                            </figure>
+                            <div class="copy">
+                                <blockquote class="blockquote">
+                                    <q>For One Boston Day, rain or shine, the iconic weather beacon atop our Berkeley Street Building will be steady blue all day.”</q>
+                                    <cite>John Hancock</cite>
+                                </blockquote>
+                                <p>John Hancock has been the principal sponsor of the Boston Marathon for the past 30 years and proudly joins the people of Boston in celebrating our City's extraordinary spirit.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity ibasis">
+                        <div class="block">
+                            <figure class="activity-image">
                                 <img src="/img/ibasis.jpg" alt="iBasis Running Group">
                             </figure>
                             <div class="copy">
@@ -362,11 +378,17 @@
         <script>window.jQuery || document.write('<script src="/js/vendor/jquery.js"><\/script>')</script>
         <script src="/js/plugins.js"></script>
         <script type="text/javascript">
-            Modernizr.load({
-              test: Modernizr.svg && Modernizr.rgba && Modernizr.opacity,
-              yep : '/js/main.js',
-              nope: '/js/fallback.js'
-            });
+            Modernizr.load([
+                {
+                    test: Modernizr.svg && Modernizr.rgba && Modernizr.opacity,
+                    yep : '/js/main.js',
+                    nope: '/js/fallback.js'
+                },
+                {
+                    test: Modernizr.borderimage,
+                    nope: '/js/border-radius-polyfill.js'
+                }
+            ]);
         </script>
     </body>
 </html>
