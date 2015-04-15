@@ -45,7 +45,7 @@
 	}
 }
 
-.no-touch .social .feed  ul li:first-child{
+.no-touch .social .feed >  ul > li:first-child{
 	@include opacity(0);
 	@include transform(scale(0));
 	max-height:0px;
@@ -53,7 +53,7 @@
 	@include transition(all .6s ease-in-out);
 }
 
-.no-touch .tracked .social .feed > ul li:first-child{
+.no-touch .tracked .social .feed > ul > li:first-child{
 	@include opacity(1);
 	@include transform(scale(1));
 	max-height:700px;
@@ -205,6 +205,12 @@
 
 	.tweet-entity a{
 		color:$twitter;
+	}
+
+	.tweet-entity img{
+		margin:0 auto;
+		display:block;
+		padding:5px 0;
 	}
 
 	.actions{
