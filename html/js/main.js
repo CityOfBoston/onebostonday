@@ -179,7 +179,6 @@ $(function(){
     
                 for (i=0;i<totalPosts;i++){
                     var post = response.data[i];
-                    console.log(post);
                     if(post.provider === "twitter"){
                         twitterTemplate(post.userimageurl,post.full_name,post.username,post.created_at,post.social_id,post.message,post.image);
                     }
@@ -236,8 +235,8 @@ $(function(){
             $(response).find("td > a").each(function(){
                 file = $(this).attr("href");
             });
-            //loadFeed(file);
-            loadFeed('../feeds/feed.json');
+            loadFeed(file);
+            //loadFeed('../feeds/feed.json');
         }
     });
 
@@ -254,13 +253,13 @@ $(function(){
 
         twitterDisplayImage = '';
         if(twitterImage !== null){
-            twitterDisplayImage = '<img src="'+twitterImage+'" alt="">';
+            twitterDisplayImage = '<img data-original="'+twitterImage+'" src=\"\/img\/preloader-larger.gif\" alt=\"\">';
         }
 
         var twitterMarkup="";
         twitterMarkup += "<li class=\"twitter\">";
         twitterMarkup += "    <div class=\"profile-image\">";
-        twitterMarkup += "        <img data-original=\""+ profileImage +"\" src=\"\/img\/preloader-small.gif\">";
+        twitterMarkup += "        <img data-original=\""+ profileImage +"\" src=\"\/img\/preloader-small.gif\" alt=\"\">";
         twitterMarkup += "    <\/div>";
         twitterMarkup += "    <div class=\"tweet\">";
         twitterMarkup += "        <header class=\"tweet-header\">";
