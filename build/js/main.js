@@ -180,7 +180,7 @@ $(function(){
                 for (i=0;i<totalPosts;i++){
                     var post = response.data[i];
                     if(post.provider === "twitter"){
-                        twitterTemplate(post.userimageurl,post.full_name,post.username,post.created_at,post.social_id,post.message);
+                        twitterTemplate(post.userimageurl,post.full_name,post.username,post.created_at,post.social_id,post.message,post.image);
                     }
                     else if(post.provider === "instagram"){
                         instagramTemplate(post.image,post.full_name,post.username,post.created_at,post.social_id,post.message);
@@ -246,15 +246,20 @@ $(function(){
         ga('send', 'event', 'feed twitter action', $(this).find('svg').attr('class')) ;
     });
 
-    var twitterTemplate = function(profileImage,twitterName,twitterUser,twitterTime,twitterTweetUrl,twitterTweetEntity){
+    var twitterTemplate = function(profileImage,twitterName,twitterUser,twitterTime,twitterTweetUrl,twitterTweetEntity,twitterImage){
         var intentReply = 'https://twitter.com/intent/tweet?in_reply_to='+twitterTweetUrl;
         var intentRetweet = 'https://twitter.com/intent/retweet?tweet_id='+twitterTweetUrl;
         var intentFavorite = 'https://twitter.com/intent/favorite?tweet_id='+twitterTweetUrl;
 
+        twitterDisplayImage = '';
+        if(twitterImage !== null){
+            twitterDisplayImage = '<img data-original="'+twitterImage+'" src=\"\/img\/preloader-larger.gif\" alt=\"\">';
+        }
+
         var twitterMarkup="";
         twitterMarkup += "<li class=\"twitter\">";
         twitterMarkup += "    <div class=\"profile-image\">";
-        twitterMarkup += "        <img data-original=\""+ profileImage +"\" src=\"\/img\/preloader-small.gif\">";
+        twitterMarkup += "        <img data-original=\""+ profileImage +"\" src=\"\/img\/preloader-small.gif\" alt=\"\">";
         twitterMarkup += "    <\/div>";
         twitterMarkup += "    <div class=\"tweet\">";
         twitterMarkup += "        <header class=\"tweet-header\">";
@@ -263,7 +268,7 @@ $(function(){
         twitterMarkup += "            <a class=\"time\" href=\"https:\/\/twitter.com\/"+ twitterUser +"\/status\/"+ twitterTweetUrl +"\" target=\"_blank\" title=\" "+twitterTime+" \"><\/a>";
         twitterMarkup += "        <\/header>";
         twitterMarkup += "        <div class=\"tweet-entity\">";
-        twitterMarkup += "            <p>"+ twitterTweetEntity +"<\/p>";
+        twitterMarkup += "            <p>"+ twitterTweetEntity +"<\/p>"+twitterDisplayImage;
         twitterMarkup += "        <\/div>";
         twitterMarkup += "    <\/div>";
         twitterMarkup += "    <div class=\"actions\">";
