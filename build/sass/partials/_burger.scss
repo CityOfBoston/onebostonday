@@ -1,5 +1,5 @@
 .burger-box {
-    @include position(fixed, 13px 10px 0 0);
+    @include position(absolute, 45px 45px 0 0);
     z-index:12;
     width: 35px;
     height: 35px;
@@ -8,9 +8,6 @@
     @include transform(scale3d(1,1,1));
     background-color:rgba(#fff,0);
     @extend %default-transition;
-    &.open{
-        background-color:rgba(#fff, 1);
-    }
 }
 
 .burger,
@@ -79,22 +76,22 @@
     0% {
         top: -8px;
         @include transform(none);
-        background-color:$primary;
+        background-color:#fff;
     }
     50% {
         top: 0;
         @include transform(none);
-        background-color:$primary;
+        background-color:#fff;
     }
     90% {
         top: 0;
         @include transform(rotate3d(0, 0, 1, 55deg));
-        background-color:$primary;
+        background-color:#fff;
     }
     100% {
         top: 0;
         @include transform(rotate3d(0, 0, 1, 45deg));
-        background-color:$primary;
+        background-color:#fff;
     }
 }
 
@@ -102,22 +99,22 @@
     0% {
         top: 8px;
         @include transform(none);
-        background-color:$primary;
+        background-color:#fff;
     }
     50% {
         top: 0;
         @include transform(none);
-        background-color:$primary;
+        background-color:#fff;
     }
     90% {
         top: 0;
         @include transform(rotate3d(0, 0, 1, -55deg));
-        background-color:$primary;
+        background-color:#fff;
     }
     100% {
         top: 0;
         @include transform(rotate3d(0, 0, 1, -45deg));
-        background-color:$primary;
+        background-color:#fff;
     }
 }
 

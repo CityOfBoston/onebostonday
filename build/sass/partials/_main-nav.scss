@@ -1,9 +1,9 @@
 .main-nav{
 	text-transform:uppercase;
-	background-color:#2F96F8;
+	background-color:transparent;
 	padding:10px;
 	text-align:center;
-	@include position(fixed, 0px 0px auto 0px);
+	@include position(absolute, 0px 0px auto 0px);
 	z-index:8;
 	li a{
 		color:#fff;
@@ -15,6 +15,10 @@
 		max-width:77px;
 		margin:0 auto;
 		float:left;
+	}
+	a.logo{
+		background-color:$primary;
+		display:block;
 	}
 	ul{
 		clear:both;
@@ -32,24 +36,29 @@
 	.burger-box{
 		display:none;
 	}
-
 	.main-nav{
 		height:68px;
+		padding:0px;
 		.block{
 			position:relative;
 			height:100%;
+			max-width:100%;
+		}
+		a.logo{
+			float:left;
+			padding:34px 20px 35px;
 		}
 		img,svg{
-			@include position(absolute, 50% auto auto 0px);
-			@include transform(translateY(-50%));
+			//@include position(absolute, 50% auto auto 0px);
+			//@include transform(translateY(-50%));
+			float:none;
 			z-index:2;
+			margin-left:0px;
 		}
 		ul{
 			max-height:100px;
-			@include position(absolute, 50% 0px auto auto);
-			@include transform(translateY(-50%));
-			@include transition(none);
-			z-index:1;
+			padding:10px;
+			@include position(absolute, 33px 23px auto auto);
 			li{
 				display:inline-block;
 			}

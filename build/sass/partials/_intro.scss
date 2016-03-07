@@ -1,9 +1,9 @@
 .intro{
 	min-height:500px;
-	height:calc(100vh - 64px);
+	height:100%;
+	height:100vh;
 	background-image:image-url('skyline.jpg');
 	background-size:cover;
-	margin-top:64px;
 	position:relative;
 	.logo{
 		display:none;
