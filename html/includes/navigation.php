@@ -14,7 +14,7 @@
                 </a>
             </li>
             <li>
-                <a href="/planning">
+                <a href="/community#planning">
                     Planning an event?
                 </a>
             </li>

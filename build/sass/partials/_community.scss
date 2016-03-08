@@ -1,20 +1,15 @@
 .community{
-	background-image:image-url('community.jpg');
-	background-size:cover;
-	background-position:center center;
+	background-color:#f6f6f6;
 	position:relative;
-	color:#fff;
-	padding-bottom:20px;
-	min-height:600px;
+	color:$dark;
+	padding:90px 0px;
+	min-height:400px;
 	.block,.slider{
 		position:relative;
 		z-index:2;
 	}
-	.slider{
-		padding:25px 0;
-	}
 	.section-intro{
-		color:#fff;
+		color:$dark;
 		padding:60px 10px 30px;
 	}
 	figure{
@@ -23,7 +18,6 @@
 		border-radius:50%;
 		padding:10px;
 		& > img{
-			@include box-shadow(0px 0px 0px 3px rgba(#fff,1));
 			@include border-radius(50%);
 			border-radius:50%;
 			padding:15px;
@@ -65,11 +59,11 @@
 			margin-bottom:20px;
 			display:block;
 			text-transform:uppercase;
-			color:#fff;
+			color:$primary;
 			@extend %default-transition;
 			svg{
 				@include size(1em);
-				use{ fill:#fff; }
+				use{ fill:$primary; }
 				position:relative;
 				top:2px;
 				left:0px;
@@ -81,11 +75,12 @@
 		}
 	}
 	.slick-dots{
+		bottom:-60px;
 		li{
-			border:2px solid;
+			border:2px solid lighten($dark,50%);
 			@include border-radius(50%);
 			&.slick-active{
-				background-color:#fff;
+				background-color:lighten($dark,50%);
 			}
 		}
 	}
@@ -107,22 +102,25 @@
 
 @media all and(min-width:800px){
 	.community{
-		min-height:780px;
-		padding-bottom:60px;
-		.section-header{
-			padding:60px 10px;
+		min-height:400px;
+		padding:90px 10px;
+		.slick-dots{
+			bottom:-50px;
 		}
 		.activity .block{
 			@include outer-container();
 		}
 		figure{
-			@include span-columns(6);
+			@include span-columns(4);
 			img{
 				max-width:300px;
 			}
 		}
 		.copy{
-			@include span-columns(6);
+			padding-left:20px;
+			@include span-columns(8);
+			position:relative;
+			top:40px;
 			p{
 				font-size:1em;
 			}

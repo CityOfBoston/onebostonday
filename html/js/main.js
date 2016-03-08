@@ -5,19 +5,26 @@ $(function() {
     }
     var body = $("body");
     body.addClass("ready");
-    $(".main-nav ul a").on("click", function(event) {
-        if (ga("send", "event", "main navigation", $(this).text()), $(".press").length <= 0) {
-            event.preventDefault();
-            var target = $(this).attr("href"), distance = $(target).offset().top - $(".main-nav").height();
-            $("html,body").animate({
-                scrollTop: distance + "px"
-            });
-        }
-    });
     var video = '<iframe src="https://player.vimeo.com/video/124662459?autoplay=1" width="500" height="367" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
     $(".video span").on("click", function() {
         ga("send", "event", "video", "watched"), $(".video span").fadeOut(function() {
             $(".video img").remove(), $(".video").append(video), $(".video").fitVids();
+        });
+    }), $("form.planning-form").on("submit", function(event) {
+        event.preventDefault();
+        var action = $(this).attr("action"), data = $(this).serialize(), thankYou = '<div class="thank-you"><h3>Thank you for your submission.</h3> <p>It sounds like you are going to have an unforgetable One Boston Day!</p></div>';
+        $.ajax({
+            url: action,
+            type: "POST",
+            data: data
+        }).done(function() {
+            console.log("success");
+        }).fail(function() {
+            console.log("error");
+        }).always(function() {
+            $("form.planning-form").fadeOut(function() {
+                $("section.planning .block").append(thankYou), $("section.planning").find(".thank-you").addClass("youre-welcome");
+            });
         });
     }), $(".slider").slick({
         slide: ".activity",
@@ -139,13 +146,12 @@ $(function() {
             }), $(this).attr("href", "../img/logos/" + image), Modernizr.adownload || $(this).attr("target", "_blank");
         });
     };
-    $(".downloads li a").on("click", function() {
+    if ($(".downloads li a").on("click", function() {
         ga("send", "event", "logo download", $(this).data("image"));
     }), $("a.package").on("click", function() {
         ga("send", "event", "logo download", "all .zip");
-    });
-    var loadTheLogos = setInterval(function() {
-        $(".press").length <= 0 && scrollDistance() > $(".downloads").offset().top - $(".downloads").height() && (loadLogos(), 
+    }), $(".downloads").length > 0) var loadTheLogos = setInterval(function() {
+        scrollDistance() > $(".downloads").offset().top - $(".downloads").height() && (loadLogos(), 
         clearInterval(loadTheLogos));
     }, 50);
     $(window).on("scroll", function() {

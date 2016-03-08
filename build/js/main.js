@@ -1,3 +1,4 @@
+
 $(function(){
 
     var body = $('body');
@@ -69,23 +70,6 @@ $(function(){
     };
    // colorChangeIntroID = setInterval(colorChangeIntro, 10);
 
-   /*//////////////////////////////////////
-    //  smooth scrolling
-    //////////////////////////////////////*/
-    $('.main-nav ul a').on('click',function(event){
-        ga('send', 'event', 'main navigation', $(this).text()) ;
-        if($('.press').length <= 0){
-            event.preventDefault();
-            var target = $(this).attr('href');
-            var distance = ( $(target).offset().top - $('.main-nav').height() );
-
-            $('html,body').animate({
-                scrollTop: distance + 'px'
-            });
-        }
-    });
-
-
     /*//////////////////////////////////////
     //  video toggle
     //////////////////////////////////////*/
@@ -97,6 +81,37 @@ $(function(){
             $('.video').append(video);
             $('.video').fitVids();
         });
+    });
+
+
+    /*//////////////////////////////////////
+    //  planning form
+    //////////////////////////////////////*/
+    $('form.planning-form').on('submit',function(event){
+        event.preventDefault();
+        var action = $(this).attr('action');
+        var data = $(this).serialize();
+
+        var thankYou = '<div class="thank-you"><h3>Thank you for your submission.</h3> <p>It sounds like you are going to have an unforgetable One Boston Day!</p></div>';
+
+        $.ajax({
+            url: action,
+            type: 'POST',
+            data: data,
+        })
+        .done(function() {
+            console.log("success");
+        })
+        .fail(function() {
+            console.log("error");
+        })
+        .always(function() {
+            $('form.planning-form').fadeOut(function(){
+                $('section.planning .block').append(thankYou);
+                $('section.planning').find('.thank-you').addClass('youre-welcome');
+            });
+        });
+        
     });
 
 
@@ -361,14 +376,14 @@ $(function(){
         ga('send', 'event', 'logo download', 'all .zip') ;
     });
 
-    var loadTheLogos = setInterval(function(){
-        if( $('.press').length <= 0){
+    if( $('.downloads').length > 0){
+        var loadTheLogos = setInterval(function(){
             if(scrollDistance() > ( $('.downloads').offset().top - $('.downloads').height()) ){
                 loadLogos();
                 clearInterval(loadTheLogos);
             }
-        }
-    },50);
+        },50);
+    }
 
     /*//////////////////////////////////////
     //  virtual page tracking

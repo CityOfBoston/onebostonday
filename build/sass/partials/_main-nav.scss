@@ -47,6 +47,7 @@
 		a.logo{
 			float:left;
 			padding:34px 20px 35px;
+			@include position(fixed, 0px auto auto 0px);
 		}
 		img,svg{
 			//@include position(absolute, 50% auto auto 0px);

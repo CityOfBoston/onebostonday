@@ -1,5 +1,12 @@
-.city{
-	background-color:$light;
+section.city{
+	background-color:#fff;
+	header.section-intro{
+		padding-bottom:40px;
+		p:first-of-type{
+			margin-bottom:1em;
+			display:block;
+		}
+	}
 }
 
 .video{

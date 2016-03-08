@@ -1,0 +1,117 @@
+section.planning{
+    color:#fff;
+    background-color:$primary;
+    header.section-intro{
+        padding:100px 10px 40px;
+        h2{
+            line-height:1.33;
+            text-transform: none;
+            margin-bottom:0.75em;
+        }
+        p{
+            max-width:570px;
+        }
+    }
+    .thank-you{
+        @include opacity(0);
+        @extend %default-transition;
+        padding:50px 10px 140px;
+        text-align:center;
+        &.youre-welcome{
+            @include opacity(1);
+        }
+    }
+}
+
+@media all and(min-width:600px){
+    section.planning header.section-intro{
+        padding:100px 10px 50px;
+    }
+}
+
+form.planning-form{
+    width:100%;
+    padding:0 10px 50px;
+    max-width:550px;
+    margin:0 auto;
+    label{
+        display:block;
+        margin-bottom:4px;
+    }
+    input,
+    textarea,
+    select{
+        font-size:16px;
+        padding:1em 1.2em;
+        @include appearance(none);
+        border:none;
+        background-color:#fff;
+        color:$dark;
+        display:block;
+        width:100%;
+        border-radius:0px;
+        font-family:$font-sans;
+    }
+    fieldset{
+        position:relative;
+        margin-bottom:8px;
+    }
+    input[type="submit"]{
+        margin-top:16px;
+        background-color:$primary;
+        color:#fff;
+        border:2px solid #fff;
+        font-family:$font-sans;
+        text-transform:uppercase;
+    }
+    div.select-wrapper{
+        position:relative;
+        select{
+            width:100%;
+        }
+        &:after{
+            content:"";
+            display:block;
+            @include triangle(20px, lighten($dark,65%), down);
+            @include position(absolute, 60% 16px auto auto);
+            @include transform(translateY(-50%));
+            margin-bottom:0px;
+        }
+    }
+}
+
+.no-touch form.planning-form input[type="submit"]{
+    @extend %default-transition;
+    &:hover{
+        background-color:#fff;
+        color:$primary;
+    }
+}
+
+@media all and(min-width:600px){
+    form.planning-form{
+        fieldset{
+            @include outer-container();
+            margin-bottom:12px;
+            label{
+                @include span-columns(3.3);
+                font-size:15px;
+                position:relative;
+                top:1em;
+                line-height:1.33;
+                span{
+                    display:block;
+                }
+            }
+            textarea,
+            div.select-wrapper,
+            input[type="text"],
+            input[type="email"]{
+                @include span-columns(8.7);
+            }
+            input[type="submit"]{
+                margin-top:40px;
+            }
+        }
+    }
+}

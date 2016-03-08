@@ -9,5 +9,25 @@
 @import "partials/downloads";
 @import "partials/press";
 @import "partials/footer";
+@import "partials/planning";
 
 @import "partials/fallback";
+
+.header-intro{
+    color:#fff;
+    padding:150px 10px 100px;
+    background-color:$primary-dark;
+    text-align:center;
+    h1,p{
+        max-width:640px;
+        margin:0 auto;
+    }
+    p{
+        font-size:16px;
+    }
+    h1{
+        display:block;
+        margin-bottom:0.75em;
+    }
+}
+
