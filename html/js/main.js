@@ -71,6 +71,28 @@ $(function(){
    // colorChangeIntroID = setInterval(colorChangeIntro, 10);
 
     /*//////////////////////////////////////
+    //  odometer on homepage
+    //////////////////////////////////////*/
+    var $odometer = document.querySelector('.acts-of-kindness h3');
+    var counts = $('.acts-of-kindness h3').data('count');
+    od = new Odometer({
+        el: $odometer,
+        value: 0,
+        format: '(,ddd)',
+        duration: 2000,
+    }); 
+
+    var donezo = false;
+    setInterval(function(){
+        console.log(donezo);
+        if(isElementInViewport($odometer) && donezo === false){
+            od.update(counts);
+            donezo = true;
+        }
+    },500);
+
+
+    /*//////////////////////////////////////
     //  video toggle
     //////////////////////////////////////*/
     var video = '<iframe src="https://player.vimeo.com/video/124662459?autoplay=1" width="500" height="367" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
@@ -470,6 +492,27 @@ $(function(){
         }
 
         return(false);
+    };
+
+
+    /*/////////////////////////
+    // See if current element is in viewport
+    /////////////////////////*/
+    var isElementInViewport = function(el) {
+
+        //special bonus for those using jQuery
+        if (typeof jQuery === "function" && el instanceof jQuery) {
+            el = el[0];
+        }
+
+        var rect = el.getBoundingClientRect();
+
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /*or $(window).height() */
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth) /*or $(window).width() */
+        );
     };
 
     /*/////////////////////////

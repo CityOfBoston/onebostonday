@@ -1,63 +1,4 @@
-.get-involved{
-	padding:0 10px 60px 10px;
-	background-color:$light;
-}
-
-.social .feed{
-	display:block;
-	min-height:200px;
-	margin-bottom:20px;
-	position:relative;
-	h5{
-		text-transform: uppercase;
-		font-size:.8125em;
-		line-height:1.33;
-		margin-bottom:20px;
-	}
-	.slick-slider{
-		margin-bottom:0px;
-	}
-	.swipe-to-slide{
-		width:100%;
-		background-color:$dark;
-		color:#fff;
-		padding:7px;
-		font-size:.8em;
-		text-align:center;
-		text-transform: uppercase;
-		span{
-			display:inline;
-			padding:0 7px;
-		}
-		svg{
-			@include size(.9em);
-			display:inline;
-			use{
-				fill:#fff;
-			}
-		}
-	}
-	& > ul{
-		//margin:40px 0 20px;
-		background-color:#fff;
-		padding:10px;
-		min-height:430px;
-	}
-}
-
-.no-touch .social .feed >  ul > li:first-child{
-	@include opacity(0);
-	@include transform(scale(0));
-	max-height:0px;
-	overflow:hidden;
-	@include transition(all .6s ease-in-out);
-}
-
-.no-touch .tracked .social .feed > ul > li:first-child{
-	@include opacity(1);
-	@include transform(scale(1));
-	max-height:700px;
-}
+$get-involved-bp:840px;
 
 @include keyframes(spin){
 	0%{
@@ -68,7 +9,7 @@
 	}
 }
 
-.feed svg.icon-spinner{
+svg.icon-spinner{
 	@include animation(spin 2s linear infinite);
 	@extend %absolute-middle;
 	top:20%;
@@ -80,242 +21,178 @@
 	}
 }
 
-.craft-tweet{
-	position:relative;
-	header{
-		border-bottom:1px solid rgba($dark,.5);
-		padding:20px 0 15px;
-		position:relative;
-		font-size:1.1em;
-		text-align:center;
+.get-involved{
+	padding:0px 0px 60px 0px;
+	background-color:$light;
+	.craft-tweet,
+	.acts-of-kindness{
+		display:block;
+		width:100%;
 	}
-	svg{
-		@include position(absolute, 50% auto auto 15px);
-		@include transform(translateY(-50%));
-		@include size(32px);
-		use{
+	.block{
+		max-width:100%;
+		width:100%;
+		@include display(flex);
+		@include flex-direction(column);
+		.social{
+			@include order(2);
+		}
+		.acts-of-kindness{
+			@include order(1);
+		}
+	}
+}
+
+@media all and(min-width:$get-involved-bp){
+	.get-involved{
+		.block{
+			@include flex-direction(row);
+			.social,
+			.acts-of-kindness{
+				height:385px;
+				float:left;
+				width:50%;
+			}
+			.social{
+				@include order(1);
+			}
+			.acts-of-kindness{
+				@include order(2);
+			}
+		}
+	}
+}
+
+.social{
+	background-color:$primary-dark;
+	margin:0px;
+	padding:30px 10px;
+	header{
+		font-size:20px;
+		color:#fff;
+		font-weight:700;
+		margin-bottom:18px;
+		svg{
+			@include size(1.33em);
+			position:relative;
+			top:0.2em;
+			margin-right:0.25em;
+		}
+		svg use{
 			fill:$twitter;
 		}
 	}
-	.craft{
-		position:relative;
-		background-color:#fff;
-		@include box-shadow(0px 1px 12px rgba($dark,.5) inset);
-	}
-	.count{
-		display:none;
-	}
-	textarea,button.tweet{
-		@include appearance(none);
-		border:none;
-	}
 	textarea{
-		margin:15px 15px 12px;
-		width:calc(100% - 30px);
-		min-height:150px;
-		resize:none;
-		font-size:1.2em;
+		@include appearance(none);
+		width:100%;
+		padding:15px;
+		background-color:#fff;
+		border:none;
+		font-size:16px;
+		height:120px;
+		line-height:1.375;
+		padding-bottom:30px;
 		@include placeholder{
-			font-size:1em;
-			font-family:Georgia, 'Times New Roman', Times, serif !important;
-			color:lighten($dark, 50%);
-			font-style:italic;
+			color:lighten($dark,50%);
 		}
 	}
 	button.tweet{
-		background-color:$twitter;
-		width:100%;
-		display:block;
-		margin:10px auto auto auto;
-		text-transform:uppercase;
-		padding:15px 0;
-		font-size:1em;
+		@include appearance(none);
+		border:none;
 		color:#fff;
-		@extend %default-transition;
-	}
-}
-
-.no-touch button.tweet:hover{
-	background-color:darken($twitter,20%);
-}
-
-.no-touch .craft-tweet{
-	.count{
+		text-transform: uppercase;
+		background-color:$primary;
+		font-size:16px;
+		padding:10px 15px;
+		width:100%;
 		display:block;
-		@include position(absolute, auto 10px 7px auto);
-		color:lighten($dark, 40%);
-		b{
-			color:#E9171E;
-		}
+		font-family:$font-sans;
+		margin-top:18px;
+	}
+	.craft .input{
+		position:relative;
+	}
+	span.count{
+		@include position(absolute, auto auto 0em 50%);
+		@include transform(translateX(-50%));
+		color:lighten($dark,50%);
+		font-size:16px;
+		z-index:2;
+		@include linear-gradient(rgba(#fff,0),rgba(#fff,1));
+		padding:0.5em;
+		display:block;
+		width:100%;
+		text-align:center;
 	}
 }
 
-@media all and(min-width:800px){
-	.get-involved{
-		.social{
-			@include outer-container();
-		}
-		.feed,.craft-tweet{
-			@include span-columns(6);
-		}
+@media all and(min-width:$get-involved-bp){
+	.social{
+		position:relative;
 		.craft-tweet{
-			padding-left:25px;
+			@include position(absolute, 50% auto auto 50%);
+			@include transform(translateX(-50%) translateY(-50%));
+			padding:60px;
+		}
+		.craft{
 			position:relative;
-			top:35px;
-			header{
-				font-size:1.33em;
+			.input{
+				width:100%;
+				overflow:hidden;
+				textarea{
+					height:52px;
+					width:2000px;
+					overflow-y:hidden;
+				}
 			}
 		}
-		.social .feed{
-			h5{
-				font-size:.9em;
-			}
-			& > ul{
-				margin:20px 0;
-				max-height:500px;
-				overflow-y:scroll;
-			}
-			.swipe-to-slide{
-				display:none;
-			}
+		button.tweet{
+			@include position(absolute, 0px 0px 3px auto);
+			width:90px;
+			margin-top:0px;
+		}
+		span.count{
+			@include position(absolute, 1em 85px 3px auto);
+			width:auto;
+			padding:0px;
 		}
 	}
 }
 
-.feed li.twitter{
-	@include outer-container();
-	overflow:hidden;
 
-	.profile-image{ @include span-columns(3); padding-right:10px;}
-	.tweet{ @include span-columns(9); margin-right:0px; }
-
-	.tweet-header{
-		margin-bottom:1em;
-		h4,a{
-			display:inline-block;
-		}
-		a{
-			color:lighten($dark,50%);
-			@extend %default-transition;
-		}
-		a.time{
-			float:right;
-		}
+.acts-of-kindness{
+	background-color:$primary;
+	text-align:center;
+	padding:50px 10px;
+	h3{
+		font-size:64px;
+		color:#fff;
+		font-weight:100;
+		letter-spacing: 0.1em;
 	}
-
-	.tweet-entity a{
-		color:$twitter;
-	}
-
-	.tweet-entity img{
-		margin:0 auto;
+	span.acts{
 		display:block;
-		padding:5px 0;
+		margin-top:2px;
+		font-size:20px;
+		color:$primary-dark;
 	}
+}
 
-	.actions{
-		float:left;
-		width:100%;
-		ul{
-			@include opacity(0.2);
-			@include outer-container();
-			@extend %default-transition;
-			li{
-				@include span-columns(4);
-			}
-			a{
-				display:block;
-			}
-			svg{
-				@include size(18px);
-				display:block;
-				margin:0 auto;
-			}
+@media all and(min-width:$get-involved-bp){
+	.acts-of-kindness{
+		position:relative;
+		& > div{
+			@include position(absolute, 50% auto auto 50%);
+			@include transform(translateX(-50%) translateY(-50%));
+			width:100%;
+			padding:10px;
 		}
-	}
-}
-
-.no-touch .feed li.twitter .tweet-header a:hover{
-	color:$primary;
-}
-
-@media all and(min-width:800px){
-	.feed li.twitter{
-		.actions{
-			@include span-columns(9);
-			float:right;
+		h3{
+			font-size: 100px;
 		}
-	}
-}
-
-.no-touch .feed li:hover .actions ul{
-	@include opacity(1);
-}
-
-.feed li.instagram{
-	& > img{
-		width:100%;
-	}
-	.insta-header{
-		margin:10px 0 15px;
-		display:block;
-		@include clearfix();
-		h4,a{
-			display:inline-block;
+		span.acts{
+			font-size:28px;
+			margin-top:12px;
 		}
-		a{
-			color:lighten($dark,50%);
-			@extend %default-transition;
-		}
-		h4{
-			float:left;
-		}
-		& > a{
-			float:right;
-		}
-	}
-	p{
-		clear:both;
-	}
-}
-
-.no-touch .feed li.instagram .insta-header a:hover{
-	color:$primary;
-}
-
-.feed li.twitter,.feed li.instagram{
-	margin-bottom:20px;
-	padding-bottom:20px;
-	border-bottom:1px solid lighten($dark,33%);
-}
-
-@media all and(min-width:800px){
-	.feed li.twitter,.feed li.instagram,.feed .slick-slide{
-			&:last-child{
-			margin-bottom:0px;
-			border-bottom:none;
-		}
-	}
-}
-
-.feed .slick-dots.above-dots{
-	bottom:auto;
-	top:-27px;
-}
-
-.feed .slick-dots{
-	width:100%;
-	background-color:rgba($dark,.5);
-	padding:5px 0;
-	left:0px;
-	bottom:0px;
-	li{
-		@include size(15px);
-		@include border-radius(50%);
-		border:1px solid #fff;
-		margin:0 7px;
-	}
-	.slick-active{
-		background-color:#fff;
 	}
 }

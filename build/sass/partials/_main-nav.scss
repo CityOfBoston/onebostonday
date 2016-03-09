@@ -19,6 +19,9 @@
 	a.logo{
 		background-color:$primary;
 		display:block;
+		float:left;
+		padding:34px 20px 35px;
+		@include position(absolute, 0px auto auto 0px);
 	}
 	ul{
 		clear:both;
@@ -26,9 +29,17 @@
 		overflow:hidden;
 		@extend %default-transition;
 	}
-	&.active ul{
-		max-height:600px;
-		padding:20px 0;
+	&.active{
+		background-color:$primary;
+		.burger-box{
+			top:16px;
+			right:16px;
+		}
+		ul{
+			max-height:600px;
+			padding:20px 0;
+			background-color:$primary;
+		}
 	}
 }
 
@@ -45,8 +56,6 @@
 			max-width:100%;
 		}
 		a.logo{
-			float:left;
-			padding:34px 20px 35px;
 			@include position(fixed, 0px auto auto 0px);
 		}
 		img,svg{

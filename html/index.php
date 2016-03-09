@@ -9,39 +9,34 @@
                     </div>
                     <div class="copy">
                         <h1>One Boston Day</h1>
-                        <p>April 15th marks the beginning of a new annual Boston tradition: One Boston Day. This day will be a celebration of the resiliency, generosity, and strength of the people that make Boston the great city it is.</p>
-                        <h3>What will you do?</h3>
+                        <p>April 15th, 2015 marked the beginning of a new annual Boston tradition: One Boston Day. Each year, the day will be a celebration of the resiliency, generosity, and strength of the people that make Boston the great city it is. <strong>How will you make a difference?</strong></p>
                     </div>
                 </div>
             </section>
 
             <section class="get-involved" id="get-involved">
                 <div class="block">
-                    <header class="section-intro">
-                        <h2>Get Involved</h2>
-                        <p>On this day, we remember and reflect. We greet our neighbors. We lend a hand. We reach out, give back, and go above and beyond. We epitomize the spirit of the city we love.</p>
-                    </header>
                     <div class="social">
-                        <div class="feed">
-                            <svg class="icon icon-spinner"><use xlink:href="#icon-spinner"></use></svg>
-                            <h5>See how your neighbors are getting involved:</h5>
-                            <div class="swipe-to-slide"><svg class="icon icon-arrow-left"><use xlink:href="#icon-arrow-left"></use></svg><span>Swipe</span><svg class="icon icon-arrow-right"><use xlink:href="#icon-arrow-right"></use></svg></div>
-                            <ul>
-                            </ul>
-                            <div class="swipe-to-slide"><svg class="icon icon-arrow-left"><use xlink:href="#icon-arrow-left"></use></svg><span>Swipe</span><svg class="icon icon-arrow-right"><use xlink:href="#icon-arrow-right"></use></svg></div>
-                        </div>
                         <div class="craft-tweet">
+                            <header>
+                                <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
+                                For #OneBostonDay,
+                            </header>
                             <div class="craft">
-                                <header>
-                                    <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
-                                    For #OneBostonDay,
-                                </header>
-                                <textarea placeholder="I will..."></textarea>
-                                <span class="count"></span>
+                                <div class="input">
+                                    <textarea placeholder="I will..."></textarea>
+                                    <span class="count">103</span>
+                                </div>
+                                <button class="tweet">
+                                    Share
+                                </button>
                             </div>
-                            <button class="tweet">
-                                Share
-                            </button>
+                        </div>
+                    </div>
+                    <div class="acts-of-kindness">
+                        <div>
+                            <h3 data-count="49523"></h3>
+                            <span class="acts">Acts of Kindness</span>
                         </div>
                     </div>
                 </div>
