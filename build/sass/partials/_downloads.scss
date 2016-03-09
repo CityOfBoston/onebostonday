@@ -2,9 +2,24 @@
 	min-height:300px;
 	background-color:#fff;
 	padding:60px 10px;
+	header{
+		width:100%;
+		display:block;
+		margin-bottom:40px;
+		h2{
+			margin-bottom:8px;
+		}
+	}
+	.profile-picture li a.none-download{
+		background-size:cover;
+	}
 	h2{
-		text-transform: normal;
+		text-transform: none;
 		text-align:center;
+		max-width:600px;
+		line-height:1.375;
+		margin:0 auto 40px;
+		display:block;
 	}
 	picture{
 		padding:20px 10px;
@@ -18,16 +33,27 @@
 		text-transform: uppercase;
 		@include appearance(none);
 		background-color:transparent;
-		border:2px solid $primary;
 		text-align:center;
-		font-size:.815em;
-		padding:10px;
+		font-size:16px;
+		padding:10px 20px 15px 10px;
 		color:$primary;
 		display:block;
 		margin:0 auto 20px;
+		width:100%;
+		max-width:350px;
 		@extend %default-transition;
 		&:before{
 			content:none;
+		}
+		svg{
+			@include size(1.2em);
+			position:relative;
+			top:0.25em;
+			left:0.33em;
+			use{
+				fill:$primary;
+				@extend %default-transition;
+			}
 		}
 	}
 	h5{
@@ -58,6 +84,7 @@
 		}
 		ul{
 			@include outer-container();
+			margin-bottom:20px;
 		}
 		li{
 			@include span-columns(6);
@@ -107,6 +134,9 @@
 	a.package:hover{
 		color:#fff;
 		background-color:$primary;
+		svg use{
+			fill:#fff;
+		}
 	}
 	.profile-picture a:hover,.anyday-logos a:hover{
 		border-color:$primary;
@@ -127,11 +157,11 @@
 @media all and(min-width:700px){
 	.downloads{
 		padding:100px 10px;
-		h4{
+		h4,h5{
 			float:left;
-		}
-		a.package{
-			float:right;
+			display:block;
+			width:100%;
+			@include clearfix();
 		}
 		ul{
 			@include clearfix();
@@ -173,7 +203,57 @@
 				@include omega-reset(2n);
 				@include omega(3n);
 				@include span-columns(4);
-				margin-bottom:32px;
+				margin-bottom:15px;
+			}
+		}
+	}
+	.downloads.social{
+		.block{
+			@include outer-container();
+		}
+		.example,
+		.profile-picture{
+			@include span-columns(6);
+		}
+		.profile-picture{
+			margin-top:50px;
+			ul.square{
+				@include outer-container();
+				max-width:80%;
+				li{
+					padding-right:0px;
+					@include span-columns(6);
+				}
+			}
+		}
+		.example{
+			position:relative;
+			height:500px;
+			picture,img,source{
+				width:100%;
+			}
+			picture{
+				width:50vw;
+				max-width:700px;
+				@include position(absolute, auto 20px -50px auto);
+			}
+		}
+	}
+	.downloads.anyuse{
+		.logo-container{
+			@include outer-container();
+			.anyday-logos{
+				@include span-columns(6);
+			}
+			.example{
+				@include span-columns(6);
+				margin-right:0px;
+				position:relative;
+				picture{
+					width:50vw;
+					max-width:700px;
+					@include position(absolute, -10px auto auto 30px);
+				}
 			}
 		}
 	}

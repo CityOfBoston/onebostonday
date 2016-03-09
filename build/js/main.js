@@ -355,7 +355,7 @@ $(function(){
     //  logos
     //////////////////////////////////////*/
     var loadLogos = function(){
-        $('.downloads li a').each(function(){
+        $('.downloads li a').not('.none-download').each(function(){
             var image = $(this).data('image');
             $(this).css({
                 'background-image':'url(../img/logos/'+image+')'
@@ -365,6 +365,9 @@ $(function(){
             if(! Modernizr.adownload){
                 $(this).attr('target','_blank');
             }
+        });
+        $('.none-download').css({
+            'background-image':'url(../img/'+$('.none-download').data('image')+')'
         });
     };
 

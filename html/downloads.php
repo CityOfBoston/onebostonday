@@ -10,9 +10,8 @@
             <h2>Change Your Profile Picture or Cover Photo to Show Your Support</h2>
             <div class="example">
                 <picture>
-                    <source srcset="/img/imac-small.jpg" media="(min-width:500px)">
-                    <source srcset="/img/imac-large.jpg">
-                    <img srcset="/img/imac-large.jpg">
+                    <source srcset="/img/imac-large.png" media="(min-width:700px)">
+                    <img src="/img/imac-small.png" alt="Change your profile picture">
                 </picture>
             </div>
             <div class="profile-picture">
@@ -25,12 +24,10 @@
                         <a href="#" download data-image="OneBostonDay_Logo_02_BlueWhite-square.jpg"><span><svg class="icon icon-download"><use xlink:href="#icon-download"></use></svg></span></a>
                     </li>
                 </ul>
-            </div>
-            <div class="profile-picture">
                 <h5>Cover Photos</h5>
                 <ul class="cover-photo">
                     <li>
-                        <a href="#" download data-image="OneBostonDay_Logo_01_BlueNavy-square.jpg"><span><svg class="icon icon-download"><use xlink:href="#icon-download"></use></svg></span></a>
+                        <a class="none-download" href="one-boston-day_covers.zip" download data-image="OneBostonDay_CoverPhoto_Facebook.jpg"><span><svg class="icon icon-download"><use xlink:href="#icon-download"></use></svg></span></a>
                     </li>
                 </ul>
             </div>
@@ -38,10 +35,12 @@
     </section>
     <section class="downloads anyuse">
         <div class="block">
+            <header>
+                <h2>Logos for Any Use</h2>
+                <a href="/zip/one-boston-day_logos.zip" download class="package">Download Logo Package <svg class="icon icon-download"><use xlink:href="#icon-download"></use></svg></a> 
+            </header>
             <div class="logo-container">
                 <div class="anyday-logos">
-                    <h4>Logos for any use</h4>
-                    <a href="/zip/one-boston-day_logos.zip" download class="package">Download Logo Package</a> 
                     <ul>
                          <li>
                             <a href="#" download data-image="OneBostonDay_Logo_01_BlueNavy.jpg"><span><svg class="icon icon-download"><use xlink:href="#icon-download"></use></svg></span></a>
@@ -80,6 +79,12 @@
                             <a href="#" download data-image="OneBostonDay_Logo_14_BlackWhitePurple.jpg"><span><svg class="icon icon-download"><use xlink:href="#icon-download"></use></svg></span></a>
                         </li>
                     </ul>
+                </div>
+                <div class="example">
+                    <picture>
+                        <source srcset="/img/iphone-large.png" media="(min-width:700px)">
+                        <img src="/img/iphone-small.png" alt="Share on social">
+                    </picture>
                 </div>
             </div>
         </div>
