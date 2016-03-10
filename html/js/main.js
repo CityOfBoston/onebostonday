@@ -84,7 +84,6 @@ $(function(){
 
     var donezo = false;
     setInterval(function(){
-        console.log(donezo);
         if(isElementInViewport($odometer) && donezo === false){
             od.update(counts);
             donezo = true;
@@ -174,7 +173,7 @@ $(function(){
             var length = $(this).val().length;
             var charactersLeft = characterCount - length;
             if(charactersLeft < 0){
-                $('.craft span').html("Your tweet is too long :( <b>"+charactersLeft+"</b>");
+                $('.craft span').html('<b class="nono">'+charactersLeft+'</b>');
             }
             else{
                 $('.craft span').text(charactersLeft);
@@ -195,23 +194,24 @@ $(function(){
     /*//////////////////////////////////////
     //  get feed
     //////////////////////////////////////*/
-    var loadFeed = function(file) {
+    var loadFeed = function() {
         $.ajax({
-            url:'/feeds/' + file,
+            //url:'/feeds/' + file,
+            url: 'http://siphon.hhcctech.com/api/container/showall/8',
             dataType:'json',
             error: function(jqXHR, textStatus, errorThrown) {
                 console.log(textStatus, errorThrown);
             },
             success:function(response){
-
+                console.log(response);
                 $('.feed .icon-spinner').fadeOut(function(){
                     $(this).remove();
                 });
 
                 var totalPosts = response.data.length;
     
-                if(totalPosts > 54){
-                    totalPosts = 54;
+                if(totalPosts > 50){
+                    totalPosts = 50;
                 }
     
                 for (i=0;i<totalPosts;i++){
@@ -224,58 +224,62 @@ $(function(){
                     }
                 }
 
-                $(".feed ul .tweet-entity").anchorTextUrls();
+                $(".social-feed .block > ul .content").anchorTextUrls();
 
-                // lazy loading
+                //lazy loading
                 if($(window).width() < 800){
-                    $('.feed img').lazyload();
+                    $('.social-feed .photo img').lazyload();
                 }
                 else{
-                    $('.feed img').lazyload({
-                        container: $('.feed ul')
+                    $('.social-feed .photo img').lazyload({
+                        container: $('.social-feed .block > ul')
+                    });
+
+                    var grid = $('.social-feed .block > ul').isotope({
+                        itemSelector: '.social-feed .block > ul > li',
+                        layoutMode: 'packery',
+                        packery: {
+                          rowHeight: 20
+                        }
                     });
                 }
 
-                // CAROUSEL FOR MOBILE
-                if($(window).width() < 800){
-                    $('.feed > ul').slick({
-                        slide: 'li',
-                        dots: false,
-                        arrows: false,
-                        infinite: true,
-                        speed: 300,
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        rows:3,
-                        adaptiveHeight: true,
-                        touchThreshold: 3
-                    });
-                    
-                    var swipeCounter = 0;
-                    $('.feed > ul').on('swipe', function(event, slick, direction){
-                        // log the swipe
-                        ga('send', 'event', 'social feed', 'swipe: '+swipeCounter);
-                        swipeCounter++;
-                    });
-                }
+
             }
         });
-    
     };
+
+    loadFeed();
     
     var file = "";
-    
+    //  2016 WAY
+    // $.ajax({
+    //     url: "/feeds",
+    //     success: function(response){
+    //         $(response).find("td > a").each(function(){
+    //             file = $(this).attr("href");
+    //         });
+    //         loadFeed(file);
+    //         //loadFeed('../feeds/feed.json');
+    //     }
+    // });
 
-    $.ajax({
-        url: "/feeds",
-        success: function(response){
-            $(response).find("td > a").each(function(){
-                file = $(this).attr("href");
-            });
-            loadFeed(file);
-            //loadFeed('../feeds/feed.json');
-        }
-    });
+    // WIP
+    // $.ajax({
+    //     url: 'http://siphon.hhcctech.com/api/container/showall/8',
+    //     type: 'GET',
+    // })
+    // .done(function(response) {
+    //     console.log("success");
+    //     loadFeed(response);
+    // })
+    // .fail(function() {
+    //     console.log("error");
+    // })
+    // .always(function() {
+    //     console.log("complete");
+    // });
+    
 
     $('body').on('click','.actions a',function(event){
         event.preventDefault();
@@ -290,47 +294,50 @@ $(function(){
 
         twitterDisplayImage = '';
         if(twitterImage !== null){
-            twitterDisplayImage = '<img data-original="'+twitterImage+'" src=\"\/img\/preloader-larger.gif\" alt=\"\">';
+            twitterDisplayImage = '<div class=\"photo\"><img data-original="'+twitterImage+'" src=\"\/img\/preloader-large.gif\" alt=\"\"><\/div>';
         }
 
-        var twitterMarkup="";
-        twitterMarkup += "<li class=\"twitter\">";
-        twitterMarkup += "    <div class=\"profile-image\">";
-        twitterMarkup += "        <img data-original=\""+ profileImage +"\" src=\"\/img\/preloader-small.gif\" alt=\"\">";
-        twitterMarkup += "    <\/div>";
-        twitterMarkup += "    <div class=\"tweet\">";
-        twitterMarkup += "        <header class=\"tweet-header\">";
-        twitterMarkup += "            <h4>"+ twitterName +"<\/h4>";
-        twitterMarkup += "            <a class=\"handle\" href=\"https:\/\/twitter.com\/"+ twitterUser +"\" target=\"_blank\">@"+ twitterUser +"<\/a>";
-        twitterMarkup += "            <a class=\"time\" href=\"https:\/\/twitter.com\/"+ twitterUser +"\/status\/"+ twitterTweetUrl +"\" target=\"_blank\" title=\" "+twitterTime+" \"><\/a>";
-        twitterMarkup += "        <\/header>";
-        twitterMarkup += "        <div class=\"tweet-entity\">";
-        twitterMarkup += "            <p>"+ twitterTweetEntity +"<\/p>"+twitterDisplayImage;
-        twitterMarkup += "        <\/div>";
-        twitterMarkup += "    <\/div>";
-        twitterMarkup += "    <div class=\"actions\">";
-        twitterMarkup += "        <ul>";
-        twitterMarkup += "            <li>";
-        twitterMarkup += "                <a href=\""+intentReply+"\">";
-        twitterMarkup += "                    <svg class=\"icon icon-reply\"><use xlink:href=\"#icon-reply\"><\/use><\/svg>";
-        twitterMarkup += "                <\/a>";
-        twitterMarkup += "            <\/li>";
-        twitterMarkup += "            <li>";
-        twitterMarkup += "                <a href=\""+intentRetweet+"\">";
-        twitterMarkup += "                    <svg class=\"icon icon-retweet\"><use xlink:href=\"#icon-retweet\"><\/use><\/svg>";
-        twitterMarkup += "                <\/a>";
-        twitterMarkup += "            <\/li>";
-        twitterMarkup += "            <li>";
-        twitterMarkup += "                <a href=\""+intentFavorite+"\">";
-        twitterMarkup += "                    <svg class=\"icon icon-star\"><use xlink:href=\"#icon-star\"><\/use><\/svg>";
-        twitterMarkup += "                <\/a>";
-        twitterMarkup += "            <\/li>";
-        twitterMarkup += "        <\/ul>";
-        twitterMarkup += "    <\/div>";
-        twitterMarkup += "<\/li>";
+        var twitterCard="";
+        twitterCard += "<li>";
+        twitterCard += "    <div class=\"twitter-card\">";
+        twitterCard += "        <svg class=\"icon icon-twitter\"><use xlink:href=\"#icon-twitter\"><\/use><\/svg>";
+        twitterCard += "        <header>";
+        twitterCard += "            <a href=\"#\">";
+        twitterCard += "                <img src=\""+profileImage+"\">";
+        twitterCard += "                <h4>"+twitterName+"<\/h4>";
+        twitterCard += "                <h5>@"+twitterUser+"<\/h5>";
+        twitterCard += "            <\/a>";
+        twitterCard += "        <\/header>";
+        twitterCard += "        <div class=\"content\">";
+        twitterCard += "            <p>"+twitterTweetEntity+"<\/p>";
+        twitterCard += "        <\/div>";
+        twitterCard += "        <time><a href=\""+twitterTweetUrl+"\">"+twitterTime+"<\/a><\/time>";
+        twitterCard +=          twitterDisplayImage;
+        twitterCard += "        <div class=\"actions\">";
+        twitterCard += "            <ul>";
+        twitterCard += "                <li>";
+        twitterCard += "                    <a href=\""+intentReply+"\"> ";
+        twitterCard += "                        <svg class=\"icon icon-reply\"><use xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\" xlink:href=\"#icon-reply\"><\/use><\/svg>                ";
+        twitterCard += "                    <\/a>";
+        twitterCard += "                <\/li>";
+        twitterCard += "                <li>";
+        twitterCard += "                    <a href=\""+intentRetweet+"\">";
+        twitterCard += "                        <svg class=\"icon icon-retweet\"><use xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\" xlink:href=\"#icon-retweet\"><\/use><\/svg>";
+        twitterCard += "                    <\/a> ";
+        twitterCard += "                <\/li>";
+        twitterCard += "                <li>";
+        twitterCard += "                    <a href=\""+intentFavorite+"\">";
+        twitterCard += "                        <svg class=\"icon icon-heart\"><use xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\" xlink:href=\"#icon-heart\"><\/use><\/svg>";
+        twitterCard += "                    <\/a>";
+        twitterCard += "                <\/li>";
+        twitterCard += "            <\/ul>";
+        twitterCard += "        <\/div>";
+        twitterCard += "    <\/div>";
+        twitterCard += "<\/li>";
 
-        $('.feed > ul').append(twitterMarkup);
-        $('.feed a').timeago();
+
+        $('.social-feed .block > ul').append(twitterCard);
+        //$('.feed a').timeago();
     };
 
     var instagramTemplate = function(instaImage,instaName,instaUsername,instaTime,instaUrl,instaBody){

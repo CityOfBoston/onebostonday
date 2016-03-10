@@ -122,7 +122,10 @@ svg.icon-spinner{
 		padding:0.5em;
 		display:block;
 		width:100%;
-		text-align:center;
+		text-align:left;
+		b.nono{
+			color:#DA2126;
+		}
 	}
 }
 
@@ -140,21 +143,21 @@ svg.icon-spinner{
 				width:100%;
 				overflow:hidden;
 				textarea{
-					height:52px;
-					width:2000px;
+					height:95px;
+					width:100%;
 					overflow-y:hidden;
+					resize: none;
 				}
 			}
 		}
 		button.tweet{
-			@include position(absolute, 0px 0px 3px auto);
-			width:90px;
-			margin-top:0px;
+			margin-top:10px;
 		}
 		span.count{
-			@include position(absolute, 1em 85px 3px auto);
+			@include position(absolute, auto 0px 4px auto);
+			@include transform(translateX(0px));
 			width:auto;
-			padding:0px;
+			padding:10px;
 		}
 	}
 }

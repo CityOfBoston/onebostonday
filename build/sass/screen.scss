@@ -10,6 +10,8 @@
 @import "partials/press";
 @import "partials/footer";
 @import "partials/planning";
+@import "partials/odometer";
+
 
 @import "partials/fallback";
 
@@ -31,92 +33,131 @@
     }
 }
 
-.odometer.odometer-auto-theme, .odometer.odometer-theme-default {
-  display: inline-block;
-  vertical-align: middle;
-  *vertical-align: auto;
-  *zoom: 1;
-  *display: inline;
-  position: relative;
-}
-.odometer.odometer-auto-theme .odometer-digit, .odometer.odometer-theme-default .odometer-digit {
-  display: inline-block;
-  vertical-align: middle;
-  *vertical-align: auto;
-  *zoom: 1;
-  *display: inline;
-  position: relative;
-}
-.odometer.odometer-auto-theme .odometer-digit .odometer-digit-spacer, .odometer.odometer-theme-default .odometer-digit .odometer-digit-spacer {
-  display: inline-block;
-  vertical-align: middle;
-  *vertical-align: auto;
-  *zoom: 1;
-  *display: inline;
-  visibility: hidden;
-}
-.odometer.odometer-auto-theme .odometer-digit .odometer-digit-inner, .odometer.odometer-theme-default .odometer-digit .odometer-digit-inner {
-  text-align: left;
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  overflow: hidden;
-}
-.odometer.odometer-auto-theme .odometer-digit .odometer-ribbon, .odometer.odometer-theme-default .odometer-digit .odometer-ribbon {
-  display: block;
-}
-.odometer.odometer-auto-theme .odometer-digit .odometer-ribbon-inner, .odometer.odometer-theme-default .odometer-digit .odometer-ribbon-inner {
-  display: block;
-  -webkit-backface-visibility: hidden;
-}
-.odometer.odometer-auto-theme .odometer-digit .odometer-value, .odometer.odometer-theme-default .odometer-digit .odometer-value {
-  display: block;
-  -webkit-transform: translateZ(0);
-}
-.odometer.odometer-auto-theme .odometer-digit .odometer-value.odometer-last-value, .odometer.odometer-theme-default .odometer-digit .odometer-value.odometer-last-value {
-  position: absolute;
-}
-.odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-up .odometer-ribbon-inner {
-  -webkit-transition: -webkit-transform 2s;
-  -moz-transition: -moz-transform 2s;
-  -ms-transition: -ms-transform 2s;
-  -o-transition: -o-transform 2s;
-  transition: transform 2s;
-}
-.odometer.odometer-auto-theme.odometer-animating-up.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-up.odometer-animating .odometer-ribbon-inner {
-  -webkit-transform: translateY(-100%);
-  -moz-transform: translateY(-100%);
-  -ms-transform: translateY(-100%);
-  -o-transform: translateY(-100%);
-  transform: translateY(-100%);
-}
-.odometer.odometer-auto-theme.odometer-animating-down .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-down .odometer-ribbon-inner {
-  -webkit-transform: translateY(-100%);
-  -moz-transform: translateY(-100%);
-  -ms-transform: translateY(-100%);
-  -o-transform: translateY(-100%);
-  transform: translateY(-100%);
-}
-.odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-down.odometer-animating .odometer-ribbon-inner {
-  -webkit-transition: -webkit-transform 2s;
-  -moz-transition: -moz-transform 2s;
-  -ms-transition: -ms-transform 2s;
-  -o-transition: -o-transform 2s;
-  transition: transform 2s;
-  -webkit-transform: translateY(0);
-  -moz-transform: translateY(0);
-  -ms-transform: translateY(0);
-  -o-transform: translateY(0);
-  transform: translateY(0);
+
+section.social-feed{
+    background-color:#f6f6f6;
+    padding:20px 10px;
 }
 
-.odometer.odometer-auto-theme, .odometer.odometer-theme-default {
-  font-family: "Helvetica Neue", sans-serif;
-  line-height: 1.1em;
+@media all and(min-width:700px){
+    section.social-feed{
+        padding:60px 10px;
+    }
 }
-.odometer.odometer-auto-theme .odometer-value, .odometer.odometer-theme-default .odometer-value {
-  text-align: center;
+
+.twitter-card,
+.instagram-card{
+    padding:30px;
+    background-color:#fff;
+    position:relative;
+    margin-bottom:20px;
+    & > svg.icon-twitter,
+    & > svg.icon-instagram{
+        @include position(absolute, 30px auto auto 30px);
+        @include size(22px);
+    }
+    svg.icon-twitter use{
+        fill:$twitter;
+    }
+    svg.icon-instagram use{
+        fill:$instagram;
+    }
+    header{
+        text-align:center;
+        padding-bottom:15px;
+        margin-bottom:15px;
+        border-bottom:1px solid #f6f6f6;
+        a{
+            color:$dark;
+        }
+        img{
+            @include border-radius(50%);
+            @include size(61px);
+            margin:0 auto 10px;
+            display:block;
+        }
+        h5{
+            margin-top:5px;
+            color:#bdc2c6;
+            font-size:14px;
+        }
+    }
+    div.content{
+        p{
+            font-size:14px;
+            a{
+                color:$primary;
+            }
+        }
+    }
+    time{
+        display:block;
+        margin:20px auto 15px auto;
+        font-size:14px;
+        a{
+            color:#b2c2c6;
+        }
+    }
+    div.photo{
+        display:block;
+        margin-bottom:15px;
+        position:relative;
+        &:after{
+            content:" ";
+            display:block;
+            padding-bottom:100%;
+        }
+        img{
+            display:block;
+            margin:0 auto;
+            max-width:100%;
+            max-height:100%;
+            @extend %absolute-middle;
+        }
+    }
+    div.actions{
+        ul li{
+            display:inline-block;
+            margin-right:20px;
+        }
+        svg{
+            @include size(18px);
+        }
+        svg.icon-reply{
+            @include size(20px);
+        }
+        svg.icon-heart{
+            @include size(16px);
+        }
+        svg use{
+            fill:#b2c2c6;
+        }
+    }
+}
+
+@media all and(min-width:600px){
+    .social-feed .block > ul{
+        @include outer-container();
+        & > li{
+            @include span-columns(6);
+            @include omega(2n);
+        }
+    }
+}
+
+@media all and(min-width:900px){
+    .social-feed .block{
+        max-width:1200px;
+    }
+    .social-feed .block > ul{
+        @include outer-container();
+        max-width:1200px;
+        height:100%;
+        & > li{
+            @include omega-reset(2n);
+            @include span-columns(4);
+            @include omega(3n);
+            margin-bottom:10px;
+        }
+    }
 }

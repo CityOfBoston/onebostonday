@@ -42,4 +42,11 @@
                 </div>
             </section>
 
+            <section class="social-feed">
+                <div class="block">
+                    <ul>
+                    </ul>
+                </div>
+            </section>
+
 <?php include "includes/footer.php" ?>
