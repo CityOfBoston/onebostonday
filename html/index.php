@@ -35,7 +35,7 @@
                     </div>
                     <div class="acts-of-kindness">
                         <div>
-                            <h3 data-count="49523"></h3>
+                            <h3></h3>
                             <span class="acts">Acts of Kindness</span>
                         </div>
                     </div>

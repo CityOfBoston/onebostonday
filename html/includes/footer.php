@@ -1,7 +1,7 @@
             <footer class="main-footer">
                 <div class="block">
                     <div class="site-info">
-                        <a class="cityofboston-link" href="http://www.cityofboston.gov/"><img src="/img/boston.jpg" alt="City of Boston"></a>
+                        <a class="cityofboston-link" href="http://www.cityofboston.gov/"><img src="/img/boston.png" alt="City of Boston"></a>
                         <p>Visit the <a href="/press.html">Press</a> page to learn more about One Boston Day.</p>
                         <p><a href="http://www.cityofboston.gov/copyright/privacyandsecurity.asp" target="_blank">Privacy Policy</a></p>
                     </div>

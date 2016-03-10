@@ -12,6 +12,9 @@
 	}
 	.profile-picture li a.none-download{
 		background-size:cover;
+		span{
+			right:45px;
+		}
 	}
 	h2{
 		text-transform: none;
@@ -188,7 +191,7 @@
 				margin-bottom:25px;
 				padding-right:45px;
 				span{
-					right:45px;
+					//right:45px;
 				}
 			}
 		}

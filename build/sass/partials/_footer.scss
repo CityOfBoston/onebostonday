@@ -24,6 +24,7 @@
 	.follow{
 		margin:15px 0 30px;
 		display:block;
+		text-align:center;
 		h5{
 			font-size:1.2em;
 			text-align:center;
@@ -40,6 +41,7 @@
 		}
 		ul{
 			@include outer-container();
+			max-width:160px;
 		}
 		li{
 			@include span-columns(4);
@@ -140,12 +142,8 @@ button.facebook{
 			@include span-columns(3.5);
 			margin-top:0px;
 			h5{
-				text-align:left;
 				font-size:.9em;
 				margin-bottom:10px;
-			}
-			li{
-				width:auto;
 			}
 		}
 	}

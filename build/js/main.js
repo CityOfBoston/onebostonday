@@ -67,22 +67,15 @@ $(function(){
     /*//////////////////////////////////////
     //  odometer on homepage
     //////////////////////////////////////*/
-    var $odometer = document.querySelector('.acts-of-kindness h3');
-    var counts = $('.acts-of-kindness h3').data('count');
-    od = new Odometer({
-        el: $odometer,
-        value: 0,
-        format: '(,ddd)',
-        duration: 2000,
-    }); 
-
-    var donezo = false;
-    setInterval(function(){
-        if(isElementInViewport($odometer) && donezo === false){
-            od.update(counts);
-            donezo = true;
-        }
-    },500);
+    if($('.acts-of-kindness h3').length > 0){
+        var $odometer = document.querySelector('.acts-of-kindness h3');
+        od = new Odometer({
+            el: $odometer,
+            value: 0,
+            format: '(,ddd)',
+            duration: 2000,
+        }); 
+    }
 
 
     /*//////////////////////////////////////
@@ -201,6 +194,15 @@ $(function(){
                     $(this).remove();
                 });
 
+                console.log(response);
+                var donezo = false;
+                setInterval(function(){
+                    if(isElementInViewport($odometer) && donezo === false){
+                        od.update(response.total);
+                        donezo = true;
+                    }
+                },500);
+
                 var totalPosts = response.data.length;
     
                 if(totalPosts > 50){
@@ -240,7 +242,9 @@ $(function(){
         });
     };
 
-    loadFeed();    
+    if($('.acts-of-kindness h3').length > 0){
+        loadFeed();
+    }    
 
     //load more button
     var inView = 24;

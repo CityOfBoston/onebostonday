@@ -207,3 +207,17 @@ section.social-feed{
         }
     }
 }
+
+@media all and(Min-width:1600px){
+    .social-feed .block{
+        max-width:1600px;
+        & > ul{
+            max-width:1600px;
+            & > li{
+                @include omega-reset(3n);
+                @include span-columns(3);
+                @include omega(4n);
+            }
+        }
+    }
+}
