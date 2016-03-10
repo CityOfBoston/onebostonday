@@ -1,13 +1,7 @@
-
 $(function(){
-
     var body = $('body');
     body.addClass('ready');
 
-            // BG
-            // TYPE
-            // MARK
-            
     var colors = [
         [
             '#0099FA',
@@ -203,7 +197,6 @@ $(function(){
                 console.log(textStatus, errorThrown);
             },
             success:function(response){
-                console.log(response);
                 $('.feed .icon-spinner').fadeOut(function(){
                     $(this).remove();
                 });
@@ -243,13 +236,39 @@ $(function(){
                         }
                     });
                 }
-
-
             }
         });
     };
 
     loadFeed();    
+
+    //load more button
+    var inView = 24;
+    $('button.load-more').on('click',function(event){
+        event.preventDefault();
+        $('.social-feed .block > ul > li:nth-child(-n+'+inView+')').show();
+        inView += 12;
+
+        setTimeout(function(){
+            $('.social-feed .photo img').lazyload({
+                container: $('.social-feed .block > ul')
+            });
+        },250);
+
+        var grid = $('.social-feed .block > ul').isotope({
+            itemSelector: '.social-feed .block > ul > li',
+            layoutMode: 'packery',
+            packery: {
+              rowHeight: 20
+            }
+        });
+
+        console.log($('.social-feed .block > ul').children(':hidden').length);
+
+        if($('.social-feed .block > ul').children(':hidden').length === 0) {
+           $('button.load-more').hide();
+        }
+    });
 
     $('body').on('click','.actions a',function(event){
         event.preventDefault();
@@ -291,17 +310,17 @@ $(function(){
         twitterCard += "        <div class=\"actions\">";
         twitterCard += "            <ul>";
         twitterCard += "                <li>";
-        twitterCard += "                    <a href=\""+intentReply+"\"> ";
+        twitterCard += "                    <a class=\"reply\" href=\""+intentReply+"\"> ";
         twitterCard += "                        <svg class=\"icon icon-reply\"><use xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\" xlink:href=\"#icon-reply\"><\/use><\/svg>                ";
         twitterCard += "                    <\/a>";
         twitterCard += "                <\/li>";
         twitterCard += "                <li>";
-        twitterCard += "                    <a href=\""+intentRetweet+"\">";
+        twitterCard += "                    <a class=\"retweet\" href=\""+intentRetweet+"\">";
         twitterCard += "                        <svg class=\"icon icon-retweet\"><use xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\" xlink:href=\"#icon-retweet\"><\/use><\/svg>";
         twitterCard += "                    <\/a> ";
         twitterCard += "                <\/li>";
         twitterCard += "                <li>";
-        twitterCard += "                    <a href=\""+intentFavorite+"\">";
+        twitterCard += "                    <a class=\"favorite\" href=\""+intentFavorite+"\">";
         twitterCard += "                        <svg class=\"icon icon-heart\"><use xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\" xlink:href=\"#icon-heart\"><\/use><\/svg>";
         twitterCard += "                    <\/a>";
         twitterCard += "                <\/li>";

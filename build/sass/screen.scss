@@ -33,10 +33,33 @@
     }
 }
 
+button.load-more{
+    display:block;
+    margin:20px auto;
+    padding:0.6em 1em 0.5em;
+    @include appearance(none);
+    border:2px solid $primary;
+    color:$primary;
+    background-color:transparent;
+    text-transform: uppercase;
+    font-family:$font-sans;
+    font-size:18px;
+    width:100%;
+    width:320px;
+    @extend %default-transition;
+}
+
+.no-touch button.load-more:hover{
+    background-color:$primary;
+    color:#fff;
+}
 
 section.social-feed{
     background-color:#f6f6f6;
     padding:20px 10px;
+    .block > ul > li:nth-child(n+12){
+        display:none;
+    }
 }
 
 @media all and(min-width:700px){
@@ -69,6 +92,7 @@ section.social-feed{
         border-bottom:1px solid #f6f6f6;
         a{
             color:$dark;
+            @extend %default-transition;
         }
         img{
             @include border-radius(50%);
@@ -80,6 +104,7 @@ section.social-feed{
             margin-top:5px;
             color:#bdc2c6;
             font-size:14px;
+            @extend %default-transition;
         }
     }
     div.content{
@@ -96,6 +121,7 @@ section.social-feed{
         font-size:14px;
         a{
             color:#b2c2c6;
+            @extend %default-transition;
         }
     }
     div.photo{
@@ -130,7 +156,27 @@ section.social-feed{
             @include size(16px);
         }
         svg use{
+            @extend %default-transition;
             fill:#b2c2c6;
+        }
+    }
+}
+
+.no-touch{
+    .twitter-card,
+    .instagram-card{
+        header a:hover h5{
+            color:$primary;
+        }
+        time a:hover{
+            color:$primary;
+        }
+        div.actions a:hover{
+            &.reply svg use{
+                fill: #F5941E;
+            }
+            &.retweet svg use{fill:#19cf86;}
+            &.favorite svg use{ fill:#e81c4f;}
         }
     }
 }
