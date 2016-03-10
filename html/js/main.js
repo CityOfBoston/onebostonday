@@ -249,37 +249,7 @@ $(function(){
         });
     };
 
-    loadFeed();
-    
-    var file = "";
-    //  2016 WAY
-    // $.ajax({
-    //     url: "/feeds",
-    //     success: function(response){
-    //         $(response).find("td > a").each(function(){
-    //             file = $(this).attr("href");
-    //         });
-    //         loadFeed(file);
-    //         //loadFeed('../feeds/feed.json');
-    //     }
-    // });
-
-    // WIP
-    // $.ajax({
-    //     url: 'http://siphon.hhcctech.com/api/container/showall/8',
-    //     type: 'GET',
-    // })
-    // .done(function(response) {
-    //     console.log("success");
-    //     loadFeed(response);
-    // })
-    // .fail(function() {
-    //     console.log("error");
-    // })
-    // .always(function() {
-    //     console.log("complete");
-    // });
-    
+    loadFeed();    
 
     $('body').on('click','.actions a',function(event){
         event.preventDefault();
@@ -297,21 +267,26 @@ $(function(){
             twitterDisplayImage = '<div class=\"photo\"><img data-original="'+twitterImage+'" src=\"\/img\/preloader-large.gif\" alt=\"\"><\/div>';
         }
 
+        var entity = twitterTweetEntity;
+
+        entity =  linkHashtags(entity);
+        entity =  linkUsers(entity);
+
         var twitterCard="";
         twitterCard += "<li>";
         twitterCard += "    <div class=\"twitter-card\">";
         twitterCard += "        <svg class=\"icon icon-twitter\"><use xlink:href=\"#icon-twitter\"><\/use><\/svg>";
         twitterCard += "        <header>";
-        twitterCard += "            <a href=\"#\">";
+        twitterCard += "            <a href=\"https:\/\/twitter.com\/"+twitterUser+"\">";
         twitterCard += "                <img src=\""+profileImage+"\">";
         twitterCard += "                <h4>"+twitterName+"<\/h4>";
         twitterCard += "                <h5>@"+twitterUser+"<\/h5>";
         twitterCard += "            <\/a>";
         twitterCard += "        <\/header>";
         twitterCard += "        <div class=\"content\">";
-        twitterCard += "            <p>"+twitterTweetEntity+"<\/p>";
+        twitterCard += "            <p>"+entity+"<\/p>";
         twitterCard += "        <\/div>";
-        twitterCard += "        <time><a href=\""+twitterTweetUrl+"\">"+twitterTime+"<\/a><\/time>";
+        twitterCard += "        <time><a href=\"https:\/\/twitter.com\/"+twitterUser+"/status/"+twitterTweetUrl+"\">"+twitterTime+"<\/a><\/time>";
         twitterCard +=          twitterDisplayImage;
         twitterCard += "        <div class=\"actions\">";
         twitterCard += "            <ul>";

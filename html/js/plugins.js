@@ -360,6 +360,23 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 ga('create', 'UA-61806651-1', 'auto');
 ga('send', 'pageview');
 
+var hashtag_regexp = /#([a-zA-Z0-9]+)/g;
+function linkHashtags(text) {
+    return text.replace(
+        hashtag_regexp,
+        '<a class="hashtag" href="https://twitter.com/#search?q=$1">#$1</a>'
+    );
+} 
+
+var users_regexp = /@([a-zA-Z0-9]+)/g;
+function linkUsers(text) {
+    return text.replace(
+        users_regexp,
+        '<a class="user" href="https://twitter.com/$1">@$1</a>'
+    );
+} 
+
+// anchor text urls
 (function($) {
     $.fn.anchorTextUrls = function() {
         // Test a text node's contents for URLs and split and rebuild it with an achor
