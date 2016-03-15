@@ -27,7 +27,10 @@
 	picture{
 		padding:20px 10px;
 		clear:both;
-		float:left;
+		display:block;
+		margin:0 auto;
+		width:100%;
+		max-width:400px;
 		img,source{
 			width:100%;
 		}
