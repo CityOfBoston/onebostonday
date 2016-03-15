@@ -49,7 +49,7 @@ button.load-more{
     @extend %default-transition;
 }
 
-.no-touch button.load-more:hover{
+.no-touchevents button.load-more:hover{
     background-color:$primary;
     color:#fff;
 }
@@ -162,7 +162,7 @@ section.social-feed{
     }
 }
 
-.no-touch{
+.no-touchevents{
     .twitter-card,
     .instagram-card{
         header a:hover h5{

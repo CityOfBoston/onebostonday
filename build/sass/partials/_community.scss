@@ -92,7 +92,7 @@
 	}
 }
 
-.no-touch .copy > p + a:hover{
+.no-touchevents .copy > p + a:hover{
 	color:$primary;
 	 svg{
 		left:10px;

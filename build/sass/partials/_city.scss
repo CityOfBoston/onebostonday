@@ -71,7 +71,7 @@ section.city{
 	}
 }
 
-.no-touch .video span:hover{
+.no-touchevents .video span:hover{
 	background-color:$primary;
 	border-color:$primary;
 	@include size(90px);

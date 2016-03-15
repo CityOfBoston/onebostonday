@@ -90,7 +90,7 @@ form.planning-form{
     }
 }
 
-.no-touch form.planning-form input[type="submit"]{
+.no-touchevents form.planning-form input[type="submit"]{
     @extend %default-transition;
     &:hover{
         background-color:#fff;
