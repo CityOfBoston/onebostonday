@@ -3,68 +3,6 @@ $(function(){
     var body = $('body');
     body.addClass('ready');
 
-    var colors = [
-        [
-            '#0099FA',
-            '#FFFFFF',
-            '#0B004E'
-        ],
-        [
-            '#FF0000',
-            '#FFFFFF',
-            '#0B004E'
-        ],
-        [
-            '#00B969',
-            '#FFFFFF',
-            '#0B004E'
-        ],
-        [
-            '#000000',
-            '#FFFFFF',
-            '#878787'
-        ],
-        [
-            '#E7AE08',
-            '#0B004E',
-            '#FFFFFF'
-        ],
-        [
-            '#8A5ADE',
-            '#FFFFFF',
-            '#000000'
-        ]
-    ];
-
-
-    // DYNACALLY CHANGES COLOR VALUES ACROSS THE SITE
-    var currentColor = 1;
-    var setColors = function(){
-        var totalColors = colors.length;
-
-        if(currentColor === totalColors){
-            currentColor = 1;
-        }
-        else{
-            currentColor++;
-        }
-
-        body.data('bg',colors[(currentColor-1)][0]);
-        body.data('type',colors[(currentColor-1)][1]);  
-        body.data('mark',colors[(currentColor-1)][2]);
-    };
-    //colorChangeID = setInterval(setColors, 6000);
-
-    // GRABS THOSE COLORS IN FOR THE INTRO
-    var colorChangeIntro = function(){
-        var bg = body.data('bg');
-        var type = body.data('type');
-        var mark = body.data('mark');
-
-        $('.main-nav').css('background-color',bg);
-    };
-   // colorChangeIntroID = setInterval(colorChangeIntro, 10);
-
     /*//////////////////////////////////////
     //  odometer on homepage
     //////////////////////////////////////*/
@@ -123,7 +61,6 @@ $(function(){
                 },500);
             });
         });
-        
     });
 
 
@@ -422,6 +359,9 @@ $(function(){
         $('.none-download').css({
             'background-image':'url(../img/'+$('.none-download').data('image')+')'
         });
+        if(Modernizr.touchevents){
+            $('.none-download').attr('href','/img/logos/OneBostonDay_CoverPhoto_Facebook.jpg');
+        }
     };
 
     $('.downloads li a').on('click',function(){
