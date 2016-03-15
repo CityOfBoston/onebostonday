@@ -54,6 +54,15 @@
 		width:100%;
 		max-width:350px;
 		@extend %default-transition;
+		em{
+			font-size:13px;
+			font-style: normal;
+			position:relative;
+			top:-1px;
+			sub{
+				font-size:9px;
+			}
+		}
 		&:before{
 			content:none;
 		}
@@ -61,7 +70,6 @@
 			@include size(1.2em);
 			position:relative;
 			top:0.25em;
-			left:0.33em;
 			use{
 				fill:$primary;
 				@extend %default-transition;

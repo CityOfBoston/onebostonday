@@ -37,7 +37,7 @@
         <div class="block">
             <header>
                 <h2>Logos for Any Use</h2>
-                <a href="/zip/one-boston-day_logos.zip" download class="package">Download Logo Package <svg class="icon icon-download"><use xlink:href="#icon-download"></use></svg></a> 
+                <a href="/zip/one-boston-day_logos.zip" download class="package">Download Logo Package <svg class="icon icon-download"><use xlink:href="#icon-download"></use></svg><em>36<sub>MB</sub></em></a> 
             </header>
             <div class="logo-container">
                 <div class="anyday-logos">
