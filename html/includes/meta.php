@@ -1,3 +1,7 @@
+<?php
+    $url = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . "{$_SERVER['HTTP_HOST']}";
+?>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -35,8 +39,8 @@
         <!-- Facebook -->
         <meta property="og:type" content="website" />
         <meta property="og:title" content="One Boston Day | Our City. Our Day. "/>
-        <meta property="og:url" content="http://www.onebostonday.org/"/>
-        <meta property="og:image" content="http://www.onebostonday.org/img/share-fb.png"/>
+        <meta property="og:url" content="<?php echo $url ?>"/>
+        <meta property="og:image" content="<?php echo $url ?>/img/share-fb.png"/>
         <meta property="og:site_name" content="One Boston Day"/>
         <meta property="og:description" content="#OneBostonDay is a celebration of the resiliency and generosity of the people of Boston. Join your neighbors and share what you will do. "/>
         <!-- end facebook -->
