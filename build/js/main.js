@@ -82,13 +82,12 @@ $(function(){
     /*//////////////////////////////////////
     //  video toggle
     //////////////////////////////////////*/
-    var video = '<iframe src="https://player.vimeo.com/video/124662459?autoplay=1" width="500" height="367" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+    var video = '<iframe src="https://player.vimeo.com/video/159072629?autoplay=1" width="500" height="367" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
     $('.video span').on('click',function(){
         ga('send', 'event', 'video', 'watched') ;
         $('.video span').fadeOut(function(){
             $('.video img').remove();
             $('.video').append(video);
-            $('.video').fitVids();
         });
     });
 
