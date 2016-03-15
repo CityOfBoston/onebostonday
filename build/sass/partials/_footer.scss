@@ -10,7 +10,10 @@
 	}
 	p{
 		font-size:.75em;
-		margin-bottom:1em;
+		max-width:300px;
+		margin:0 auto 1em;
+		display:block;
+		text-align:center;
 		a{
 			color:$primary;
 			border-bottom:1px solid rgba($primary,0);
@@ -106,6 +109,9 @@ button.facebook{
 
 @media all and(min-width:650px){
 	.main-footer{
+		p{
+			text-align:left;
+		}
 		& > .block{
 			@include outer-container();
 		}
