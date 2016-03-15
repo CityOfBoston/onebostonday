@@ -97,7 +97,6 @@
                 <img src="/img/mayor.jpg" alt="Mayor Marty Walsh announces One Boston Day">
                 <span>
                     <svg class="icon icon-play"><use xlink:href="#icon-play"></use></svg>
-                    Watch Video
                 </span>
             </div>
         </div>
@@ -110,24 +109,25 @@
                 <p>City of Boston representatives may contact you in regard to using your organization’s activity or event to help promote One Boston Day. Your contact information will be kept strictly confidential. </p>
             </header>
             <form class="planning-form" action="https://docs.google.com/forms/d/1i61Yhm0-gROc0eDdweF4bv3o3InZm4M5_5J0ICvpI1Y/formResponse">
+                <em>* all fields are required</em>
                 <fieldset>
-                    <label>Full name</label>
+                    <label>Full name*</label>
                     <input type="text" required name="entry.1792690432">
                 </fieldset>
                 <fieldset>
-                    <label>Organization</label>
+                    <label>Organization*</label>
                     <input type="text" required name="entry.1823195500">
                 </fieldset>
                 <fieldset>
-                    <label>Email</label>
+                    <label>Email*</label>
                     <input type="email" required title="Please make sure you've entered a valid email" name="entry.1527840917">
                 </fieldset>
                 <fieldset>
-                    <label>Phone Number</label>
+                    <label>Phone Number*</label>
                     <input type="text" required name="entry.441739490">
                 </fieldset>
                 <fieldset>
-                    <label>Event Size</label>
+                    <label>Event Size*</label>
                     <div class="select-wrapper">
                         <select name="entry.1208203883">
                             <option value="Small">Small (Under 50 People)</option>
@@ -137,8 +137,8 @@
                     </div>
                 </fieldset>
                 <fieldset>
-                    <label>Plans for <span>One Boston Day</span></label>
-                    <textarea placeholder="Event Description" rows="4" name="entry.2050548811"></textarea>
+                    <label>Plans for <span>One Boston Day*</span></label>
+                    <textarea placeholder="Event Description" rows="4" name="entry.2050548811" required></textarea>
                 </fieldset>
                 <fieldset>
                     <input type="submit" value="Submit Event"> 

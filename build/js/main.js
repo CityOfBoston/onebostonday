@@ -1,3 +1,4 @@
+
 $(function(){
     var body = $('body');
     body.addClass('ready');
@@ -108,15 +109,19 @@ $(function(){
             data: data,
         })
         .done(function() {
-            console.log("success");
+            // console.log("success");
         })
         .fail(function() {
-            console.log("error");
+            // console.log("error");
         })
         .always(function() {
             $('form.planning-form').fadeOut(function(){
                 $('section.planning .block').append(thankYou);
                 $('section.planning').find('.thank-you').addClass('youre-welcome');
+                var distance = $('section.planning').offset().top;
+                $('html,body').animate({
+                    scrollTop: distance
+                },500);
             });
         });
         
@@ -181,69 +186,88 @@ $(function(){
     /*//////////////////////////////////////
     //  get feed
     //////////////////////////////////////*/
+
+    var loadFeedContent = function(response, direction){
+        $('.feed .icon-spinner').fadeOut(function(){
+            $(this).remove();
+        });
+
+        var totalPosts = response.data.length;
+
+        if(totalPosts > 50){
+            totalPosts = 50;
+        }
+
+        for (i=0;i<totalPosts;i++){
+            var post = response.data[i];
+            if(post.provider === "twitter"){
+                twitterTemplate(post.userimageurl,post.full_name,post.username,post.created_at,post.social_id,post.message,post.image,direction);
+            }
+            else if(post.provider === "instagram"){
+                instagramTemplate(post.image,post.full_name,post.username,post.created_at,post.social_id,post.message,direction);
+            }
+        }
+
+        $(".social-feed .block > ul .content").anchorTextUrls();
+
+        //lazy loading
+        if($(window).width() < 800){
+            $('.social-feed .photo img').lazyload();
+        }
+        else{
+            $('.social-feed .photo img').lazyload({
+                container: $('.social-feed .block > ul')
+            });
+
+            setTimeout(function(){
+                var grid = $('.social-feed .block > ul').isotope({
+                    itemSelector: '.social-feed .block > ul > li',
+                    layoutMode: 'packery',
+                    packery: {
+                      rowHeight: 20
+                    }
+                });
+            },250);
+        }
+    };
+
     var loadFeed = function() {
         $.ajax({
             //url:'/feeds/' + file,
-            url: 'http://siphon.hhcctech.com/api/container/showall/8',
+            url: 'http://siphon.hhcctech.com/api/container/showall/9?active=1',
             dataType:'json',
             error: function(jqXHR, textStatus, errorThrown) {
-                console.log(textStatus, errorThrown);
+                // console.log(textStatus, errorThrown);
             },
             success:function(response){
-                $('.feed .icon-spinner').fadeOut(function(){
-                    $(this).remove();
-                });
+                loadFeedContent(response,"prepend");
+            }
+        });
+    };
 
-                console.log(response);
-                var donezo = false;
-                setInterval(function(){
-                    if(isElementInViewport($odometer) && donezo === false){
-                        od.update(response.total);
-                        donezo = true;
-                    }
-                },500);
-
-                var totalPosts = response.data.length;
-    
-                if(totalPosts > 50){
-                    totalPosts = 50;
-                }
-    
-                for (i=0;i<totalPosts;i++){
-                    var post = response.data[i];
-                    if(post.provider === "twitter"){
-                        twitterTemplate(post.userimageurl,post.full_name,post.username,post.created_at,post.social_id,post.message,post.image);
-                    }
-                    else if(post.provider === "instagram"){
-                        instagramTemplate(post.image,post.full_name,post.username,post.created_at,post.social_id,post.message);
-                    }
-                }
-
-                $(".social-feed .block > ul .content").anchorTextUrls();
-
-                //lazy loading
-                if($(window).width() < 800){
-                    $('.social-feed .photo img').lazyload();
-                }
-                else{
-                    $('.social-feed .photo img').lazyload({
-                        container: $('.social-feed .block > ul')
-                    });
-
-                    var grid = $('.social-feed .block > ul').isotope({
-                        itemSelector: '.social-feed .block > ul > li',
-                        layoutMode: 'packery',
-                        packery: {
-                          rowHeight: 20
-                        }
-                    });
-                }
+    var loadOldFeed = function(){
+        $.ajax({
+            url: '/feed/oldfeed.json',
+            dataType:'json',
+            error: function(jqXHR,textStatus,errorThrown){
+                // console.log(textStatus, errorThrown);
+            },
+            success:function(response){
+                loadFeedContent(response,"append");
             }
         });
     };
 
     if($('.acts-of-kindness h3').length > 0){
+        loadOldFeed();
         loadFeed();
+        var donezo = false;
+        setInterval(function(){
+            if(isElementInViewport($odometer) && donezo === false){
+                od.update("42873");
+                donezo = true;
+            }
+        },500);
     }    
 
     //load more button
@@ -257,17 +281,14 @@ $(function(){
             $('.social-feed .photo img').lazyload({
                 container: $('.social-feed .block > ul')
             });
+            var grid = $('.social-feed .block > ul').isotope({
+                itemSelector: '.social-feed .block > ul > li',
+                layoutMode: 'packery',
+                packery: {
+                  rowHeight: 20
+                }
+            });
         },250);
-
-        var grid = $('.social-feed .block > ul').isotope({
-            itemSelector: '.social-feed .block > ul > li',
-            layoutMode: 'packery',
-            packery: {
-              rowHeight: 20
-            }
-        });
-
-        console.log($('.social-feed .block > ul').children(':hidden').length);
 
         if($('.social-feed .block > ul').children(':hidden').length === 0) {
            $('button.load-more').hide();
@@ -280,7 +301,7 @@ $(function(){
         ga('send', 'event', 'feed twitter action', $(this).find('svg').attr('class')) ;
     });
 
-    var twitterTemplate = function(profileImage,twitterName,twitterUser,twitterTime,twitterTweetUrl,twitterTweetEntity,twitterImage){
+    var twitterTemplate = function(profileImage,twitterName,twitterUser,twitterTime,twitterTweetUrl,twitterTweetEntity,twitterImage,direction){
         var intentReply = 'https://twitter.com/intent/tweet?in_reply_to='+twitterTweetUrl;
         var intentRetweet = 'https://twitter.com/intent/retweet?tweet_id='+twitterTweetUrl;
         var intentFavorite = 'https://twitter.com/intent/favorite?tweet_id='+twitterTweetUrl;
@@ -333,8 +354,14 @@ $(function(){
         twitterCard += "    <\/div>";
         twitterCard += "<\/li>";
 
+        if(direction === 'append'){
+            $('.social-feed .block > ul').append(twitterCard);
+        }
+        else{
+            $('.social-feed .block > ul').prepend(twitterCard);
+        }
 
-        $('.social-feed .block > ul').append(twitterCard);
+        
         //$('.feed a').timeago();
     };
 
@@ -456,7 +483,7 @@ $(function(){
     });
 
     $('.city .instagram').on('click',function(){
-        window.open('https://instagram.com/notifyboston/', '_blank');
+        window.open('https://instagram.com/cityofboston', '_blank');
     });
     $('.city .twitter').on('click',function(){
         window.open('https://twitter.com/NotifyBoston', '_blank');

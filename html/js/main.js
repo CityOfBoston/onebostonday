@@ -26,13 +26,13 @@ $(function() {
             url: action,
             type: "POST",
             data: data
-        }).done(function() {
-            console.log("success");
-        }).fail(function() {
-            console.log("error");
-        }).always(function() {
+        }).done(function() {}).fail(function() {}).always(function() {
             $("form.planning-form").fadeOut(function() {
                 $("section.planning .block").append(thankYou), $("section.planning").find(".thank-you").addClass("youre-welcome");
+                var distance = $("section.planning").offset().top;
+                $("html,body").animate({
+                    scrollTop: distance
+                }, 500);
             });
         });
     }), $(".slider").slick({
@@ -62,44 +62,52 @@ $(function() {
     }), $(".craft-tweet button.tweet").on("click", function() {
         Modernizr.touch ? ga("send", "event", "get involved", "tweet clicked: mobile") : ga("send", "event", "get involved", "tweet clicked: desktop -" + $(".craft span").html());
     });
-    var loadFeed = function() {
+    var loadFeedContent = function(response, direction) {
+        $(".feed .icon-spinner").fadeOut(function() {
+            $(this).remove();
+        });
+        var totalPosts = response.data.length;
+        for (totalPosts > 50 && (totalPosts = 50), i = 0; i < totalPosts; i++) {
+            var post = response.data[i];
+            "twitter" === post.provider ? twitterTemplate(post.userimageurl, post.full_name, post.username, post.created_at, post.social_id, post.message, post.image, direction) : "instagram" === post.provider && instagramTemplate(post.image, post.full_name, post.username, post.created_at, post.social_id, post.message, direction);
+        }
+        $(".social-feed .block > ul .content").anchorTextUrls(), $(window).width() < 800 ? $(".social-feed .photo img").lazyload() : ($(".social-feed .photo img").lazyload({
+            container: $(".social-feed .block > ul")
+        }), setTimeout(function() {
+            $(".social-feed .block > ul").isotope({
+                itemSelector: ".social-feed .block > ul > li",
+                layoutMode: "packery",
+                packery: {
+                    rowHeight: 20
+                }
+            });
+        }, 250));
+    }, loadFeed = function() {
         $.ajax({
-            url: "http://siphon.hhcctech.com/api/container/showall/8",
+            url: "http://siphon.hhcctech.com/api/container/showall/9?active=1",
             dataType: "json",
-            error: function(jqXHR, textStatus, errorThrown) {
-                console.log(textStatus, errorThrown);
-            },
+            error: function(jqXHR, textStatus, errorThrown) {},
             success: function(response) {
-                $(".feed .icon-spinner").fadeOut(function() {
-                    $(this).remove();
-                }), console.log(response);
-                var donezo = !1;
-                setInterval(function() {
-                    isElementInViewport($odometer) && donezo === !1 && (od.update(response.total), donezo = !0);
-                }, 500);
-                var totalPosts = response.data.length;
-                for (totalPosts > 50 && (totalPosts = 50), i = 0; i < totalPosts; i++) {
-                    var post = response.data[i];
-                    "twitter" === post.provider ? twitterTemplate(post.userimageurl, post.full_name, post.username, post.created_at, post.social_id, post.message, post.image) : "instagram" === post.provider && instagramTemplate(post.image, post.full_name, post.username, post.created_at, post.social_id, post.message);
-                }
-                if ($(".social-feed .block > ul .content").anchorTextUrls(), $(window).width() < 800) $(".social-feed .photo img").lazyload(); else {
-                    $(".social-feed .photo img").lazyload({
-                        container: $(".social-feed .block > ul")
-                    });
-                    {
-                        $(".social-feed .block > ul").isotope({
-                            itemSelector: ".social-feed .block > ul > li",
-                            layoutMode: "packery",
-                            packery: {
-                                rowHeight: 20
-                            }
-                        });
-                    }
-                }
+                loadFeedContent(response, "prepend");
+            }
+        });
+    }, loadOldFeed = function() {
+        $.ajax({
+            url: "/feed/oldfeed.json",
+            dataType: "json",
+            error: function(jqXHR, textStatus, errorThrown) {},
+            success: function(response) {
+                loadFeedContent(response, "append");
             }
         });
     };
-    $(".acts-of-kindness h3").length > 0 && loadFeed();
+    if ($(".acts-of-kindness h3").length > 0) {
+        loadOldFeed(), loadFeed();
+        var donezo = !1;
+        setInterval(function() {
+            isElementInViewport($odometer) && donezo === !1 && (od.update("42873"), donezo = !0);
+        }, 500);
+    }
     var inView = 24;
     $("button.load-more").on("click", function(event) {
         event.preventDefault(), $(".social-feed .block > ul > li:nth-child(-n+" + inView + ")").show(), 
@@ -107,19 +115,18 @@ $(function() {
             $(".social-feed .photo img").lazyload({
                 container: $(".social-feed .block > ul")
             });
-        }, 250);
-        $(".social-feed .block > ul").isotope({
-            itemSelector: ".social-feed .block > ul > li",
-            layoutMode: "packery",
-            packery: {
-                rowHeight: 20
-            }
-        });
-        console.log($(".social-feed .block > ul").children(":hidden").length), 0 === $(".social-feed .block > ul").children(":hidden").length && $("button.load-more").hide();
+            $(".social-feed .block > ul").isotope({
+                itemSelector: ".social-feed .block > ul > li",
+                layoutMode: "packery",
+                packery: {
+                    rowHeight: 20
+                }
+            });
+        }, 250), 0 === $(".social-feed .block > ul").children(":hidden").length && $("button.load-more").hide();
     }), $("body").on("click", ".actions a", function(event) {
         event.preventDefault(), popItUp($(this).attr("href"), 300, 600), ga("send", "event", "feed twitter action", $(this).find("svg").attr("class"));
     });
-    var twitterTemplate = function(profileImage, twitterName, twitterUser, twitterTime, twitterTweetUrl, twitterTweetEntity, twitterImage) {
+    var twitterTemplate = function(profileImage, twitterName, twitterUser, twitterTime, twitterTweetUrl, twitterTweetEntity, twitterImage, direction) {
         var intentReply = "https://twitter.com/intent/tweet?in_reply_to=" + twitterTweetUrl, intentRetweet = "https://twitter.com/intent/retweet?tweet_id=" + twitterTweetUrl, intentFavorite = "https://twitter.com/intent/favorite?tweet_id=" + twitterTweetUrl;
         twitterDisplayImage = "", null !== twitterImage && (twitterDisplayImage = '<div class="photo"><img data-original="' + twitterImage + '" src="/img/preloader-large.gif" alt=""></div>');
         var entity = twitterTweetEntity;
@@ -143,7 +150,7 @@ $(function() {
         twitterCard += '                        <svg class="icon icon-heart"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-heart"></use></svg>', 
         twitterCard += "                    </a>", twitterCard += "                </li>", 
         twitterCard += "            </ul>", twitterCard += "        </div>", twitterCard += "    </div>", 
-        twitterCard += "</li>", $(".social-feed .block > ul").append(twitterCard);
+        twitterCard += "</li>", "append" === direction ? $(".social-feed .block > ul").append(twitterCard) : $(".social-feed .block > ul").prepend(twitterCard);
     }, instagramTemplate = function(instaImage, instaName, instaUsername, instaTime, instaUrl, instaBody) {
         var instaUserFullName = instaName;
         (void 0 === typeof instaName || 0 === instaName.length) && (instaUserFullName = instaUsername);
@@ -195,7 +202,7 @@ $(function() {
     }), $(".mayor button").on("click", function() {
         ga("send", "event", "footer social", "mayor:" + $(this).attr("class"));
     }), $(".city .instagram").on("click", function() {
-        window.open("https://instagram.com/notifyboston/", "_blank");
+        window.open("https://instagram.com/cityofboston", "_blank");
     }), $(".city .twitter").on("click", function() {
         window.open("https://twitter.com/NotifyBoston", "_blank");
     }), $(".city .facebook").on("click", function() {

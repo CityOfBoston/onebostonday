@@ -7,7 +7,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=9">
         <meta charset="utf-8">
         <title>One Boston Day</title>
-        <meta name="description" content="April 15th marks the beginning of a new annual Boston tradition: One Boston Day. This day will be a celebration of the resiliency, generosity, and strength of the people that make Boston the great city it is.">
+        <meta name="description" content="April 15th marks the beginning of a new annual Boston tradition: One Boston Day. This day will be a celebration of the resiliency, generosity, and strength of the people that make Boston a great city.">
+        <meta name="keywords" content="Boston, One Boston Day, Resiliency, New England, Kindness">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
         <link rel="icon" type="image/png" href="/img/favicon.png"/>

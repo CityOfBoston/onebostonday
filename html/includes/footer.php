@@ -2,7 +2,7 @@
                 <div class="block">
                     <div class="site-info">
                         <a class="cityofboston-link" href="http://www.cityofboston.gov/"><img src="/img/boston.png" alt="City of Boston"></a>
-                        <p>Visit the <a href="/press.html">Press</a> page to learn more about One Boston Day.</p>
+                        <p>Visit the <a href="/press">Press page</a> to learn more about One Boston Day.</p>
                         <p><a href="http://www.cityofboston.gov/copyright/privacyandsecurity.asp" target="_blank">Privacy Policy</a></p>
                     </div>
                     <div class="follow mayor">
@@ -23,7 +23,6 @@
                     </div>
                 </div>
             </footer>
-
         </main>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="/js/vendor/jquery.js"><\/script>')</script>
@@ -38,6 +37,14 @@
                 {
                     test: Modernizr.borderimage,
                     nope: '/js/border-radius-polyfill.js'
+                },
+                {
+                    test : Modernizr.csspointerevents,
+                    nope : ['/js/polyfills/pointer-events.js']
+                },
+                {
+                    test : Modernizr.formvalidation,
+                    nope : ['/js/polyfills/required-attribute.js']
                 }
             ]);
         </script>

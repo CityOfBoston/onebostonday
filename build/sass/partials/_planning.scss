@@ -2,7 +2,7 @@ section.planning{
     color:#fff;
     background-color:$primary;
     header.section-intro{
-        padding:100px 10px 40px;
+        padding:100px 10px 20px;
         h2{
             line-height:1.33;
             text-transform: none;
@@ -25,7 +25,7 @@ section.planning{
 
 @media all and(min-width:600px){
     section.planning header.section-intro{
-        padding:100px 10px 50px;
+        padding:100px 10px 20px;
     }
 }
 
@@ -34,9 +34,18 @@ form.planning-form{
     padding:0 10px 50px;
     max-width:550px;
     margin:0 auto;
+    em{
+        font-size:14px;
+        margin-bottom:30px;
+        display:block;
+        text-align:right;
+    }
     label{
         display:block;
         margin-bottom:4px;
+    }
+    textarea{
+        resize:vertical;
     }
     input,
     textarea,
@@ -76,6 +85,7 @@ form.planning-form{
             @include position(absolute, 60% 16px auto auto);
             @include transform(translateY(-50%));
             margin-bottom:0px;
+            pointer-events:none;
         }
     }
 }

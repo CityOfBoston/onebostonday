@@ -112,6 +112,9 @@ button.facebook{
 		.site-info{
 			@include span-columns(12);
 			margin-bottom:20px;
+			p:first-of-type{
+				margin-top:27px;
+			}
 			img{
 				float:left;
 				margin-right:15px;
@@ -119,6 +122,8 @@ button.facebook{
 		}
 		.follow{
 			@include span-columns(6);
+			position:relative;
+			top:27px;
 		}
 	}
 }

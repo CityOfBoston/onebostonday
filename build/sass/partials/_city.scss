@@ -2,6 +2,9 @@ section.city{
 	background-color:#fff;
 	header.section-intro{
 		padding-bottom:40px;
+		h2{
+			text-transform: none;
+		}
 		p:first-of-type{
 			margin-bottom:1em;
 			display:block;
@@ -28,12 +31,11 @@ section.city{
 		width:80px;
 		text-align:center;
 		line-height:1.22;
-		margin-top:20px;
 		svg{
 			@include size(70px);
 			@include transform(scale(1));
 			padding: 20px 17px 20px 23px;
-			background-color: $dark;
+			border:1px solid #fff;
 			margin-bottom:5px;
 			@include border-radius(50%);
 			@extend %default-transition;
@@ -62,5 +64,6 @@ section.city{
 	svg{
 		@include transform(scale(1.2));
 		background-color:$primary;
+		border-color:$primary;
 	}
 }

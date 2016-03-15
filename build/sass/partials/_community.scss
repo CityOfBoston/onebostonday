@@ -21,7 +21,7 @@
 			@include border-radius(50%);
 			border-radius:50%;
 			padding:15px;
-			max-width:150px;
+			max-width:200px;
 			display:block;
 			margin:0 auto 20px;
 			@include transition(all .4s ease-in-out);
@@ -100,6 +100,11 @@
 	}
 }
 
+@media all and(min-width:700px){
+	.community figure img{
+		max-width:300px;
+	}
+}
 @media all and(min-width:800px){
 	.community{
 		min-height:400px;
@@ -112,9 +117,6 @@
 		}
 		figure{
 			@include span-columns(4);
-			img{
-				max-width:300px;
-			}
 		}
 		.copy{
 			padding-left:20px;

@@ -27,7 +27,7 @@
                 <h5>Cover Photos</h5>
                 <ul class="cover-photo">
                     <li>
-                        <a class="none-download" href="one-boston-day_covers.zip" download data-image="OneBostonDay_CoverPhoto_Facebook.jpg"><span><svg class="icon icon-download"><use xlink:href="#icon-download"></use></svg></span></a>
+                        <a class="none-download" href="/zip/one-boston-day_covers.zip" download data-image="OneBostonDay_CoverPhoto_Facebook.jpg"><span><svg class="icon icon-download"><use xlink:href="#icon-download"></use></svg></span></a>
                     </li>
                 </ul>
             </div>

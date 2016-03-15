@@ -25,7 +25,7 @@
                             <div class="craft">
                                 <div class="input">
                                     <textarea placeholder="I will..."></textarea>
-                                    <span class="count">103</span>
+                                    <span class="count">36</span>
                                 </div>
                                 <button class="tweet">
                                     Share
@@ -36,7 +36,7 @@
                     <div class="acts-of-kindness">
                         <div>
                             <h3></h3>
-                            <span class="acts">Acts of Kindness</span>
+                            <span class="acts">Acts of Kindness<em>in 2015</em></span>
                         </div>
                     </div>
                 </div>

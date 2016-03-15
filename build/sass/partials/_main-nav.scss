@@ -22,6 +22,7 @@
 		float:left;
 		padding:34px 20px 35px;
 		@include position(absolute, 0px auto auto 0px);
+		@extend %default-transition;
 	}
 	ul{
 		clear:both;
@@ -31,6 +32,9 @@
 	}
 	&.active{
 		background-color:$primary;
+		a.logo{
+			padding:15px;
+		}
 		.burger-box{
 			top:16px;
 			right:16px;
