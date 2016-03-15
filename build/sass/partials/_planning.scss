@@ -93,6 +93,12 @@ form.planning-form{
     }
 }
 
+.no-cssanimations.no-csstransitions{
+    form.planning-form div.select-wrapper:after{
+        content:none;
+    }
+}
+
 .no-touchevents form.planning-form input[type="submit"]{
     @extend %default-transition;
     &:hover{
