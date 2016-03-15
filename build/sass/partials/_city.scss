@@ -36,20 +36,18 @@ section.city{
 		@extend %absolute-middle;
 		top:45%;
 		@extend %default-transition;
-		text-transform:uppercase;
-		font-size:1em;
-		color:#fff;
 		cursor:pointer;
-		width:80px;
 		text-align:center;
 		line-height:1.22;
+		border:1px solid #fff;
+		margin-bottom:5px;
+		@include size(80px);
+		@include border-radius(50%);
 		svg{
-			@include size(70px);
-			@include transform(scale(1));
-			padding: 20px 17px 20px 23px;
-			border:1px solid #fff;
-			margin-bottom:5px;
-			@include border-radius(50%);
+			@include size(50px);
+			margin-left:5px;
+			@include position(absolute, 50% auto auto 50%);
+			@include transform(scale(1) translateX(-50%) translateY(-50%));
 			@extend %default-transition;
 			use{
 				@extend %default-transition;
@@ -65,6 +63,7 @@ section.city{
 			top:50%;
 			font-size:1.2em;
 			svg{
+				margin-left:0px;
 				@include size(80px);
 				padding: 20px 17px 20px 23px;
 			}
@@ -73,9 +72,7 @@ section.city{
 }
 
 .no-touch .video span:hover{
-	svg{
-		@include transform(scale(1.2));
-		background-color:$primary;
-		border-color:$primary;
-	}
+	background-color:$primary;
+	border-color:$primary;
+	@include size(90px);
 }
