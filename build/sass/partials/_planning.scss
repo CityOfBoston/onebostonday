@@ -34,6 +34,9 @@ form.planning-form{
     padding:0 10px 50px;
     max-width:550px;
     margin:0 auto;
+    .ws-po-box{
+        border:1px solid red;
+    }
     em{
         font-size:14px;
         margin-bottom:30px;
@@ -118,6 +121,7 @@ form.planning-form{
             input[type="text"],
             input[type="email"]{
                 @include span-columns(8.7);
+                margin-right:0px;
             }
             input[type="submit"]{
                 margin-top:40px;
