@@ -443,7 +443,7 @@ $(function(){
         window.open('https://instagram.com/cityofboston', '_blank');
     });
     $('.city .twitter').on('click',function(){
-        window.open('https://twitter.com/NotifyBoston', '_blank');
+        window.open('https://twitter.com/CityofBoston', '_blank');
     });
     $('.city .facebook').on('click',function(){
         window.open('https://www.facebook.com/cityofboston', '_blank');
