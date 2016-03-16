@@ -185,7 +185,10 @@ section.social-feed{
     .social-feed .block > ul{
         @include outer-container();
         & > li{
-            width:50%;
+            width:48%;
+            &.gutter-sizer{
+                width:2%;
+            }
         }
     }
 }
@@ -199,8 +202,8 @@ section.social-feed{
         max-width:1200px;
         height:100%;
         & > li{
-            width:30%;
-            //margin-bottom:10px;
+            width:32%;
+            float:left;
         }
     }
 }
@@ -211,7 +214,7 @@ section.social-feed{
         & > ul{
             max-width:1600px;
             & > li{
-                width:20%;
+                width:24%;
             }
         }
     }

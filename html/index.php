@@ -45,6 +45,7 @@
             <section class="social-feed">
                 <div class="block">
                     <ul>
+                        <li class="gutter-sizer"></li>
                     </ul>
                     <button class="load-more">
                         Load More
