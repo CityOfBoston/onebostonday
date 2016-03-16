@@ -73,12 +73,10 @@ $(function() {
         $(".social-feed .block > ul .content").anchorTextUrls(), $(window).width() < 800 ? $(".social-feed .photo img").lazyload() : ($(".social-feed .photo img").lazyload({
             container: $(".social-feed .block > ul")
         }), setTimeout(function() {
-            $(".social-feed .block > ul").isotope({
+            $(".social-feed .block > ul").packery({
                 itemSelector: ".social-feed .block > ul > li",
-                layoutMode: "packery",
-                packery: {
-                    rowHeight: 20
-                }
+                gutter: 10,
+                percentPosition: !0
             });
         }, 250));
     }, loadFeed = function() {
@@ -113,13 +111,9 @@ $(function() {
         inView += 12, setTimeout(function() {
             $(".social-feed .photo img").lazyload({
                 container: $(".social-feed .block > ul")
-            });
-            $(".social-feed .block > ul").isotope({
+            }), $(".social-feed .block > ul").packery({
                 itemSelector: ".social-feed .block > ul > li",
-                layoutMode: "packery",
-                packery: {
-                    rowHeight: 20
-                }
+                gutter: 10
             });
         }, 250), 0 === $(".social-feed .block > ul").children(":hidden").length && $("button.load-more").hide();
     }), $("body").on("click", ".actions a", function(event) {

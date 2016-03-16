@@ -7,82 +7,73 @@
     <section class="community" id="community">
         <div class="slider">
 
-            <div class="activity stfrancishouse">
+            <div class="activity museumofscience">
                 <div class="block">
                     <figure class="activity-image">
-                        <img src="/img/ftfrancishouse.jpg" alt="St. Francis House">
+                        <img src="/img/community/MuseumOfScience.png" alt="Boston Museum of Science">
                     </figure>
                     <div class="copy">
-                        <blockquote class="blockquote">
-                            <q>For One Boston Day, we’re collecting new and gently worn sneakers to benefit local homeless men and women.”</q>
-                            <cite>St. Francis House</cite>
-                        </blockquote>
-                        <p>St. Francis House, the largest day shelter in New England, is partnering with the Hyatt Regency Boston to help their underprivileged and homeless guests get new, clean sneakers. Footwear is one of the most in-demand and important clothing items the shelter collects.</p>
-                        <a href="http://regencyboston.hyatt.com/en/hotel/news-and-events/news-listing/StFrancisSneakerDonation.html" target="_blank">learn more <svg class="icon icon-arrow-right"><use xlink:href="#icon-arrow-right"></use></svg></a>
+                        <p>The <strong>Museum of Science</strong> offered free entry for visitors to reflect in the peace of the Butterfly Garden.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="activity wzlx">
+            <div class="activity holynameschool">
                 <div class="block">
                     <figure class="activity-image">
-                        <img src="/img/wzlx.jpg" alt="100.7 WZLX Radio Station">
+                        <img src="/img/community/HolyNameSchool.jpg" alt="Holy Name School">
                     </figure>
                     <div class="copy">
-                        <blockquote class="blockquote">
-                            <q>For One Boston Day, Karlson &amp; McKenzie are hosting a cleanup at Filippello Park in Watertown."</q>
-                            <cite>100.7 WZLX</cite>
-                        </blockquote>
-                        <p>Boston’s classic rock station gives back to a community that was affected by the Boston Marathon Bombing.</p>
-                        <a href="http://events.wzlx.cbslocal.com/watertown_ma/events/one-boston-day-karlson-mckenzie-/E0-001-082651247-6?utm_content=bufferdafe2&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer" target="_blank">learn more <svg class="icon icon-arrow-right"><use xlink:href="#icon-arrow-right"></use></svg></a>
-                </div>
-                </div>
-            </div>
-
-            <div class="activity joshuaeaton">
-                <div class="block">
-                    <figure class="activity-image">
-                        <img src="/img/joshuaeaton.jpg" alt="Joshua Eaton Elementary School">
-                    </figure>
-                    <div class="copy">
-                        <blockquote class="blockquote">
-                            <q>On One Boston Day, we're writing letters to thank our local police and fire departments for keeping us safe."</q>
-                            <cite>Joshua Eaton School</cite>
-                        </blockquote>
-                        <p>The Joshua Eaton Elementary School in Reading, Massachusetts educates 450 children spanning kindergarten through fifth grade.</p>
+                        <p>The Student Council at <strong>Holy Name School</strong> in West Roxbury surprised Boston Police station E-5 with treats to thank them for serving our community.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="activity johnhancock">
+            <div class="activity hyatt">
                 <div class="block">
                     <figure class="activity-image">
-                        <img src="/img/johnhancock.jpg" alt="John Hancock">
+                        <img src="/img/community/Hyatt.jpg" alt="Boston Hyatt Regency">
                     </figure>
                     <div class="copy">
-                        <blockquote class="blockquote">
-                            <q>For One Boston Day, rain or shine, the iconic weather beacon atop our Berkeley Street Building will be steady blue all day.”</q>
-                            <cite>John Hancock</cite>
-                        </blockquote>
-                        <p>John Hancock has been the principal sponsor of the Boston Marathon for the past 30 years and proudly joins the people of Boston in celebrating our City's extraordinary spirit.</p>
+                        <p>The <strong>Hyatt Regency Boston</strong> collected sneakers to benefit the local men and women of the St. Francis House.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="activity ibasis">
+            <div class="activity flattopjohnys">
                 <div class="block">
                     <figure class="activity-image">
-                        <img src="/img/ibasis.jpg" alt="iBasis Running Group">
+                        <img src="/img/community/FlatTopJohnnys.png" alt="Flat Top Johnnys">
                     </figure>
                     <div class="copy">
-                        <blockquote class="blockquote">
-                            <q>For One Boston Day, we’re creating gift baskets of snacks for local firehouses and police stations."</q>
-                            <cite>iBasis running group</cite>
-                        </blockquote>
-                        <p>The iBasis running group supports and encourages one another in their mission to stay active. Several of the team's runners have completed three Boston Marathons, with a fourth coming this year. Based in Burlington, MA, iBasis is a leading international voice carrier and provider of value-added services for mobile operators worldwide.</p>
+                        <p><strong>Flat Top Johnny’s</strong> in Cambridge offered an hour of free pool to all first responders.</p>
                     </div>
                 </div>
             </div>
+
+            <div class="activity barclaywatermanagement">
+                <div class="block">
+                    <figure class="activity-image">
+                        <img src="/img/community/Barclay.png" alt="Barclay Water Management">
+                    </figure>
+                    <div class="copy">
+                        <p><strong>Barclay Water Management</strong> employees helped WZLX clean up Filippello Park in Watertown.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="activity legalseafoods">
+                <div class="block">
+                    <figure class="activity-image">
+                        <img src="/img/community/LegalSeaFood.png" alt="Legal Sea Foods">
+                    </figure>
+                    <div class="copy">
+                        <p><strong>Legal Sea Foods</strong> delivered lunch to the Fenway firehouse.</p>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     </section>
 
