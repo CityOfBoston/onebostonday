@@ -3,6 +3,15 @@ $(function(){
     var body = $('body');
     body.addClass('ready');
 
+    if (location.hash) {
+      setTimeout(function() {
+        var distance = $(location.hash).offset().top;
+        $('html,body').animate({
+            scrollTop: distance
+        });
+      }, 400);
+    }
+
     /*//////////////////////////////////////
     //  odometer on homepage
     //////////////////////////////////////*/
