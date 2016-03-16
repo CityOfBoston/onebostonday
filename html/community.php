@@ -62,6 +62,17 @@
                 </div>
             </div>
 
+            <div class="activity framinghamhigh">
+                <div class="block">
+                    <figure class="activity-image">
+                        <img src="/img/community/Framingham.jpg" alt="Legal Sea Foods">
+                    </figure>
+                    <div class="copy">
+                        <p><strong>Framingham High School</strong> students wrote thank you notes to teachers who have positively affected them.</p>
+                    </div>
+                </div>
+            </div>
+
             <div class="activity legalseafoods">
                 <div class="block">
                     <figure class="activity-image">
