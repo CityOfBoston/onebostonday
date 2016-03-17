@@ -90,7 +90,7 @@
         <div class="block">
             <header class="section-intro">
                 <h2>City Involvement</h2>
-                <p>Since it’s founding, Boston has served as a beacon of hope and strength for the rest of the world. On One Boston Day, we show the world that Boston’s flame burns as bright as ever.</p>
+                <p>Since its founding, Boston has served as a beacon of hope and strength for the rest of the world. On One Boston Day, we show the world that Boston’s flame burns as bright as ever.</p>
                 <p>Learn more about what One Boston Day means to our city: </p>
             </header>
             <div class="video">
