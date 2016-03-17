@@ -1,6 +1,3 @@
-<?php $path = $_SERVER['REQUEST_URI']; ?>
-
-
 <nav class="main-nav">
     <div class="block">
         <a href="/" class="logo">
@@ -11,22 +8,6 @@
             </div>
         </a>
         <ul>
-            <!-- <li>
-                <a href="/community" <?php if($path == "/community"){?> class="active" <?php } ?> >
-                    Community
-                </a>
-            </li>
-            <li>
-                <a href="/community#planning" <?php if($path == "/community"){?> class="active" <?php } ?> >
-                    Planning an event?
-                </a>
-            </li>
-            <li>
-                <a href="/downloads" <?php if($path == "/downloads"){?> class="active" <?php } ?> >
-                    Downloads
-                </a>
-            </li> -->
-
             <li>
                 <a href="/community">
                     Community
