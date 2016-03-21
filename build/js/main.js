@@ -143,8 +143,14 @@ $(function(){
             totalPosts = 50;
         }
 
+        var data = response.data;
+
+        if(direction === "prepend"){
+            data = data.reverse();
+        }
+
         for (i=0;i<totalPosts;i++){
-            var post = response.data[i];
+            var post = data[i];
             if(post.provider === "twitter"){
                 twitterTemplate(post.userimageurl,post.full_name,post.username,post.created_at,post.social_id,post.message,post.image,direction);
             }
