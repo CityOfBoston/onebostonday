@@ -1,0 +1,24 @@
+@import "partials/base";
+
+body{
+    background-color:darken(#f6f6f6,5%);
+}
+
+main{
+    @include size(800px 600px);
+    background-color:#fff;
+    position:relative;
+    border:10px solid #f6f6f6;
+    border-bottom:none;
+    footer.band-footer{
+        @include position(absolute, auto 0px 0px 0px);
+        @include size(100% 100px);
+        background-color:#f6f6f6;
+        span{
+            @extend %absolute-middle;
+            font-size:60px;
+            color:$primary;
+            font-weight:700;
+        }
+    }
+}
