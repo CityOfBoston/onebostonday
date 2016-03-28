@@ -1,0 +1,75 @@
+@import "partials/base";
+@import "partials/odometer";
+
+body{
+    background-color:darken(#f6f6f6,5%);
+    width:768px;
+    height:1024px;
+}
+
+section.display,
+section.bottom{
+    height:50%;
+    width:100%;
+}
+
+section.display{
+    @include position(absolute, 0px 0px auto 0px);
+    background-color:transparent;
+    @extend %default-transition;
+    & > div{
+        @extend %absolute-middle;
+        text-align:center;
+        width:100%;
+    }
+    h1{
+        font-size:172px;
+        position:relative;
+        top:-30px;
+        color:$primary;
+        font-family:$font-sans;
+        //@extend %default-transition;
+    }
+    span{
+        font-family:$font-sans;
+    }
+    p{
+        font-size:36px;
+        @include position(absolute, auto auto -80px 50%);
+        @include transform(translateX(-50%));
+        width:720px;
+        @include opacity(0);
+        @extend %default-transition;
+    }
+}
+
+section.bottom{
+    @include position(absolute, auto 0px 0px 0px);
+    button{
+        @include appearance(none);
+        @include position(absolute, 0px 0px 0px 0px);
+        width:100%;
+        border:none;
+        background-color:#000;
+        color:#fff;
+    }
+}
+
+body.thank-you{
+    section.display{
+        background-color:$primary;
+        h1,p{
+            color:#fff;
+        }
+        p{
+            @include opacity(1);
+        }
+    }
+    section.bottom button{
+        background-color:#fff;
+    }
+}
+
+form{
+    display:none;
+}
