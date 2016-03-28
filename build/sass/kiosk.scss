@@ -73,3 +73,7 @@ body.thank-you{
 form{
     display:none;
 }
+
+.odometer.odometer-auto-theme .odometer-digit, .odometer.odometer-theme-default .odometer-digit{
+    padding:0 3px;
+}
