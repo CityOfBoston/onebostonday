@@ -1,4 +1,5 @@
 @import "partials/base";
+@import "partials/social-card";
 
 body{
     background-color:darken(#f6f6f6,5%);
@@ -21,6 +22,78 @@ main{
             font-weight:700;
         }
     }
+    ul{
+        li{
+            @include position(absolute, 10px 10px 60px 10px);
+            display:none;
+            &:first-child{
+                display:block;
+            }
+        }
+    }
+    svg.logo{
+        width:500px;
+        height:500px;
+        @extend %absolute-middle;
+        top:calc(50% - 25px);
+        z-index:3;
+        @include opacity(0);
+        @extend %default-transition;
+    }
 }
 
+body.loading svg.logo{
+    @include opacity(1);
+}
 
+.twitter-card>svg.icon-twitter, .twitter-card>svg.icon-instagram, .instagram-card>svg.icon-twitter, .instagram-card>svg.icon-instagram{
+    @include size(60px);
+}
+
+.twitter-card header img, .instagram-card header img{
+    @include size(110px);
+}
+
+.twitter-card{
+    padding:15px;
+    header{
+        h4{
+            font-size:32px;
+        }
+        h5{
+            font-size:26px;
+        }
+    }
+    div.content{
+        p{
+            font-size:30px;
+        }
+    }
+    time{
+        margin:15px auto 15px;
+        font-size:26px;
+    }
+}
+
+.twitter-card.has-photo{
+    @include clearfix();
+    header,.content,time{
+        width:50%;
+        float:left;
+        clear:both;
+    }
+    div.photo{
+        @include position(absolute,0px 10px auto auto);
+        width:50%;
+        height:100%;
+    }
+    div.content{
+        padding-right:20px;
+        p{
+            font-size:20px;
+        }
+    }
+    time{
+        font-size:18px;
+    }
+}

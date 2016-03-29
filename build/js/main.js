@@ -320,9 +320,6 @@ $(function(){
         else{
             $('.social-feed .block > ul').prepend(twitterCard);
         }
-
-        
-        //$('.feed a').timeago();
     };
 
     var instagramTemplate = function(instaImage,instaName,instaUsername,instaTime,instaUrl,instaBody){

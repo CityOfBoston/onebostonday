@@ -1,0 +1,112 @@
+.twitter-card,
+.instagram-card{
+    padding:30px;
+    background-color:#fff;
+    position:relative;
+    margin-bottom:20px;
+    & > svg.icon-twitter,
+    & > svg.icon-instagram{
+        @include position(absolute, 30px auto auto 30px);
+        @include size(22px);
+    }
+    svg.icon-twitter use{
+        fill:$twitter;
+    }
+    svg.icon-instagram use{
+        fill:$instagram;
+    }
+    header{
+        text-align:center;
+        padding-bottom:15px;
+        margin-bottom:15px;
+        border-bottom:1px solid #f6f6f6;
+        a{
+            color:$dark;
+            @extend %default-transition;
+        }
+        img{
+            @include border-radius(50%);
+            @include size(61px);
+            margin:0 auto 10px;
+            display:block;
+        }
+        h5{
+            margin-top:5px;
+            color:#bdc2c6;
+            font-size:14px;
+            @extend %default-transition;
+        }
+    }
+    div.content{
+        p{
+            font-size:14px;
+            a{
+                color:$primary;
+            }
+        }
+    }
+    time{
+        display:block;
+        margin:20px auto 15px auto;
+        font-size:14px;
+        a{
+            color:#b2c2c6;
+            @extend %default-transition;
+        }
+    }
+    div.photo{
+        display:block;
+        margin-bottom:15px;
+        position:relative;
+        &:after{
+            content:" ";
+            display:block;
+            padding-bottom:100%;
+        }
+        img{
+            display:block;
+            margin:0 auto;
+            max-width:100%;
+            max-height:100%;
+            @extend %absolute-middle;
+        }
+    }
+    div.actions{
+        ul li{
+            display:inline-block;
+            margin-right:20px;
+        }
+        svg{
+            @include size(18px);
+        }
+        svg.icon-reply{
+            @include size(20px);
+        }
+        svg.icon-heart{
+            @include size(16px);
+        }
+        svg use{
+            @extend %default-transition;
+            fill:#b2c2c6;
+        }
+    }
+}
+
+.no-touchevents{
+    .twitter-card,
+    .instagram-card{
+        header a:hover h5{
+            color:$primary;
+        }
+        time a:hover{
+            color:$primary;
+        }
+        div.actions a:hover{
+            &.reply svg use{
+                fill: #F5941E;
+            }
+            &.retweet svg use{fill:#19cf86;}
+            &.favorite svg use{ fill:#e81c4f;}
+        }
+    }
+}
