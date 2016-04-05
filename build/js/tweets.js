@@ -77,8 +77,8 @@ $(function(){
         $.ajax({
             //TESTING   
             //url:'/feeds/' + file,
-            //url: 'http://siphon.hhcctech.com/api/container/showall/9?active=1',
-            url: 'http://siphon.hhcctech.com/api/container/showall/8?active=1',
+            url: 'http://siphon.hhcctech.com/api/container/showall/9?active=1', // production
+            //url: 'http://siphon.hhcctech.com/api/container/showall/8?active=1', // testing
             dataType:'json',
             error: function(jqXHR, textStatus, errorThrown) {
                 // console.log(textStatus, errorThrown);
