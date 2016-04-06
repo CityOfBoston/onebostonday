@@ -5,6 +5,7 @@ body{
     background-color:darken(#f6f6f6,5%);
     width:768px;
     height:1024px;
+    font-family:$font-sans;
 }
 
 section.display,
@@ -22,6 +23,12 @@ section.display{
         text-align:center;
         width:100%;
     }
+    h2{
+        font-size:36px;
+        position:relative;
+        top:-50px;
+        line-height:1.3;
+    }
     h1{
         font-size:172px;
         position:relative;
@@ -31,7 +38,7 @@ section.display{
         //@extend %default-transition;
     }
     span{
-        font-family:$font-sans;
+        
     }
     p{
         font-size:36px;
@@ -58,7 +65,7 @@ section.bottom{
 body.thank-you{
     section.display{
         background-color:$primary;
-        h1,p{
+        h1,p,h2{
             color:#fff;
         }
         p{
@@ -76,4 +83,8 @@ form{
 
 .odometer.odometer-auto-theme .odometer-digit, .odometer.odometer-theme-default .odometer-digit{
     padding:0 3px;
+}
+
+.odometer.odometer-auto-theme .odometer-value, .odometer.odometer-theme-default .odometer-value{
+    text-align:center !important;
 }
