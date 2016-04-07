@@ -108,3 +108,99 @@ section.social-feed{
         }
     }
 }
+
+.bg-video{
+    @include position(absolute, 0px 0px 0px 0px);
+    width:100%;
+    height:100%;
+    &:before{
+        content:"";
+        display:block;
+        @include position(absolute, 0px 0px 0px 0px);
+        background-color:rgba($primary,0.8);
+        z-index:2;
+        @extend %default-transition;
+    }
+    video{
+        @extend %absolute-middle;
+        min-width:100%;
+        min-height:100%;
+    }
+}
+
+
+body.video-playing{
+    overflow:hidden;
+    button.close-video{
+        @include position(fixed, 20px 20px auto auto);
+        display:block;
+        background-color:transparent;
+        border:none;
+        z-index:9;
+        text-indent:-3000px;
+        @include size(60px);
+        &:before,
+        &:after{
+            content:" ";
+            display:block;
+            @include size(3px 60px);
+            background-color:#fff;
+        }
+        &:before{
+            @include position(absolute, 50% auto auto 50%);
+            @include transform(translateX(-50%) translateY(-50%) rotate(45deg));
+        }
+        &:after{
+            @include position(absolute, 50% auto auto 50%);
+            @include transform(translateX(-50%) translateY(-50%) rotate(-45deg));
+        }
+
+    }
+    .bg-video:before{
+        background-color:rgba($primary,1);
+    }
+    .intro{
+        div.logo{
+            @include opacity(0);
+        }
+        h1,p,h3,button{
+            @include opacity(0);
+            top:60px;
+        }
+    }
+    nav.main-nav{
+        .burger-box,
+        ul{
+            @include opacity(0);
+            pointer-events:none;
+        }
+    }
+    .video-player{
+        @include opacity(1);
+        top:50%;
+        @include transition-delay(0.5s);
+    }
+}
+
+.video-player{
+    @extend %absolute-middle;
+    @extend %default-transition;
+    @include transition-delay(0s);
+    @include opacity(0);
+    top:60%;
+    z-index:4;
+    width:100%;
+    max-width:80%;
+    background-color:#000;
+    &:after{
+        content:"";
+        display:block;
+        padding-top:56.25%;
+        background-color:#000;
+    }
+    iframe{
+        width:100%;
+        height:100%;
+        @include position(absolute, 0px auto auto 0px);
+    }
+}

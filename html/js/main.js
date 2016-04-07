@@ -1,8 +1,30 @@
-
 $(function(){
     var body = $('body');
     body.addClass('ready');
 
+    $('.intro button.watch-video').on('click',function(event){
+        event.preventDefault();
+
+        $('.intro').prepend('<div class="video-player"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=true" frameborder="0" allowfullscreen></iframe></div>');
+        body.append('<button class="close-video">Close video</div>');
+        setTimeout(function(){
+            body.addClass('video-playing');
+        },50);
+    
+
+        $('body').find('button.close-video').on('click',function(){
+            body.removeClass('video-playing');
+            console.log('clicked');
+            setTimeout(function(){
+                body.find('div.video-player').remove();
+                body.find('button.close-video').remove();
+            },350);
+        });
+
+
+    });
+
+    // scroll if there is a hash
     if (location.hash) {
       setTimeout(function() {
         var distance = $(location.hash).offset().top;
