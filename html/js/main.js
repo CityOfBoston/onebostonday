@@ -5,7 +5,7 @@ $(function(){
     $('.intro button.watch-video').on('click',function(event){
         event.preventDefault();
 
-        $('.intro').prepend('<div class="video-player"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=true" frameborder="0" allowfullscreen></iframe></div>');
+        $('.intro').prepend('<div class="video-player"><iframe src="https://player.vimeo.com/video/161990170?autoplay=1" frameborder="0" allowfullscreen></iframe></div>');
         body.append('<button class="close-video">Close video</div>');
         setTimeout(function(){
             body.addClass('video-playing');
