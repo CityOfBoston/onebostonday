@@ -22,7 +22,6 @@ svg.icon-spinner{
 }
 
 .get-involved{
-	padding:0px 0px 60px 0px;
 	background-color:$light;
 	.craft-tweet,
 	.acts-of-kindness{
@@ -92,6 +91,7 @@ svg.icon-spinner{
 		height:120px;
 		line-height:1.375;
 		padding-bottom:30px;
+		@include border-radius(0px);
 		@include placeholder{
 			color:lighten($dark,50%);
 		}
