@@ -5,7 +5,7 @@ $(function(){
     $('.intro button.watch-video').on('click',function(event){
         event.preventDefault();
 
-        var videoId = 'xyRRDSNnIVk';
+        var videoId = 'h3J4HaxCvfE';
 
         if(Modernizr.touchevents){
             window.location.href = 'https://www.youtube.com/watch?v=xyRRDSNnIVk';
