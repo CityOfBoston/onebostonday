@@ -131,7 +131,7 @@ section.social-feed{
 
 body.video-playing{
     overflow:hidden;
-    padding-right:14px;
+    //padding-right:14px;
     button.close-video{
         @include position(fixed, 20px 20px auto auto);
         display:block;

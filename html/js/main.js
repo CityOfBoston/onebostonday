@@ -5,24 +5,41 @@ $(function(){
     $('.intro button.watch-video').on('click',function(event){
         event.preventDefault();
 
-        $('.intro').prepend('<div class="video-player"><iframe src="https://player.vimeo.com/video/161990170?autoplay=1" frameborder="0" allowfullscreen></iframe></div>');
-        body.append('<button class="close-video">Close video</div>');
-        setTimeout(function(){
-            body.addClass('video-playing');
-        },50);
-    
+        var videoId = 'xyRRDSNnIVk';
 
-        $('body').find('button.close-video').on('click',function(){
-            body.removeClass('video-playing');
-            console.log('clicked');
+        if(Modernizr.touchevents){
+            window.location.href = 'https://www.youtube.com/watch?v=xyRRDSNnIVk';
+        }
+        else{
+            $('.intro').prepend('<div class="video-player"><iframe src="https://www.youtube.com/embed/'+videoId+'?autoplay=true" frameborder="0" allowfullscreen></iframe></div>');
+            body.append('<button class="close-video">Close video</div>');
             setTimeout(function(){
-                body.find('div.video-player').remove();
-                body.find('button.close-video').remove();
-            },350);
-        });
+                body.addClass('video-playing');
+            },50);
 
-
+            $('body').find('button.close-video').on('click',function(){
+                body.removeClass('video-playing');
+                console.log('clicked');
+                setTimeout(function(){
+                    body.find('div.video-player').remove();
+                    body.find('button.close-video').remove();
+                },350);
+            });
+        }
     });
+
+    console.log($(window).width());
+
+    if(!Modernizr.touchevents && $(window).width() > 800){
+        var bgVideo = "";
+        bgVideo += '<div class="bg-video">';
+        bgVideo += '    <video autoplay loop muted>';
+        bgVideo += '        <source src="/video/obd.mp4" type="video/mp4">';
+        bgVideo += '    </video>';
+        bgVideo += '</div>';
+
+        $('section.intro').append(bgVideo);
+    }
 
     // scroll if there is a hash
     if (location.hash) {
