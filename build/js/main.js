@@ -35,6 +35,7 @@ $(function(){
         bgVideo += '<div class="bg-video">';
         bgVideo += '    <video autoplay loop muted>';
         bgVideo += '        <source src="/video/obd.mp4" type="video/mp4">';
+        bgVideo += '        <source src="/video/obd.webm" type="video/webm">';
         bgVideo += '    </video>';
         bgVideo += '</div>';
 
