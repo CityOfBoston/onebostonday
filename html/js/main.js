@@ -8,7 +8,7 @@ $(function(){
         var videoId = 'h3J4HaxCvfE';
 
         if(Modernizr.touchevents){
-            window.location.href = 'https://www.youtube.com/watch?v=xyRRDSNnIVk';
+            window.location.href = 'https://www.youtube.com/watch?v='+videoId;
         }
         else{
             $('.intro').prepend('<div class="video-player"><iframe src="https://www.youtube.com/embed/'+videoId+'?autoplay=1&rel=0&modestbranding=1" frameborder="0" allowfullscreen></iframe></div>');
