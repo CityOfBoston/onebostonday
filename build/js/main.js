@@ -8,9 +8,11 @@ $(function(){
         var videoId = 'h3J4HaxCvfE';
 
         if(Modernizr.touchevents){
+            ga('send', 'event', 'celebrity video', 'mobile');
             window.location.href = 'https://www.youtube.com/watch?v='+videoId;
         }
         else{
+            ga('send', 'event', 'celebrity video', 'desktop');
             $('.intro').prepend('<div class="video-player"><iframe src="https://www.youtube.com/embed/'+videoId+'?autoplay=1&rel=0&modestbranding=1" frameborder="0" allowfullscreen></iframe></div>');
             body.append('<button class="close-video">Close video</div>');
             setTimeout(function(){
@@ -253,9 +255,36 @@ $(function(){
         loadOldFeed();
         loadFeed();
         var donezo = false;
+        var number = 42873;
+
+        $.ajax({
+            url: 'http://onebostonday-counter.hhcc.tech/api/count',
+            type: 'GET',
+        })
+        .done(function(data) {
+            console.log("success");
+            var initialPledges = data;
+
+            $.ajax({
+                url:'http://siphon.hhcctech.com/api/container/showall/9',
+                type:'GET',
+            })
+            .done(function(data){
+                count = data.total + initialPledges.total_pledges;
+            });
+        })
+        .fail(function() {
+            console.log("error");
+        })
+        .always(function() {
+            console.log("complete");
+        });
+
+
+
         setInterval(function(){
             if(isElementInViewport($odometer) && donezo === false){
-                od.update("42873");
+                od.update(count);
                 donezo = true;
             }
         },500);
