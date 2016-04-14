@@ -193,6 +193,7 @@ $(function(){
 
         for (i=0;i<totalPosts;i++){
             var post = data[i];
+            console.log(post);
             if(post.provider === "twitter"){
                 twitterTemplate(post.userimageurl,post.full_name,post.username,post.created_at,post.social_id,post.message,post.image,direction);
             }
@@ -233,7 +234,7 @@ $(function(){
                 // console.log(textStatus, errorThrown);
             },
             success:function(response){
-                loadFeedContent(response,"prepend");
+                loadFeedContent(response,"append");
             }
         });
     };
@@ -252,7 +253,7 @@ $(function(){
     };
 
     if($('.acts-of-kindness h3').length > 0){
-        loadOldFeed();
+        //loadOldFeed();
         loadFeed();
         var donezo = false;
         var number = 42873;
