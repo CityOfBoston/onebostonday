@@ -62,6 +62,16 @@ section.bottom{
     }
 }
 
+body.rtm{
+    section.bottom{
+        display:none;
+    }
+    section.display h2{
+        font-size:48px;
+        top:-12px;
+    }
+}
+
 body.thank-you{
     section.display{
         background-color:$primary;
