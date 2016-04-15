@@ -7,7 +7,7 @@ $(function(){
              .fadeOut( 
                        function(){ 
                             inOut( elem.next() ); 
-                            
+
                             if(elem.next().length === 0){
                                 $('main.tweets ul li').each(function(){ $(this).remove();  });
                                 
@@ -37,7 +37,7 @@ $(function(){
         twitterDisplayImage = '';
         hasPhoto = '';
         if(twitterImage !== null){
-            twitterDisplayImage = '<div class=\"photo\"><img src=\"'+twitterImage+'\" alt=\"\"><\/div>';
+            twitterDisplayImage = '<div class=\"photo\" style=\"background-image:url('+twitterImage+')\"><\/div>';
             hasPhoto = 'has-photo';
         }
 
@@ -87,7 +87,7 @@ $(function(){
 
                 $('body').removeClass('loading');
 
-                var totalPosts = response.data.length;
+                var totalPosts = 50;
                 var data = response.data;
 
                 setTimeout(function(){

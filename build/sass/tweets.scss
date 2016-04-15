@@ -6,26 +6,27 @@ body{
 }
 
 main{
-    @include size(800px 600px);
+    @include size(1920px 1080px);
     background-color:#fff;
     position:relative;
-    border:10px solid #f6f6f6;
-    border-bottom:none;
+    border:26px solid $primary;
+    border-top:none;
     footer.band-footer{
-        @include position(absolute, auto 0px 0px 0px);
-        @include size(100% 100px);
-        background-color:#f6f6f6;
+        @include position(absolute, 0px 0px auto 0px);
+        @include size(100% 148px);
+        background-color:$primary;
         span{
             @extend %absolute-middle;
-            font-size:60px;
-            color:$primary;
+            font-size:112px;
+            color:#fff;
             font-weight:700;
         }
     }
     ul{
         li{
-            @include position(absolute, 10px 10px 60px 10px);
+            @include position(absolute, 148px 0px 20px 20px);
             display:none;
+            height:906px;
             &:first-child{
                 display:block;
             }
@@ -40,38 +41,56 @@ main{
         @include opacity(0);
         @extend %default-transition;
     }
+    header{
+        margin-top:20px;
+    }
 }
 
 body.loading svg.logo{
     @include opacity(1);
 }
 
+.twitter-card header h5, .instagram-card header h5{
+    color:darken(#bdc2c6,20%)
+}
+
 .twitter-card>svg.icon-twitter, .twitter-card>svg.icon-instagram, .instagram-card>svg.icon-twitter, .instagram-card>svg.icon-instagram{
-    @include size(60px);
+    @include size(120px);
 }
 
 .twitter-card header img, .instagram-card header img{
-    @include size(110px);
+    @include size(300px);
+}
+
+.twitter-card header, .instagram-card header{
+    padding-bottom:30px;
+    margin-bottom:20px;
+    border-bottom:3px solid darken(#bdc2c6,20%);
 }
 
 .twitter-card{
     padding:15px;
+    margin-bottom:0px;
+    height:100%;
     header{
         h4{
-            font-size:32px;
+            font-size:76px;
         }
         h5{
-            font-size:26px;
+            font-size:52px;
         }
     }
     div.content{
         p{
-            font-size:30px;
+            font-size:58px;
         }
     }
     time{
         margin:15px auto 15px;
-        font-size:26px;
+        font-size:42px;
+        a{
+            color:darken(#bdc2c6,20%);
+        }
     }
 }
 
@@ -82,18 +101,30 @@ body.loading svg.logo{
         float:left;
         clear:both;
     }
+    header{
+        h4{
+            font-size:68px;
+        }
+        h5{
+            font-size:46px;
+        }
+    }
     div.photo{
-        @include position(absolute,0px 10px auto auto);
+        @include position(absolute,0px 10px 0px auto);
         width:50%;
         height:100%;
+        background-size:contain;
+        background-position:center;
+        background-repeat:no-repeat;
+        margin-bottom:0px;
     }
     div.content{
         padding-right:20px;
         p{
-            font-size:20px;
+            font-size:44px;
         }
     }
     time{
-        font-size:18px;
+        font-size:34px;
     }
 }
