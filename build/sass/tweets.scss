@@ -9,12 +9,12 @@ main{
     @include size(1920px 1080px);
     background-color:#fff;
     position:relative;
-    border:26px solid $primary;
+    border:26px solid darken($primary,10%);
     border-top:none;
     footer.band-footer{
         @include position(absolute, 0px 0px auto 0px);
         @include size(100% 148px);
-        background-color:$primary;
+        background-color:darken($primary,10%);
         span{
             @extend %absolute-middle;
             font-size:112px;
@@ -33,10 +33,10 @@ main{
         }
     }
     svg.logo{
-        width:500px;
-        height:500px;
+        width:1200px;
+        height:810px;
         @extend %absolute-middle;
-        top:calc(50% - 25px);
+        top:calc(50% + 85px);
         z-index:3;
         @include opacity(0);
         @extend %default-transition;
@@ -66,6 +66,10 @@ body.loading svg.logo{
     padding-bottom:30px;
     margin-bottom:20px;
     border-bottom:3px solid darken(#bdc2c6,20%);
+}
+
+.twitter-card div.content p a, .instagram-card div.content p a{
+    color:darken($primary,10%);
 }
 
 .twitter-card{
