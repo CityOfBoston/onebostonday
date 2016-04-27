@@ -181,8 +181,8 @@ $(function(){
 
         var totalPosts = response.data.length;
 
-        if(totalPosts > 50){
-            totalPosts = 50;
+        if(totalPosts > 500){
+            totalPosts = 500;
         }
 
         var data = response.data;
