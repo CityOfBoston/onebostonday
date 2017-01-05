@@ -256,7 +256,7 @@ $(function(){
         //loadOldFeed();
         loadFeed();
         var donezo = false;
-        var number = 42873;
+        var number = 76985;
 
         $.ajax({
             url: 'http://onebostonday-counter.hhcc.tech/api/count',
@@ -271,7 +271,7 @@ $(function(){
                 type:'GET',
             })
             .done(function(data){
-                count = data.total + initialPledges.total_pledges;
+                // count = data.total + initialPledges.total_pledges;
             });
         })
         .fail(function() {
@@ -285,7 +285,7 @@ $(function(){
 
         setInterval(function(){
             if(isElementInViewport($odometer) && donezo === false){
-                od.update(count);
+                od.update(number);
                 donezo = true;
             }
         },500);
