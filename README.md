@@ -7,4 +7,3 @@ Hill Holliday repository for One Boston Day on April 15th.
 2.  npm install grunt
 3.  npm install
 4.  grunt watch
-5.  taaaa daaaaaaa
