@@ -1,8 +1,8 @@
-One Boston Day
+# One Boston Day
 
-Personal boilerplate for creating static sites using compass, scss, bourbon, jquery, grunt and html5 goodness.
+Hill Holliday repository for One Boston Day on April 15th.
 
-## let's do work
+## Setting up this project locally
 1.  only edit build/* files
 2.  npm install grunt
 3.  npm install
