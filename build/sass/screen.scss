@@ -12,7 +12,6 @@
 @import "partials/planning";
 @import "partials/odometer";
 
-
 @import "partials/fallback";
 
 .header-intro{
@@ -162,22 +161,22 @@ body.video-playing{
     }
     .intro{
         div.logo{
-            @include opacity(0);
+            opacity:0;
         }
         h1,p,h3,button{
-            @include opacity(0);
+            opacity:0;
             top:60px;
         }
     }
     nav.main-nav{
         .burger-box,
         ul{
-            @include opacity(0);
+            opacity:0;
             pointer-events:none;
         }
     }
     .video-player{
-        @include opacity(1);
+        opacity:1;
         top:50%;
         @include transition-delay(0.5s);
     }
@@ -187,7 +186,7 @@ body.video-playing{
     @extend %absolute-middle;
     @extend %default-transition;
     @include transition-delay(0s);
-    @include opacity(0);
+    opacity:0;
     top:60%;
     z-index:4;
     width:100%;

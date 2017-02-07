@@ -38,7 +38,7 @@ main{
         @extend %absolute-middle;
         top:calc(50% + 85px);
         z-index:3;
-        @include opacity(0);
+        opacity:0;
         @extend %default-transition;
     }
     header{
@@ -47,7 +47,7 @@ main{
 }
 
 body.loading svg.logo{
-    @include opacity(1);
+    opacity:1;
 }
 
 .twitter-card header h5, .instagram-card header h5{

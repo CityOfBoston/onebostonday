@@ -14,7 +14,7 @@
 	}
 	figure{
 		margin:10px 0;
-		@include border-radius(50%);
+		border-radius:50%;
 		border-radius:50%;
 		padding:10px;
 		& > img{
@@ -58,7 +58,7 @@
 		bottom:-60px;
 		li{
 			border:2px solid lighten($dark,50%);
-			@include border-radius(50%);
+			border-radius:50%;
 			&.slick-active{
 				background-color:lighten($dark,50%);
 			}

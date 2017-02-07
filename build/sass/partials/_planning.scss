@@ -13,12 +13,12 @@ section.planning{
         }
     }
     .thank-you{
-        @include opacity(0);
+        opacity:0;
         @extend %default-transition;
         padding:50px 10px 140px;
         text-align:center;
         &.youre-welcome{
-            @include opacity(1);
+            opacity:1;
         }
     }
 }

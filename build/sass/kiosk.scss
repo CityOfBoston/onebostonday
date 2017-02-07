@@ -45,7 +45,7 @@ section.display{
         @include position(absolute, auto auto -80px 50%);
         @include transform(translateX(-50%));
         width:720px;
-        @include opacity(0);
+        opacity:0;
         @extend %default-transition;
     }
 }
@@ -79,7 +79,7 @@ body.thank-you{
             color:#fff;
         }
         p{
-            @include opacity(1);
+            opacity:1;
         }
     }
     section.bottom button{

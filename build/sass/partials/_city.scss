@@ -42,7 +42,7 @@ section.city{
 		border:1px solid #fff;
 		margin-bottom:5px;
 		@include size(80px);
-		@include border-radius(50%);
+		border-radius:50%;
 		svg{
 			@include size(50px);
 			margin-left:5px;

@@ -153,7 +153,7 @@ $slick-opacity-not-active: 0.25 !default;
     outline: none;
     padding:20px;
     border:2px solid $primary;
-    @include border-radius(50%);
+    border-radius:50%;
     @extend %default-transition;
     &:hover, &:focus {
         outline: none;

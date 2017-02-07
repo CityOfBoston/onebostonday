@@ -91,7 +91,7 @@ svg.icon-spinner{
 		height:120px;
 		line-height:1.375;
 		padding-bottom:30px;
-		@include border-radius(0px);
+		border-radius:0px;
 		@include placeholder{
 			color:lighten($dark,50%);
 		}
