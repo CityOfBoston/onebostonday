@@ -506,7 +506,7 @@ $(function(){
         window.open('https://twitter.com/marty_walsh', '_blank');
     });
     $('.mayor .facebook').on('click',function(){
-        window.open('https://www.facebook.com/VoteMartyWalsh', '_blank');
+        window.open('https://www.facebook.com/MartyForBoston', '_blank');
     });
     $('.mayor button').on('click',function(){
          ga('send', 'event', 'footer social', 'mayor:' + $(this).attr('class'));
