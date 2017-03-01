@@ -1,59 +1,60 @@
+/*! last updated 2017-03-01 */
 $(function() {
-    function scrollDistance() {
-        var toTop = $(document).scrollTop();
-        return toTop;
+    function a() {
+        var a = $(document).scrollTop();
+        return a;
     }
-    var body = $("body");
-    if (body.addClass("ready"), $(".intro button.watch-video").on("click", function(event) {
-        event.preventDefault();
-        var videoId = "h3J4HaxCvfE";
-        Modernizr.touchevents ? (ga("send", "event", "celebrity video", "mobile"), window.location.href = "https://www.youtube.com/watch?v=" + videoId) : (ga("send", "event", "celebrity video", "desktop"), 
-        $(".intro").prepend('<div class="video-player"><iframe src="https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0&modestbranding=1" frameborder="0" allowfullscreen></iframe></div>'), 
-        body.append('<button class="close-video">Close video</div>'), setTimeout(function() {
-            body.addClass("video-playing");
+    var b = $("body");
+    if (b.addClass("ready"), $(".intro button.watch-video").on("click", function(a) {
+        a.preventDefault();
+        var c = "h3J4HaxCvfE";
+        Modernizr.touchevents ? (ga("send", "event", "celebrity video", "mobile"), window.location.href = "https://www.youtube.com/watch?v=" + c) : (ga("send", "event", "celebrity video", "desktop"), 
+        $(".intro").prepend('<div class="video-player"><iframe src="https://www.youtube.com/embed/' + c + '?autoplay=1&rel=0&modestbranding=1" frameborder="0" allowfullscreen></iframe></div>'), 
+        b.append('<button class="close-video">Close video</div>'), setTimeout(function() {
+            b.addClass("video-playing");
         }, 50), $("body").find("button.close-video").on("click", function() {
-            body.removeClass("video-playing"), console.log("clicked"), setTimeout(function() {
-                body.find("div.video-player").remove(), body.find("button.close-video").remove();
+            b.removeClass("video-playing"), console.log("clicked"), setTimeout(function() {
+                b.find("div.video-player").remove(), b.find("button.close-video").remove();
             }, 350);
         }));
     }), console.log($(window).width()), !Modernizr.touchevents && $(window).width() > 800) {
-        var bgVideo = "";
-        bgVideo += '<div class="bg-video">', bgVideo += "    <video autoplay loop muted>", 
-        bgVideo += '        <source src="/video/obd.mp4" type="video/mp4">', bgVideo += '        <source src="/video/obd.webm" type="video/webm">', 
-        bgVideo += "    </video>", bgVideo += "</div>", $("section.intro").append(bgVideo);
+        var c = "";
+        c += '<div class="bg-video">', c += "    <video autoplay loop muted>", c += '        <source src="/video/obd.mp4" type="video/mp4">', 
+        c += '        <source src="/video/obd.webm" type="video/webm">', c += "    </video>", 
+        c += "</div>", $("section.intro").append(c);
     }
     if (location.hash && setTimeout(function() {
-        var distance = $(location.hash).offset().top;
+        var a = $(location.hash).offset().top;
         $("html,body").animate({
-            scrollTop: distance
+            scrollTop: a
         });
     }, 400), $(".acts-of-kindness h3").length > 0) {
-        var $odometer = document.querySelector(".acts-of-kindness h3");
+        var d = document.querySelector(".acts-of-kindness h3");
         od = new Odometer({
-            el: $odometer,
+            el: d,
             value: 0,
             format: "(,ddd)",
             duration: 2e3
         });
     }
-    var video = '<iframe src="https://player.vimeo.com/video/159072629?autoplay=1" width="500" height="367" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+    var e = '<iframe src="https://player.vimeo.com/video/206079468?autoplay=1" width="500" height="367" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
     $(".video span").on("click", function() {
         ga("send", "event", "video", "watched"), $(".video span").fadeOut(function() {
-            $(".video img").remove(), $(".video").append(video);
+            $(".video img").remove(), $(".video").append(e);
         });
-    }), $("form.planning-form").on("submit", function(event) {
-        event.preventDefault();
-        var action = $(this).attr("action"), data = $(this).serialize(), thankYou = '<div class="thank-you"><h3>Thank you for your submission.</h3> <p>It sounds like you are going to have an unforgetable One Boston Day!</p></div>';
+    }), $("form.planning-form").on("submit", function(a) {
+        a.preventDefault();
+        var b = $(this).attr("action"), c = $(this).serialize(), d = '<div class="thank-you"><h3>Thank you for your submission.</h3> <p>It sounds like you are going to have an unforgetable One Boston Day!</p></div>';
         $.ajax({
-            url: action,
+            url: b,
             type: "POST",
-            data: data
+            data: c
         }).done(function() {}).fail(function() {}).always(function() {
             $("form.planning-form").fadeOut(function() {
-                $("section.planning .block").append(thankYou), $("section.planning").find(".thank-you").addClass("youre-welcome");
-                var distance = $("section.planning").offset().top;
+                $("section.planning .block").append(d), $("section.planning").find(".thank-you").addClass("youre-welcome");
+                var a = $("section.planning").offset().top;
                 $("html,body").animate({
-                    scrollTop: distance
+                    scrollTop: a
                 }, 500);
             });
         });
@@ -69,31 +70,31 @@ $(function() {
     }), $(".activity .copy a").on("click", function() {
         ga("send", "event", "community learn more", $(this).attr("href"));
     });
-    var tweetString = "For #OneBostonDay, ";
+    var f = "For #OneBostonDay, ";
     $("button.tweet").on("click", function() {
-        tweetValue = $(".craft textarea").val(), finalTweet = encodeURIComponent(tweetString + tweetValue + " What will you do?"), 
+        tweetValue = $(".craft textarea").val(), finalTweet = encodeURIComponent(f + tweetValue + " What will you do?"), 
         tweetIntent = "https://twitter.com/intent/tweet?text=" + finalTweet + "&related=marty_walsh,notifyboston", 
-        popItUp(tweetIntent, 300, 600);
+        t(tweetIntent, 300, 600);
     });
-    var characterCount = 103;
-    $(".craft span").text(characterCount), $(".craft textarea").on("focus", function() {
+    var g = 103;
+    $(".craft span").text(g), $(".craft textarea").on("focus", function() {
         $(this).on("keyup", function() {
-            var length = $(this).val().length, charactersLeft = characterCount - length;
-            0 > charactersLeft ? $(".craft span").html('<b class="nono">' + charactersLeft + "</b>") : $(".craft span").text(charactersLeft);
+            var a = $(this).val().length, b = g - a;
+            0 > b ? $(".craft span").html('<b class="nono">' + b + "</b>") : $(".craft span").text(b);
         });
     }), $(".craft-tweet button.tweet").on("click", function() {
         Modernizr.touch ? ga("send", "event", "get involved", "tweet clicked: mobile") : ga("send", "event", "get involved", "tweet clicked: desktop -" + $(".craft span").html());
     });
-    var loadFeedContent = function(response, direction) {
+    var h = function(a, b) {
         $(".feed .icon-spinner").fadeOut(function() {
             $(this).remove();
         });
-        var totalPosts = response.data.length;
-        totalPosts > 500 && (totalPosts = 500);
-        var data = response.data;
-        for ("prepend" === direction && (data = data.reverse()), i = 0; i < totalPosts; i++) {
-            var post = data[i];
-            "twitter" === post.provider ? twitterTemplate(post.userimageurl, post.full_name, post.username, post.created_at, post.social_id, post.message, post.image, direction) : "instagram" === post.provider && instagramTemplate(post.image, post.full_name, post.username, post.created_at, post.social_id, post.message, direction);
+        var c = a.data.length;
+        c > 500 && (c = 500);
+        var d = a.data;
+        for ("prepend" === b && (d = d.reverse()), i = 0; i < c; i++) {
+            var e = d[i];
+            "twitter" === e.provider ? n(e.userimageurl, e.full_name, e.username, e.created_at, e.social_id, e.message, e.image, b) : "instagram" === e.provider && o(e.image, e.full_name, e.username, e.created_at, e.social_id, e.message, b);
         }
         $(".social-feed .block > ul .content").anchorTextUrls(), $(window).width() < 800 ? $(".social-feed .photo img").lazyload() : ($(".social-feed .photo img").lazyload({
             container: $(".social-feed .block > ul")
@@ -104,27 +105,27 @@ $(function() {
                 gutter: 20
             });
         }, 250));
-    }, loadOldFeed = function() {
+    }, j = function() {
         console.log("wow"), $.ajax({
             url: "/feed/oldfeed.json",
             dataType: "json",
-            error: function(jqXHR, textStatus, errorThrown) {},
-            success: function(response) {
-                loadFeedContent(response, "append");
+            error: function(a, b, c) {},
+            success: function(a) {
+                h(a, "append");
             }
         });
     };
     if ($(".acts-of-kindness h3").length > 0) {
-        loadOldFeed();
-        var donezo = !1, number = 76985;
+        j();
+        var k = !1, l = 76985;
         setInterval(function() {
-            isElementInViewport($odometer) && donezo === !1 && (od.update(number), donezo = !0);
+            r(d) && k === !1 && (od.update(l), k = !0);
         }, 500);
     }
-    var inView = 24;
-    $("button.load-more").on("click", function(event) {
-        event.preventDefault(), $(".social-feed .block > ul > li:nth-child(-n+" + inView + ")").show(), 
-        inView += 12, $(window).width() < 800 ? $(".social-feed .photo img").lazyload() : ($(".social-feed").find(".gutter-sizer").appendTo(".social-feed .block > ul"), 
+    var m = 24;
+    $("button.load-more").on("click", function(a) {
+        a.preventDefault(), $(".social-feed .block > ul > li:nth-child(-n+" + m + ")").show(), 
+        m += 12, $(window).width() < 800 ? $(".social-feed .photo img").lazyload() : ($(".social-feed").find(".gutter-sizer").appendTo(".social-feed .block > ul"), 
         setTimeout(function() {
             $(".social-feed .block > ul").packery({
                 itemSelector: ".social-feed .block > ul > li",
@@ -135,55 +136,51 @@ $(function() {
                 container: $(".social-feed .block > ul")
             });
         }, 400)), 0 === $(".social-feed .block > ul").children(":hidden").length && $("button.load-more").hide();
-    }), $("body").on("click", ".actions a", function(event) {
-        event.preventDefault(), popItUp($(this).attr("href"), 300, 600), ga("send", "event", "feed twitter action", $(this).find("svg").attr("class"));
+    }), $("body").on("click", ".actions a", function(a) {
+        a.preventDefault(), t($(this).attr("href"), 300, 600), ga("send", "event", "feed twitter action", $(this).find("svg").attr("class"));
     });
-    var twitterTemplate = function(profileImage, twitterName, twitterUser, twitterTime, twitterTweetUrl, twitterTweetEntity, twitterImage, direction) {
-        var intentReply = "https://twitter.com/intent/tweet?in_reply_to=" + twitterTweetUrl, intentRetweet = "https://twitter.com/intent/retweet?tweet_id=" + twitterTweetUrl, intentFavorite = "https://twitter.com/intent/favorite?tweet_id=" + twitterTweetUrl;
-        twitterDisplayImage = "", null !== twitterImage && (twitterDisplayImage = '<div class="photo"><img data-original="' + twitterImage + '" src="/img/preloader-large.gif" alt=""></div>');
-        var entity = twitterTweetEntity;
-        entity = linkHashtags(entity), entity = linkUsers(entity);
-        var twitterCard = "";
-        twitterCard += "<li>", twitterCard += '    <div class="twitter-card">', twitterCard += '        <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>', 
-        twitterCard += "        <header>", twitterCard += '            <a href="https://twitter.com/' + twitterUser + '">', 
-        twitterCard += '                <img src="' + profileImage + '">', twitterCard += "                <h4>" + twitterName + "</h4>", 
-        twitterCard += "                <h5>@" + twitterUser + "</h5>", twitterCard += "            </a>", 
-        twitterCard += "        </header>", twitterCard += '        <div class="content">', 
-        twitterCard += "            <p>" + entity + "</p>", twitterCard += "        </div>", 
-        twitterCard += '        <time><a href="https://twitter.com/' + twitterUser + "/status/" + twitterTweetUrl + '">' + twitterTime + "</a></time>", 
-        twitterCard += twitterDisplayImage, twitterCard += '        <div class="actions">', 
-        twitterCard += "            <ul>", twitterCard += "                <li>", twitterCard += '                    <a class="reply" href="' + intentReply + '"> ', 
-        twitterCard += '                        <svg class="icon icon-reply"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-reply"></use></svg>                ', 
-        twitterCard += "                    </a>", twitterCard += "                </li>", 
-        twitterCard += "                <li>", twitterCard += '                    <a class="retweet" href="' + intentRetweet + '">', 
-        twitterCard += '                        <svg class="icon icon-retweet"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-retweet"></use></svg>', 
-        twitterCard += "                    </a> ", twitterCard += "                </li>", 
-        twitterCard += "                <li>", twitterCard += '                    <a class="favorite" href="' + intentFavorite + '">', 
-        twitterCard += '                        <svg class="icon icon-heart"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-heart"></use></svg>', 
-        twitterCard += "                    </a>", twitterCard += "                </li>", 
-        twitterCard += "            </ul>", twitterCard += "        </div>", twitterCard += "    </div>", 
-        twitterCard += "</li>", "append" === direction ? $(".social-feed .block > ul").append(twitterCard) : $(".social-feed .block > ul").prepend(twitterCard);
-    }, instagramTemplate = function(instaImage, instaName, instaUsername, instaTime, instaUrl, instaBody) {
-        var instaUserFullName = instaName;
-        (void 0 === typeof instaName || 0 === instaName.length) && (instaUserFullName = instaUsername);
-        var instagramMarkup = "";
-        instagramMarkup += '<li class="instagram">', instagramMarkup += '    <img data-original="' + instaImage + '" src="/img/preloader-large.gif"> ', 
-        instagramMarkup += '    <header class="insta-header">', instagramMarkup += '        <h4><a href="https://instagram.com/' + instaUsername + '">' + instaUserFullName + "</a></h4>", 
-        instagramMarkup += '        <a class="time" href="https://instagram.com/p/' + instaUrl + '" target="_blank" title=" ' + instaTime + ' "></a>', 
-        instagramMarkup += "    </header>", instagramMarkup += "    <p>" + instaBody + "</p>", 
-        instagramMarkup += "</li>", $(".feed > ul").append(instagramMarkup), $(".feed a").timeago();
+    var n = function(a, b, c, d, e, f, g, h) {
+        var i = "https://twitter.com/intent/tweet?in_reply_to=" + e, j = "https://twitter.com/intent/retweet?tweet_id=" + e, k = "https://twitter.com/intent/favorite?tweet_id=" + e;
+        twitterDisplayImage = "", null !== g && (twitterDisplayImage = '<div class="photo"><img data-original="' + g + '" src="/img/preloader-large.gif" alt=""></div>');
+        var l = f;
+        l = linkHashtags(l), l = linkUsers(l);
+        var m = "";
+        m += "<li>", m += '    <div class="twitter-card">', m += '        <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>', 
+        m += "        <header>", m += '            <a href="https://twitter.com/' + c + '">', 
+        m += '                <img src="' + a + '">', m += "                <h4>" + b + "</h4>", 
+        m += "                <h5>@" + c + "</h5>", m += "            </a>", m += "        </header>", 
+        m += '        <div class="content">', m += "            <p>" + l + "</p>", m += "        </div>", 
+        m += '        <time><a href="https://twitter.com/' + c + "/status/" + e + '">' + d + "</a></time>", 
+        m += twitterDisplayImage, m += '        <div class="actions">', m += "            <ul>", 
+        m += "                <li>", m += '                    <a class="reply" href="' + i + '"> ', 
+        m += '                        <svg class="icon icon-reply"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-reply"></use></svg>                ', 
+        m += "                    </a>", m += "                </li>", m += "                <li>", 
+        m += '                    <a class="retweet" href="' + j + '">', m += '                        <svg class="icon icon-retweet"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-retweet"></use></svg>', 
+        m += "                    </a> ", m += "                </li>", m += "                <li>", 
+        m += '                    <a class="favorite" href="' + k + '">', m += '                        <svg class="icon icon-heart"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-heart"></use></svg>', 
+        m += "                    </a>", m += "                </li>", m += "            </ul>", 
+        m += "        </div>", m += "    </div>", m += "</li>", "append" === h ? $(".social-feed .block > ul").append(m) : $(".social-feed .block > ul").prepend(m);
+    }, o = function(a, b, c, d, e, f) {
+        var g = b;
+        (void 0 === typeof b || 0 === b.length) && (g = c);
+        var h = "";
+        h += '<li class="instagram">', h += '    <img data-original="' + a + '" src="/img/preloader-large.gif"> ', 
+        h += '    <header class="insta-header">', h += '        <h4><a href="https://instagram.com/' + c + '">' + g + "</a></h4>", 
+        h += '        <a class="time" href="https://instagram.com/p/' + e + '" target="_blank" title=" ' + d + ' "></a>', 
+        h += "    </header>", h += "    <p>" + f + "</p>", h += "</li>", $(".feed > ul").append(h), 
+        $(".feed a").timeago();
     };
-    $(".burger-box").on("click", function(event) {
-        event.preventDefault(), $(this).hasClass("open") ? ($(this).removeClass("open").addClass("closed"), 
+    $(".burger-box").on("click", function(a) {
+        a.preventDefault(), $(this).hasClass("open") ? ($(this).removeClass("open").addClass("closed"), 
         $(".main-nav").removeClass("active"), ga("send", "event", "mobile menu", "close")) : ($(this).addClass("open").removeClass("closed"), 
         $(".main-nav").addClass("active"), ga("send", "event", "mobile menu", "open"));
     });
-    var loadLogos = function() {
+    var p = function() {
         $(".downloads li a").not(".none-download").each(function() {
-            var image = $(this).data("image");
+            var a = $(this).data("image");
             $(this).css({
-                "background-image": "url(../img/logos/" + image + ")"
-            }), $(this).attr("href", "../img/logos/" + image), Modernizr.adownload || $(this).attr("target", "_blank");
+                "background-image": "url(../img/logos/" + a + ")"
+            }), $(this).attr("href", "../img/logos/" + a), Modernizr.adownload || $(this).attr("target", "_blank");
         }), $(".none-download").css({
             "background-image": "url(../img/" + $(".none-download").data("image") + ")"
         }), Modernizr.touchevents && $(".none-download").attr("href", "/img/logos/OneBostonDay_CoverPhoto_Facebook.jpg");
@@ -192,14 +189,13 @@ $(function() {
         ga("send", "event", "logo download", $(this).data("image"));
     }), $("a.package").on("click", function() {
         ga("send", "event", "logo download", "all .zip");
-    }), $(".downloads").length > 0) var loadTheLogos = setInterval(function() {
-        scrollDistance() > $(".downloads").offset().top - $(".downloads").height() && (loadLogos(), 
-        clearInterval(loadTheLogos));
+    }), $(".downloads").length > 0) var q = setInterval(function() {
+        a() > $(".downloads").offset().top - $(".downloads").height() && (p(), clearInterval(q));
     }, 50);
     $(window).on("scroll", function() {
-        var currentScroll = scrollDistance() + $(".main-nav").height();
+        var b = a() + $(".main-nav").height();
         $("section").each(function() {
-            offset = $(this).offset(), currentScroll > offset.top && !$(this).hasClass("tracked") && ($(this).addClass("tracked"), 
+            offset = $(this).offset(), b > offset.top && !$(this).hasClass("tracked") && ($(this).addClass("tracked"), 
             ga("send", "pageview", {
                 page: "/" + $(this).attr("id"),
                 title: $(this).attr("id")
@@ -228,18 +224,18 @@ $(function() {
     }), $(".press a").on("click", function() {
         ga("send", "event", "press link", $(this).text());
     });
-    var isElementInViewport = function(el) {
-        "function" == typeof jQuery && el instanceof jQuery && (el = el[0]);
-        var rect = el.getBoundingClientRect();
-        return rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth);
-    }, popupWindow = function() {
-        $("a[data-popup]").on("click", function(event) {
-            event.preventDefault(), window.open($(this)[0].href);
+    var r = function(a) {
+        "function" == typeof jQuery && a instanceof jQuery && (a = a[0]);
+        var b = a.getBoundingClientRect();
+        return b.top >= 0 && b.left >= 0 && b.bottom <= (window.innerHeight || document.documentElement.clientHeight) && b.right <= (window.innerWidth || document.documentElement.clientWidth);
+    }, s = function() {
+        $("a[data-popup]").on("click", function(a) {
+            a.preventDefault(), window.open($(this)[0].href);
         });
     };
-    popupWindow();
-    var popItUp = function(url, height, width) {
-        return newwindow = window.open(url, "name", "height=" + height + ",width=" + width), 
-        window.focus && newwindow.focus(), !1;
+    s();
+    var t = function(a, b, c) {
+        return newwindow = window.open(a, "name", "height=" + b + ",width=" + c), window.focus && newwindow.focus(), 
+        !1;
     };
 });

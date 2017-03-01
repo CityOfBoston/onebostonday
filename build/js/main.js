@@ -71,7 +71,8 @@ $(function(){
     /*//////////////////////////////////////
     //  video toggle
     //////////////////////////////////////*/
-    var video = '<iframe src="https://player.vimeo.com/video/159072629?autoplay=1" width="500" height="367" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+
+    var video = '<iframe src="https://player.vimeo.com/video/206079468?autoplay=1" width="500" height="367" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
     $('.video span').on('click',function(){
         ga('send', 'event', 'video', 'watched') ;
         $('.video span').fadeOut(function(){
