@@ -82,7 +82,7 @@ gulp.task('serve', function () {
     /**
      * Watch for all other changes, reload the whole page
      */
-    gulp.watch(["*.html", "*.ejs", "*.jade", "*.js", "*.json", "*.md"], function () {
+    gulp.watch(["*.html", "**/*.ejs", "*.jade", "*.js", "*.json", "*.md"], function () {
       reload();
     });
   })
@@ -100,5 +100,5 @@ gulp.task('watch', function() {
   gulp.watch('build/sass/**/*.scss', ['build-scss']);
   gulp.watch('build/img/*.*', ['build-images']);
   gulp.watch('public/**/*.html', ['build-html','build-images']);
-  gulp.watch('craft/**/*.twig', ['build-html','build-images']);
+  gulp.watch('craft/**/*.ejs', ['build-html','build-images']);
 });

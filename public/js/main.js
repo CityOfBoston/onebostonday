@@ -71,7 +71,8 @@ $(function(){
     /*//////////////////////////////////////
     //  video toggle
     //////////////////////////////////////*/
-    var video = '<iframe src="https://player.vimeo.com/video/159072629?autoplay=1" width="500" height="367" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+
+    var video = '<iframe src="https://player.vimeo.com/video/206079468?autoplay=1" width="500" height="367" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
     $('.video span').on('click',function(){
         ga('send', 'event', 'video', 'watched') ;
         $('.video span').fadeOut(function(){
@@ -193,7 +194,6 @@ $(function(){
 
         for (i=0;i<totalPosts;i++){
             var post = data[i];
-            console.log(post);
             if(post.provider === "twitter"){
                 twitterTemplate(post.userimageurl,post.full_name,post.username,post.created_at,post.social_id,post.message,post.image,direction);
             }
@@ -240,6 +240,7 @@ $(function(){
     };
 
     var loadOldFeed = function(){
+        console.log('wow');
         $.ajax({
             url: '/feed/oldfeed.json',
             dataType:'json',
@@ -253,33 +254,33 @@ $(function(){
     };
 
     if($('.acts-of-kindness h3').length > 0){
-        //loadOldFeed();
-        loadFeed();
+        loadOldFeed();
+        //loadFeed();
         var donezo = false;
         var number = 76985;
 
-        $.ajax({
-            url: 'http://onebostonday-counter.hhcc.tech/api/count',
-            type: 'GET',
-        })
-        .done(function(data) {
-            console.log("success");
-            var initialPledges = data;
+        // $.ajax({
+        //     url: 'http://onebostonday-counter.hhcc.tech/api/count',
+        //     type: 'GET',
+        // })
+        // .done(function(data) {
+        //     console.log("success");
+        //     var initialPledges = data;
 
-            $.ajax({
-                url:'http://siphon.hhcctech.com/api/container/showall/9',
-                type:'GET',
-            })
-            .done(function(data){
-                // count = data.total + initialPledges.total_pledges;
-            });
-        })
-        .fail(function() {
-            console.log("error");
-        })
-        .always(function() {
-            console.log("complete");
-        });
+        //     $.ajax({
+        //         url:'http://siphon.hhcctech.com/api/container/showall/9',
+        //         type:'GET',
+        //     })
+        //     .done(function(data){
+        //         // count = data.total + initialPledges.total_pledges;
+        //     });
+        // })
+        // .fail(function() {
+        //     console.log("error");
+        // })
+        // .always(function() {
+        //     console.log("complete");
+        // });
 
 
 
@@ -506,7 +507,7 @@ $(function(){
         window.open('https://twitter.com/marty_walsh', '_blank');
     });
     $('.mayor .facebook').on('click',function(){
-        window.open('https://www.facebook.com/VoteMartyWalsh', '_blank');
+        window.open('https://www.facebook.com/MartyForBoston', '_blank');
     });
     $('.mayor button').on('click',function(){
          ga('send', 'event', 'footer social', 'mayor:' + $(this).attr('class'));
