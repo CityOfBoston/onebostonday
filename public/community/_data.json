@@ -1,0 +1,44 @@
+[
+    {
+        "copy": "<strong>St. Francis House</strong> partnered with John Hancock to collect sneakers for the many guests they serve.",
+        "link": "http://www.stfrancishouse.org/",
+        "image": "StFrancis.jpg",
+        "altText": "St. Francis House"
+    },
+    {
+        "copy": "Boston Marathon survivors and founders of the Gillian Reny <strong>Stepping Strong</strong> Fund hosted a blood drive just past the Marathon finish line on Boylston Street.",
+        "link": "http://give.brighamandwomens.org/funds/gillian-reny-stepping-strong-fund/",
+        "image": "steppingStrong.png",
+        "altText": "Stepping Strong"
+    },
+    {
+        "copy": "<strong>Legacy Place </strong>in Dedham hosted a One Boston Day walk to benefit the Greater Boston Food Bank.",
+        "link": "http://www.legacyplace.com/event/walk-as-one-for-one-boston-day/2145471549",
+        "image": "legacyplace.jpg",
+        "altText": "Legacy Place"
+    },
+    {
+        "copy": "The <strong>Museum of Science</strong> offered free entry for visitors to reflect in the peace of the Butterfly Garden.",
+        "link": "http://www.mos.org/",
+        "image": "MuseumOfScience.png",
+        "altText": "Museum of Science"
+    },
+    {
+        "copy": "The <strong>City of Boston </strong> collected donations of pre-mixed baby formula, baby wipes, and hand sanitizer for Flint, Michigan.",
+        "link": "http://www.cityofboston.gov/news/Default.aspx?id=20575",
+        "image": "City.png",
+        "altText": "City of Boston"
+    },
+    {
+        "copy": "<strong>El Pelon </strong> donated $1 from every burrito sold on One Boston Day to the Massachusetts Immigrant and Refugee Advocacy Coalition.",
+        "link": "http://www.elpelon.com/",
+        "image": "elPelon.png",
+        "altText": "El Pelon"
+    },
+    {
+        "copy": "The <strong>Pine Street Inn</strong> had a dry cereal drive.",
+        "link": "http://www.pinestreetinn.org/",
+        "image": "PineStreet1.jpg",
+        "altText": "Pine Street Inn"
+    }
+]

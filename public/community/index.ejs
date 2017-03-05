@@ -4,94 +4,21 @@
 </section>
 <section class="community" id="community">
     <div class="slider">
-
-        <div class="activity stfrancis">
-            <div class="block">
-                <figure class="activity-image">
-                    <img src="/img/community/StFrancis.jpg" alt="St. Francis House">
-                </figure>
-                <div class="copy">
-                    <p><strong>St. Francis House</strong> partnered with John Hancock to collect sneakers for the many guests they serve. </p>
-                    <a href="http://www.stfrancishouse.org/" target="_blank">Learn more</a>
+        <% for(var i=0; i<public.community._data.length; i++) {%>
+            <div class="activity">
+                <div class="block">
+                    <figure class="activity-image">
+                        <img src="/img/community/<%= public.community._data[i].image %>" alt="<%= public.community._data[i].altText %>">
+                    </figure>
+                    <div class="copy">
+                        <p><%- public.community._data[i].copy %></p>
+                        <a href="<%= public.community._data[i].link %>">Learn more</a>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="activity steppingstrong">
-            <div class="block">
-                <figure class="activity-image">
-                    <img src="/img/community/steppingStrong.png" alt="Stepping Strong">
-                </figure>
-                <div class="copy">
-                    <p>Boston Marathon survivors and founders of the Gillian Reny <strong>Stepping Strong</strong> Fund hosted a blood drive just past the Marathon finish line on Boylston Street. </p>
-                    <a href="http://give.brighamandwomens.org/funds/gillian-reny-stepping-strong-fund/" target="_blank">Learn more</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="activity legacyplace">
-            <div class="block">
-                <figure class="activity-image">
-                    <img src="/img/community/legacyplace.jpg" alt="Legacy Place">
-                </figure>
-                <div class="copy">
-                    <p><strong>Legacy Place </strong>in Dedham hosted a One Boston Day walk to benefit the Greater Boston Food Bank.</p>
-                    <a href="http://www.legacyplace.com/event/walk-as-one-for-one-boston-day/2145471549" target="_blank">Learn more</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="activity museumsofscience">
-            <div class="block">
-                <figure class="activity-image">
-                    <img src="/img/community/MuseumOfScience.png" alt="Legacy Place">
-                </figure>
-                <div class="copy">
-                    <p>The <strong>Museum of Science</strong> offered free entry for visitors to reflect in the peace of the Butterfly Garden.</p>
-                    <a href="http://www.mos.org/" target="_blank">Learn more</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="activity cityofboston">
-            <div class="block">
-                <figure class="activity-image">
-                    <img src="/img/community/City.png" alt="City of Boston">
-                </figure>
-                <div class="copy">
-                    <p>The <strong>City of Boston </strong> collected donations of pre-mixed baby formula, baby wipes, and hand sanitizer for Flint, Michigan. </p>
-                    <a href="http://www.cityofboston.gov/news/Default.aspx?id=20575" target="_blank">Learn more</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="activity cityofboston">
-            <div class="block">
-                <figure class="activity-image">
-                    <img src="/img/community/elPelon.png" alt="El Pelon">
-                </figure>
-                <div class="copy">
-                    <p><strong>El Pelon </strong> donated $1 from every burrito sold on One Boston Day to the Massachusetts Immigrant and Refugee Advocacy Coalition.</p>
-                    <a href="http://www.elpelon.com/" target="_blank">Learn more</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="activity pinestreetin">
-            <div class="block">
-                <figure class="activity-image">
-                    <img src="/img/community/PineStreet1.jpg" alt="Pine Street Inn">
-                </figure>
-                <div class="copy">
-                    <p>The <strong>Pine Street Inn</strong> had a dry cereal drive.</p>
-                    <a href="http://www.pinestreetinn.org/" target="_blank">Learn more</a>
-                </div>
-            </div>
-        </div>
-
+        <% } %>
     </div>
 </section>
-
 
 <section class="city" id="city">
     <div class="block">
