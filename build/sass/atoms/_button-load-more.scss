@@ -1,0 +1,20 @@
+button.load-more{
+    display:block;
+    margin:20px auto;
+    padding:0.6em 1em 0.5em;
+    @include appearance(none);
+    border:2px solid $primary;
+    color:$primary;
+    background-color:transparent;
+    text-transform: uppercase;
+    font-family:$font-sans;
+    font-size:18px;
+    width:100%;
+    width:280px;
+    @extend %default-transition;
+}
+
+.no-touchevents button.load-more:hover{
+    background-color:$primary;
+    color:#fff;
+}

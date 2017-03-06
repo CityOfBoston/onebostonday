@@ -1,0 +1,134 @@
+.intro{
+	min-height:500px;
+	height:100%;
+	height:100vh;
+	background-image:image-url('mobile-video.gif');
+	background-color:$primary;	
+	background-size:cover;
+	background-position:center;
+	position:relative;
+	max-height:530px;
+	.logo{
+		display:none;
+		.number-one{
+			@include transition(all .6s ease-in);
+			fill:$primary;
+		}
+	}
+	.copy{
+		@extend %absolute-middle;
+		top:310px;
+		width:100%;
+		color:#fff;
+		padding:10px;
+	}
+	.block{
+		position:relative;
+		height:100%;
+		height:100vh;
+		z-index:3;
+	}
+	p{
+		margin:1em 0;
+	}
+	h1,p,h3{
+		opacity:0;
+		@include transition(all .6s ease-in);
+		position:relative;
+		top:20px;
+	}
+	button{
+		@include appearance(none);
+		background-color:transparent;
+		color:#fff;
+		font-size:20px;
+		font-family:$font-sans;
+		padding:5px 10px 6px;
+		border:2px solid #fff;
+		svg{
+			position:relative;
+			top:3px;
+			@include size(1em);
+			display:inline-block;
+			use{
+				fill:#fff;
+			}
+		}
+	}
+}
+
+@media all and(min-width:600px){
+	.intro{
+		background-image:none;
+		background-color:$primary;
+		.copy{
+			top:230px;
+		}
+	}
+}
+
+.no-touchevents .intro button{
+	@extend %default-transition;
+	svg use{
+		@extend %default-transition;
+	}
+	&:hover{
+		background-color:#fff;
+		color:$primary;
+		svg use{
+			fill:$primary;
+		}
+	}
+}
+
+.ready .intro{
+	h1,p,h3{
+		opacity:1;
+		top:0px;
+	}
+	h1{
+		@include transition-delay(.5s);
+	}
+	p{
+		@include transition-delay(1s);
+	}
+	h3{
+		@include transition-delay(2s);
+	}
+	.logo .number-one{
+		fill:#fff;
+		@include transition-delay(1s);
+	}
+}
+
+@media all and(min-width:800px){
+	.intro{
+		position:relative;
+		min-height:530px;
+		max-height:100%;
+		.block{
+			@include outer-container();
+			@include position(absolute, 50% auto auto 50%);
+			@include transform(translateX(-50%) translateY(-50%));
+			height:auto;
+		}
+		.logo{
+			display:block;
+			img,svg{
+				width:100%;
+				position:relative;
+				top:15px;
+			}
+			svg{
+				height:200px;
+			}
+		}
+		.copy{
+			position:static;
+			@include transform(translateX(0) translateY(0));
+		}
+		.logo,.copy{
+			@include span-columns(6);
+		}
+	}
+}

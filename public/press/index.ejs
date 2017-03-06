@@ -1,0 +1,18 @@
+<section class="header-intro">
+    <h1>Press</h1>
+</section>
+<section class="press tracked">
+    <div class="block">
+        <ul>
+            <% for(var i=0; i<public.press._data.length;i++) {%>
+                <li>
+                    <a target="_blank" href="<%= public.press._data[i].link %>">
+                        <%= public.press._data[i].title %>
+                    </a>
+                    <time><%= public.press._data[i].date %></time>
+                    <span><%= public.press._data[i].reference %></span>
+                </li>
+            <% } %>
+        </ul>
+    </div>
+</section>
