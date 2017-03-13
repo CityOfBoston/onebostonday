@@ -3,11 +3,6 @@
   "version": "0.1.0",
   "description": "Revamped version of the boilerplate using gulp instead of grunt",
   "main": "index.js",
-  // "scripts": {
-  //   "style": "compass compile -c compass.rb",
-  //   "build": "npm run style && node_modules/.bin/harp compile src www",
-  //   "deploy": "node_modules/.bin/surge www"
-  // },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hillholliday/gulp-plate.git"

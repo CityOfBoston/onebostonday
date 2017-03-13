@@ -99,6 +99,5 @@ gulp.task('watch', function() {
   gulp.watch('build/js/**/*.js', ['jshint','build-js']);
   gulp.watch('build/sass/**/*.scss', ['build-scss']);
   gulp.watch('build/img/*.*', ['build-images']);
-  gulp.watch('public/**/*.html', ['build-html','build-images']);
-  gulp.watch('craft/**/*.ejs', ['build-html','build-images']);
+  gulp.watch('public/**/*.ejs', ['build-html','build-images']);
 });
