@@ -2,7 +2,9 @@
 
 The source code for [One Boston Day](http://www.onebostonday.org/), the official site of the City of Boston's holiday, One Boston Day. One Boston Day is static site built with [harpjs](http://harpjs.com/), [gulp](http://gulpjs.com), [sass](http://sass-lang.com), and [browser sync](https://browsersync.io/).
 
-> Mayor quote
+> One Boston Day is a special moment in our city. It’s a day we honor those we lost on April 15th, 2013 by being at our very best. Everyone participates in their own way. We’ve released the code for [OneBostonDay.org](http://www.onebostonday.org) in the public domain to give  developers and designers like you the chance to get involved. We welcome and encourage your contributions to improve the website and our city. We look forward to sharing what we create together with the public.
+>
+>— Mayor Martin J. Walsh
 
 There’s a large, civic-minded ecosystem of software developers out there in Boston, and we’re hoping they’re willing to lend a hand and help One Bosotn Day grow, in order to bring our great designer/developer community together.
 
