@@ -17,7 +17,7 @@ If you need to submit a bug report for One Boston Day, please follow these guide
 #### Before you submit a bug
 
  * Verify that you are able to reproduce it repeatedly. Try multiple browsers, devices, etc. Also, try clearing your cache.
- * Perform a quick search of our [existing issues](https://github.com/CityOfBoston/OneBostonDay/issues) to see if it has been logged previously.
+ * Perform a quick search of our [existing issues](https://github.com/CityOfBoston/onebostonday/issues) to see if it has been logged previously.
 
 #### Submit a bug
 
@@ -60,7 +60,7 @@ Ad blocker: [Ad blocker?]
 
 ### Suggest new features
 
-Have an idea for One Boston Day? If so, [create an issue](https://github.com/CityOfBoston/OneBostonDay/issues). Prior to submitting your feature request, please do a basic search of existing issues to see if it's already been suggested.
+Have an idea for One Boston Day? If so, [create an issue](https://github.com/CityOfBoston/onebostonday/issues). Prior to submitting your feature request, please do a basic search of existing issues to see if it's already been suggested.
 
 #### Feature template
 
