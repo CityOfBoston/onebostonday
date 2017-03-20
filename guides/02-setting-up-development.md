@@ -14,3 +14,4 @@
 ## Other notes
 * Only work with `build/` files for static (css, js, images) assets.
 * When editting html, only edit ejs and json files from the `public/` directory.
+* Don't worry about compiling harp.js files. These are processed automatically when deploying to production.
