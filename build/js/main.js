@@ -452,7 +452,7 @@ $(function(){
             'background-image':'url(../img/'+$('.none-download').data('image')+')'
         });
         if(Modernizr.touchevents){
-            $('.none-download').attr('href','/img/logos/OneBostonDay_CoverPhoto_Facebook_v2.jpg');
+            $('.none-download').attr('href','/img/OneBostonDay_CoverPhoto_Facebook_v2.jpg');
         }
     };
 
