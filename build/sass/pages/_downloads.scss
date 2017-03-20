@@ -104,7 +104,7 @@
 			margin-bottom:20px;
 		}
 		li{
-			@include span-columns(6);
+			@include span-columns(4);
 			position:relative;
 			overflow:hidden;
 		}
