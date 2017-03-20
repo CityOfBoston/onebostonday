@@ -58,6 +58,8 @@
 			top:-1px;
 			sub{
 				font-size:9px;
+				position:relative;
+				top:-3px;
 			}
 		}
 		&:before{
@@ -138,7 +140,7 @@
 	}
 	.anyday-logos{
 		li{
-			@include omega(2n);
+			@include omega(3n);
 			margin-bottom:7px;
 		}
 		a:before{
