@@ -6,7 +6,7 @@ The source code for [One Boston Day](http://www.onebostonday.org/), the official
 >
 >— Mayor Martin J. Walsh
 
-There’s a large, civic-minded ecosystem of software developers out there in Boston, and we’re hoping they’re willing to lend a hand and help One Bosotn Day grow, in order to bring our great designer/developer community together.
+There’s a large, civic-minded ecosystem of software developers out there in Boston, and we’re hoping they’re willing to lend a hand and help One Boston Day grow, in order to bring our great designer/developer community together.
 
 ## Contributions
 
