@@ -206,7 +206,6 @@
 			li{
 				@include span-columns(12);
 				margin-bottom:25px;
-				padding-right:45px;
 				span{
 					//right:45px;
 				}
@@ -239,10 +238,10 @@
 			margin-top:50px;
 			ul.square{
 				@include outer-container();
-				max-width:80%;
+				max-width:100%;
 				li{
 					padding-right:0px;
-					@include span-columns(6);
+					@include span-columns(4);
 				}
 			}
 		}
