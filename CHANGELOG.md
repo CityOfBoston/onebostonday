@@ -2,7 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## v3.0.0 - 2016-03-06 8:30
+## v3.0.1 - 2016-03-21 21:30
+- Updating assets in the download section
+- Added GitHub link to the footer
+
+## v3.0.0 - 2016-03-06 08:30
 - Year 3 release
 - Added HarpJS
 - Added BrowserSync
