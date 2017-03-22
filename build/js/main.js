@@ -506,9 +506,11 @@ $(function(){
     $('.mayor .twitter').on('click',function(){
         window.open('https://twitter.com/marty_walsh', '_blank');
     });
+    
     $('.mayor .instagram').on('click',function(){
         window.open('https://www.instagram.com/boston_mayor/', '_blank');
     });
+
     $('.mayor button').on('click',function(){
          ga('send', 'event', 'footer social', 'mayor:' + $(this).attr('class'));
     });
