@@ -5,7 +5,7 @@ $(function(){
     $('.intro button.watch-video').on('click',function(event){
         event.preventDefault();
 
-        var videoId = 'h3J4HaxCvfE';
+        var videoId = '5XLJabL_UfE';
 
         if(Modernizr.touchevents){
             ga('send', 'event', 'celebrity video', 'mobile');
@@ -36,8 +36,8 @@ $(function(){
         var bgVideo = "";
         bgVideo += '<div class="bg-video">';
         bgVideo += '    <video autoplay loop muted>';
-        bgVideo += '        <source src="/video/obd.mp4" type="video/mp4">';
-        bgVideo += '        <source src="/video/obd.webm" type="video/webm">';
+        bgVideo += '        <source src="/video/obd-short-2017.mp4" type="video/mp4">';
+        bgVideo += '        <source src="/video/obd-short-2017.webm" type="video/webm">';
         bgVideo += '    </video>';
         bgVideo += '</div>';
 
