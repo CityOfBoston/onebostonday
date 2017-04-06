@@ -9,7 +9,10 @@ $(function(){
 
         if(Modernizr.touchevents){
             ga('send', 'event', 'celebrity video', 'mobile');
-            window.location.href = 'https://www.youtube.com/watch?v='+videoId;
+            window.open(
+                'https://www.youtube.com/watch?v='+videoId,
+                '_blank'
+            );
         }
         else{
             ga('send', 'event', 'celebrity video', 'desktop');
