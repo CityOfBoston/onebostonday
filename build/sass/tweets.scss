@@ -2,7 +2,7 @@
 @import "molecules/social-card";
 
 body{
-    background-color:darken(#f6f6f6,5%);
+    background-color:#fff;
     pointer-events:none;
     max-height:100vh;
     overflow:hidden;
@@ -10,7 +10,6 @@ body{
 
 main{
     @include size(100vw 100vh);
-    background-color:#fff;
     border:2vw solid darken($primary,10%);
     border-top:none;
     @include position(fixed, 0px 0px 0px 0px);
