@@ -33,6 +33,7 @@ $(function(){
 
         // var hourMin = moment(hour+':'+min,'HH:mm').format('h:mma');
 
+        var timestamp = UNIX_timestamp.toString();
         var date = moment.unix(UNIX_timestamp).format('MMM Do YYYY h:mma');
 
         return date;

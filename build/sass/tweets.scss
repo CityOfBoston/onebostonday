@@ -4,6 +4,8 @@
 body{
     background-color:darken(#f6f6f6,5%);
     pointer-events:none;
+    max-height:100vh;
+    overflow:hidden;
 }
 
 main{
