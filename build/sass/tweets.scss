@@ -3,6 +3,7 @@
 
 body{
     background-color:darken(#f6f6f6,5%);
+    pointer-events:none;
 }
 
 main{
@@ -33,8 +34,8 @@ main{
         }
     }
     svg.logo{
-        width:1200px;
-        height:810px;
+        width: 90vw;
+        height: 60vh;
         @extend %absolute-middle;
         top:calc(50% + 85px);
         z-index:3;
@@ -78,15 +79,15 @@ body.loading svg.logo{
     height:78vh;
     header{
         h4{
-            font-size:4vw;
+            font-size:3.5vw;
         }
         h5{
-            font-size:3vw;
+            font-size:2.5vw;
         }
     }
     div.content{
         p{
-            font-size:4vw;
+            font-size:3.75vw;
         }
     }
     time{
@@ -115,10 +116,10 @@ body.loading svg.logo{
     }
     header{
         h4{
-            font-size:3.5vw;
+            font-size:3vw;
         }
         h5{
-            font-size:2.8vw;
+            font-size:2.5vw;
         }
     }
     div.photo{
@@ -133,19 +134,21 @@ body.loading svg.logo{
     div.content{
         padding-right:20px;
         p{
-            font-size:3vw;
+            font-size:2.75vw;
         }
     }
     time{
-        font-size:2.5vh;
+        font-size:2.75vw;
     }
 }
 
-.twitter-card.has-photo{
-    div.content p{
-        font-size:2vw;
-    }
-    time{
-        font-size:2vw;
+@media all and(min-width:1300px){
+    .twitter-card.has-photo{
+        div.content p{
+            font-size:2vw;
+        }
+        time{
+            font-size:2vw;
+        }
     }
 }

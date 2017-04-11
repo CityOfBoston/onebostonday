@@ -21,6 +21,24 @@ $(function(){
                      );
     };
 
+    var timeConverter = function(UNIX_timestamp){
+        var a = new Date(UNIX_timestamp * 1000);
+        var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        var year = a.getFullYear();
+        var month = months[a.getMonth()];
+        var date = a.getDate();
+        var hour = a.getHours();
+        var min = a.getMinutes() < 10 ? '0' + a.getMinutes() : a.getMinutes(); var sec = a.getSeconds() < 10 ? '0' + a.getSeconds() : a.getSeconds();
+        var sec = a.getSeconds();
+
+        var hourMin = moment(hour+':'+min,'HH:mm').format('h:mma');
+
+        //var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+        var time = month + ' ' + date + ' ' + year + ' at ' + hourMin;
+
+        return time;
+    };
+
     // 0. profile image
     // 1. twitter name
     // 2. twitter user
@@ -36,7 +54,7 @@ $(function(){
 
         twitterDisplayImage = '';
         hasPhoto = '';
-        if(twitterImage !== null){
+        if(twitterImage !== null && ! twitterImage.includes ("youtube")){
             twitterDisplayImage = '<div class=\"photo\" style=\"background-image:url('+twitterImage+')\"><\/div>';
             hasPhoto = 'has-photo';
         }
@@ -45,6 +63,9 @@ $(function(){
 
         entity =  linkHashtags(entity);
         entity =  linkUsers(entity);
+
+        var newTwitterTime = Date.parse(twitterTime);
+        newTwitterTime = Math.floor(newTwitterTime / 1000);
 
         var twitterCard="";
         twitterCard += "<li>";
@@ -60,7 +81,7 @@ $(function(){
         twitterCard += "        <div class=\"content\">";
         twitterCard += "            <p>"+entity+"<\/p>";
         twitterCard += "        <\/div>";
-        twitterCard += "        <time><a href=\"https:\/\/twitter.com\/"+twitterUser+"/status/"+twitterTweetUrl+"\">"+twitterTime+"<\/a><\/time>";
+        twitterCard += "        <time><a href=\"https:\/\/twitter.com\/"+twitterUser+"/status/"+twitterTweetUrl+"\">"+timeConverter(newTwitterTime)+"<\/a><\/time>";
         twitterCard +=          twitterDisplayImage;
         twitterCard += "    <\/div>";
         twitterCard += "<\/li>";
@@ -89,7 +110,6 @@ $(function(){
         })
         .fail(function(jqXHR, status, error) {
             //console.log(jqXHR);
-            console.log(status);
             console.log('error');
         })
         .always(function(jqXHR, status, error) {
@@ -119,7 +139,6 @@ $(function(){
                 setTimeout(function(){
                     for (i=0;i<totalPosts;i++){
                         var post = data[i];
-                        console.log(post);
                         if(post.source === "twitter"){
                             twitterTemplate(post.author_avatar_url,post.author_name,post.author_handle,post.created_at,post.author_id,post.post_message,post.post_media_url,"append");
                         }
