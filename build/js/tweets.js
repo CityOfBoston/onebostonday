@@ -22,21 +22,20 @@ $(function(){
     };
 
     var timeConverter = function(UNIX_timestamp){
-        var a = new Date(UNIX_timestamp * 1000);
-        var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-        var year = a.getFullYear();
-        var month = months[a.getMonth()];
-        var date = a.getDate();
-        var hour = a.getHours();
-        var min = a.getMinutes() < 10 ? '0' + a.getMinutes() : a.getMinutes(); var sec = a.getSeconds() < 10 ? '0' + a.getSeconds() : a.getSeconds();
-        var sec = a.getSeconds();
+        var a = new Date(UNIX_timestamp);
+        // var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        // var year = a.getFullYear();
+        // var month = months[a.getMonth()];
+        // var date = a.getDate();
+        // var hour = a.getHours();
+        // var min = a.getMinutes() < 10 ? '0' + a.getMinutes() : a.getMinutes(); var sec = a.getSeconds() < 10 ? '0' + a.getSeconds() : a.getSeconds();
+        // var sec = a.getSeconds();
 
-        var hourMin = moment(hour+':'+min,'HH:mm').format('h:mma');
+        // var hourMin = moment(hour+':'+min,'HH:mm').format('h:mma');
 
-        //var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
-        var time = month + ' ' + date + ' ' + year + ' at ' + hourMin;
+        var date = moment.unix(a).format('MMM Do YYYY h:mma');
 
-        return time;
+        return date;
     };
 
     // 0. profile image
