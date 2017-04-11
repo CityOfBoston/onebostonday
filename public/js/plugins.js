@@ -70,7 +70,7 @@ function linkUsers(text) {
         // Test a text node's contents for URLs and split and rebuild it with an achor
         var testAndTag = function(el) {
             // Test for URLs along whitespace and punctuation boundaries (don't look too hard or you will be consumed)
-            var m = el.nodeValue.match(/(https?:\/\/.*?)[.!?;,]?(\s+|"|$)/);
+            var m = el.nodeValue.match(/(https?:\/\/.*?)[.!?;,_]?(\s+|"|$)/);
           
             //console.log(m);
 

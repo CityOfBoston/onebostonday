@@ -13,7 +13,7 @@ $(function(){
                                 
                                 $('body').addClass('loading');
                                 setTimeout(function(){
-                                    loadFeed();
+                                    initFeed();
                                 },5000);
                             }
 
@@ -54,7 +54,7 @@ $(function(){
         twitterCard += "            <a href=\"https:\/\/twitter.com\/"+twitterUser+"\">";
         twitterCard += "                <img src=\""+profileImage+"\">";
         twitterCard += "                <h4>"+twitterName+"<\/h4>";
-        twitterCard += "                <h5>@"+twitterUser+"<\/h5>";
+        twitterCard += "                <h5>"+twitterUser+"<\/h5>";
         twitterCard += "            <\/a>";
         twitterCard += "        <\/header>";
         twitterCard += "        <div class=\"content\">";
@@ -73,12 +73,38 @@ $(function(){
         }
     };
 
-    var loadFeed = function() {
+    var initFeed = function(){
         $.ajax({
-            //TESTING   
-            //url:'/feeds/' + file,
-            url: 'http://siphon.hhcctech.com/api/container/showall/9?active=1', // production
-            //url: 'http://siphon.hhcctech.com/api/container/showall/8?active=1', // testing
+            url: 'http://www.onebostonday.org/feed/',
+            type: 'GET',
+            dataType: 'html',
+        })
+        .done(function(data, status, error) {
+            //console.log(jqXHR);
+            console.log('success');
+            $(data).find("tr.type-json td > a").each(function(){
+                var currentFeed = $(this).attr("href");
+                loadFeed('/oldfeed/'+currentFeed);
+            });
+        })
+        .fail(function(jqXHR, status, error) {
+            //console.log(jqXHR);
+            console.log(status);
+            console.log('error');
+        })
+        .always(function(jqXHR, status, error) {
+            //console.log(jqXHR);
+            console.log('done');
+
+            loadFeed('/oldfeed/newerfeed.json');
+        });
+    };
+
+    initFeed();
+
+    var loadFeed = function(feed){
+        $.ajax({
+            url: feed,
             dataType:'json',
             error: function(jqXHR, textStatus, errorThrown) {
                 // console.log(textStatus, errorThrown);
@@ -88,15 +114,16 @@ $(function(){
                 $('body').removeClass('loading');
 
                 var totalPosts = 50;
-                var data = response.data;
+                var data = response.results;
 
                 setTimeout(function(){
                     for (i=0;i<totalPosts;i++){
                         var post = data[i];
-                        if(post.provider === "twitter"){
-                            twitterTemplate(post.userimageurl,post.full_name,post.username,post.created_at,post.social_id,post.message,post.image,"append");
+                        console.log(post);
+                        if(post.source === "twitter"){
+                            twitterTemplate(post.author_avatar_url,post.author_name,post.author_handle,post.created_at,post.author_id,post.post_message,post.post_media_url,"append");
                         }
-                        else if(post.provider === "instagram"){
+                        else if(post.source === "instagram"){
                             instagramTemplate(post.image,post.full_name,post.username,post.created_at,post.social_id,post.message,"append");
                         }
                     }
@@ -105,6 +132,4 @@ $(function(){
             }
         });
     };
-
-    loadFeed();
 });

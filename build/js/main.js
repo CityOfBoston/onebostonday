@@ -243,9 +243,8 @@ $(function(){
     };
 
     var loadOldFeed = function(){
-        console.log('wow');
         $.ajax({
-            url: '/feed/oldfeed.json',
+            url: '/oldfeed/feed.json',
             dataType:'json',
             error: function(jqXHR,textStatus,errorThrown){
                 // console.log(textStatus, errorThrown);
