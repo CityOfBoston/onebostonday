@@ -64,8 +64,7 @@ $(function(){
         entity =  linkHashtags(entity);
         entity =  linkUsers(entity);
 
-        var newTwitterTime = Date.parse(twitterTime);
-        newTwitterTime = Math.floor(newTwitterTime / 1000);
+        var time = twitterTime / 1000;
 
         var twitterCard="";
         twitterCard += "<li>";
@@ -81,7 +80,7 @@ $(function(){
         twitterCard += "        <div class=\"content\">";
         twitterCard += "            <p>"+entity+"<\/p>";
         twitterCard += "        <\/div>";
-        twitterCard += "        <time><a href=\"https:\/\/twitter.com\/"+twitterUser+"/status/"+twitterTweetUrl+"\">"+timeConverter(newTwitterTime)+"<\/a><\/time>";
+        twitterCard += "        <time><a href=\"https:\/\/twitter.com\/"+twitterUser+"/status/"+twitterTweetUrl+"\">"+timeConverter(time)+"<\/a><\/time>";
         twitterCard +=          twitterDisplayImage;
         twitterCard += "    <\/div>";
         twitterCard += "<\/li>";
@@ -140,7 +139,7 @@ $(function(){
                     for (i=0;i<totalPosts;i++){
                         var post = data[i];
                         if(post.source === "twitter"){
-                            twitterTemplate(post.author_avatar_url,post.author_name,post.author_handle,post.created_at,post.author_id,post.post_message,post.post_media_url,"append");
+                            twitterTemplate(post.author_avatar_url,post.author_name,post.author_handle,post.created_at_long,post.author_id,post.post_message,post.post_media_url,"append");
                         }
                         else if(post.source === "instagram"){
                             instagramTemplate(post.image,post.full_name,post.username,post.created_at,post.social_id,post.message,"append");
