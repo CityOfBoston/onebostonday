@@ -22,7 +22,7 @@ $(function(){
     };
 
     var timeConverter = function(UNIX_timestamp){
-        var a = new Date(UNIX_timestamp);
+        
         // var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
         // var year = a.getFullYear();
         // var month = months[a.getMonth()];
@@ -33,7 +33,7 @@ $(function(){
 
         // var hourMin = moment(hour+':'+min,'HH:mm').format('h:mma');
 
-        var date = moment.unix(a).format('MMM Do YYYY h:mma');
+        var date = moment.unix(UNIX_timestamp).format('MMM Do YYYY h:mma');
 
         return date;
     };
