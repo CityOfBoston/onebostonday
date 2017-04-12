@@ -455,7 +455,9 @@ $(function(){
         instagramMarkup += "        <h4><a href=\"" + instaUsername + "\">"+instaUserFullName+"<\/a><\/h4>";
         instagramMarkup += "        <a class=\"time\" href=\"https:\/\/instagram.com\/p\/"+instaUrl+"\" target=\"_blank\" title=\" "+instaTime+" \"><\/a>";
         instagramMarkup += "    <\/header>";
-        instagramMarkup += "    <p>"+ body +"<\/p>";
+        instagramMarkup += "    <div class=\"content\">";
+        instagramMarkup += "        <p>"+ body +"<\/p>";
+        instagramMarkup += "    </div>";
         instagramMarkup += "<\/li>";
 
         $('.social-feed .block > ul').append(instagramMarkup);
