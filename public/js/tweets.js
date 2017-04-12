@@ -93,6 +93,47 @@ $(function(){
         }
     };
 
+    var instagramTemplate = function(instaImage,instaName,instaUsername,instaTime,instaUrl,instaBody,instaHeadshot){
+        var instaUserFullName = instaName;
+
+        if(typeof instaName === undefined || instaName.length === 0){
+            instaUserFullName = instaUsername;
+        }
+
+        var body = instaBody.replace(/â€™/g,'’');
+
+        body = linkInstagramHashtags(body);
+        body = linkTwitterUsers(body);
+
+        var date = instaTime / 1000;
+
+        var dateToString = date.toString();
+        var dateToUse = moment.unix(date).format('MMM Do YYYY h:mma');
+
+        var username = instaUsername.replace('@','');
+
+        var instagramMarkup="";
+        instagramMarkup += "<li>";
+        instagramMarkup += "    <div class=\"instagram-card\">";
+        instagramMarkup += "        <svg class=\"icon icon-instagram\"><use xlink:href=\"#icon-instagram\"><\/use><\/svg>";
+        instagramMarkup += "    <div class=\"photo\">";
+        instagramMarkup += "        <img src=\""+ instaImage +"\"> ";
+        instagramMarkup += "    </div>";
+        instagramMarkup += "    <header class=\"insta-header\">";
+        instagramMarkup += "        <img src=\""+instaHeadshot+"\">"
+        instagramMarkup += "        <h4><a href=\"https:\/\/instagram.com\/" + username + "\">"+instaUserFullName+"<\/a><\/h4>";
+        instagramMarkup += "        <a class=\"time\" href=\"https:\/\/instagram.com\/p\/"+instaUrl+"\" target=\"_blank\" title=\" "+instaTime+" \"><\/a>";
+        instagramMarkup += "    <\/header>";
+        instagramMarkup += "    <div class=\"content\">";
+        instagramMarkup += "        <p>"+ body +"<\/p>";
+        instagramMarkup += "    </div>";
+        instagramMarkup += "        <time><a target=\"_blank\" href=\""+instaUrl+"\">"+dateToUse+"<\/a><\/time>";
+        instagramMarkup += "    </div>";
+        instagramMarkup += "<\/li>";
+
+        $('main.tweets > ul').append(instagramMarkup);
+    };
+
     var initFeed = function(){
         $.ajax({
             url: 'http://www.onebostonday.org/feed/',
@@ -138,11 +179,12 @@ $(function(){
                 setTimeout(function(){
                     for (i=0;i<totalPosts;i++){
                         var post = data[i];
+                        console.log(post.source);
                         if(post.source === "twitter"){
                             twitterTemplate(post.author_avatar_url,post.author_name,post.author_handle,post.created_at_long,post.author_id,post.post_message,post.post_media_url,"append");
                         }
                         else if(post.source === "instagram"){
-                            instagramTemplate(post.image,post.full_name,post.username,post.created_at,post.social_id,post.message,"append");
+                            instagramTemplate(post.post_media_url,post.author_name,post.author_handle,post.created_at_long,post.instagram.link,post.post_message,post.author_avatar_url);
                         }
                     }
                     inOut($('main.tweets ul li:first'));

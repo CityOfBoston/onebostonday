@@ -74,7 +74,8 @@ body.loading svg.logo{
     color:darken($primary,10%);
 }
 
-.twitter-card{
+.twitter-card,
+.instagram-card{
     padding:15px;
     margin-bottom:0px;
     height:78vh;
@@ -102,17 +103,22 @@ body.loading svg.logo{
 }
 
 @media all and(min-width:1300px){
-    .twitter-card{
+    .twitter-card,
+    .instagram-card{
         div.content p{
-            font-size:2.8vw;
+            font-size:4vw;
+        }
+        time{
+            font-size:3.5vw;
         }
     }
 }
 
-.twitter-card.has-photo{
+.twitter-card.has-photo,
+.instagram-card{
     @include clearfix();
     header,.content,time{
-        width:50%;
+        width:48%;
         float:left;
         clear:both;
     }
@@ -145,12 +151,14 @@ body.loading svg.logo{
 }
 
 @media all and(min-width:1300px){
-    .twitter-card.has-photo{
+    .twitter-card.has-photo,
+    .instagram-card{
         div.content p{
-            font-size:2vw;
+            font-size:3vw;
+            margin:1vw 0px;
         }
         time{
-            font-size:2vw;
+            font-size:2.4vw;
         }
     }
 }
