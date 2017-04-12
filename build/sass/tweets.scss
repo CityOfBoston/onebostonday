@@ -80,6 +80,11 @@ body.loading svg.logo{
     margin-bottom:0px;
     height:78vh;
     background-color:transparent;
+    div.content{
+        max-height:42vh;
+        overflow:hidden;
+        text-overflow:ellipsis;
+    }
     header{
         h4{
             font-size:3.5vw;
@@ -106,10 +111,10 @@ body.loading svg.logo{
     .twitter-card,
     .instagram-card{
         div.content p{
-            font-size:4vw;
+            font-size:3.5vw;
         }
         time{
-            font-size:3.5vw;
+            font-size:3vw;
         }
     }
 }
@@ -142,11 +147,11 @@ body.loading svg.logo{
     div.content{
         padding-right:20px;
         p{
-            font-size:2.35vw;
+            font-size:2vw;
         }
     }
     time{
-        font-size:2.75vw;
+        font-size:2vw;
     }
 }
 
@@ -154,7 +159,7 @@ body.loading svg.logo{
     .twitter-card.has-photo,
     .instagram-card{
         div.content p{
-            font-size:3vw;
+            font-size:2.5vw;
             margin:1vw 0px;
         }
         time{
