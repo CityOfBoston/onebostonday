@@ -104,7 +104,7 @@ $(function(){
             console.log('success');
             $(data).find("tr.type-json td > a").each(function(){
                 var currentFeed = $(this).attr("href");
-                loadFeed('/oldfeed/'+currentFeed);
+                loadFeed('/feed/'+currentFeed);
             });
         })
         .fail(function(jqXHR, status, error) {
