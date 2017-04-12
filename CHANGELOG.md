@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## v3.1.2 - 2017-04-12
+- adding in instagram to the feed
+- adding in wayin api to the feed
+- resetting counter for 2017
+
 ## v3.1.1 - 2017-04-11 10:20
 - adding in new /tweets endpoint for the kiosk and jumobotron
 
