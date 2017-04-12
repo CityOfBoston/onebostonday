@@ -52,18 +52,32 @@ ga('create', 'UA-61806651-1', 'auto');
 ga('send', 'pageview');
 
 var hashtag_regexp = /#([a-zA-Z0-9]+)/g;
-function linkHashtags(text) {
+function linkTwitterHashtags(text) {
     return text.replace(
         hashtag_regexp,
         '<a class="hashtag" href="https://twitter.com/search?q=$1">#$1</a>'
     );
 } 
 
+function linkInstagramHashtags(text) {
+    return text.replace(
+        hashtag_regexp,
+        '<a class="hashtag" href="https://instagram.com/explore/tags/$1">#$1</a>'
+    );
+} 
+
 var users_regexp = /@([a-zA-Z0-9_]+)/g;
-function linkUsers(text) {
+function linkTwitterUsers(text) {
     return text.replace(
         users_regexp,
         '<a class="user" href="https://twitter.com/$1">@$1</a>'
+    );
+} 
+
+function linkInstagramUsers(text) {
+    return text.replace(
+        users_regexp,
+        '<a class="user" href="https://instagram.com/$1">@$1</a>'
     );
 } 
 

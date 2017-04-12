@@ -61,8 +61,8 @@ $(function(){
 
         var entity = twitterTweetEntity;
 
-        entity =  linkHashtags(entity);
-        entity =  linkUsers(entity);
+        entity =  linkTwitterHashtags(entity);
+        entity =  linkTwitterUsers(entity);
 
         var time = twitterTime / 1000;
 

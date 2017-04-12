@@ -225,7 +225,7 @@ $(function(){
                             twitterTemplate(post.author_avatar_url,post.author_name,post.author_handle,post.created_at_long,post.id,post.post_message,post.post_media_url,"append");
                         }
                         else if(post.source === "instagram"){
-                            instagramTemplate(post.post_media_url,post.author_name,post.instagram.link,post.created_at_long,post.id,post.post_message,"append");
+                            instagramTemplate(post.post_media_url,post.author_name,post.author_handle,post.created_at_long,post.instagram.link,post.post_message,"append");
                         }
                     }
                 },600);
@@ -316,7 +316,7 @@ $(function(){
         },2500);
 
         var donezo = false;
-        var number = 76985;
+        var number = 3018;
 
         setInterval(function(){
             if(isElementInViewport($odometer) && donezo === false){
@@ -380,8 +380,8 @@ $(function(){
 
         var entity = twitterTweetEntity;
 
-        entity =  linkHashtags(entity);
-        entity =  linkUsers(entity);
+        entity =  linkTwitterHashtags(entity);
+        entity =  linkTwitterUsers(entity);
 
         var username = twitterUser.replace('@','');
 
@@ -445,6 +445,16 @@ $(function(){
 
         var body = instaBody.replace(/â€™/g,'’');
 
+        body = linkInstagramHashtags(body);
+        body = linkTwitterUsers(body);
+
+        var date = instaTime / 1000;
+
+        var dateToString = date.toString();
+        var dateToUse = moment.unix(date).format('MMM Do YYYY h:mma');
+
+        var username = instaUsername.replace('@','');
+
         var instagramMarkup="";
         instagramMarkup += "<li class=\"instagram-card\">";
         instagramMarkup += "        <svg class=\"icon icon-instagram\"><use xlink:href=\"#icon-instagram\"><\/use><\/svg>";
@@ -452,12 +462,13 @@ $(function(){
         instagramMarkup += "        <img data-original=\""+ instaImage +"\" src=\"\/img\/preloader-large.gif\"> ";
         instagramMarkup += "    </div>";
         instagramMarkup += "    <header class=\"insta-header\">";
-        instagramMarkup += "        <h4><a href=\"" + instaUsername + "\">"+instaUserFullName+"<\/a><\/h4>";
+        instagramMarkup += "        <h4><a href=\"https:\/\/instagram.com\/" + username + "\">"+instaUserFullName+"<\/a><\/h4>";
         instagramMarkup += "        <a class=\"time\" href=\"https:\/\/instagram.com\/p\/"+instaUrl+"\" target=\"_blank\" title=\" "+instaTime+" \"><\/a>";
         instagramMarkup += "    <\/header>";
         instagramMarkup += "    <div class=\"content\">";
         instagramMarkup += "        <p>"+ body +"<\/p>";
         instagramMarkup += "    </div>";
+        instagramMarkup += "        <time><a target=\"_blank\" href=\""+instaUrl+"\">"+dateToUse+"<\/a><\/time>";
         instagramMarkup += "<\/li>";
 
         $('.social-feed .block > ul').append(instagramMarkup);
