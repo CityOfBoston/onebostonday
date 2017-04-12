@@ -223,7 +223,7 @@ $(function(){
                     for (i=0;i<totalPosts;i++){
                         var post = data[i];
                         if(post.source === "twitter"){
-                            twitterTemplate(post.author_avatar_url,post.author_name,post.author_handle,post.created_at_long,post.author_id,post.post_message,post.post_media_url,"append");
+                            twitterTemplate(post.author_avatar_url,post.author_name,post.author_handle,post.created_at_long,post.id,post.post_message,post.post_media_url,"append");
                         }
                         else if(post.source === "instagram"){
                             instagramTemplate(post.image,post.full_name,post.username,post.created_at,post.social_id,post.message,"append");
@@ -369,12 +369,14 @@ $(function(){
     });
 
     var twitterTemplate = function(profileImage,twitterName,twitterUser,twitterTime,twitterTweetUrl,twitterTweetEntity,twitterImage,direction){
-        var intentReply = 'https://twitter.com/intent/tweet?in_reply_to='+twitterTweetUrl;
-        var intentRetweet = 'https://twitter.com/intent/retweet?tweet_id='+twitterTweetUrl;
-        var intentFavorite = 'https://twitter.com/intent/favorite?tweet_id='+twitterTweetUrl;
+        var tweetId = twitterTweetUrl.replace('tw-','');
+
+        var intentReply = 'https://twitter.com/intent/tweet?in_reply_to='+tweetId;
+        var intentRetweet = 'https://twitter.com/intent/retweet?tweet_id='+tweetId;
+        var intentFavorite = 'https://twitter.com/intent/favorite?tweet_id='+tweetId;
 
         twitterDisplayImage = '';
-        if(twitterImage !== null){
+        if(twitterImage !== null && ! twitterImage.includes ("youtu")){
             twitterDisplayImage = '<div class=\"photo\"><img data-original="'+twitterImage+'" src=\"\/img\/preloader-large.gif\" alt=\"\"><\/div>';
         }
 
@@ -382,6 +384,13 @@ $(function(){
 
         entity =  linkHashtags(entity);
         entity =  linkUsers(entity);
+
+        var username = twitterUser.replace('@','');
+
+        var date = twitterTime / 1000;
+
+        var dateToString = date.toString();
+        var dateToUse = moment.unix(date).format('MMM Do YYYY h:mma');
 
         var twitterCard="";
         twitterCard += "<li>";
@@ -391,13 +400,13 @@ $(function(){
         twitterCard += "            <a href=\"https:\/\/twitter.com\/"+twitterUser+"\">";
         twitterCard += "                <img src=\""+profileImage+"\">";
         twitterCard += "                <h4>"+twitterName+"<\/h4>";
-        twitterCard += "                <h5>@"+twitterUser+"<\/h5>";
+        twitterCard += "                <h5>@"+username+"<\/h5>";
         twitterCard += "            <\/a>";
         twitterCard += "        <\/header>";
         twitterCard += "        <div class=\"content\">";
         twitterCard += "            <p>"+entity+"<\/p>";
         twitterCard += "        <\/div>";
-        twitterCard += "        <time><a href=\"https:\/\/twitter.com\/"+twitterUser+"/status/"+twitterTweetUrl+"\">"+twitterTime+"<\/a><\/time>";
+        twitterCard += "        <time><a target=\"_blank\" href=\"https:\/\/twitter.com\/"+twitterUser+"/status/"+tweetId+"\">"+dateToUse+"<\/a><\/time>";
         twitterCard +=          twitterDisplayImage;
         twitterCard += "        <div class=\"actions\">";
         twitterCard += "            <ul>";
