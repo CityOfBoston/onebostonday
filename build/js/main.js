@@ -33,8 +33,6 @@ $(function(){
         }
     });
 
-    console.log($(window).width());
-
     if(!Modernizr.touchevents && $(window).width() > 800){
         var bgVideo = "";
         bgVideo += '<div class="bg-video">';
@@ -203,7 +201,7 @@ $(function(){
 
             setTimeout(function(){
                 loadOldFeed();
-            },800);
+            },1000);
         });
     };
 
@@ -222,11 +220,12 @@ $(function(){
                 setTimeout(function(){
                     for (i=0;i<totalPosts;i++){
                         var post = data[i];
+                        console.log(post.source);
                         if(post.source === "twitter"){
                             twitterTemplate(post.author_avatar_url,post.author_name,post.author_handle,post.created_at_long,post.id,post.post_message,post.post_media_url,"append");
                         }
                         else if(post.source === "instagram"){
-                            instagramTemplate(post.image,post.full_name,post.username,post.created_at,post.social_id,post.message,"append");
+                            instagramTemplate(post.post_media_url,post.author_name,post.instagram.link,post.created_at_long,post.id,post.post_message,"append");
                         }
                     }
                 },600);
@@ -252,6 +251,8 @@ $(function(){
         $('.feed .icon-spinner').fadeOut(function(){
             $(this).remove();
         });
+
+        console.log(response);
 
         var totalPosts = response.data.length;
 
@@ -290,9 +291,6 @@ $(function(){
         }
     };
 
-
-
-
     var loadOldFeed = function(){
         $.ajax({
             url: '/oldfeed/feed.json',
@@ -315,7 +313,7 @@ $(function(){
               itemSelector: '.social-feed .block > ul > li',
               gutter: 20
             });
-        },2000);
+        },2500);
 
         var donezo = false;
         var number = 76985;
@@ -445,18 +443,22 @@ $(function(){
             instaUserFullName = instaUsername;
         }
 
+        var body = instaBody.replace(/â€™/g,'’');
+
         var instagramMarkup="";
-        instagramMarkup += "<li class=\"instagram\">";
-        instagramMarkup += "    <img data-original=\""+ instaImage +"\" src=\"\/img\/preloader-large.gif\"> ";
+        instagramMarkup += "<li class=\"instagram-card\">";
+        instagramMarkup += "        <svg class=\"icon icon-instagram\"><use xlink:href=\"#icon-instagram\"><\/use><\/svg>";
+        instagramMarkup += "    <div class=\"photo\">";
+        instagramMarkup += "        <img data-original=\""+ instaImage +"\" src=\"\/img\/preloader-large.gif\"> ";
+        instagramMarkup += "    </div>";
         instagramMarkup += "    <header class=\"insta-header\">";
-        instagramMarkup += "        <h4><a href=\"https:\/\/instagram.com\/"+instaUsername+"\">"+instaUserFullName+"<\/a><\/h4>";
+        instagramMarkup += "        <h4><a href=\"" + instaUsername + "\">"+instaUserFullName+"<\/a><\/h4>";
         instagramMarkup += "        <a class=\"time\" href=\"https:\/\/instagram.com\/p\/"+instaUrl+"\" target=\"_blank\" title=\" "+instaTime+" \"><\/a>";
         instagramMarkup += "    <\/header>";
-        instagramMarkup += "    <p>"+ instaBody +"<\/p>";
+        instagramMarkup += "    <p>"+ body +"<\/p>";
         instagramMarkup += "<\/li>";
 
-        $('.feed > ul').append(instagramMarkup);
-        $('.feed a').timeago();
+        $('.social-feed .block > ul').append(instagramMarkup);
     };
 
     /*//////////////////////////////////////
