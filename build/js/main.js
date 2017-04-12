@@ -178,6 +178,76 @@ $(function(){
     //  get feed
     //////////////////////////////////////*/
 
+    var initNewFeed = function(){
+        $.ajax({
+            url: 'http://www.onebostonday.org/feed/',
+            type: 'GET',
+            dataType: 'html',
+        })
+        .done(function(data, status, error) {
+            //console.log(jqXHR);
+            console.log('success');
+            $(data).find("tr.type-json td > a").each(function(){
+                var currentFeed = $(this).attr("href");
+                loadNewFeed('/feed/'+currentFeed);
+            });
+        })
+        .fail(function(jqXHR, status, error) {
+            //console.log(jqXHR);
+            console.log('error');
+            loadNewFeed('/oldfeed/newerfeed.json');
+        })
+        .always(function(jqXHR, status, error) {
+            //console.log(jqXHR);
+            console.log('done');
+
+            setTimeout(function(){
+                loadOldFeed();
+            },800);
+        });
+    };
+
+    var loadNewFeed = function(feed){
+        $.ajax({
+            url: feed,
+            dataType:'json',
+            error: function(jqXHR, textStatus, errorThrown) {
+                // console.log(textStatus, errorThrown);
+            },
+            success:function(response){
+
+                var totalPosts = 50;
+                var data = response.results;
+
+                setTimeout(function(){
+                    for (i=0;i<totalPosts;i++){
+                        var post = data[i];
+                        if(post.source === "twitter"){
+                            twitterTemplate(post.author_avatar_url,post.author_name,post.author_handle,post.created_at_long,post.author_id,post.post_message,post.post_media_url,"append");
+                        }
+                        else if(post.source === "instagram"){
+                            instagramTemplate(post.image,post.full_name,post.username,post.created_at,post.social_id,post.message,"append");
+                        }
+                    }
+                },600);
+
+                $(".social-feed .block > ul .content").anchorTextUrls();
+
+                //lazy loading
+                if($(window).width() < 800){
+                    $('.social-feed .photo img').lazyload();
+                }
+                else{
+                    $('.social-feed .photo img').lazyload({
+                        container: $('.social-feed .block > ul')
+                    });
+
+                    $('.social-feed').find('.gutter-sizer').appendTo('.social-feed .block > ul');
+                }
+            }
+        });
+    };
+
     var loadFeedContent = function(response, direction){
         $('.feed .icon-spinner').fadeOut(function(){
             $(this).remove();
@@ -217,30 +287,11 @@ $(function(){
             });
 
             $('.social-feed').find('.gutter-sizer').appendTo('.social-feed .block > ul');
-            
-            setTimeout(function(){
-                $('.social-feed .block > ul').packery({
-                  // options
-                  itemSelector: '.social-feed .block > ul > li',
-                  gutter: 20
-                });
-            },250);
         }
     };
 
-    var loadFeed = function() {
-        $.ajax({
-            //url:'/feeds/' + file,
-            url: 'http://siphon.hhcctech.com/api/container/showall/9?active=1',
-            dataType:'json',
-            error: function(jqXHR, textStatus, errorThrown) {
-                // console.log(textStatus, errorThrown);
-            },
-            success:function(response){
-                loadFeedContent(response,"append");
-            }
-        });
-    };
+
+
 
     var loadOldFeed = function(){
         $.ajax({
@@ -256,35 +307,18 @@ $(function(){
     };
 
     if($('.acts-of-kindness h3').length > 0){
-        loadOldFeed();
-        //loadFeed();
+        initNewFeed();
+
+        setTimeout(function(){
+            $('.social-feed .block > ul').packery({
+              // options
+              itemSelector: '.social-feed .block > ul > li',
+              gutter: 20
+            });
+        },2000);
+
         var donezo = false;
         var number = 76985;
-
-        // $.ajax({
-        //     url: 'http://onebostonday-counter.hhcc.tech/api/count',
-        //     type: 'GET',
-        // })
-        // .done(function(data) {
-        //     console.log("success");
-        //     var initialPledges = data;
-
-        //     $.ajax({
-        //         url:'http://siphon.hhcctech.com/api/container/showall/9',
-        //         type:'GET',
-        //     })
-        //     .done(function(data){
-        //         // count = data.total + initialPledges.total_pledges;
-        //     });
-        // })
-        // .fail(function() {
-        //     console.log("error");
-        // })
-        // .always(function() {
-        //     console.log("complete");
-        // });
-
-
 
         setInterval(function(){
             if(isElementInViewport($odometer) && donezo === false){
