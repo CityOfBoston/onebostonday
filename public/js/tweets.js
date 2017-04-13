@@ -151,12 +151,11 @@ $(function(){
         .fail(function(jqXHR, status, error) {
             //console.log(jqXHR);
             console.log('error');
+            loadFeed('/oldfeed/newerfeed.json');
         })
         .always(function(jqXHR, status, error) {
             //console.log(jqXHR);
             console.log('done');
-
-            loadFeed('/oldfeed/newerfeed.json');
         });
     };
 

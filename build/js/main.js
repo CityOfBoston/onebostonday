@@ -220,7 +220,6 @@ $(function(){
                 setTimeout(function(){
                     for (i=0;i<totalPosts;i++){
                         var post = data[i];
-                        console.log(post.source);
                         if(post.source === "twitter"){
                             twitterTemplate(post.author_avatar_url,post.author_name,post.author_handle,post.created_at_long,post.id,post.post_message,post.post_media_url,"append");
                         }
@@ -251,8 +250,6 @@ $(function(){
         $('.feed .icon-spinner').fadeOut(function(){
             $(this).remove();
         });
-
-        console.log(response);
 
         var totalPosts = response.data.length;
 
@@ -316,7 +313,7 @@ $(function(){
         },2500);
 
         var donezo = false;
-        var number = 3018;
+        var number = 3261;
 
         setInterval(function(){
             if(isElementInViewport($odometer) && donezo === false){
