@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## v3.1.3 - 2017-04-14
+- Updating jumbotron 
+- Updating old feed to always appear below the new feed 
+
 ## v3.1.2 - 2017-04-12
 - adding in instagram to the feed
 - adding in wayin api to the feed
