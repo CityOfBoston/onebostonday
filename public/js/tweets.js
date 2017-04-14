@@ -13,7 +13,7 @@ $(function(){
                                 
                                 $('body').addClass('loading');
                                 setTimeout(function(){
-                                    initFeed();
+                                    loadFeed('http://one-boston-day-wayin-api.hhcctech.com/wayin/latest.json');
                                 },5000);
                             }
 
@@ -134,33 +134,6 @@ $(function(){
         $('main.tweets > ul').append(instagramMarkup);
     };
 
-    var initFeed = function(){
-        $.ajax({
-            url: 'http://www.onebostonday.org/feed/',
-            type: 'GET',
-            dataType: 'html',
-        })
-        .done(function(data, status, error) {
-            //console.log(jqXHR);
-            console.log('success');
-            $(data).find("tr.type-json td > a").each(function(){
-                var currentFeed = $(this).attr("href");
-                loadFeed('/feed/'+currentFeed);
-            });
-        })
-        .fail(function(jqXHR, status, error) {
-            //console.log(jqXHR);
-            console.log('error');
-            loadFeed('/oldfeed/newerfeed.json');
-        })
-        .always(function(jqXHR, status, error) {
-            //console.log(jqXHR);
-            console.log('done');
-        });
-    };
-
-    initFeed();
-
     var loadFeed = function(feed){
         $.ajax({
             url: feed,
@@ -191,4 +164,6 @@ $(function(){
             }
         });
     };
+
+    loadFeed('http://one-boston-day-wayin-api.hhcctech.com/wayin/latest.json');
 });
