@@ -176,38 +176,9 @@ $(function(){
     //  get feed
     //////////////////////////////////////*/
 
-    var initNewFeed = function(){
+    var loadNewFeed = function(){
         $.ajax({
-            url: 'http://www.onebostonday.org/feed/',
-            type: 'GET',
-            dataType: 'html',
-        })
-        .done(function(data, status, error) {
-            //console.log(jqXHR);
-            console.log('success');
-            $(data).find("tr.type-json td > a").each(function(){
-                var currentFeed = $(this).attr("href");
-                loadNewFeed('/feed/'+currentFeed);
-            });
-        })
-        .fail(function(jqXHR, status, error) {
-            //console.log(jqXHR);
-            console.log('error');
-            loadNewFeed('/oldfeed/newerfeed.json');
-        })
-        .always(function(jqXHR, status, error) {
-            //console.log(jqXHR);
-            console.log('done');
-
-            setTimeout(function(){
-                loadOldFeed();
-            },1000);
-        });
-    };
-
-    var loadNewFeed = function(feed){
-        $.ajax({
-            url: feed,
+            url: 'http://one-boston-day-wayin-api.hhcctech.com/wayin/latest.json',
             dataType:'json',
             error: function(jqXHR, textStatus, errorThrown) {
                 // console.log(textStatus, errorThrown);
@@ -236,12 +207,18 @@ $(function(){
                     $('.social-feed .photo img').lazyload();
                 }
                 else{
+                    $('.social-feed').find('.gutter-sizer').appendTo('.social-feed .block > ul');
+                }
+
+                setTimeout(function(){
+                    $('.load-more').click();
+                },1000);
+
+                setTimeout(function(){
                     $('.social-feed .photo img').lazyload({
                         container: $('.social-feed .block > ul')
                     });
-
-                    $('.social-feed').find('.gutter-sizer').appendTo('.social-feed .block > ul');
-                }
+                },2000);
             }
         });
     };
@@ -302,25 +279,32 @@ $(function(){
     };
 
     if($('.acts-of-kindness h3').length > 0){
-        initNewFeed();
-
-        setTimeout(function(){
-            $('.social-feed .block > ul').packery({
-              // options
-              itemSelector: '.social-feed .block > ul > li',
-              gutter: 20
-            });
-        },2500);
+        loadNewFeed();
 
         var donezo = false;
-        var number = 3261;
+        var number = 3570;
 
-        setInterval(function(){
-            if(isElementInViewport($odometer) && donezo === false){
-                od.update(number);
-                donezo = true;
-            }
-        },500);
+        $.ajax({
+            url: 'http://one-boston-day-wayin-api.hhcctech.com/wayin/count.json',
+            type: 'GET',
+            dataType: 'json',
+        })
+        .done(function(resp) {
+            console.log("success");
+            number = resp.results[0].count;
+        })
+        .fail(function() {
+            console.log("error");
+        })
+        .always(function() {
+            console.log("complete");
+            setInterval(function(){
+                if(isElementInViewport($odometer) && donezo === false){
+                    od.update(number);
+                    donezo = true;
+                }
+            },500);
+        });
     }    
 
     //load more button
@@ -453,10 +437,11 @@ $(function(){
         var username = instaUsername.replace('@','');
 
         var instagramMarkup="";
-        instagramMarkup += "<li class=\"instagram-card\">";
+        instagramMarkup += "<li>";
+        instagramMarkup += "    <div class=\"instagram-card\">";
         instagramMarkup += "        <svg class=\"icon icon-instagram\"><use xlink:href=\"#icon-instagram\"><\/use><\/svg>";
         instagramMarkup += "    <div class=\"photo\">";
-        instagramMarkup += "        <img data-original=\""+ instaImage +"\" src=\"\/img\/preloader-large.gif\"> ";
+        instagramMarkup += "        <img src=\""+ instaImage +"\"> ";
         instagramMarkup += "    </div>";
         instagramMarkup += "    <header class=\"insta-header\">";
         instagramMarkup += "        <h4><a href=\"https:\/\/instagram.com\/" + username + "\">"+instaUserFullName+"<\/a><\/h4>";
@@ -466,6 +451,7 @@ $(function(){
         instagramMarkup += "        <p>"+ body +"<\/p>";
         instagramMarkup += "    </div>";
         instagramMarkup += "        <time><a target=\"_blank\" href=\""+instaUrl+"\">"+dateToUse+"<\/a><\/time>";
+        instagramMarkup += "    </div>";
         instagramMarkup += "<\/li>";
 
         $('.social-feed .block > ul').append(instagramMarkup);
