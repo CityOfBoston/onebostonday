@@ -81,7 +81,7 @@ body.loading svg.logo{
     height:78vh;
     background-color:transparent;
     div.content{
-        max-height:42vh;
+        max-height:40vh;
         overflow:hidden;
         text-overflow:ellipsis;
     }
@@ -95,12 +95,11 @@ body.loading svg.logo{
     }
     div.content{
         p{
-            font-size:3vw;
+            font-size:2.5vw;
         }
     }
     time{
-        margin:15px auto 15px;
-        font-size:3vh;
+        font-size:2vh;
         a{
             color:darken(#bdc2c6,20%);
         }
@@ -111,10 +110,10 @@ body.loading svg.logo{
     .twitter-card,
     .instagram-card{
         div.content p{
-            font-size:3.5vw;
+            font-size:3vw;
         }
         time{
-            font-size:3vw;
+            font-size:2.4vw;
         }
     }
 }
@@ -159,11 +158,11 @@ body.loading svg.logo{
     .twitter-card.has-photo,
     .instagram-card{
         div.content p{
-            font-size:2.5vw;
+            font-size:2.15vw;
             margin:1vw 0px;
         }
         time{
-            font-size:2.4vw;
+            font-size:2.15vw;
         }
     }
 }

@@ -374,6 +374,10 @@ $(function(){
         var dateToString = date.toString();
         var dateToUse = moment.unix(date).format('MMM Do YYYY h:mma');
 
+        if(isNaN(parseInt(twitterTime))){
+            dateToUse = twitterTime;
+        }
+
         var twitterCard="";
         twitterCard += "<li>";
         twitterCard += "    <div class=\"twitter-card\">";
