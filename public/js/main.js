@@ -280,6 +280,9 @@ $(function(){
 
     if($('.acts-of-kindness h3').length > 0){
         loadNewFeed();
+        setTimeout(function(){
+            loadOldFeed();
+        },1000);
 
         var donezo = false;
         var number = 3570;
