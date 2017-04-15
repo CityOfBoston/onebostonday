@@ -1,73 +1,26 @@
 $(function(){
-    var init = function(data){
-
-        var initialPledges = data;
-        var count = 0;
-
+    var init = function(){
         $.ajax({
-            url:'http://siphon.hhcctech.com/api/container/showall/9',
+            url:'http://one-boston-day-wayin-api.hhcctech.com/wayin/count.json',
             type:'GET',
         })
         .done(function(data){
-            count = data.total + initialPledges.total_pledges;
-            var initialCount = count - 1000;
-
+            count = data.results[0].count;
             var $odometer = document.querySelector('h1');
             od = new Odometer({
                 el: $odometer,
-                value: initialCount,
+                value: count,
                 format: '(,ddd)',
                 duration: 300,
             }); 
 
             od.update(count);
         });
-
-        $('button').on('click',function(){
-            if(! $('body').hasClass('thank-you')){
-                // initiate click
-                console.log(count);
-                count++;
-                od.update(count);
-                $('body').addClass('thank-you');
-                setTimeout(function(){
-                    $('body').removeClass('thank-you');
-                },3000);
-
-                $('form').submit();
-            }
-        });
     };
 
     setInterval(function(){
-        $.ajax({
-            url: 'http://onebostonday-counter.hhcc.tech/api/count',
-            type: 'GET',
-        })
-        .done(function(data) {
-            console.log("success");
-            init(data);
-        })
-        .fail(function() {
-            console.log("error");
-        })
-        .always(function() {
-            console.log("complete");
-        });
+        init();
     },5000);
 
-    $.ajax({
-        url: 'http://onebostonday-counter.hhcc.tech/api/count',
-        type: 'GET',
-    })
-    .done(function(data) {
-        console.log("success");
-        init(data);
-    })
-    .fail(function() {
-        console.log("error");
-    })
-    .always(function() {
-        console.log("complete");
-    });
+    init();
 });

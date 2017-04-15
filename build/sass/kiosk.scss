@@ -3,9 +3,10 @@
 
 body{
     background-color:darken(#f6f6f6,5%);
-    width:768px;
-    height:1024px;
+    width:100vw;
+    height:100vh;
     font-family:$font-sans;
+    display:block;
 }
 
 section.display,
@@ -17,6 +18,8 @@ section.bottom{
 section.display{
     @include position(absolute, 0px 0px auto 0px);
     background-color:transparent;
+    @include position(absolute, 50% auto auto 50%);
+    @include transform(translateX(-50%) translateY(-50%));
     @extend %default-transition;
     & > div{
         @extend %absolute-middle;
