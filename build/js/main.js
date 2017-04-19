@@ -178,7 +178,7 @@ $(function(){
 
     var loadNewFeed = function(){
         $.ajax({
-            url: 'http://one-boston-day-wayin-api.hhcctech.com/wayin/latest.json',
+            url: '/feed/feed.json',
             dataType:'json',
             error: function(jqXHR, textStatus, errorThrown) {
                 // console.log(textStatus, errorThrown);
@@ -216,7 +216,7 @@ $(function(){
 
                 setTimeout(function(){
                     $('.load-more').click();
-                },3000);
+                },4000);
 
                 setTimeout(function(){
                     $('.social-feed .photo img').lazyload({
