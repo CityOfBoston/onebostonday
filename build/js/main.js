@@ -212,11 +212,11 @@ $(function(){
 
                 setTimeout(function(){
                     loadOldFeed();
-                },10000);
+                },2000);
 
                 setTimeout(function(){
                     $('.load-more').click();
-                },1000);
+                },3000);
 
                 setTimeout(function(){
                     $('.social-feed .photo img').lazyload({
