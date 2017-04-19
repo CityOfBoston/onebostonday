@@ -185,7 +185,7 @@ $(function(){
             },
             success:function(response){
 
-                var totalPosts = 50;
+                var totalPosts = response.results.length;
                 var data = response.results;
 
                 setTimeout(function(){
