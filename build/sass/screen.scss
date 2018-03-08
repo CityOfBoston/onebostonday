@@ -5,3 +5,99 @@
 @import "molecules/**/*.scss";
 
 @import "pages/**/*.scss";
+
+p.pullquote{
+    font-size:2em;
+    padding:0.5em 1em;
+    color:$primary;
+}
+
+section.story{
+    padding:1em 0px;
+    max-width:680px;
+}
+
+section.photos{
+    margin-top:-80px;
+    div.holder,ul.thumbs li{
+        background-size:cover;
+        background-position: center center;
+        &:after{
+            content:"";
+            display:block;
+            padding-top:75%;
+        }
+    }
+    div.holder, ul.thumbs{
+        max-width:300px;
+        margin:0 auto;
+    }
+    div.holder{
+        border:8px solid $primary;
+    }
+    ul.thumbs{
+        margin-top:4px;
+        li{
+            width:20%;
+            display:inline-block;
+            cursor:pointer;
+            &.active{
+                border:4px solid $primary;
+            }
+        }
+    }
+}
+
+section.links{
+    text-align:center;
+    h3{
+        font-size:2em;
+        margin-bottom:0.5em;
+    }
+    a{
+        color:$primary;
+        @extend %default-transition;
+        &:hover{
+            color:$primary-dark;
+        }
+    }
+    ul{
+        margin-bottom:3em;
+        li{
+            margin-bottom:1em;
+        }
+    }
+    ul.social-share{
+        svg{
+            @include size(2em);
+        }
+        li{
+            display:inline-block;
+            margin:0 1em;
+        }
+    }
+    a.button{
+        display:inline-block;
+        margin-bottom:2em;
+        font-size:1.6em;
+        border:2px solid;
+        padding:0.5em 1em 0.4em;
+        &:hover{
+            color:#fff;
+            background-color:$primary;
+            border-color:$primary;
+        }
+    }
+}
+
+svg.icon-facebook use{
+    fill:$facebook;
+}
+
+svg.icon-twitter use{
+    fill:$twitter;
+}
+
+svg.icon-email use{
+    fill:$dark;
+}

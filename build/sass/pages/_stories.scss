@@ -1,0 +1,93 @@
+section.stories{
+    div.block > p{
+        max-width:700px;
+        margin:2em auto;
+        text-align:center;
+    }
+}
+
+div.story-list{
+    a{
+        color:$dark;
+        cursor:pointer;
+        h3{
+            color:$primary;
+            @extend %default-transition;
+        }
+        &:hover{
+            h3{
+                color:$primary-dark;
+            }
+        }
+    }
+    img{
+        border-radius:50%;
+        width:20%;
+        max-width:70px;
+    }
+    ul{
+        @include display(flex);
+        @include flex-wrap(wrap);
+        @include justify-content(center);
+    }
+    li{
+        display:block;
+        width:100%;
+    }
+    div{
+        @include display(flex);
+        @include align-items(center);
+        min-height:55px;
+        img{
+            @include align-self(center);
+            margin-right:1em;
+        }
+    }
+    p{
+        max-height:600px;
+        overflow:hidden;
+        @extend %default-transition;
+    }
+    &.hide-excerpts{
+        li{
+            margin-bottom:0px;
+        }
+        p{
+            max-height:0px;
+        }
+    }
+}
+
+@media all and (min-width: 700px){
+    div.story-list{
+        li{
+            width:50%;
+        }
+    }
+}
+
+@media all and (min-width: 1000px){
+    div.story-list{
+        li{
+            width:33%;
+            padding:1em;
+        }
+    }
+}
+
+nav.story-nav{
+    @include display(flex);
+    @include align-items(center);
+    @include justify-content(center);
+    margin-bottom:2em;
+    div.select-wrapper{
+        border:1px solid $light;
+        display:inline-block;
+    }
+    & > div{
+        padding:1em;
+    }
+    input[type="checkbox"]{
+        font-size:2em;
+    }
+}

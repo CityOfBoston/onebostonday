@@ -525,6 +525,24 @@ $(function(){
     }
 
     /*//////////////////////////////////////
+    //  Stories page
+    //////////////////////////////////////*/
+    $('nav.story-nav input[type="checkbox"]').on('change',function(){
+        $('div.story-list').toggleClass('hide-excerpts');
+    });
+
+    $('section.photos ul.thumbs li').on('click',function(){
+        $(this).parent().find('li').each(function(){
+            $(this).removeClass('active');
+        });
+
+        $(this).addClass('active');
+
+        $('section.photos div.holder').attr('style', $(this).attr('style'));
+    });
+
+
+    /*//////////////////////////////////////
     //  virtual page tracking
     //////////////////////////////////////*/
     $(window).on("scroll",function(){
