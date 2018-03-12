@@ -1,4 +1,4 @@
-<section class="header-intro">
+<section class="header-intro" aria-role="banner">
     <h1>Community Impact</h1>
     <p>One Boston Day is an opportunity for businesses and organizations to display their humanity and bring neighbors together. Here are a few ways the Boston business and non-profit communities got involved:</p>
 </section>
@@ -42,28 +42,28 @@
             <h2>We encourage you to share how your organization participates in One Boston Day.</h2>
             <p>City of Boston representatives may contact you in regard to using your organization’s activity or event to help promote One Boston Day. Your contact information will be kept strictly confidential. </p>
         </header>
-        <form class="planning-form" action="https://docs.google.com/forms/d/e/1FAIpQLScQlvlSEQBz8LDO5KY7tlrg57Xt71kmPfXdN2XYyP_s50D9Uw/formResponse">
+        <form class="planning-form" action="https://docs.google.com/forms/d/e/1FAIpQLScQlvlSEQBz8LDO5KY7tlrg57Xt71kmPfXdN2XYyP_s50D9Uw/formResponse" aria-role="form">
             <em>* all fields are required</em>
             <fieldset>
-                <label>Full name*</label>
-                <input type="text" required name="entry.1027136787">
+                <label for="full-name">Full name*</label>
+                <input type="text" required name="entry.1027136787" id="full-name">
             </fieldset>
             <fieldset>
-                <label>Organization*</label>
-                <input type="text" required name="entry.884022436">
+                <label for="organization">Organization*</label>
+                <input type="text" required name="entry.884022436" id="organization">
             </fieldset>
             <fieldset>
-                <label>Email*</label>
-                <input type="email" required title="Please make sure you've entered a valid email" name="entry.639725217">
+                <label for="email">Email*</label>
+                <input type="email" required title="Please make sure you've entered a valid email" name="entry.639725217" id="email">
             </fieldset>
             <fieldset>
-                <label>Phone Number*</label>
-                <input type="text" required name="entry.1686466888">
+                <label for="phone-number">Phone Number*</label>
+                <input type="text" required name="entry.1686466888" id="phone-number">
             </fieldset>
             <fieldset>
-                <label>Event Size*</label>
+                <label for="event-size">Event Size*</label>
                 <div class="select-wrapper">
-                    <select name="entry.1943417265">
+                    <select name="entry.1943417265" id="event-size">
                         <option value="Small">Small (Under 50 People)</option>
                         <option value="Medium" selected>Medium (50-100 People)</option>
                         <option value="Large">Large(100+ People)</option>
@@ -71,8 +71,8 @@
                 </div>
             </fieldset>
             <fieldset>
-                <label>Plans for <span>One Boston Day*</span></label>
-                <textarea placeholder="Event Description" rows="4" name="entry.1481659303" required></textarea>
+                <label for="plans">Plans for <span>One Boston Day*</span></label>
+                <textarea placeholder="Event Description" rows="4" name="entry.1481659303" required id="plans"></textarea>
             </fieldset>
             <fieldset>
                 <input type="submit" value="Submit Event"> 

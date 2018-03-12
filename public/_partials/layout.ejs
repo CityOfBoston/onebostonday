@@ -110,19 +110,19 @@
             </defs>
         </svg>
 
-        <main>
+        <main aria-role="main" aria-label="Main Content Area">
             
             <%- partial("_partials/nav") %>
             <%- yield %>
 
-            <footer class="main-footer">
-                <div class="block">
+            <footer class="main-footer" aria-role="complementary" aria-label="Main Footer">
+                <div class="block" aria-role="contentinfo">
                     <div class="site-info">
                         <a class="cityofboston-link" href="http://www.cityofboston.gov/"><img src="/img/boston.png" alt="City of Boston"></a>
                         <p>Visit the <a href="/press.html">Press page</a> to learn more about One Boston Day.</p>
                         <p><a href="http://www.cityofboston.gov/copyright/privacyandsecurity.asp" target="_blank">Privacy Policy</a></p>
                     </div>
-                    <div class="follow mayor">
+                    <div class="follow mayor" role="navigation" aria-label="Mayor Social Channel Links">
                         <h5>Follow Mayor Walsh:</h5>
                         <ul>
                             <li><button class="instagram"><svg class="icon icon-instagram"><use xlink:href="#icon-instagram"></use></svg></button></li>
@@ -130,7 +130,7 @@
                             <li><button class="twitter"><svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg></button></li>
                         </ul>
                     </div>
-                    <div class="follow city">
+                    <div class="follow city" role="navigation" aria-label="City of Boston Social Channel Links">
                         <h5>Follow the City of Boston:</h5>
                         <ul>
                             <li><button class="facebook"><svg class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg></button></li>

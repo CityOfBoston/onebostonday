@@ -147,7 +147,7 @@ $(function(){
         popItUp(tweetIntent,300,600);
     });
 
-    var characterCount = 103;
+    var characterCount = 243;
     $('.craft span').text(characterCount);
     $('.craft textarea').on('focus',function(){
         $(this).on('keyup',function(){
@@ -286,7 +286,7 @@ $(function(){
         loadNewFeed();
 
         var donezo = false;
-        var number = 3570;
+        var number = 43532;
 
         $.ajax({
             url: 'http://one-boston-day-wayin-api.hhcctech.com/wayin/count.json',
@@ -321,6 +321,7 @@ $(function(){
         //lazy loading
         if($(window).width() < 800){
             $('.social-feed .photo img').lazyload();
+
         }
         else{
             $('.social-feed').find('.gutter-sizer').appendTo('.social-feed .block > ul');
@@ -423,6 +424,10 @@ $(function(){
         else{
             $('.social-feed .block > ul').prepend(twitterCard);
         }
+
+        $('.social-feed header img').on('error',function(){
+            $(this).parent().parent().parent().remove();
+        });
     };
 
     var instagramTemplate = function(instaImage,instaName,instaUsername,instaTime,instaUrl,instaBody){
@@ -463,6 +468,11 @@ $(function(){
         instagramMarkup += "<\/li>";
 
         $('.social-feed .block > ul').append(instagramMarkup);
+
+        $('.social-feed div.photo img').on('error',function(){
+            $(this).parent().parent().remove();
+        });
+        
     };
 
     /*//////////////////////////////////////
