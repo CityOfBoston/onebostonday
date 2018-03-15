@@ -37,24 +37,6 @@
 		position:relative;
 		top:20px;
 	}
-	button{
-		@include appearance(none);
-		background-color:transparent;
-		color:#fff;
-		font-size:20px;
-		font-family:$font-sans;
-		padding:5px 10px 6px;
-		border:2px solid #fff;
-		svg{
-			position:relative;
-			top:3px;
-			@include size(1em);
-			display:inline-block;
-			use{
-				fill:#fff;
-			}
-		}
-	}
 }
 
 @media all and(min-width:600px){

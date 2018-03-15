@@ -1,0 +1,27 @@
+div.cta{
+    margin:0 auto 3em;
+    padding:1em;
+    border:2px solid $primary;
+    max-width:550px;
+    h2{
+        text-transform:none;
+        font-size:1.4em;
+    }
+    a.button{
+        color:#fff;
+        background-color:$primary;
+        margin:0.5em auto 0px;
+        display:block;
+        padding:0.5em 1em 0.6em;
+        border:none;
+        max-width:150px;
+        text-align:center;
+        font-size:1.2em;
+    }
+}
+
+.no-touchevents div.cta{
+    a.button{
+        @extend %default-transition;
+    }
+}
