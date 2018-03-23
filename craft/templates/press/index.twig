@@ -1,0 +1,29 @@
+{% extends '_layout' %}
+
+{% block content %}
+
+<section class="header-intro" aria-role="banner">
+    <h1>Press</h1>
+</section>
+<section class="press tracked">
+    <div class="block">
+        <div class="cta">
+            <h2>Download the One Boston Day Media Kit</h2>
+            <a class="btn button primary" href="/pdf/OneBostonDay_MediaKit_03152018.pdf" download>Download</a>
+        </div>
+        <ul>
+            {% set press = [1,2,3] %}
+            {% for entry in press %}
+                <li>
+                    <a target="_blank" href="#">
+                        Link Name
+                    </a>
+                    <time>12:00</time>
+                    <span>Testing</span>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+
+{% endblock %}
