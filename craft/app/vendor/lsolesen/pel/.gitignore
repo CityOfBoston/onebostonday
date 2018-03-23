@@ -1,0 +1,10 @@
+.externalToolBuilders
+.settings/*
+.buildpath
+.project
+locale/*
+doc/*
+vendor
+ChangeLog
+build-base*
+.idea/*
