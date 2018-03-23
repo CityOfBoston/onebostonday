@@ -77,21 +77,35 @@ form.planning-form{
         font-family:$font-sans;
         text-transform:uppercase;
     }
-    div.select-wrapper{
-        position:relative;
-        select{
-            width:100%;
-        }
-        &:after{
-            content:"";
-            display:block;
-            @include triangle(20px, lighten($dark,65%), down);
-            @include position(absolute, 60% 16px auto auto);
-            @include transform(translateY(-50%));
-            margin-bottom:0px;
-            pointer-events:none;
-        }
+}
+
+div.select-wrapper{
+    position:relative;
+    select{
+        width:100%;
     }
+    &:after{
+        content:"";
+        display:block;
+        @include triangle(20px, lighten($dark,65%), down);
+        @include position(absolute, 60% 16px auto auto);
+        @include transform(translateY(-50%));
+        margin-bottom:0px;
+        pointer-events:none;
+    }
+}
+
+select{
+    font-size:16px;
+    padding:1em 1.2em;
+    @include appearance(none);
+    border:none;
+    background-color:#fff;
+    color:$dark;
+    display:block;
+    width:100%;
+    border-radius:0px;
+    font-family:$font-sans;
 }
 
 .no-cssanimations.no-csstransitions{
