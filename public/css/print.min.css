@@ -1,0 +1,1 @@
+body{padding:0;display:none}a{text-decoration:underline}a[href]:after{content:" (" attr(href) ")"}a[href="#"],a[href="javascript:"]{content:""}

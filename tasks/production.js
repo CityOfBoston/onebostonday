@@ -3,7 +3,6 @@
 var gulp = require('gulp'),
     cssmin = require('gulp-cssmin'),
     uglify = require('gulp-uglifyjs'),
-    access = require('gulp-accessibility'),
     rename = require('gulp-rename');
 
 
@@ -24,15 +23,15 @@ gulp.task('jsmin', function() {
 
 
 // ACCESIBILITY
-gulp.task('accessibility', function() {
-    return gulp.src('./html/**/*.html')
-        .pipe(access({
-            force: true
-        }))
-        .on('error', console.log)
-        .pipe(access.report({reportType: 'json'}))
-        .pipe(rename({
-            extname: '.json'
-        }))
-        .pipe(gulp.dest('reports/'));
-});
+// gulp.task('accessibility', function() {
+//     return gulp.src('./html/**/*.html')
+//         .pipe(access({
+//             force: true
+//         }))
+//         .on('error', console.log)
+//         .pipe(access.report({reportType: 'json'}))
+//         .pipe(rename({
+//             extname: '.json'
+//         }))
+//         .pipe(gulp.dest('reports/'));
+// });

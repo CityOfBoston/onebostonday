@@ -1,40 +1,46 @@
 {
-  "name": "gulp-plate",
-  "version": "0.1.0",
-  "description": "Revamped version of the boilerplate using gulp instead of grunt",
-  "main": "index.js",
+  "name": "onebostonday",
+  "version": "0.0.0",
+  "description": "One Boston Day - City of Boston",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hillholliday/gulp-plate.git"
+    "url": "https://github.com/CityOfBoston/onebostonday"
   },
   "keywords": [
     "Gulp",
-    "Boilerplate"
+    "Boilerplate",
+    "yeoman-generator"
   ],
   "author": "Hill Holliday",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hillholliday/gulp-plate/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/hillholliday/gulp-plate#readme",
+  "homepage": "https://github.com/CityOfBoston/onebostonday/README.md",
   "devDependencies": {
     "browser-sync": "^2.18.7",
-    "coffeelint": "^1.15.7",
+    "cypress": "^1.4.1",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
-    "gulp-harp": "0.0.4",
+    "gulp-cssmin": "^0.1.7",
     "gulp-imagemin": "^3.0.3",
     "gulp-jshint": "^2.0.1",
     "gulp-livereload": "^3.8.1",
+    "gulp-modernizr": "^1.0.0-alpha",
+    "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-sass-glob": "^1.0.6",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglifyjs": "^0.6.2",
     "gulp-util": "^3.0.7",
-    "harp": "^0.20.3",
+    "harp": "^0.24.1",
     "jshint": "^2.9.3",
     "jshint-stylish": "^2.2.1",
-    "jstransformer-marked": "^1.0.1",
-    "surge": "^0.18.0"
+    "require-dir": "^0.3.1"
   }
 }

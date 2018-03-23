@@ -25,17 +25,17 @@ gulp.task('jshint', function() {
 gulp.task('build-js', function() {
     return gulp.src('./build/js/src/**/*.js')
         .pipe(concat('main.js'))
-        .pipe(gulp.dest('html/js/'));
+        .pipe(gulp.dest('public/js/'));
 });
 
 gulp.task('build-plugins', function() {
     return gulp.src('./build/js/plugins/**/*.js')
         .pipe(concat('plugins.js'))
-        .pipe(gulp.dest('html/js/'));
+        .pipe(gulp.dest('public/js/'));
 });
 
 var BUILD_SCSS = 'build/scss/**/*.scss';
-var DEST_CSS   = 'html/css/';
+var DEST_CSS   = 'public/css/';
 
 gulp.task('build-scss', function() {
     return gulp.src(BUILD_SCSS)
@@ -85,7 +85,7 @@ var modernizrConfig = {
 };
 
 gulp.task('build-modernizr', function() {
-    return gulp.src(['./html/css/screen.css', './html/js/main.js'])
+    return gulp.src(['./public/css/screen.css', './public/js/main.js'])
         .pipe(modernizr(modernizrConfig))
         .pipe(uglify())
         .pipe(gulp.dest("./build/js/plugins/"));

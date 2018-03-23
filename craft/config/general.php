@@ -26,4 +26,14 @@ return array(
             'baseUrl'  => 'http://onebostonday.test/',
         ),
     ),
+    'onebostonday-staging.hhcctech.com' => array(
+        'siteUrl' => 'http://onebostonday-staging.hhcctech.com/',
+        'devMode' => true,
+        'siteName' => 'One Boston Day Staging',
+        'requireMatchingUserAgentForSession' => false,
+        'cache' => false,
+        'environmentVariables' => array(
+            'baseUrl'  => 'http://onebostonday-staging.hhcctech.com/',
+        ),
+    ),
 );
