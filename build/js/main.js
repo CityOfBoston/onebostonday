@@ -178,23 +178,23 @@ $(function(){
 
     var loadNewFeed = function(){
         $.ajax({
-            url: '/feed/feed.json',
+            url: 'https://xapi.wayin.com/xapi/content/3/filter?key=103adfe9-a7b9-4824-9916-052f7339d73a&format=json&max=1000&collectionId=co-2ny8jdhvr07p7ogdqyf',
             dataType:'json',
             error: function(jqXHR, textStatus, errorThrown) {
                 // console.log(textStatus, errorThrown);
             },
             success:function(response){
 
-                var totalPosts = response.results.length;
-                var data = response.results;
+                var totalPosts = response.data.length;
+                var data = response.data;
 
                 setTimeout(function(){
                     for (i=0;i<totalPosts;i++){
                         var post = data[i];
-                        if(post.source === "twitter"){
+                        if(post.externalservice.label === "Twitter"){
                             twitterTemplate(post.author_avatar_url,post.author_name,post.author_handle,post.created_at_long,post.id,post.post_message,post.post_media_url,"append");
                         }
-                        else if(post.source === "instagram"){
+                        else if(post.externalservice.label === "Instagram"){
                             instagramTemplate(post.post_media_url,post.author_name,post.author_handle,post.created_at_long,post.instagram.link,post.post_message,"append");
                         }
                     }
