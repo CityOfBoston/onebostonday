@@ -1,1 +1,943 @@
-$(function(){$("form").on("submit",function(e){e.preventDefault();var t=Math.round(+new Date/1e3);$("#title").val(t);var o=$("form").serialize();$.ajax({url:"http://onebostonday-counter.hhcc.tech/",type:"POST",data:o,headers:{"X-Requested-With":"XMLHttpRequest"}}).done(function(){console.log("donezo")}).fail(function(){console.log("something went wrong")}).always(function(){console.log("complete")})});var e=function(e){var t=e,o=0;$.ajax({url:"http://siphon.hhcctech.com/api/container/showall/9",type:"GET"}).done(function(e){o=e.total+t.total_pledges;var n=o-1e3,a=document.querySelector("h1");od=new Odometer({el:a,value:n,format:"(,ddd)",duration:300}),od.update(o)}),$("button").on("click",function(){$("body").hasClass("thank-you")||(console.log(o),o++,od.update(o),$("body").addClass("thank-you"),setTimeout(function(){$("body").removeClass("thank-you")},3e3),$("form").submit())})};$.ajax({url:"http://onebostonday-counter.hhcc.tech/api/count",type:"GET"}).done(function(t){console.log("success"),e(t)}).fail(function(){console.log("error")}).always(function(){console.log("complete")})}),$(function(){function e(){return $(document).scrollTop()}var t=$("body");if(t.addClass("ready"),$(".intro button.watch-video").on("click",function(e){e.preventDefault();var o="5XLJabL_UfE";Modernizr.touchevents?(ga("send","event","celebrity video","mobile"),window.open("https://www.youtube.com/watch?v="+o,"_blank")):(ga("send","event","celebrity video","desktop"),$(".intro").prepend('<div class="video-player"><iframe src="https://www.youtube.com/embed/'+o+'?autoplay=1&rel=0&modestbranding=1" frameborder="0" allowfullscreen></iframe></div>'),t.append('<button class="close-video">Close video</div>'),setTimeout(function(){t.addClass("video-playing")},50),$("body").find("button.close-video").on("click",function(){t.removeClass("video-playing"),console.log("clicked"),setTimeout(function(){t.find("div.video-player").remove(),t.find("button.close-video").remove()},350)}))}),!Modernizr.touchevents&&$(window).width()>800){var o="";o+='<div class="bg-video">',o+="    <video autoplay loop muted>",o+='        <source src="/video/obd-short-2017.mp4" type="video/mp4">',o+='        <source src="/video/obd-short-2017.webm" type="video/webm">',o+="    </video>",o+="</div>",$("section.intro").append(o)}if(location.hash&&setTimeout(function(){var e=$(location.hash).offset().top;$("html,body").animate({scrollTop:e})},400),$(".acts-of-kindness h3").length>0){var n=document.querySelector(".acts-of-kindness h3");od=new Odometer({el:n,value:0,format:"(,ddd)",duration:2e3})}$(".video span").on("click",function(){ga("send","event","video","watched"),$(".video span").fadeOut(function(){$(".video img").remove(),$(".video").append('<iframe src="https://player.vimeo.com/video/206079468?autoplay=1" width="500" height="367" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>')})}),$("form.planning-form").on("submit",function(e){e.preventDefault();var t=$(this).attr("action"),o=$(this).serialize();$.ajax({url:t,type:"POST",data:o}).done(function(){}).fail(function(){}).always(function(){$("form.planning-form").fadeOut(function(){$("section.planning .block").append('<div class="thank-you"><h3>Thank you for your submission.</h3> <p>It sounds like you are going to have an unforgetable One Boston Day!</p></div>'),$("section.planning").find(".thank-you").addClass("youre-welcome");var e=$("section.planning").offset().top;$("html,body").animate({scrollTop:e},500)})})}),$(".slider").slick({slide:".activity",dots:!0,infinite:!0,speed:300,slidesToShow:1,adaptiveHeight:!0,initialSlide:0,touchThreshold:3}),$(".activity .copy a").on("click",function(){ga("send","event","community learn more",$(this).attr("href"))}),$("button.tweet").on("click",function(){tweetValue=$(".craft textarea").val(),finalTweet=encodeURIComponent("For #OneBostonDay, "+tweetValue+" What will you do?"),tweetIntent="https://twitter.com/intent/tweet?text="+finalTweet+"&related=marty_walsh,notifyboston",g(tweetIntent,300,600)});var a=243;$(".craft span").text(a),$(".craft textarea").on("focus",function(){$(this).on("keyup",function(){var e=$(this).val().length,t=a-e;t<0?$(".craft span").html('<b class="nono">'+t+"</b>"):$(".craft span").text(t)})}),$(".craft-tweet button.tweet").on("click",function(){Modernizr.touch?ga("send","event","get involved","tweet clicked: mobile"):ga("send","event","get involved","tweet clicked: desktop -"+$(".craft span").html())});var s=function(){$.ajax({url:"/feed/feed.json",dataType:"json",error:function(e,t,o){},success:function(e){var t=e.results.length,o=e.results;setTimeout(function(){for(i=0;i<t;i++){var e=o[i];"twitter"===e.source?h(e.author_avatar_url,e.author_name,e.author_handle,e.created_at_long,e.id,e.post_message,e.post_media_url,"append"):"instagram"===e.source&&f(e.post_media_url,e.author_name,e.author_handle,e.created_at_long,e.instagram.link,e.post_message,"append")}},600),$(".social-feed .block > ul .content").anchorTextUrls(),$(window).width()<800?$(".social-feed .photo img").lazyload():$(".social-feed").find(".gutter-sizer").appendTo(".social-feed .block > ul"),setTimeout(function(){l()},2e3),setTimeout(function(){$(".load-more").click()},4e3),setTimeout(function(){$(".social-feed .photo img").lazyload({container:$(".social-feed .block > ul")})},2e3)}})},c=function(e,t){$(".feed .icon-spinner").fadeOut(function(){$(this).remove()});var o=e.data.length;o>500&&(o=500);var n=e.data;for("prepend"===t&&(n=n.reverse()),i=0;i<o;i++){var a=n[i];"twitter"===a.provider?h(a.userimageurl,a.full_name,a.username,a.created_at,a.social_id,a.message,a.image,t):"instagram"===a.provider&&f(a.image,a.full_name,a.username,a.created_at,a.social_id,a.message,t)}$(".social-feed .block > ul .content").anchorTextUrls(),$(window).width()<800?$(".social-feed .photo img").lazyload():($(".social-feed .photo img").lazyload({container:$(".social-feed .block > ul")}),$(".social-feed").find(".gutter-sizer").appendTo(".social-feed .block > ul"))},l=function(){$.ajax({url:"/oldfeed/feed.json",dataType:"json",error:function(e,t,o){},success:function(e){c(e,"append")}})};if($(".acts-of-kindness h3").length>0){s();var r=!1,d=43532;$.ajax({url:"http://one-boston-day-wayin-api.hhcctech.com/wayin/count.json",type:"GET",dataType:"json"}).done(function(e){console.log("success"),d=e.results[0].count}).fail(function(){console.log("error")}).always(function(){console.log("complete"),setInterval(function(){v(n)&&!1===r&&(od.update(d),r=!0)},500)})}var u=24;$("button.load-more").on("click",function(e){e.preventDefault(),$(".social-feed .block > ul > li:nth-child(-n+"+u+")").show(),u+=12,$(window).width()<800?$(".social-feed .photo img").lazyload():($(".social-feed").find(".gutter-sizer").appendTo(".social-feed .block > ul"),setTimeout(function(){$(".social-feed .block > ul").packery({itemSelector:".social-feed .block > ul > li",gutter:20})},250),setTimeout(function(){$(".social-feed .photo img").lazyload({container:$(".social-feed .block > ul")})},400)),0===$(".social-feed .block > ul").children(":hidden").length&&$("button.load-more").hide()}),$("body").on("click",".actions a",function(e){e.preventDefault(),g($(this).attr("href"),300,600),ga("send","event","feed twitter action",$(this).find("svg").attr("class"))});var h=function(e,t,o,n,a,i,s,c){var l=a.replace("tw-",""),r="https://twitter.com/intent/tweet?in_reply_to="+l,d="https://twitter.com/intent/retweet?tweet_id="+l,u="https://twitter.com/intent/favorite?tweet_id="+l;twitterDisplayImage="",null===s||s.includes("youtu")||(twitterDisplayImage='<div class="photo"><img data-original="'+s+'" src="/img/preloader-large.gif" alt=""></div>');var h=i;h=linkTwitterHashtags(h),h=linkTwitterUsers(h);var f=o.replace("@",""),m=n/1e3,p=(m.toString(),moment.unix(m).format("MMM Do YYYY h:mma"));isNaN(parseInt(n))&&(p=n);var v="";v+="<li>",v+='    <div class="twitter-card">',v+='        <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>',v+="        <header>",v+='            <a href="https://twitter.com/'+o+'">',v+='                <img src="'+e+'">',v+="                <h4>"+t+"</h4>",v+="                <h5>@"+f+"</h5>",v+="            </a>",v+="        </header>",v+='        <div class="content">',v+="            <p>"+h+"</p>",v+="        </div>",v+='        <time><a target="_blank" href="https://twitter.com/'+o+"/status/"+l+'">'+p+"</a></time>",v+=twitterDisplayImage,v+='        <div class="actions">',v+="            <ul>",v+="                <li>",v+='                    <a class="reply" href="'+r+'"> ',v+='                        <svg class="icon icon-reply"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-reply"></use></svg>                ',v+="                    </a>",v+="                </li>",v+="                <li>",v+='                    <a class="retweet" href="'+d+'">',v+='                        <svg class="icon icon-retweet"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-retweet"></use></svg>',v+="                    </a> ",v+="                </li>",v+="                <li>",v+='                    <a class="favorite" href="'+u+'">',v+='                        <svg class="icon icon-heart"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-heart"></use></svg>',v+="                    </a>",v+="                </li>",v+="            </ul>",v+="        </div>",v+="    </div>",v+="</li>","append"===c?$(".social-feed .block > ul").append(v):$(".social-feed .block > ul").prepend(v),$(".social-feed header img").on("error",function(){$(this).parent().parent().parent().remove()})},f=function(e,t,o,n,a,i){var s=t;void 0!==typeof t&&0!==t.length||(s=o);var c=i.replace(/â€™/g,"’");c=linkInstagramHashtags(c),c=linkTwitterUsers(c);var l=n/1e3,r=(l.toString(),moment.unix(l).format("MMM Do YYYY h:mma")),d=o.replace("@",""),u="";u+="<li>",u+='    <div class="instagram-card">',u+='        <svg class="icon icon-instagram"><use xlink:href="#icon-instagram"></use></svg>',u+='    <div class="photo">',u+='        <img src="'+e+'"> ',u+="    </div>",u+='    <header class="insta-header">',u+='        <h4><a href="https://instagram.com/'+d+'">'+s+"</a></h4>",u+='        <a class="time" href="https://instagram.com/p/'+a+'" target="_blank" title=" '+n+' "></a>',u+="    </header>",u+='    <div class="content">',u+="        <p>"+c+"</p>",u+="    </div>",u+='        <time><a target="_blank" href="'+a+'">'+r+"</a></time>",u+="    </div>",u+="</li>",$(".social-feed .block > ul").append(u),$(".social-feed div.photo img").on("error",function(){$(this).parent().parent().remove()})};$(".burger-box").on("click",function(e){e.preventDefault(),$(this).hasClass("open")?($(this).removeClass("open").addClass("closed"),$(".main-nav").removeClass("active"),ga("send","event","mobile menu","close")):($(this).addClass("open").removeClass("closed"),$(".main-nav").addClass("active"),ga("send","event","mobile menu","open"))});var m=function(){$(".downloads li a").not(".none-download").each(function(){var e=$(this).data("image");$(this).css({"background-image":"url(../img/logos/"+e+")"}),$(this).attr("href","../img/logos/"+e),Modernizr.adownload||$(this).attr("target","_blank")}),$(".none-download").css({"background-image":"url(../img/"+$(".none-download").data("image")+")"}),Modernizr.touchevents&&$(".none-download").attr("href","/img/OneBostonDay_CoverPhoto_Facebook_v2.jpg")};if($(".downloads li a").on("click",function(){ga("send","event","logo download",$(this).data("image"))}),$("a.package").on("click",function(){ga("send","event","logo download","all .zip")}),$(".downloads").length>0)var p=setInterval(function(){e()>$(".downloads").offset().top-$(".downloads").height()&&(m(),clearInterval(p))},50);$('nav.story-nav input[type="checkbox"]').on("change",function(){$("div.story-list").toggleClass("hide-excerpts")}),$("section.photos ul.thumbs li").on("click",function(){$(this).parent().find("li").each(function(){$(this).removeClass("active")}),$(this).addClass("active"),$("section.photos div.holder").attr("style",$(this).attr("style"))}),$(window).on("scroll",function(){var t=e()+$(".main-nav").height();$("section").each(function(){offset=$(this).offset(),t>offset.top&&!$(this).hasClass("tracked")&&($(this).addClass("tracked"),ga("send","pageview",{page:"/"+$(this).attr("id"),title:$(this).attr("id")}))})}),$(".mayor .flickr").on("click",function(){window.open("https://www.flickr.com/people/bosmayorsoffice/","_blank"),ga("send","event","footer social",$(this).attr("class"))}),$(".mayor .twitter").on("click",function(){window.open("https://twitter.com/marty_walsh","_blank")}),$(".mayor .instagram").on("click",function(){window.open("https://www.instagram.com/boston_mayor/","_blank")}),$(".mayor button").on("click",function(){ga("send","event","footer social","mayor:"+$(this).attr("class"))}),$(".city .instagram").on("click",function(){window.open("https://instagram.com/cityofboston","_blank")}),$(".city .twitter").on("click",function(){window.open("https://twitter.com/CityofBoston","_blank")}),$(".city .facebook").on("click",function(){window.open("https://www.facebook.com/cityofboston","_blank")}),$(".city button").on("click",function(){ga("send","event","footer social","city:"+$(this).attr("class"))}),$(".cityofboston-link").on("click",function(){ga("send","event","footer link","city of boston website")}),$(".privacy-policy").on("click",function(){ga("send","event","footer link","privacy policy")}),$(".press a").on("click",function(){ga("send","event","press link",$(this).text())});var v=function(e){"function"==typeof jQuery&&e instanceof jQuery&&(e=e[0]);var t=e.getBoundingClientRect();return t.top>=0&&t.left>=0&&t.bottom<=(window.innerHeight||document.documentElement.clientHeight)&&t.right<=(window.innerWidth||document.documentElement.clientWidth)};!function(){$("a[data-popup]").on("click",function(e){e.preventDefault(),window.open($(this)[0].href)})}();var g=function(e,t,o){return newwindow=window.open(e,"name","height="+t+",width="+o),window.focus&&newwindow.focus(),!1}}),$(function(){var e=function(){$.ajax({url:"http://one-boston-day-wayin-api.hhcctech.com/wayin/count.json",type:"GET"}).done(function(e){count=e.results[0].count;var t=document.querySelector("h1");od=new Odometer({el:t,value:count,format:"(,ddd)",duration:300}),od.update(count)})};setInterval(function(){e()},5e3),e()}),$(function(){var e=function(t){t.delay().fadeIn().delay(9e3).fadeOut(function(){e(t.next()),0===t.next().length&&($("main.tweets ul li").each(function(){$(this).remove()}),$("body").addClass("loading"),setTimeout(function(){a("http://one-boston-day-wayin-api.hhcctech.com/wayin/latest.json")},5e3))})},t=function(e){e.toString();return moment.unix(e).format("MMM Do YYYY h:mma")},o=function(e,o,n,a,i,s,c,l){twitterDisplayImage="",hasPhoto="",null===c||c.includes("youtube")||(twitterDisplayImage='<div class="photo" style="background-image:url('+c+')"></div>',hasPhoto="has-photo");var r=s;r=linkTwitterHashtags(r),r=linkTwitterUsers(r);var d=a/1e3,u="";u+="<li>",u+='    <div class="twitter-card '+hasPhoto+'">',u+='        <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>',u+="        <header>",u+='            <a href="https://twitter.com/'+n+'">',u+='                <img src="'+e+'">',u+="                <h4>"+o+"</h4>",u+="                <h5>"+n+"</h5>",u+="            </a>",u+="        </header>",u+='        <div class="content">',u+="            <p>"+r+"</p>",u+="        </div>",u+='        <time><a href="https://twitter.com/'+n+"/status/"+i+'">'+t(d)+"</a></time>",u+=twitterDisplayImage,u+="    </div>",u+="</li>","append"===l?$("main.tweets > ul").append(u):$("main.tweets > ul").prepend(u)},n=function(e,t,o,n,a,i,s){var c=t;void 0!==typeof t&&0!==t.length||(c=o);var l=i.replace(/â€™/g,"’");l=linkInstagramHashtags(l),l=linkTwitterUsers(l);var r=n/1e3,d=(r.toString(),moment.unix(r).format("MMM Do YYYY h:mma")),u=o.replace("@",""),h="";h+="<li>",h+='    <div class="instagram-card">',h+='        <svg class="icon icon-instagram"><use xlink:href="#icon-instagram"></use></svg>',h+='    <div class="photo">',h+='        <img src="'+e+'"> ',h+="    </div>",h+='    <header class="insta-header">',h+='        <img src="'+s+'">',h+='        <h4><a href="https://instagram.com/'+u+'">'+c+"</a></h4>",h+='        <a class="time" href="https://instagram.com/p/'+a+'" target="_blank" title=" '+n+' "></a>',h+="    </header>",h+='    <div class="content">',h+="        <p>"+l+"</p>",h+="    </div>",h+='        <time><a target="_blank" href="'+a+'">'+d+"</a></time>",h+="    </div>",h+="</li>",$("main.tweets > ul").append(h)},a=function(t){$.ajax({url:t,dataType:"json",error:function(e,t,o){},success:function(t){$("body").removeClass("loading");var a=50,s=t.results;setTimeout(function(){for(i=0;i<a;i++){var t=s[i];console.log(t.source),"twitter"===t.source?o(t.author_avatar_url,t.author_name,t.author_handle,t.created_at_long,t.author_id,t.post_message,t.post_media_url,"append"):"instagram"===t.source&&n(t.post_media_url,t.author_name,t.author_handle,t.created_at_long,t.instagram.link,t.post_message,t.author_avatar_url)}e($("main.tweets ul li:first"))},600)}})};a("http://one-boston-day-wayin-api.hhcctech.com/wayin/latest.json")});
+$(function(){
+
+    $('form').on('submit',function(event){
+        event.preventDefault();
+
+        var unix = Math.round(+new Date()/1000);
+
+        $('#title').val(unix);
+
+        var data = $('form').serialize();
+
+        $.ajax({
+            url: 'http://onebostonday-counter.hhcc.tech/',
+            type: 'POST',
+            data: data,
+            headers: {'X-Requested-With': 'XMLHttpRequest'}
+        })
+        .done(function() {
+            //$('body').addClass('success');
+            console.log('donezo');
+        })
+        .fail(function() {
+            console.log('something went wrong');
+        })
+        .always(function() {
+            console.log("complete");
+        });
+    });
+
+    var init = function(data){
+
+        var initialPledges = data;
+        var count = 0;
+
+        $.ajax({
+            url:'http://siphon.hhcctech.com/api/container/showall/9',
+            type:'GET',
+        })
+        .done(function(data){
+            count = data.total + initialPledges.total_pledges;
+            var initialCount = count - 1000;
+
+            var $odometer = document.querySelector('h1');
+            od = new Odometer({
+                el: $odometer,
+                value: initialCount,
+                format: '(,ddd)',
+                duration: 300,
+            }); 
+
+            od.update(count);
+        });
+
+        $('button').on('click',function(){
+            if(! $('body').hasClass('thank-you')){
+                // initiate click
+                console.log(count);
+                count++;
+                od.update(count);
+                $('body').addClass('thank-you');
+                setTimeout(function(){
+                    $('body').removeClass('thank-you');
+                },3000);
+
+                $('form').submit();
+            }
+        });
+    };
+
+    $.ajax({
+        url: 'http://onebostonday-counter.hhcc.tech/api/count',
+        type: 'GET',
+    })
+    .done(function(data) {
+        console.log("success");
+        init(data);
+    })
+    .fail(function() {
+        console.log("error");
+    })
+    .always(function() {
+        console.log("complete");
+    });
+});
+$(function(){
+    var body = $('body');
+    body.addClass('ready');
+
+    $('.intro button.watch-video').on('click',function(event){
+        event.preventDefault();
+
+        var videoId = '5XLJabL_UfE';
+
+        if(Modernizr.touchevents){
+            ga('send', 'event', 'celebrity video', 'mobile');
+            window.open(
+                'https://www.youtube.com/watch?v='+videoId,
+                '_blank'
+            );
+        }
+        else{
+            ga('send', 'event', 'celebrity video', 'desktop');
+            $('.intro').prepend('<div class="video-player"><iframe src="https://www.youtube.com/embed/'+videoId+'?autoplay=1&rel=0&modestbranding=1" frameborder="0" allowfullscreen></iframe></div>');
+            body.append('<button class="close-video">Close video</div>');
+            setTimeout(function(){
+                body.addClass('video-playing');
+            },50);
+
+            $('body').find('button.close-video').on('click',function(){
+                body.removeClass('video-playing');
+                console.log('clicked');
+                setTimeout(function(){
+                    body.find('div.video-player').remove();
+                    body.find('button.close-video').remove();
+                },350);
+            });
+        }
+    });
+
+    if(!Modernizr.touchevents && $(window).width() > 800){
+        var bgVideo = "";
+        bgVideo += '<div class="bg-video">';
+        bgVideo += '    <video autoplay loop muted>';
+        bgVideo += '        <source src="/video/obd-short-2017.mp4" type="video/mp4">';
+        bgVideo += '        <source src="/video/obd-short-2017.webm" type="video/webm">';
+        bgVideo += '    </video>';
+        bgVideo += '</div>';
+
+        $('section.intro').append(bgVideo);
+    }
+
+    // scroll if there is a hash
+    if (location.hash) {
+      setTimeout(function() {
+        var distance = $(location.hash).offset().top;
+        $('html,body').animate({
+            scrollTop: distance
+        });
+      }, 400);
+    }
+
+    /*//////////////////////////////////////
+    //  odometer on homepage
+    //////////////////////////////////////*/
+    if($('.acts-of-kindness h3').length > 0){
+        var $odometer = document.querySelector('.acts-of-kindness h3');
+        od = new Odometer({
+            el: $odometer,
+            value: 0,
+            format: '(,ddd)',
+            duration: 2000,
+        }); 
+    }
+
+
+    /*//////////////////////////////////////
+    //  video toggle
+    //////////////////////////////////////*/
+
+    var video = '<iframe src="https://player.vimeo.com/video/206079468?autoplay=1" width="500" height="367" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+    $('.video span').on('click',function(){
+        ga('send', 'event', 'video', 'watched') ;
+        $('.video span').fadeOut(function(){
+            $('.video img').remove();
+            $('.video').append(video);
+        });
+    });
+
+
+    /*//////////////////////////////////////
+    //  planning form
+    //////////////////////////////////////*/
+    $('form.planning-form').on('submit',function(event){
+        event.preventDefault();
+        var action = $(this).attr('action');
+        var data = $(this).serialize();
+
+        var thankYou = '<div class="thank-you"><h3>Thank you for your submission.</h3> <p>It sounds like you are going to have an unforgetable One Boston Day!</p></div>';
+
+        $.ajax({
+            url: action,
+            type: 'POST',
+            data: data,
+        })
+        .done(function() {
+            // console.log("success");
+        })
+        .fail(function() {
+            // console.log("error");
+        })
+        .always(function() {
+            $('form.planning-form').fadeOut(function(){
+                $('section.planning .block').append(thankYou);
+                $('section.planning').find('.thank-you').addClass('youre-welcome');
+                var distance = $('section.planning').offset().top;
+                $('html,body').animate({
+                    scrollTop: distance
+                },500);
+            });
+        });
+    });
+
+
+    /*//////////////////////////////////////
+    //  community slider
+    //////////////////////////////////////*/
+    $('.slider').slick({
+        slide: '.activity',
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        adaptiveHeight: true,
+        initialSlide: 0,
+        touchThreshold: 3
+    });
+
+    $('.activity .copy a').on('click',function(){
+        ga('send', 'event', 'community learn more', $(this).attr('href'));
+    });
+
+    /*//////////////////////////////////////
+    //  for onebostonday tweet box
+    //////////////////////////////////////*/
+    var tweetString = "For #OneBostonDay, ";
+    $('button.tweet').on('click',function(){
+        tweetValue = $('.craft textarea').val();
+        finalTweet = encodeURIComponent(tweetString + tweetValue + " What will you do?");
+        tweetIntent = "https://twitter.com/intent/tweet?text="+finalTweet+"&related=marty_walsh,notifyboston";
+
+        popItUp(tweetIntent,300,600);
+    });
+
+    var characterCount = 243;
+    $('.craft span').text(characterCount);
+    $('.craft textarea').on('focus',function(){
+        $(this).on('keyup',function(){
+            var length = $(this).val().length;
+            var charactersLeft = characterCount - length;
+            if(charactersLeft < 0){
+                $('.craft span').html('<b class="nono">'+charactersLeft+'</b>');
+            }
+            else{
+                $('.craft span').text(charactersLeft);
+            }
+        });
+    });
+
+    $('.craft-tweet button.tweet').on('click',function(){
+        if(Modernizr.touch){
+            ga('send', 'event', 'get involved', 'tweet clicked: mobile') ;
+        }
+        else{
+            ga('send', 'event', 'get involved', 'tweet clicked: desktop -' + $('.craft span').html()) ;
+        }
+        
+    });
+
+    /*//////////////////////////////////////
+    //  get feed
+    //////////////////////////////////////*/
+
+    var loadNewFeed = function(){
+        $.ajax({
+            url: 'https://xapi.wayin.com/xapi/content/3/filter?key=103adfe9-a7b9-4824-9916-052f7339d73a&format=json&max=1000&collectionId=co-2ny8jdhvr07p7ogdqyf',
+            dataType:'json',
+            error: function(jqXHR, textStatus, errorThrown) {
+                // console.log(textStatus, errorThrown);
+            },
+            success:function(response){
+
+                var totalPosts = response.data.length;
+                var data = response.data;
+
+                setTimeout(function(){
+                    for (i=0;i<totalPosts;i++){
+                        var post = data[i];
+                        if(post.externalservice.label === "Twitter"){
+                            twitterTemplate(post.avatar,post.sourcename,post.sourceprofile,post.createdate,post.sourceid,post.content,post.mainasseturl,"append");
+                        }
+                        else if(post.externalservice.label === "Instagram"){
+                            instagramTemplate(post.mainasseturl,post.sourcename,post.sourceprofile,post.createdate,post.link,post.content,"append");
+                        }
+                    }
+                },600);
+
+                $(".social-feed .block > ul .content").anchorTextUrls();
+
+                //lazy loading
+                if($(window).width() < 800){
+                    $('.social-feed .photo img').lazyload();
+                }
+                else{
+                    $('.social-feed').find('.gutter-sizer').appendTo('.social-feed .block > ul');
+                }
+
+                setTimeout(function(){
+                    loadOldFeed();
+                },2000);
+
+                setTimeout(function(){
+                    $('.load-more').click();
+                },4000);
+
+                setTimeout(function(){
+                    $('.social-feed .photo img').lazyload({
+                        container: $('.social-feed .block > ul')
+                    });
+                },2000);
+            }
+        });
+    };
+
+
+    var loadFeedContent = function(response, direction){
+        $('.feed .icon-spinner').fadeOut(function(){
+            $(this).remove();
+        });
+
+        var totalPosts = response.data.length;
+
+        if(totalPosts > 500){
+            totalPosts = 500;
+        }
+
+        var data = response.data;
+
+        if(direction === "prepend"){
+            data = data.reverse();
+        }
+
+        for (i=0;i<totalPosts;i++){
+            var post = data[i];
+            if(post.provider === "twitter"){
+                twitterTemplate(post.userimageurl,post.full_name,post.username,post.created_at,post.social_id,post.message,post.image,direction);
+            }
+            else if(post.provider === "instagram"){
+                instagramTemplate(post.image,post.full_name,post.username,post.created_at,post.social_id,post.message,direction);
+            }
+        }
+
+        $(".social-feed .block > ul .content").anchorTextUrls();
+
+        //lazy loading
+        if($(window).width() < 800){
+            $('.social-feed .photo img').lazyload();
+        }
+        else{
+            $('.social-feed .photo img').lazyload({
+                container: $('.social-feed .block > ul')
+            });
+
+            $('.social-feed').find('.gutter-sizer').appendTo('.social-feed .block > ul');
+        }
+    };
+
+    var loadOldFeed = function(){
+        $.ajax({
+            url: '/oldfeed/feed.json',
+            dataType:'json',
+            error: function(jqXHR,textStatus,errorThrown){
+                // console.log(textStatus, errorThrown);
+            },
+            success:function(response){
+                loadFeedContent(response,"append");
+            }
+        });
+    };
+
+    if($('.acts-of-kindness h3').length > 0){
+        loadNewFeed();
+
+        var donezo = false;
+        var number = 43532;
+
+        $.ajax({
+            url: 'http://one-boston-day-wayin-api.hhcctech.com/wayin/count.json',
+            type: 'GET',
+            dataType: 'json',
+        })
+        .done(function(resp) {
+            console.log("success");
+            number = resp.results[0].count;
+        })
+        .fail(function() {
+            console.log("error");
+        })
+        .always(function() {
+            console.log("complete");
+            setInterval(function(){
+                if(isElementInViewport($odometer) && donezo === false){
+                    od.update(number);
+                    donezo = true;
+                }
+            },500);
+        });
+    }    
+
+    //load more button
+    var inView = 24;
+    $('button.load-more').on('click',function(event){
+        event.preventDefault();
+        $('.social-feed .block > ul > li:nth-child(-n+'+inView+')').show();
+        inView += 12;
+
+        //lazy loading
+        if($(window).width() < 800){
+            $('.social-feed .photo img').lazyload();
+
+        }
+        else{
+            $('.social-feed').find('.gutter-sizer').appendTo('.social-feed .block > ul');
+            
+            setTimeout(function(){
+                $('.social-feed .block > ul').packery({
+                  // options
+                  itemSelector: '.social-feed .block > ul > li',
+                  gutter: 20
+                });
+            },250);
+
+            setTimeout(function(){
+                $('.social-feed .photo img').lazyload({
+                    container: $('.social-feed .block > ul')
+                });
+            },400);
+        }
+
+        if($('.social-feed .block > ul').children(':hidden').length === 0) {
+           $('button.load-more').hide();
+        }
+    });
+
+    $('body').on('click','.actions a',function(event){
+        event.preventDefault();
+        popItUp($(this).attr('href'),300,600);
+        ga('send', 'event', 'feed twitter action', $(this).find('svg').attr('class')) ;
+    });
+
+    var twitterTemplate = function(profileImage,twitterName,twitterUser,twitterTime,twitterTweetUrl,twitterTweetEntity,twitterImage,direction){
+        var tweetId = twitterTweetUrl.replace('tw-','');
+
+        var intentReply = 'https://twitter.com/intent/tweet?in_reply_to='+tweetId;
+        var intentRetweet = 'https://twitter.com/intent/retweet?tweet_id='+tweetId;
+        var intentFavorite = 'https://twitter.com/intent/favorite?tweet_id='+tweetId;
+
+        twitterDisplayImage = '';
+        if(twitterImage !== null && ! twitterImage.includes ("youtu")){
+            twitterDisplayImage = '<div class=\"photo\"><img data-original="'+twitterImage+'" src=\"\/img\/preloader-large.gif\" alt=\"\"><\/div>';
+        }
+
+        var entity = twitterTweetEntity;
+
+        entity =  linkTwitterHashtags(entity);
+        entity =  linkTwitterUsers(entity);
+
+        var username = twitterUser.replace('@','');
+
+        twitterTime = new Date(twitterTime);
+        var date = twitterTime / 1000;
+
+        var dateToString = date.toString();
+        var dateToUse = moment.unix(date).format('MMM Do YYYY h:mma');
+
+        // if(isNaN(parseInt(twitterTime))){
+        //     dateToUse = twitterTime;
+        // }
+
+        var twitterCard="";
+        twitterCard += "<li>";
+        twitterCard += "    <div class=\"twitter-card\">";
+        twitterCard += "        <svg class=\"icon icon-twitter\"><use xlink:href=\"#icon-twitter\"><\/use><\/svg>";
+        twitterCard += "        <header>";
+        twitterCard += "            <a href=\"https:\/\/twitter.com\/"+twitterUser+"\">";
+        twitterCard += "                <img src=\""+profileImage+"\">";
+        twitterCard += "                <h4>"+twitterName+"<\/h4>";
+        twitterCard += "                <h5>@"+username+"<\/h5>";
+        twitterCard += "            <\/a>";
+        twitterCard += "        <\/header>";
+        twitterCard += "        <div class=\"content\">";
+        twitterCard += "            <p>"+entity+"<\/p>";
+        twitterCard += "        <\/div>";
+        twitterCard += "        <time><a target=\"_blank\" href=\"https:\/\/twitter.com\/"+twitterUser+"/status/"+tweetId+"\">"+dateToUse+"<\/a><\/time>";
+        twitterCard +=          twitterDisplayImage;
+        twitterCard += "        <div class=\"actions\">";
+        twitterCard += "            <ul>";
+        twitterCard += "                <li>";
+        twitterCard += "                    <a class=\"reply\" href=\""+intentReply+"\"> ";
+        twitterCard += "                        <svg class=\"icon icon-reply\"><use xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\" xlink:href=\"#icon-reply\"><\/use><\/svg>                ";
+        twitterCard += "                    <\/a>";
+        twitterCard += "                <\/li>";
+        twitterCard += "                <li>";
+        twitterCard += "                    <a class=\"retweet\" href=\""+intentRetweet+"\">";
+        twitterCard += "                        <svg class=\"icon icon-retweet\"><use xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\" xlink:href=\"#icon-retweet\"><\/use><\/svg>";
+        twitterCard += "                    <\/a> ";
+        twitterCard += "                <\/li>";
+        twitterCard += "                <li>";
+        twitterCard += "                    <a class=\"favorite\" href=\""+intentFavorite+"\">";
+        twitterCard += "                        <svg class=\"icon icon-heart\"><use xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\" xlink:href=\"#icon-heart\"><\/use><\/svg>";
+        twitterCard += "                    <\/a>";
+        twitterCard += "                <\/li>";
+        twitterCard += "            <\/ul>";
+        twitterCard += "        <\/div>";
+        twitterCard += "    <\/div>";
+        twitterCard += "<\/li>";
+
+        if(direction === 'append'){
+            $('.social-feed .block > ul').append(twitterCard);
+        }
+        else{
+            $('.social-feed .block > ul').prepend(twitterCard);
+        }
+
+        $('.social-feed header img').on('error',function(){
+            $(this).parent().parent().parent().remove();
+        });
+    };
+
+    var instagramTemplate = function(instaImage,instaName,instaUsername,instaTime,instaUrl,instaBody){
+        var instaUserFullName = instaName;
+
+        if(typeof instaName === undefined || instaName.length === 0){
+            instaUserFullName = instaUsername;
+        }
+
+        var body = instaBody.replace(/â€™/g,'’');
+
+        body = linkInstagramHashtags(body);
+        body = linkTwitterUsers(body);
+
+        instaTime = new Date(instaTime);
+
+        var date = instaTime / 1000;
+
+        var dateToString = date.toString();
+        var dateToUse = moment.unix(date).format('MMM Do YYYY h:mma');
+
+        var username = instaUsername.replace('@','');
+
+        var instagramMarkup="";
+        instagramMarkup += "<li>";
+        instagramMarkup += "    <div class=\"instagram-card\">";
+        instagramMarkup += "        <svg class=\"icon icon-instagram\"><use xlink:href=\"#icon-instagram\"><\/use><\/svg>";
+        instagramMarkup += "    <div class=\"photo\">";
+        instagramMarkup += "        <img src=\""+ instaImage +"\"> ";
+        instagramMarkup += "    </div>";
+        instagramMarkup += "    <header class=\"insta-header\">";
+        instagramMarkup += "        <h4><a href=\"https:\/\/instagram.com\/" + username + "\">"+instaUserFullName+"<\/a><\/h4>";
+        instagramMarkup += "        <a class=\"time\" href=\"https:\/\/instagram.com\/p\/"+instaUrl+"\" target=\"_blank\" title=\" "+instaTime+" \"><\/a>";
+        instagramMarkup += "    <\/header>";
+        instagramMarkup += "    <div class=\"content\">";
+        instagramMarkup += "        <p>"+ body +"<\/p>";
+        instagramMarkup += "    </div>";
+        instagramMarkup += "        <time><a target=\"_blank\" href=\""+instaUrl+"\">"+dateToUse+"<\/a><\/time>";
+        instagramMarkup += "    </div>";
+        instagramMarkup += "<\/li>";
+
+        $('.social-feed .block > ul').append(instagramMarkup);
+
+        $('.social-feed div.photo img').on('error',function(){
+            $(this).parent().parent().remove();
+        });
+        
+    };
+
+    /*//////////////////////////////////////
+    //  Burger mobile menu
+    //////////////////////////////////////*/
+    $('.burger-box').on('click', function(event){
+        event.preventDefault();
+        if ($(this).hasClass('open')) {
+            $(this).removeClass('open').addClass('closed');
+            $('.main-nav').removeClass('active');
+
+            ga('send', 'event', 'mobile menu', 'close') ;
+        }
+        else {
+            $(this).addClass('open').removeClass('closed') ;
+            $('.main-nav').addClass('active');
+
+            ga('send', 'event', 'mobile menu', 'open') ;
+        }
+    });
+
+    /*//////////////////////////////////////
+    //  logos
+    //////////////////////////////////////*/
+    var loadLogos = function(){
+        $('.downloads li a').not('.none-download').each(function(){
+            var image = $(this).data('image');
+            $(this).css({
+                'background-image':'url(../img/logos/'+image+')'
+            });
+            $(this).attr('href','../img/logos/'+image);
+
+            if(! Modernizr.adownload){
+                $(this).attr('target','_blank');
+            }
+        });
+        $('.none-download').css({
+            'background-image':'url(../img/'+$('.none-download').data('image')+')'
+        });
+        if(Modernizr.touchevents){
+            $('.none-download').attr('href','/img/OneBostonDay_CoverPhoto_Facebook_v2.jpg');
+        }
+    };
+
+    $('.downloads li a').on('click',function(){
+        ga('send', 'event', 'logo download', $(this).data('image')) ;
+    });
+
+    $('a.package').on('click',function(){
+        ga('send', 'event', 'logo download', 'all .zip') ;
+    });
+
+    if( $('.downloads').length > 0){
+        var loadTheLogos = setInterval(function(){
+            if(scrollDistance() > ( $('.downloads').offset().top - $('.downloads').height()) ){
+                loadLogos();
+                clearInterval(loadTheLogos);
+            }
+        },50);
+    }
+
+    /*//////////////////////////////////////
+    //  virtual page tracking
+    //////////////////////////////////////*/
+    $(window).on("scroll",function(){
+        var currentScroll = ( scrollDistance() + $('.main-nav').height() );
+        $("section").each(function(){
+            offset = ($(this).offset());
+            if(currentScroll > offset.top && ! $(this).hasClass('tracked')){
+                $(this).addClass('tracked');
+                ga('send', 'pageview',{ 
+                    'page': '/'+ $(this).attr('id'),
+                    'title': $(this).attr('id'),
+                });
+            }
+        });
+    });
+
+    function scrollDistance(){
+        var toTop = $(document).scrollTop();
+        return toTop;
+    }
+
+
+    /*//////////////////////////////////////
+    //  footer links & footer analytics
+    //////////////////////////////////////*/
+    $('.mayor .flickr').on('click',function(){
+        window.open('https://www.flickr.com/people/bosmayorsoffice/', '_blank');
+        ga('send', 'event', 'footer social', $(this).attr('class'));
+    });
+    $('.mayor .twitter').on('click',function(){
+        window.open('https://twitter.com/marty_walsh', '_blank');
+    });
+    
+    $('.mayor .instagram').on('click',function(){
+        window.open('https://www.instagram.com/boston_mayor/', '_blank');
+    });
+
+    $('.mayor button').on('click',function(){
+         ga('send', 'event', 'footer social', 'mayor:' + $(this).attr('class'));
+    });
+
+    $('.city .instagram').on('click',function(){
+        window.open('https://instagram.com/cityofboston', '_blank');
+    });
+    $('.city .twitter').on('click',function(){
+        window.open('https://twitter.com/CityofBoston', '_blank');
+    });
+    $('.city .facebook').on('click',function(){
+        window.open('https://www.facebook.com/cityofboston', '_blank');
+    });
+    $('.city button').on('click',function(){
+         ga('send', 'event', 'footer social', 'city:' + $(this).attr('class'));
+    });
+
+    $('.cityofboston-link').on('click',function(){
+        ga('send', 'event', 'footer link', 'city of boston website');
+    });
+    $('.privacy-policy').on('click',function(){
+        ga('send', 'event', 'footer link', 'privacy policy');
+    });
+
+    /*//////////////////////////////////////
+    //  press tracking
+    //////////////////////////////////////*/
+    $('.press a').on('click',function(){
+        ga('send', 'event', 'press link', $(this).text());
+    });
+    
+
+    /*/////////////////////////
+    // Split up query strings
+    /////////////////////////*/
+    var getQueryVariable = function(variable){
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i=0;i<vars.length;i++) {
+            var pair = vars[i].split("=");
+            if(pair[0] === variable){
+                return pair[1];
+            }
+        }
+
+        return(false);
+    };
+
+
+    /*/////////////////////////
+    // See if current element is in viewport
+    /////////////////////////*/
+    var isElementInViewport = function(el) {
+
+        //special bonus for those using jQuery
+        if (typeof jQuery === "function" && el instanceof jQuery) {
+            el = el[0];
+        }
+
+        var rect = el.getBoundingClientRect();
+
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /*or $(window).height() */
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth) /*or $(window).width() */
+        );
+    };
+
+    /*/////////////////////////
+    // open data-target in new tabs
+    /////////////////////////*/
+    var popupWindow = function(){
+        $("a[data-popup]").on("click", function(event){
+            event.preventDefault();
+            window.open($(this)[0].href);
+        });
+    };
+    popupWindow();
+
+    var popItUp = function(url,height,width) {
+        newwindow=window.open(url,'name','height='+height+',width='+width);
+        if (window.focus) {newwindow.focus();}
+        return false;
+    };
+});
+$(function(){
+    var init = function(){
+        $.ajax({
+            url:'http://one-boston-day-wayin-api.hhcctech.com/wayin/count.json',
+            type:'GET',
+        })
+        .done(function(data){
+            count = data.results[0].count;
+            var $odometer = document.querySelector('h1');
+            od = new Odometer({
+                el: $odometer,
+                value: count,
+                format: '(,ddd)',
+                duration: 300,
+            }); 
+
+            od.update(count);
+        });
+    };
+
+    setInterval(function(){
+        init();
+    },5000);
+
+    init();
+});
+$(function(){
+
+    var inOut = function( elem ){
+         elem.delay()
+             .fadeIn()
+             .delay(9000)
+             .fadeOut( 
+                       function(){ 
+                            inOut( elem.next() ); 
+
+                            if(elem.next().length === 0){
+                                $('main.tweets ul li').each(function(){ $(this).remove();  });
+                                
+                                $('body').addClass('loading');
+                                setTimeout(function(){
+                                    loadFeed('http://one-boston-day-wayin-api.hhcctech.com/wayin/latest.json');
+                                },5000);
+                            }
+
+                        }
+                     );
+    };
+
+    var timeConverter = function(UNIX_timestamp){
+        
+        // var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        // var year = a.getFullYear();
+        // var month = months[a.getMonth()];
+        // var date = a.getDate();
+        // var hour = a.getHours();
+        // var min = a.getMinutes() < 10 ? '0' + a.getMinutes() : a.getMinutes(); var sec = a.getSeconds() < 10 ? '0' + a.getSeconds() : a.getSeconds();
+        // var sec = a.getSeconds();
+
+        // var hourMin = moment(hour+':'+min,'HH:mm').format('h:mma');
+
+        var timestamp = UNIX_timestamp.toString();
+        var date = moment.unix(UNIX_timestamp).format('MMM Do YYYY h:mma');
+
+        return date;
+    };
+
+    // 0. profile image
+    // 1. twitter name
+    // 2. twitter user
+    // 3. timestamp
+    // 4. url (null)
+    // 5. copy
+    // 6. image
+    // 7. direction (prepend)
+    var twitterTemplate = function(profileImage,twitterName,twitterUser,twitterTime,twitterTweetUrl,twitterTweetEntity,twitterImage,direction){
+        var intentReply = 'https://twitter.com/intent/tweet?in_reply_to='+twitterTweetUrl;
+        var intentRetweet = 'https://twitter.com/intent/retweet?tweet_id='+twitterTweetUrl;
+        var intentFavorite = 'https://twitter.com/intent/favorite?tweet_id='+twitterTweetUrl;
+
+        twitterDisplayImage = '';
+        hasPhoto = '';
+        if(twitterImage !== null && ! twitterImage.includes ("youtube")){
+            twitterDisplayImage = '<div class=\"photo\" style=\"background-image:url('+twitterImage+')\"><\/div>';
+            hasPhoto = 'has-photo';
+        }
+
+        var entity = twitterTweetEntity;
+
+        entity =  linkTwitterHashtags(entity);
+        entity =  linkTwitterUsers(entity);
+
+        var time = twitterTime / 1000;
+
+        var twitterCard="";
+        twitterCard += "<li>";
+        twitterCard += "    <div class=\"twitter-card "+  hasPhoto +"\">";
+        twitterCard += "        <svg class=\"icon icon-twitter\"><use xlink:href=\"#icon-twitter\"><\/use><\/svg>";
+        twitterCard += "        <header>";
+        twitterCard += "            <a href=\"https:\/\/twitter.com\/"+twitterUser+"\">";
+        twitterCard += "                <img src=\""+profileImage+"\">";
+        twitterCard += "                <h4>"+twitterName+"<\/h4>";
+        twitterCard += "                <h5>"+twitterUser+"<\/h5>";
+        twitterCard += "            <\/a>";
+        twitterCard += "        <\/header>";
+        twitterCard += "        <div class=\"content\">";
+        twitterCard += "            <p>"+entity+"<\/p>";
+        twitterCard += "        <\/div>";
+        twitterCard += "        <time><a href=\"https:\/\/twitter.com\/"+twitterUser+"/status/"+twitterTweetUrl+"\">"+timeConverter(time)+"<\/a><\/time>";
+        twitterCard +=          twitterDisplayImage;
+        twitterCard += "    <\/div>";
+        twitterCard += "<\/li>";
+
+        if(direction === 'append'){
+            $('main.tweets > ul').append(twitterCard);
+        }
+        else{
+            $('main.tweets > ul').prepend(twitterCard);
+        }
+    };
+
+    var instagramTemplate = function(instaImage,instaName,instaUsername,instaTime,instaUrl,instaBody,instaHeadshot){
+        var instaUserFullName = instaName;
+
+        if(typeof instaName === undefined || instaName.length === 0){
+            instaUserFullName = instaUsername;
+        }
+
+        var body = instaBody.replace(/â€™/g,'’');
+
+        body = linkInstagramHashtags(body);
+        body = linkTwitterUsers(body);
+
+        var date = instaTime / 1000;
+
+        var dateToString = date.toString();
+        var dateToUse = moment.unix(date).format('MMM Do YYYY h:mma');
+
+        var username = instaUsername.replace('@','');
+
+        var instagramMarkup="";
+        instagramMarkup += "<li>";
+        instagramMarkup += "    <div class=\"instagram-card\">";
+        instagramMarkup += "        <svg class=\"icon icon-instagram\"><use xlink:href=\"#icon-instagram\"><\/use><\/svg>";
+        instagramMarkup += "    <div class=\"photo\">";
+        instagramMarkup += "        <img src=\""+ instaImage +"\"> ";
+        instagramMarkup += "    </div>";
+        instagramMarkup += "    <header class=\"insta-header\">";
+        instagramMarkup += "        <img src=\""+instaHeadshot+"\">"
+        instagramMarkup += "        <h4><a href=\"https:\/\/instagram.com\/" + username + "\">"+instaUserFullName+"<\/a><\/h4>";
+        instagramMarkup += "        <a class=\"time\" href=\"https:\/\/instagram.com\/p\/"+instaUrl+"\" target=\"_blank\" title=\" "+instaTime+" \"><\/a>";
+        instagramMarkup += "    <\/header>";
+        instagramMarkup += "    <div class=\"content\">";
+        instagramMarkup += "        <p>"+ body +"<\/p>";
+        instagramMarkup += "    </div>";
+        instagramMarkup += "        <time><a target=\"_blank\" href=\""+instaUrl+"\">"+dateToUse+"<\/a><\/time>";
+        instagramMarkup += "    </div>";
+        instagramMarkup += "<\/li>";
+
+        $('main.tweets > ul').append(instagramMarkup);
+    };
+
+    var loadFeed = function(feed){
+        $.ajax({
+            url: feed,
+            dataType:'json',
+            error: function(jqXHR, textStatus, errorThrown) {
+                // console.log(textStatus, errorThrown);
+            },
+            success:function(response){
+
+                $('body').removeClass('loading');
+
+                var totalPosts = 50;
+                var data = response.results;
+
+                setTimeout(function(){
+                    for (i=0;i<totalPosts;i++){
+                        var post = data[i];
+                        console.log(post.source);
+                        if(post.source === "twitter"){
+                            twitterTemplate(post.author_avatar_url,post.author_name,post.author_handle,post.created_at_long,post.author_id,post.post_message,post.post_media_url,"append");
+                        }
+                        else if(post.source === "instagram"){
+                            instagramTemplate(post.post_media_url,post.author_name,post.author_handle,post.created_at_long,post.instagram.link,post.post_message,post.author_avatar_url);
+                        }
+                    }
+                    inOut($('main.tweets ul li:first'));
+                },600);
+            }
+        });
+    };
+
+    loadFeed('http://one-boston-day-wayin-api.hhcctech.com/wayin/latest.json');
+});

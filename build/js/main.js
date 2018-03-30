@@ -226,6 +226,7 @@ $(function(){
             }
         });
     };
+    
 
     var loadFeedContent = function(response, direction){
         $('.feed .icon-spinner').fadeOut(function(){

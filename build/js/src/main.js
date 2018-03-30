@@ -178,24 +178,24 @@ $(function(){
 
     var loadNewFeed = function(){
         $.ajax({
-            url: '/feed/feed.json',
+            url: 'https://xapi.wayin.com/xapi/content/3/filter?key=103adfe9-a7b9-4824-9916-052f7339d73a&format=json&max=1000&collectionId=co-2ny8jdhvr07p7ogdqyf',
             dataType:'json',
             error: function(jqXHR, textStatus, errorThrown) {
                 // console.log(textStatus, errorThrown);
             },
             success:function(response){
 
-                var totalPosts = response.results.length;
-                var data = response.results;
+                var totalPosts = response.data.length;
+                var data = response.data;
 
                 setTimeout(function(){
                     for (i=0;i<totalPosts;i++){
                         var post = data[i];
-                        if(post.source === "twitter"){
-                            twitterTemplate(post.author_avatar_url,post.author_name,post.author_handle,post.created_at_long,post.id,post.post_message,post.post_media_url,"append");
+                        if(post.externalservice.label === "Twitter"){
+                            twitterTemplate(post.avatar,post.sourcename,post.sourceprofile,post.createdate,post.sourceid,post.content,post.mainasseturl,"append");
                         }
-                        else if(post.source === "instagram"){
-                            instagramTemplate(post.post_media_url,post.author_name,post.author_handle,post.created_at_long,post.instagram.link,post.post_message,"append");
+                        else if(post.externalservice.label === "Instagram"){
+                            instagramTemplate(post.mainasseturl,post.sourcename,post.sourceprofile,post.createdate,post.link,post.content,"append");
                         }
                     }
                 },600);
@@ -226,6 +226,7 @@ $(function(){
             }
         });
     };
+
 
     var loadFeedContent = function(response, direction){
         $('.feed .icon-spinner').fadeOut(function(){
@@ -371,14 +372,15 @@ $(function(){
 
         var username = twitterUser.replace('@','');
 
+        twitterTime = new Date(twitterTime);
         var date = twitterTime / 1000;
 
         var dateToString = date.toString();
         var dateToUse = moment.unix(date).format('MMM Do YYYY h:mma');
 
-        if(isNaN(parseInt(twitterTime))){
-            dateToUse = twitterTime;
-        }
+        // if(isNaN(parseInt(twitterTime))){
+        //     dateToUse = twitterTime;
+        // }
 
         var twitterCard="";
         twitterCard += "<li>";
@@ -441,6 +443,8 @@ $(function(){
 
         body = linkInstagramHashtags(body);
         body = linkTwitterUsers(body);
+
+        instaTime = new Date(instaTime);
 
         var date = instaTime / 1000;
 
@@ -533,24 +537,6 @@ $(function(){
             }
         },50);
     }
-
-    /*//////////////////////////////////////
-    //  Stories page
-    //////////////////////////////////////*/
-    $('nav.story-nav input[type="checkbox"]').on('change',function(){
-        $('div.story-list').toggleClass('hide-excerpts');
-    });
-
-    $('section.photos ul.thumbs li').on('click',function(){
-        $(this).parent().find('li').each(function(){
-            $(this).removeClass('active');
-        });
-
-        $(this).addClass('active');
-
-        $('section.photos div.holder').attr('style', $(this).attr('style'));
-    });
-
 
     /*//////////////////////////////////////
     //  virtual page tracking
