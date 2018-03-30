@@ -192,10 +192,10 @@ $(function(){
                     for (i=0;i<totalPosts;i++){
                         var post = data[i];
                         if(post.externalservice.label === "Twitter"){
-                            twitterTemplate(post.author_avatar_url,post.author_name,post.author_handle,post.created_at_long,post.id,post.post_message,post.post_media_url,"append");
+                            twitterTemplate(post.avatar,post.sourcename,post.sourceprofile,post.createdate,post.sourceid,post.content,post.mainasseturl,"append");
                         }
                         else if(post.externalservice.label === "Instagram"){
-                            instagramTemplate(post.post_media_url,post.author_name,post.author_handle,post.created_at_long,post.instagram.link,post.post_message,"append");
+                            instagramTemplate(post.mainasseturl,post.sourcename,post.sourceprofile,post.createdate,post.link,post.content,"append");
                         }
                     }
                 },600);
@@ -371,14 +371,15 @@ $(function(){
 
         var username = twitterUser.replace('@','');
 
+        twitterTime = new Date(twitterTime);
         var date = twitterTime / 1000;
 
         var dateToString = date.toString();
         var dateToUse = moment.unix(date).format('MMM Do YYYY h:mma');
 
-        if(isNaN(parseInt(twitterTime))){
-            dateToUse = twitterTime;
-        }
+        // if(isNaN(parseInt(twitterTime))){
+        //     dateToUse = twitterTime;
+        // }
 
         var twitterCard="";
         twitterCard += "<li>";
@@ -441,6 +442,8 @@ $(function(){
 
         body = linkInstagramHashtags(body);
         body = linkTwitterUsers(body);
+
+        instaTime = new Date(instaTime);
 
         var date = instaTime / 1000;
 
