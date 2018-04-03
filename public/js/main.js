@@ -360,7 +360,7 @@ $(function(){
         var intentFavorite = 'https://twitter.com/intent/favorite?tweet_id='+tweetId;
 
         twitterDisplayImage = '';
-        if(twitterImage !== null && ! twitterImage.includes ("youtu")){
+        if(twitterImage !== null && ! twitterImage.indexOf("youtu") > 0){
             twitterDisplayImage = '<div class=\"photo\"><img data-original="'+twitterImage+'" src=\"\/img\/preloader-large.gif\" alt=\"\"><\/div>';
         }
 
