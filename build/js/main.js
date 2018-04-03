@@ -192,7 +192,7 @@ $(function(){
                     for (i=0;i<totalPosts;i++){
                         var post = data[i];
                         if(post.externalservice.label === "Twitter"){
-                            twitterTemplate(post.avatar,post.sourcename,post.sourceprofile,post.createdate,post.sourceid,post.content,post.mainasseturl,"append");
+                            twitterTemplate(post.avatar,post.sourcename,post.sourceprofile,post.createdate,post.externalid,post.content,post.mainasseturl,"append");
                         }
                         else if(post.externalservice.label === "Instagram"){
                             instagramTemplate(post.mainasseturl,post.sourcename,post.sourceprofile,post.createdate,post.link,post.content,"append");
@@ -361,7 +361,7 @@ $(function(){
         var intentFavorite = 'https://twitter.com/intent/favorite?tweet_id='+tweetId;
 
         twitterDisplayImage = '';
-        if(twitterImage !== null && ! twitterImage.includes ("youtu")){
+        if(twitterImage !== null && ! twitterImage.indexOf("youtu") > 0){
             twitterDisplayImage = '<div class=\"photo\"><img data-original="'+twitterImage+'" src=\"\/img\/preloader-large.gif\" alt=\"\"><\/div>';
         }
 
