@@ -23,6 +23,9 @@
             <h3>{{question.prompt.value}}</h3>
             {{question.answer}}
         {% endfor %}
+        {% if entry.customTextField %}
+            {{entry.customTextField}}
+        {% endif %}
     </section>
 
     <section class="links block">
