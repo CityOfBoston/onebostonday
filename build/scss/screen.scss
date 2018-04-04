@@ -21,6 +21,11 @@ section.story{
         color:$primary;
         margin: 0;
     }
+    p {
+        a {
+            color: $primary;
+        }
+    }
 }
 
 section.photos{
