@@ -394,7 +394,16 @@ $(function(){
                 }
             },500);
         });
-    }    
+    }
+    
+    $('ul.thumbs li').on('click', function() {
+        $('ul.thumbs li').removeClass('active');
+        //
+        var $this = $(this);
+        $this.addClass('active');
+        var style = $this.attr('style');
+        $('.holder').attr('style', style);
+    });
 
     //load more button
     var inView = 24;
