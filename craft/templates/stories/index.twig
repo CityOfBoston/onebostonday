@@ -31,152 +31,27 @@
             </nav>
 
             {# TODO - Shuffle Stories #}
-            <div class="story-list">
+            <div class="story-list" id="stories-list">
+                {% set stories = craft.entries.find({
+                    section: 'stories',
+                    with: ['galleryImages', 'questionsBlock']
+                }) %}
                 <ul>
-                    <li>
-                        <a href="/stories/story.html">
-                            <div>
-                                <img src="http://placehold.it/150x150">
-                                <h3>Firstname Lastname</h3>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/stories/story.html">
-                            <div>
-                                <img src="http://placehold.it/150x150">
-                                <h3>Firstname Lastname</h3>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/stories/story.html">
-                            <div>
-                                <img src="http://placehold.it/150x150">
-                                <h3>Firstname Lastname</h3>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/stories/story.html">
-                            <div>
-                                <img src="http://placehold.it/150x150">
-                                <h3>Firstname Lastname</h3>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/stories/story.html">
-                            <div>
-                                <img src="http://placehold.it/150x150">
-                                <h3>Firstname Lastname</h3>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/stories/story.html">
-                            <div>
-                                <img src="http://placehold.it/150x150">
-                                <h3>Firstname Lastname</h3>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/stories/story.html">
-                            <div>
-                                <img src="http://placehold.it/150x150">
-                                <h3>Firstname Lastname</h3>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/stories/story.html">
-                            <div>
-                                <img src="http://placehold.it/150x150">
-                                <h3>Firstname Lastname</h3>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/stories/story.html">
-                            <div>
-                                <img src="http://placehold.it/150x150">
-                                <h3>Firstname Lastname</h3>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/stories/story.html">
-                            <div>
-                                <img src="http://placehold.it/150x150">
-                                <h3>Firstname Lastname</h3>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/stories/story.html">
-                            <div>
-                                <img src="http://placehold.it/150x150">
-                                <h3>Firstname Lastname</h3>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/stories/story.html">
-                            <div>
-                                <img src="http://placehold.it/150x150">
-                                <h3>Firstname Lastname</h3>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/stories/story.html">
-                            <div>
-                                <img src="http://placehold.it/150x150">
-                                <h3>Firstname Lastname</h3>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/stories/story.html">
-                            <div>
-                                <img src="http://placehold.it/150x150">
-                                <h3>Firstname Lastname</h3>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/stories/story.html">
-                            <div>
-                                <img src="http://placehold.it/150x150">
-                                <h3>Firstname Lastname</h3>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/stories/story.html">
-                            <div>
-                                <img src="http://placehold.it/150x150">
-                                <h3>Firstname Lastname</h3>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
-                        </a>
-                    </li>
+                    {% for story in stories %}
+                        {% set image = story.galleryImages[0] ?? null %}
+                        <li>
+                            <a href="{{story.url}}">
+                                <div>
+                                    <img src="{{image.url}}">
+                                    <h3>{{story.firstName}} {{story.lastName}}</h3>
+                                    {% if story.onBehalfOf %}
+                                        <h4>On Behalf of: {{story.onBehalfOf}}</h4>
+                                    {% endif %}
+                                </div>
+                                <p>{{story.questionsBlock[0].answer|slice(0,150)|raw}}...</p>
+                            </a>
+                        </li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>

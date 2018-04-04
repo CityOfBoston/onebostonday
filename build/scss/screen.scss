@@ -6,15 +6,20 @@
 
 @import "pages/**/*.scss";
 
-p.pullquote{
-    font-size:2em;
-    padding:0.5em 1em;
-    color:$primary;
-}
+
 
 section.story{
     padding:1em 0px;
     max-width:680px;
+
+    h3 {
+        margin-top: 2em;
+    }
+    blockquote{
+        font-size:2em;
+        padding:0.5em 1em;
+        color:$primary;
+    }
 }
 
 section.photos{
@@ -37,6 +42,8 @@ section.photos{
     }
     ul.thumbs{
         margin-top:4px;
+        @include display(flex);
+        @include justify-content(space-between);
         li{
             width:20%;
             display:inline-block;

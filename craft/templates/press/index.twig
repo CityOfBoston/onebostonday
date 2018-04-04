@@ -12,14 +12,14 @@
             <a class="btn button primary" href="/pdf/OneBostonDay_MediaKit_03152018.pdf" download>Download</a>
         </div>
         <ul>
-            {% set press = [1,2,3] %}
+            {% set press = craft.entries.find({
+                section: 'press'
+            }) %}
             {% for entry in press %}
                 <li>
-                    <a target="_blank" href="#">
-                        Link Name
-                    </a>
-                    <time>12:00</time>
-                    <span>Testing</span>
+                    <a target="_blank" href="{{entry.associatedLink.url}}">{{entry.title}}</a>
+                    <time>{{entry.publishedDate|date('F j')}}</time>
+                    <span>{{entry.source}}</span>
                 </li>
             {% endfor %}
         </ul>

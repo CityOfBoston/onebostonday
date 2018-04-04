@@ -3,20 +3,24 @@
 {% block content %}
 <section class="header-intro" aria-role="banner">
     <h1>Community Impact</h1>
-    <p>One Boston Day is an opportunity for businesses and organizations to display their humanity and bring neighbors together. Here are a few ways the Boston business and non-profit communities got involved:</p>
+    {{entry.introCopy}}
 </section>
 <section class="community" id="community">
     <div class="slider">
-        {% set community = [1,2,3] %}
+        {% set community = craft.entries.find({
+            section: 'community',
+            with: ['featuredImage']
+        }) %}
         {% for entry in community %}
+            {% set image = entry.featuredImage[0] ?? null %}
             <div class="activity">
                 <div class="block">
                     <figure class="activity-image">
-                        <img src="/img/community/" alt="">
+                        <img src="{{image.url}}" alt="">
                     </figure>
                     <div class="copy">
-                        <p>Placeholder</p>
-                        <a href="" target="_blank">Learn more</a>
+                        {{entry.description}}
+                        <a href="{{entry.associatedLink.url}}" target="_blank">Learn more</a>
                     </div>
                 </div>
             </div>

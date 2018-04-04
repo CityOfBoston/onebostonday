@@ -310,7 +310,7 @@ $(function(){
             }
         });
     };
-
+    
 
     var loadFeedContent = function(response, direction){
         $('.feed .icon-spinner').fadeOut(function(){
@@ -356,7 +356,7 @@ $(function(){
 
     var loadOldFeed = function(){
         $.ajax({
-            url: '/oldfeed/feed.json',
+            url: '/feed/oldfeed.json',
             dataType:'json',
             error: function(jqXHR,textStatus,errorThrown){
                 // console.log(textStatus, errorThrown);
@@ -435,6 +435,14 @@ $(function(){
         event.preventDefault();
         popItUp($(this).attr('href'),300,600);
         ga('send', 'event', 'feed twitter action', $(this).find('svg').attr('class')) ;
+    });
+
+    $('ul.social-share a').on('click', function(e) {
+        var $this = $(this);
+        if (!$this.hasClass('is-email')) {
+            e.preventDefault();
+            popItUp($(this).attr('href'), 300, 600);
+        }
     });
 
     var twitterTemplate = function(profileImage,twitterName,twitterUser,twitterTime,twitterTweetUrl,twitterTweetEntity,twitterImage,direction){
@@ -644,7 +652,26 @@ $(function(){
         return toTop;
     }
 
+    $.fn.shuffle = function() {
+        var allElems = this.get(),
+            getRandom = function(max) {
+                return Math.floor(Math.random() * max);
+            },
+            shuffled = $.map(allElems, function(){
+                var random = getRandom(allElems.length),
+                    randEl = $(allElems[random]).clone(true)[0];
+                allElems.splice(random, 1);
+                return randEl;
+           });
+ 
+        this.each(function(i){
+            $(this).replaceWith($(shuffled[i]));
+        });
 
+        return $(shuffled);
+    };
+
+    $('.stories li').shuffle();
     /*//////////////////////////////////////
     //  footer links & footer analytics
     //////////////////////////////////////*/

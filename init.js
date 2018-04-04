@@ -50,7 +50,7 @@ let setupBrowserSync = function (availablePort) {
     proxy: "onebostonday.test",
     port: availablePort + 2,
     ghostMode: false,
-    files: ['html/js/', 'html/css/', 'html/img', 'craft/templates/**/*.*'],
+    files: ['public/js/', 'public/css/', 'html/img', 'craft/templates/**/*.*'],
     open: false,
     /* Hide the notification. It gets annoying */
     notify: {

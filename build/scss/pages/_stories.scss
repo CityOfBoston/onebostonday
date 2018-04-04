@@ -13,6 +13,13 @@ div.story-list{
         h3{
             color:$primary;
             @extend %default-transition;
+            width: 77.5%;
+        }
+        h4 {
+            width: 100%;
+            font-size: 12px;
+            font-style: italic;
+            margin: 1em 0; 
         }
         &:hover{
             h3{
@@ -37,10 +44,11 @@ div.story-list{
     div{
         @include display(flex);
         @include align-items(center);
+        @include flex-wrap(wrap);
         min-height:55px;
         img{
             @include align-self(center);
-            margin-right:1em;
+            margin-right: 2.5%;
         }
     }
     p{
