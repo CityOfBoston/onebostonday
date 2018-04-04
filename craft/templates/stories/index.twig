@@ -48,7 +48,7 @@
                                         <h4>On Behalf of: {{story.onBehalfOf}}</h4>
                                     {% endif %}
                                 </div>
-                                <p>{{story.questionsBlock[0].answer|slice(0,150)|raw}}...</p>
+                                {{story.questionsBlock[0].answer|slice(0,150)|raw}}...
                             </a>
                         </li>
                     {% endfor %}

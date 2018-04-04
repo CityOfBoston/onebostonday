@@ -2,5 +2,7 @@
 	"buttons": ["format","bold","italic","link"],
 	"plugins": ["source","fullscreen"],
 	"paragraphize": false,
-	"deniedTags": ["br"]
+	"deniedTags": ["br"],
+	"enterKey": false,
+	"lineBreaks": true
 }
