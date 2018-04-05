@@ -1,0 +1,63 @@
+{#
+/**
+ * Export plugin for Craft CMS
+ *
+ * Export Settings.twig
+ *
+ * @author    Hill Holliday
+ * @copyright Copyright (c) 2016 Hill Holliday
+ * @link      http://hhcc.com
+ * @package   Export
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{{ forms.textField({
+    label: 'Destination Site',
+    instructions: 'What is the site that the export tool is uploading to?',
+    id: 'sitedestination',
+    name: 'siteDestination', 
+    value: settings['siteDestination']})
+}}
+
+{{ forms.textField({
+    label: 'URL Endpoint',
+    instructions: 'URL Endpoint to hit',
+    id: 'urlendpoint',
+    name: 'urlEndpoint', 
+    value: settings['urlEndpoint']})
+}}
+
+{{ forms.textField({
+    label: 'Validation Key',
+    instructions: 'Private Validation Key',
+    id: 'validationkey',
+    name: 'validationKey', 
+    value: settings['validationKey']})
+}}
+
+{{ forms.textField({
+    label: 'htaccess Username',
+    instructions: 'htaccess username. Leave blank if it does not exist',
+    id: 'htaccessUsername',
+    name: 'htaccessUsername', 
+    value: settings['htaccessUsername']})
+}}
+
+{{ forms.textField({
+    label: 'htaccess Password',
+    instructions: 'htaccess password. Leave blank if it does not exist',
+    id: 'htaccessPassword',
+    name: 'htaccessPassword', 
+    value: settings['htaccessPassword']})
+}}
+
+{{ forms.textField({
+    label: 'Who should be emailed?',
+    instructions: 'List of people who should be emailed. Seperate with commas.',
+    id: 'emails',
+    name: 'emails', 
+    value: settings['emails']})
+}}

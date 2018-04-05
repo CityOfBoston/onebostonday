@@ -1,0 +1,14 @@
+{
+	"name": "/export",
+	"description": "Run the export utility to ftps files to John Hancock&#39;s server",
+	"type": "craft-plugin",
+	"authors": [
+		{
+			"name": "Hill Holliday",
+			"homepage": "http://hhcc.com"
+		}
+	],
+	"require": {
+		"composer/installers": "~1.0"
+	}
+}
