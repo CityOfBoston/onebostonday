@@ -1,0 +1,113 @@
+{% header "Content-Type: application/json" %}
+{% set pages = craft.entries({section:'and, not press, not community'}) %}
+{% set assets = craft.assets.limit(null).kind('image') %}
+
+[
+    {
+        "root" : "{{siteUrl}}"
+    },
+    [
+        {
+            "id": null,
+            "title": "sitemap.xml",
+            "uri": "sitemap.xml",
+            "dataType": "xml"
+        },
+        {
+            "id": null,
+            "title": "humans.txt",
+            "uri": "humans.txt",
+            "dataType": "txt"
+        },
+        {
+            "id": null,
+            "title": "favicon.ico",
+            "uri": "favicon.ico",
+            "dataType": "ico"
+        },
+        {
+            "id": null,
+            "title": "screen.min.css",
+            "uri": "css/screen.min.css",
+            "dataType": "css"
+        },
+        {
+            "id": null,
+            "title": "print.css",
+            "uri": "css/print.min.css",
+            "dataType": "css"
+        },
+        {
+            "id": null,
+            "title": "main.js",
+            "uri": "js/main.js",
+            "dataType": "js"
+        },
+        {
+            "id": null,
+            "title": "plugins.js",
+            "uri": "js/plugins.js",
+            "dataType": "js"
+        },
+        {
+            "id": null,
+            "title": "modernizr.js",
+            "uri": "js/vendor/modernizr.js",
+            "dataType": "js"
+        },
+        {
+            "id":null,
+            "title": "cursor-close.svg",
+            "uri": "img/cursor-close.svg",
+            "dataType": "svg"
+        },
+        {
+            "id":null,
+            "title": "logo-main.svg",
+            "uri": "img/logo-main.svg",
+            "dataType": "svg"
+        },
+        {
+            "id":null,
+            "title": "logo-iperceptions.jpg",
+            "uri": "img/logo-iperceptions.jpg",
+            "dataType": "jpg"
+        },
+        {
+            "id": null,
+            "title": "symbol-defs.svg",
+            "uri": "symbol-defs.svg",
+            "dataType": "svg"
+        },
+        {
+            "id": null,
+            "title": "404",
+            "uri": "404",
+            "dataType": "html"
+        },
+    {% for page in pages %}
+        {% if page.uri %}
+        {
+            "id": {{page.id}},
+            "title": "{{page.title}}",
+            "uri": "{{page.uri|replace('__home__','index')}}",
+            "dataType": "html"
+        },
+        {% endif %}
+    {% endfor %}
+    {% for asset in assets %}
+        {% if not asset.uri starts with 'cpresources' %}
+        {
+            "id": {{asset.id}},
+            "title": "{{asset.filename}}",
+            "uri": "{{asset.getUrl|replace(siteUrl,'')}}",
+            "dataType": "{{asset.extension}}"
+            {% if loop.last%}
+            }
+            {% else %}
+            },
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+    ]
+]
