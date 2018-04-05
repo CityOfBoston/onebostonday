@@ -39,6 +39,24 @@
         },
         {
             "id": null,
+            "title": "ie.min.css",
+            "uri": "css/ie.min.css",
+            "dataType": "css"
+        },
+                {
+            "id": null,
+            "title": "kiosk.min.css",
+            "uri": "css/kiosk.min.css",
+            "dataType": "css"
+        },
+        {
+            "id": null,
+            "title": "tweets.min.css",
+            "uri": "css/tweets.min.css",
+            "dataType": "css"
+        },
+        {
+            "id": null,
             "title": "main.js",
             "uri": "js/main.js",
             "dataType": "js"
@@ -56,28 +74,16 @@
             "dataType": "js"
         },
         {
-            "id":null,
-            "title": "cursor-close.svg",
-            "uri": "img/cursor-close.svg",
-            "dataType": "svg"
-        },
-        {
-            "id":null,
-            "title": "logo-main.svg",
-            "uri": "img/logo-main.svg",
-            "dataType": "svg"
-        },
-        {
-            "id":null,
-            "title": "logo-iperceptions.jpg",
-            "uri": "img/logo-iperceptions.jpg",
-            "dataType": "jpg"
+            "id": null,
+            "title": "Feed",
+            "uri": "feed/feed.json",
+            "dataType": "json"
         },
         {
             "id": null,
-            "title": "symbol-defs.svg",
-            "uri": "symbol-defs.svg",
-            "dataType": "svg"
+            "title": "Old Feed",
+            "uri": "feed/oldfeed.json",
+            "dataType": "json"
         },
         {
             "id": null,
@@ -96,7 +102,6 @@
         {% endif %}
     {% endfor %}
     {% for asset in assets %}
-        {% if not asset.uri starts with 'cpresources' %}
         {
             "id": {{asset.id}},
             "title": "{{asset.filename}}",
@@ -107,7 +112,6 @@
             {% else %}
             },
             {% endif %}
-        {% endif %}
     {% endfor %}
     ]
 ]
