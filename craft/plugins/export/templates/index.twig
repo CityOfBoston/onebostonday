@@ -9,7 +9,7 @@
     <h2>Attention:</h2>
     <p>Clicking the below button will take a complete scrape of <strong>{{siteUrl}}</strong> as of <strong>{{"now"|date('M j, Y h:ia T')}}</strong>, and then deliver those files to be uploaded to <strong>{{craft.export.getMySetting("siteDestination")}}</strong></p>
 
-    <a class="btn submit run-export" href="{{craft.export.getMySetting('urlEndpoint')}}" data-key="{{craft.export.getMySetting('validationKey')}}"  data-username="{{craft.export.getMySetting('htaccessUsername')}}" data-password="{{craft.export.getMySetting("htaccessPassword")}}" data-user="{{currentUser.username}}" data-url="{{siteUrl}}api/v1/landing-pages/list.json" data-emails="{{craft.export.getMySetting('emails')}}">
+    <a class="btn submit run-export" href="{{craft.export.getMySetting('urlEndpoint')}}" data-key="{{craft.export.getMySetting('validationKey')}}"  data-username="{{craft.export.getMySetting('htaccessUsername')}}" data-password="{{craft.export.getMySetting("htaccessPassword")}}" data-user="{{currentUser.username}}" data-url="{{siteUrl}}api/v1/assets/get.json" data-emails="{{craft.export.getMySetting('emails')}}">
         Run export
     </a>
     <p>Clicking this button means the existing code on <strong>{{craft.export.getMySetting("siteDestination")}}</strong> will be overwritten, so tread carefully!</p>
