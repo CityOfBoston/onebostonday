@@ -13,10 +13,6 @@
         "url": "{{siteUrl}}humans.txt"
     },
     {
-        "title": "favicon.ico",
-        "url": "{{siteUrl}}favicon.ico"
-    },
-    {
         "title": "screen.min.css",
         "url": "{{siteUrl}}css/screen.min.css"
     },
