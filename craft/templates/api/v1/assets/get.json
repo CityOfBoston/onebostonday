@@ -48,6 +48,18 @@
         "title": "404",
         "url": "{{siteUrl}}404"
     },
+    {
+        "title": "404",
+        "url": "{{siteUrl}}kiosk"
+    },
+    {
+        "title": "404",
+        "url": "{{siteUrl}}tweets"
+    },
+    {
+        "title": "404",
+        "url": "{{siteUrl}}realtime"
+    },
 {% for page in pages %}
     {% if page.url %}
     {
