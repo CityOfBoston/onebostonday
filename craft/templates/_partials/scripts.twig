@@ -5,7 +5,7 @@
     yepnope([
         {
             test: Modernizr.svg && Modernizr.rgba && Modernizr.opacity,
-            yep : '/js/main.js',
+            yep : "{{ cacheBuster('/js/main.js') }}",
             nope: '/js/fallback.js'
         },
         {

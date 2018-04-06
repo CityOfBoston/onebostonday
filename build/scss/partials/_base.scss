@@ -139,6 +139,7 @@ ul,ol{
     overflow: hidden;
 }
 
+
 body,html{
     display:block;
     height:100%;
@@ -205,4 +206,7 @@ p{
 
 img{
     max-width:100%;
+}
+.aria-hidden {
+    display: none;
 }
