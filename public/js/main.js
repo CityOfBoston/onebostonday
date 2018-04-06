@@ -461,8 +461,9 @@ $(function(){
         var intentRetweet = 'https://twitter.com/intent/retweet?tweet_id='+tweetId;
         var intentFavorite = 'https://twitter.com/intent/favorite?tweet_id='+tweetId;
 
-        twitterDisplayImage = '';
-        if(twitterImage !== null && ! twitterImage.indexOf("youtu") > 0){
+
+        var twitterDisplayImage = '';
+        if(twitterImage !== null && twitterImage.indexOf("youtu") == -1){
             twitterDisplayImage = '<div class=\"photo\"><img data-original="'+twitterImage+'" src=\"\/img\/preloader-large.gif\" alt=\"\"><\/div>';
         }
 
