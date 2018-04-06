@@ -53,17 +53,11 @@
     {
         "title": "{{page.title}}",
         "url": "{{page.url}}"
+    {% endif %}
+    {% if loop.last%}
+    }
+    {% else %}
     },
     {% endif %}
-{% endfor %}
-{% for asset in assets %}
-    {
-        "title": "{{asset.filename}}",
-        "url": "{{asset.getUrl}}"
-        {% if loop.last%}
-        }
-        {% else %}
-        },
-        {% endif %}
 {% endfor %}
 ]
