@@ -2,116 +2,72 @@
 {% set pages = craft.entries({section:'and, not press, not community'}) %}
 {% set assets = craft.assets.limit(null).kind('image') %}
 
+
 [
     {
-        "root" : "{{siteUrl}}"
+        "title": "sitemap.xml",
+        "url": "{{siteUrl}}sitemap.xml"
     },
-    [
-        {
-            "id": null,
-            "title": "sitemap.xml",
-            "uri": "sitemap.xml",
-            "dataType": "xml"
-        },
-        {
-            "id": null,
-            "title": "humans.txt",
-            "uri": "humans.txt",
-            "dataType": "txt"
-        },
-        {
-            "id": null,
-            "title": "favicon.ico",
-            "uri": "favicon.ico",
-            "dataType": "ico"
-        },
-        {
-            "id": null,
-            "title": "screen.min.css",
-            "uri": "css/screen.min.css",
-            "dataType": "css"
-        },
-        {
-            "id": null,
-            "title": "print.css",
-            "uri": "css/print.min.css",
-            "dataType": "css"
-        },
-        {
-            "id": null,
-            "title": "ie.min.css",
-            "uri": "css/ie.min.css",
-            "dataType": "css"
-        },
-                {
-            "id": null,
-            "title": "kiosk.min.css",
-            "uri": "css/kiosk.min.css",
-            "dataType": "css"
-        },
-        {
-            "id": null,
-            "title": "tweets.min.css",
-            "uri": "css/tweets.min.css",
-            "dataType": "css"
-        },
-        {
-            "id": null,
-            "title": "main.js",
-            "uri": "js/main.js",
-            "dataType": "js"
-        },
-        {
-            "id": null,
-            "title": "plugins.js",
-            "uri": "js/plugins.js",
-            "dataType": "js"
-        },
-        {
-            "id": null,
-            "title": "modernizr.js",
-            "uri": "js/vendor/modernizr.js",
-            "dataType": "js"
-        },
-        {
-            "id": null,
-            "title": "Feed",
-            "uri": "feed/feed.json",
-            "dataType": "json"
-        },
-        {
-            "id": null,
-            "title": "Old Feed",
-            "uri": "feed/oldfeed.json",
-            "dataType": "json"
-        },
-        {
-            "id": null,
-            "title": "404",
-            "uri": "404",
-            "dataType": "html"
-        },
-    {% for page in pages %}
-        {% if page.uri %}
-        {
-            "id": {{page.id}},
-            "title": "{{page.title}}",
-            "uri": "{{page.uri|replace('__home__','index')}}",
-            "dataType": "html"
+    {
+        "title": "humans.txt",
+        "url": "{{siteUrl}}humans.txt"
+    },
+    {
+        "title": "favicon.ico",
+        "url": "{{siteUrl}}favicon.ico"
+    },
+    {
+        "title": "screen.min.css",
+        "url": "{{siteUrl}}css/screen.min.css"
+    },
+    {
+        "title": "print.css",
+        "url": "{{siteUrl}}css/print.min.css"
+    },
+    {
+        "title": "ie.min.css",
+        "url": "{{siteUrl}}css/ie.min.css"
+    },
+    {
+        "title": "kiosk.min.css",
+        "url": "{{siteUrl}}css/kiosk.min.css"
+    },
+    {
+        "title": "tweets.min.css",
+        "url": "{{siteUrl}}css/tweets.min.css"
+    },
+    {
+        "title": "main.js",
+        "url": "{{siteUrl}}js/main.js"
+    },
+    {
+        "title": "plugins.js",
+        "url": "{{siteUrl}}js/plugins.js"
+    },
+    {
+        "title": "modernizr.js",
+        "url": "{{siteUrl}}js/vendor/modernizr.js"
+    },
+    {
+        "title": "404",
+        "url": "{{siteUrl}}404"
+    },
+{% for page in pages %}
+    {% if page.url %}
+    {
+        "title": "{{page.title}}",
+        "url": "{{page.url}}"
+    },
+    {% endif %}
+{% endfor %}
+{% for asset in assets %}
+    {
+        "title": "{{asset.filename}}",
+        "url": "{{asset.getUrl}}"
+        {% if loop.last%}
+        }
+        {% else %}
         },
         {% endif %}
-    {% endfor %}
-    {% for asset in assets %}
-        {
-            "id": {{asset.id}},
-            "title": "{{asset.filename}}",
-            "uri": "{{asset.getUrl|replace(siteUrl,'')}}",
-            "dataType": "{{asset.extension}}"
-            {% if loop.last%}
-            }
-            {% else %}
-            },
-            {% endif %}
-    {% endfor %}
-    ]
+{% endfor %}
 ]
