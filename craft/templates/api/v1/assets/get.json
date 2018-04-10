@@ -37,6 +37,18 @@
         "url": "{{siteUrl}}js/main.js"
     },
     {
+        "title": "tweets.js",
+        "url": "{{siteUrl}}js/tweets.js"
+    },
+    {
+        "title": "realtime.js",
+        "url": "{{siteUrl}}js/realtime.js"
+    },
+    {
+        "title": "kiosk.js",
+        "url": "{{siteUrl}}js/kiosk.js"
+    },
+    {
         "title": "plugins.js",
         "url": "{{siteUrl}}js/plugins.js"
     },
