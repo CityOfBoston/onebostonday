@@ -195,7 +195,7 @@ $(function(){
                             twitterTemplate(post.avatar,post.sourcename,post.sourceprofile,post.createdate,post.externalid,post.content,post.mainasseturl,"append");
                         }
                         else if(post.externalservice.label === "Instagram"){
-                            instagramTemplate(post.mainasseturl,post.sourcename,post.sourceprofile,post.createdate,post.link,post.content,"append");
+                            instagramTemplate(post.mainasseturl,post.sourcename,post.sourceprofile,post.createdate,post.link,post.content);
                         }
                     }
                 },600);

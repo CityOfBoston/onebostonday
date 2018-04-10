@@ -24,7 +24,6 @@ gulp.task('jshint', function() {
 
 gulp.task('build-js', function() {
     return gulp.src('./build/js/src/**/*.js')
-        .pipe(concat('main.js'))
         //.pipe(uglify())
         .pipe(gulp.dest('public/js/'));
 });
