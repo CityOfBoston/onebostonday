@@ -19,6 +19,7 @@ $(function(){
 
         var dest = $this.attr('href');
 
+        // TODO: Add in destination and delivery type
         var data = {
             key: $this.data('key'),
             user: $this.data('user'),

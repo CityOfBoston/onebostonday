@@ -184,7 +184,8 @@ class ExportPlugin extends BasePlugin
             'siteDestination' => array(AttributeType::String, 'label' => 'Site Destination', 'default' => ''),
             'htaccessUsername' => array(AttributeType::String, 'label' => 'htaccessUsername', 'default' => ''),
             'htaccessPassword' => array(AttributeType::String, 'label' => 'htaccessPassword', 'default' => ''),
-            'emails' => array(AttributeType::String, 'label' => 'emails', 'default' => '')
+            'emails' => array(AttributeType::String, 'label' => 'emails', 'default' => ''),
+            'delivery' => array(AttributeType::String, 'label' => 'emails', 'default' => '')
         );
     }
 
