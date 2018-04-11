@@ -55,11 +55,17 @@
                 <ul>
                     {% for story in stories %}
                         {% set image = story.galleryImages[0] ?? null %}
+                            {% set thumb = {
+                                mode: 'crop',
+                                width: 200,
+                                quality: 80,
+                                position: 'center-center'
+                            } %}
                         <li>
                             <a href="{{story.url}}">
                                 <div>
                                     {% if image %}
-                                        <img src="{{image.url}}">
+                                        <img src="{{image.getUrl(thumb)}}">
                                     {% else %}
                                         <img src="/img/logos/{{random(randomLogoArray)}}">
                                     {% endif %}

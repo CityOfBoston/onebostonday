@@ -31,8 +31,15 @@
     {% set firstImage = images[0] ?? null %}
     {% set firstImageUrl = null %}
 
+    {% set thumb = {
+        mode: 'crop',
+        width: 500,
+        quality: 80,
+        position: 'center-center'
+    } %}
+
     {% if firstImage %}
-        {% set firstImageUrl = firstImage.url %}
+        {% set firstImageUrl = firstImage.getUrl(thumb) %}
     {% else %}
         {% set firstImageUrl = "/img/logos/" ~ random(randomLogoArray) %}
     {% endif %}
