@@ -28,24 +28,25 @@
 
     {% set images = entry.galleryImages.find() %}
 
-    {% set firstImage = images[0] ?? null %}
-
-    {% set thumb = {
-        mode: 'crop',
-        width: 500,
-        quality: 80,
-        position: 'center-center'
-    } %}
-
-    {% set firstOrientation = null %}
-    {% if firstImage.width > firstImage.height  %}
-        {% set firstOrientation = "horizontal" %}
-    {% else %}
-        {% set firstOrientation = "vertical" %}
-    {% endif %}
 
 
     {% if images|length %}
+
+        {% set firstImage = images[0] ?? null %}
+
+        {% set thumb = {
+            mode: 'crop',
+            width: 500,
+            quality: 80,
+            position: 'center-center'
+        } %}
+
+        {% set firstOrientation = null %}
+        {% if firstImage.width > firstImage.height  %}
+            {% set firstOrientation = "horizontal" %}
+        {% else %}
+            {% set firstOrientation = "vertical" %}
+        {% endif %}
         <section class="photos">
             <div class="holder {{firstOrientation}}" style="background-image:url({{firstImage.getUrl(thumb)}}); background-position: {{ firstImage.focusPctX }}% {{ firstImage.focusPctY }}%;"></div>
             {% if images|length > 1 %}
