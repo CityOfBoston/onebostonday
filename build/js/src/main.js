@@ -453,7 +453,7 @@ $(function(){
     var instagramTemplate = function(instaImage,instaName,instaUsername,instaTime,instaUrl,instaBody){
         var instaUserFullName = instaName;
 
-        if(typeof instaName === undefined || instaName.length === 0){
+        if(typeof instaName === undefined || instaName === null) {
             instaUserFullName = instaUsername;
         }
 
