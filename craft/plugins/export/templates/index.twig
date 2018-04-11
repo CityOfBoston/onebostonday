@@ -7,10 +7,17 @@
 
 {% set content %}
     <h2>Attention:</h2>
-    <p>Clicking the below button will take a complete scrape of <strong>{{siteUrl}}</strong> as of <strong>{{"now"|date('M j, Y h:ia T')}}</strong>, and then deliver those files to be uploaded to <strong>{{craft.export.getMySetting("siteDestination")}}</strong></p>
+    <p>Clicking the below button will take a complete scrape of <strong>{{siteUrl}}</strong> as of <strong>{{"now"|date('M j, Y h:ia T')}}</strong>.
 
-    <a class="btn submit run-export" href="{{craft.export.getMySetting('urlEndpoint')}}" data-key="{{craft.export.getMySetting('validationKey')}}"  data-username="{{craft.export.getMySetting('htaccessUsername')}}" data-password="{{craft.export.getMySetting("htaccessPassword")}}" data-user="{{currentUser.username}}" data-url="{{siteUrl}}api/v1/assets/get.json" data-emails="{{craft.export.getMySetting('emails')}}" data-delivery="{{craft.export.getMySetting('delivery')}}" data-destination="{{craft.export.getMySetting('siteDestination')}}">
+    {% if craft.export.getMySetting('deliveryType') == "zip" %}
+        <p>These files will be zipped and a link will be emailed to anyone on the email list.</p>
+    {% else %}
+        <p>The files will then be uploaded to <strong>{{craft.export.getMySetting('siteLocation')}}</strong></p>
+    {% endif %}
+
+
+    <a class="btn submit run-export" href="{{craft.export.getMySetting('serviceUrl')}}" data-key="{{craft.export.getMySetting('apiKey')}}"  data-username="{{craft.export.getMySetting('htaccessUsername')}}" data-password="{{craft.export.getMySetting("htaccessPassword")}}" data-user="{{currentUser.username}}" data-url="{{siteUrl}}api/v1/assets/get.json" data-emails="{{craft.export.getMySetting('emails')}}" data-delivery="{{craft.export.getMySetting('deliveryType')}}" data-location="{{craft.export.getMySetting('siteLocation')}}">
         Run export
     </a>
-    <p>Clicking this button means the existing code on <strong>{{craft.export.getMySetting("siteDestination")}}</strong> will be overwritten, so tread carefully!</p>
+    <p>Clicking this button means the existing code on <strong>{{craft.export.getMySetting("siteLocation")}}</strong> will be overwritten, so tread carefully!</p>
 {% endset %}

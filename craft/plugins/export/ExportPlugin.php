@@ -179,13 +179,13 @@ class ExportPlugin extends BasePlugin
     protected function defineSettings()
     {
         return array(
-            'urlEndpoint' => array(AttributeType::String, 'label' => 'URL Endpoint to hit', 'default' => ''),
-            'validationKey' => array(AttributeType::String, 'label' => 'Private validation key', 'default' => ''),
-            'siteDestination' => array(AttributeType::String, 'label' => 'Site Destination', 'default' => ''),
+            'serviceUrl' => array(AttributeType::String, 'label' => 'Service URL', 'default' => ''),
+            'apiKey' => array(AttributeType::String, 'label' => 'API Key for this website', 'default' => ''),
+            'siteLocation' => array(AttributeType::String, 'label' => 'Site Location', 'default' => ''),
             'htaccessUsername' => array(AttributeType::String, 'label' => 'htaccessUsername', 'default' => ''),
             'htaccessPassword' => array(AttributeType::String, 'label' => 'htaccessPassword', 'default' => ''),
             'emails' => array(AttributeType::String, 'label' => 'emails', 'default' => ''),
-            'delivery' => array(AttributeType::String, 'label' => 'emails', 'default' => '')
+            'deliveryType' => array(AttributeType::String, 'label' => 'deliveryType', 'default' => '')
         );
     }
 

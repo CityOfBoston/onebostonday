@@ -19,14 +19,16 @@ $(function(){
 
         var dest = $this.attr('href');
 
-        // TODO: Add in destination and delivery type
+
         var data = {
             key: $this.data('key'),
             user: $this.data('user'),
             url: $this.data('url'),
             basicAuthUser: $this.data('username'),
             basicAuthPassword: $this.data('password'),
-            emailList: $this.data('emails').split(',')
+            emailList: $this.data('emails').split(','),
+            siteLocation: $this.data('location'),
+            deliveryType: $this.data('delivery ')
         };
 
         var dataJSON = JSON.stringify(data);
@@ -46,17 +48,18 @@ $(function(){
                 type: 'POST',
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'cache-control': 'no-cache',
+                    'Content-Type': 'application/json'
                 },
                 data: dataJSON
             })
-            .done(function() {
+            .done(function(data) {
                 console.log("success");
+                console.log(data);
                 alert('New files are up on the server.');
             })
-            .fail(function() {
+            .fail(function(data) {
                 console.log("error");
+                console.log(data);
                 alert('Something went wrong. Hit up one of the developers to find out why.');
             })
             .always(function() {

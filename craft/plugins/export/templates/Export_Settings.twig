@@ -15,27 +15,19 @@
 {% import "_includes/forms" as forms %}
 
 {{ forms.textField({
-    label: 'Destination Site',
-    instructions: 'What is the site that the export tool is uploading to?',
-    id: 'sitedestination',
-    name: 'siteDestination', 
-    value: settings['siteDestination']})
+    label: 'Service URL',
+    instructions: 'Location of Site Exporter API',
+    id: 'serviceUrl',
+    name: 'serviceUrl', 
+    value: settings['serviceUrl']})
 }}
 
 {{ forms.textField({
-    label: 'URL Endpoint',
-    instructions: 'URL Endpoint to hit',
-    id: 'urlendpoint',
-    name: 'urlEndpoint', 
-    value: settings['urlEndpoint']})
-}}
-
-{{ forms.textField({
-    label: 'Validation Key',
-    instructions: 'Private Validation Key',
-    id: 'validationkey',
-    name: 'validationKey', 
-    value: settings['validationKey']})
+    label: 'API Key',
+    instructions: 'API Key related to this website',
+    id: 'apiKey',
+    name: 'apiKey', 
+    value: settings['apiKey']})
 }}
 
 {{ forms.textField({
@@ -54,11 +46,33 @@
     value: settings['htaccessPassword']})
 }}
 
-{# TODO: Add in dropdown for delivery type #}
+{{ forms.selectField({
+    label: 'Delivery Type',
+    instructions: 'Should this export be processed as a ZIP or uploaded to S3',
+    id: 'deliveryType',
+    options: {
+        "s3": "S3",
+        "rackspace": "Rackspace Files",
+        "zip": "Zip",
+        "ftp": "FTP",
+        "sftp": "SFTP",
+    },
+    name: 'deliveryType',
+    value: settings['deliveryType']})
+}}
 
 {{ forms.textField({
-    label: 'Who should be emailed?',
-    instructions: 'List of people who should be emailed. Seperate with commas. (Only works if the above field is set to "Zip File".',
+    label: 'Site Location',
+    instructions: 'Where the exported version of the site will live. (Only applicable if anything but zip is selected)',
+    id: 'sitelocation',
+    name: 'siteLocation', 
+    value: settings['siteLocation']})
+}}
+
+
+{{ forms.textField({
+    label: 'Who should be notified?',
+    instructions: 'List of people who should be emailed. Seperate with commas. (Only works if the above field is set to "Zip File").',
     id: 'emails',
     name: 'emails', 
     value: settings['emails']})
