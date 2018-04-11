@@ -31,11 +31,15 @@
 		opacity:0;
 		@include transition(all .6s ease-in);
 		position:relative;
-		top:20px;
+		@include transform(translateY(20px));
 	}
 	ul{
 		text-align:left;
 		padding:0 10px;
+		position:relative;
+		opacity:0;
+		@include transform(translateY(20px));
+		@include transition(all 0.8s 1.2s ease-in-out);
 		h4{
 			font-size:1.6em;
 			padding-left:0.5em;
@@ -114,9 +118,9 @@
 }
 
 .ready .intro{
-	h1,p,h3{
+	h1,p,h3,ul{
 		opacity:1;
-		top:0px;
+		@include transform(translateY(0px));
 	}
 	h1{
 		@include transition-delay(.5s);
@@ -146,9 +150,10 @@
 				width:55%;
 				padding-right:2em;
 				margin-right:2em;
-				border-right:1px solid #fff;
+				border-right:1px solid rgba(#fff,0);
 				display:flex;
 				align-items:center;
+				@include transition (all 0.6s 1s ease-in-out);
 			}
 			& > div:last-child{
 				width:45%;
@@ -177,6 +182,11 @@
 		.copy{
 			position:static;
 			@include transform(translateX(0) translateY(0));
+		}
+	}
+	.ready .intro{
+		.wrapper > div:first-child{
+			border-right:1px solid rgba(#fff,1);
 		}
 	}
 }

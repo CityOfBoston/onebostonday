@@ -178,24 +178,24 @@ $(function(){
 
     var loadNewFeed = function(){
         $.ajax({
-            url: '/feed/feed.json',
+            url: 'https://xapi.wayin.com/xapi/content/3/filter?key=103adfe9-a7b9-4824-9916-052f7339d73a&format=json&max=1000&collectionId=co-2ny8jdhvr07p7ogdqyf',
             dataType:'json',
             error: function(jqXHR, textStatus, errorThrown) {
                 // console.log(textStatus, errorThrown);
             },
             success:function(response){
 
-                var totalPosts = response.results.length;
-                var data = response.results;
+                var totalPosts = response.data.length;
+                var data = response.data;
 
                 setTimeout(function(){
                     for (i=0;i<totalPosts;i++){
                         var post = data[i];
-                        if(post.source === "twitter"){
-                            twitterTemplate(post.author_avatar_url,post.author_name,post.author_handle,post.created_at_long,post.id,post.post_message,post.post_media_url,"append");
+                        if(post.externalservice.label === "Twitter"){
+                            twitterTemplate(post.avatar,post.sourcename,post.sourceprofile,post.createdate,post.externalid,post.content,post.mainasseturl,"append");
                         }
-                        else if(post.source === "instagram"){
-                            instagramTemplate(post.post_media_url,post.author_name,post.author_handle,post.created_at_long,post.instagram.link,post.post_message,"append");
+                        else if(post.externalservice.label === "Instagram"){
+                            instagramTemplate(post.mainasseturl,post.sourcename,post.sourceprofile,post.createdate,post.link,post.content);
                         }
                     }
                 },600);
@@ -226,6 +226,7 @@ $(function(){
             }
         });
     };
+    
 
     var loadFeedContent = function(response, direction){
         $('.feed .icon-spinner').fadeOut(function(){
@@ -271,7 +272,7 @@ $(function(){
 
     var loadOldFeed = function(){
         $.ajax({
-            url: '/oldfeed/feed.json',
+            url: '/feed/oldfeed.json',
             dataType:'json',
             error: function(jqXHR,textStatus,errorThrown){
                 // console.log(textStatus, errorThrown);
@@ -309,7 +310,16 @@ $(function(){
                 }
             },500);
         });
-    }    
+    }
+    
+    $('ul.thumbs li').on('click', function() {
+        $('ul.thumbs li').removeClass('active');
+        //
+        var $this = $(this);
+        $this.addClass('active');
+        var style = $this.attr('style');
+        $('.holder').attr('style', style);
+    });
 
     //load more button
     var inView = 24;
@@ -352,6 +362,14 @@ $(function(){
         ga('send', 'event', 'feed twitter action', $(this).find('svg').attr('class')) ;
     });
 
+    $('ul.social-share a').on('click', function(e) {
+        var $this = $(this);
+        if (!$this.hasClass('is-email')) {
+            e.preventDefault();
+            popItUp($(this).attr('href'), 300, 600);
+        }
+    });
+
     var twitterTemplate = function(profileImage,twitterName,twitterUser,twitterTime,twitterTweetUrl,twitterTweetEntity,twitterImage,direction){
         var tweetId = twitterTweetUrl.replace('tw-','');
 
@@ -359,8 +377,9 @@ $(function(){
         var intentRetweet = 'https://twitter.com/intent/retweet?tweet_id='+tweetId;
         var intentFavorite = 'https://twitter.com/intent/favorite?tweet_id='+tweetId;
 
-        twitterDisplayImage = '';
-        if(twitterImage !== null && ! twitterImage.includes ("youtu")){
+
+        var twitterDisplayImage = '';
+        if(twitterImage !== null && twitterImage.indexOf("youtu") == -1){
             twitterDisplayImage = '<div class=\"photo\"><img data-original="'+twitterImage+'" src=\"\/img\/preloader-large.gif\" alt=\"\"><\/div>';
         }
 
@@ -371,14 +390,15 @@ $(function(){
 
         var username = twitterUser.replace('@','');
 
+        twitterTime = new Date(twitterTime);
         var date = twitterTime / 1000;
 
         var dateToString = date.toString();
         var dateToUse = moment.unix(date).format('MMM Do YYYY h:mma');
 
-        if(isNaN(parseInt(twitterTime))){
-            dateToUse = twitterTime;
-        }
+        // if(isNaN(parseInt(twitterTime))){
+        //     dateToUse = twitterTime;
+        // }
 
         var twitterCard="";
         twitterCard += "<li>";
@@ -433,7 +453,7 @@ $(function(){
     var instagramTemplate = function(instaImage,instaName,instaUsername,instaTime,instaUrl,instaBody){
         var instaUserFullName = instaName;
 
-        if(typeof instaName === undefined || instaName.length === 0){
+        if(typeof instaName === undefined || instaName === null) {
             instaUserFullName = instaUsername;
         }
 
@@ -441,6 +461,8 @@ $(function(){
 
         body = linkInstagramHashtags(body);
         body = linkTwitterUsers(body);
+
+        instaTime = new Date(instaTime);
 
         var date = instaTime / 1000;
 
@@ -535,24 +557,6 @@ $(function(){
     }
 
     /*//////////////////////////////////////
-    //  Stories page
-    //////////////////////////////////////*/
-    $('nav.story-nav input[type="checkbox"]').on('change',function(){
-        $('div.story-list').toggleClass('hide-excerpts');
-    });
-
-    $('section.photos ul.thumbs li').on('click',function(){
-        $(this).parent().find('li').each(function(){
-            $(this).removeClass('active');
-        });
-
-        $(this).addClass('active');
-
-        $('section.photos div.holder').attr('style', $(this).attr('style'));
-    });
-
-
-    /*//////////////////////////////////////
     //  virtual page tracking
     //////////////////////////////////////*/
     $(window).on("scroll",function(){
@@ -574,7 +578,26 @@ $(function(){
         return toTop;
     }
 
+    $.fn.shuffle = function() {
+        var allElems = this.get(),
+            getRandom = function(max) {
+                return Math.floor(Math.random() * max);
+            },
+            shuffled = $.map(allElems, function(){
+                var random = getRandom(allElems.length),
+                    randEl = $(allElems[random]).clone(true)[0];
+                allElems.splice(random, 1);
+                return randEl;
+           });
+ 
+        this.each(function(i){
+            $(this).replaceWith($(shuffled[i]));
+        });
 
+        return $(shuffled);
+    };
+
+    $('.stories li').shuffle();
     /*//////////////////////////////////////
     //  footer links & footer analytics
     //////////////////////////////////////*/
