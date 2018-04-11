@@ -77,7 +77,7 @@
                                 {% if story.questionsBlock|length %}
                                 {{story.questionsBlock[0].answer|slice(0,150)|raw}}...
                                 {% else %}
-                                    {{entry.customTextField}}
+                                    {{entry.customTextField|slice(0,150)|raw}}
                                 {% endif %}
                             </a>
                         </li>
