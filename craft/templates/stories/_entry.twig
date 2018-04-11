@@ -1,16 +1,54 @@
 {% extends '_layout' %}
 
+{% set randomLogoArray = [
+    'OneBostonDay_Logo_01_BlueNavy-square.jpg',
+    'OneBostonDay_Logo_02_BlueWhite-square.jpg',
+    'OneBostonDay_Logo_09_GreenBlue.jpg',
+    'OneBostonDay_Logo_10_NavyWhite.jpg',
+    'OneBostonDay_Logo_14_BlackWhiteTeal.jpg',
+    'OneBostonDay_Logo_15_PurpleBlack.jpg',
+    'OneBostonDay_Logo_13_TealBlack.jpg',
+    'OneBostonDay_Logo_13_Rainbow.jpg',
+    'OneBostonDay_Logo_11_YellowNavy.jpg',
+    'OneBostonDay_Logo_08_GrayWhite.jpg',
+    'OneBostonDay_Logo_07_Black.jpg',
+    'OneBostonDay_Logo_06_GrayWhite.jpg',
+    'OneBostonDay_Logo_04_BlueNavy.jpg'
+] %}
+
 {% block content %}
 
 <main class="story">
-    <section class="header-intro short">
+    <section class="header-intro">
         <h1>{{entry.title}}</h1>
+        {% if entry.onBehalfOf %}
+            <h3>On behalf of: {{entry.onBehalfOf}}</h3>
+        {% endif %}
     </section>
 
     {% set images = entry.galleryImages.find() %}
 
+    {% set firstImage = images[0] ?? null %}
+    {% set firstImageUrl = null %}
+
+    {% set thumb = {
+        mode: 'crop',
+        width: 500,
+        quality: 80,
+        position: 'center-center'
+    } %}
+
+    {# TODO REMOVE LOGOS #}
+    {% if firstImage %}
+        {% set firstImageUrl = firstImage.getUrl(thumb) %}
+    {% else %}
+        {% set firstImageUrl = "/img/logos/" ~ random(randomLogoArray) %}
+    {% endif %}
+
+
+
     <section class="photos">
-        <div class="holder" style="background-image:url({{images[0].url}})"></div>
+        <div class="holder" style="background-image:url({{firstImageUrl}})"></div>
         <ul class="thumbs">
             {% for image in images %}
                 {% set orientation = "" %}
@@ -19,7 +57,7 @@
                 {% else %}
                     {% set orientation = "vertical" %}
                 {% endif %}
-                <li class="{% if loop.first %}active{% endif %} {{orientation}}" style="background-image:url({{image.url}})"></li>
+                <li class="{% if loop.first %}active{% endif %} {{orientation}}" data-orientation="{{orientation}}" style="background-image:url({{image.url}})"></li>
             {% endfor %}
         </ul>
     </section>
@@ -35,12 +73,14 @@
     </section>
 
     <section class="links block">
-        <h3>Additional Links:</h3>
-        <ul>
-            {% for link in entry.additionalLinks %}
-                <li><a href="{{link.pageUrl.url}}" target="_blank">{{link.pageUrl.text}}</a></li>
-            {% endfor %}
-        </ul>
+        {% if entry.additionalLinks|length %}
+            <h3>Additional Links:</h3>
+            <ul>
+                {% for link in entry.additionalLinks %}
+                    <li><a href="{{link.pageUrl.url}}" target="_blank">{{link.pageUrl.text}}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
         <h3>Share this story:</h3>
         <ul class="social-share">
             <li>

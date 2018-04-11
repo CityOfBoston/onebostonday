@@ -9,7 +9,7 @@
 
 
 section.story{
-    padding:1em 0px;
+    padding:1em;
     max-width:680px;
 
     h3 {
@@ -25,6 +25,12 @@ section.story{
         a {
             color: $primary;
         }
+    }
+}
+
+@media all and (min-width: 46.25em) {
+    section.story {
+        padding: 1em 0;
     }
 }
 
@@ -49,11 +55,12 @@ section.photos{
     ul.thumbs{
         margin-top:4px;
         @include display(flex);
-        @include justify-content(space-between);
+        @include justify-content(flex-start);
         li{
             width:20%;
             display:inline-block;
             cursor:pointer;
+            margin-right: 0.75em;
             &.active{
                 border:4px solid $primary;
             }
