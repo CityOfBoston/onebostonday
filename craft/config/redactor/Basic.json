@@ -3,6 +3,5 @@
 	"plugins": ["source","fullscreen"],
 	"paragraphize": false,
 	"deniedTags": ["br"],
-	"enterKey": false,
 	"lineBreaks": true
 }
