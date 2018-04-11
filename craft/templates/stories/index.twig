@@ -62,12 +62,12 @@
                                 position: 'center-center'
                             } %}
                         <li>
-                            <a href="{{story.url}}">
+                            <a href="/{{story.uri}}">
                                 <div>
                                     {% if image %}
-                                        <img src="{{image.getUrl(thumb)}}">
+                                        <figure style="background-image:url({{image.getUrl(thumb)}}); background-position: {{ image.focusPctX }}% {{ image.focusPctY }}%;"></figure>
                                     {% else %}
-                                        <img src="/img/logos/{{random(randomLogoArray)}}">
+                                        <figure style="background-image:url(/img/logos/{{random(randomLogoArray)}})"></figure>
                                     {% endif %}
                                     <h3>{{story.firstName}} {{story.lastName}}</h3>
                                     {% if story.onBehalfOf %}

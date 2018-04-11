@@ -27,10 +27,14 @@ div.story-list{
             }
         }
     }
-    img{
+    figure {
         border-radius:50%;
         width:20%;
-        max-width:70px;
+        background-position: center center;
+        background-size: cover;
+        padding-bottom: 20%;
+        margin: 0;
+        margin-right: 2.5%;
     }
     ul{
         @include display(flex);

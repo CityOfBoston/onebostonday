@@ -29,7 +29,6 @@
     {% set images = entry.galleryImages.find() %}
 
     {% set firstImage = images[0] ?? null %}
-    {% set firstImageUrl = null %}
 
     {% set thumb = {
         mode: 'crop',
@@ -38,29 +37,32 @@
         position: 'center-center'
     } %}
 
-    {# TODO REMOVE LOGOS #}
-    {% if firstImage %}
-        {% set firstImageUrl = firstImage.getUrl(thumb) %}
+    {% set firstOrientation = null %}
+    {% if firstImage.width > firstImage.height  %}
+        {% set firstOrientation = "horizontal" %}
     {% else %}
-        {% set firstImageUrl = "/img/logos/" ~ random(randomLogoArray) %}
+        {% set firstOrientation = "vertical" %}
     {% endif %}
 
 
-
-    <section class="photos">
-        <div class="holder" style="background-image:url({{firstImageUrl}})"></div>
-        <ul class="thumbs">
-            {% for image in images %}
-                {% set orientation = "" %}
-                {% if image.width > image.height  %}
-                    {% set orientation = "horizontal" %}
-                {% else %}
-                    {% set orientation = "vertical" %}
-                {% endif %}
-                <li class="{% if loop.first %}active{% endif %} {{orientation}}" data-orientation="{{orientation}}" style="background-image:url({{image.url}})"></li>
-            {% endfor %}
-        </ul>
-    </section>
+    {% if images|length %}
+        <section class="photos">
+            <div class="holder {{firstOrientation}}" style="background-image:url({{firstImage.getUrl(thumb)}}); background-position: {{ firstImage.focusPctX }}% {{ firstImage.focusPctY }}%;"></div>
+            {% if images|length > 1 %}
+                <ul class="thumbs">
+                    {% for image in images %}
+                        {% set orientation = null %}
+                        {% if image.width > image.height  %}
+                            {% set orientation = "horizontal" %}
+                        {% else %}
+                            {% set orientation = "vertical" %}
+                        {% endif %}
+                        <li class="{% if loop.first %}active{% endif %}" data-orientation="{{orientation}}" style="background-image:url({{image.url}}); background-position: {{ image.focusPctX }}% {{ image.focusPctY }}%;"></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </section>
+    {% endif %}
 
     <section class="story block">
         {% for question in entry.questionsBlock %}

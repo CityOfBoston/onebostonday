@@ -545,10 +545,13 @@ $(function(){
         $(this).parent().find('li').each(function(){
             $(this).removeClass('active');
         });
+        var orientation = $(this).data('orientation');
 
         $(this).addClass('active');
 
+
         $('section.photos div.holder').attr('style', $(this).attr('style'));
+        $('section.photos div.holder').attr('class', 'holder ' + orientation)
     });
 
 
