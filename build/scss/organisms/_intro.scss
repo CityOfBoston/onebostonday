@@ -1,11 +1,17 @@
 .intro{
 	min-height:520px;
-	background-image:url('/img/mobile-homepage.jpg');
+	background-image:url('/img/homepage-background-image.jpg');
 	background-color:$primary;	
 	background-size:cover;
 	background-position:center;
 	position:relative;
 	padding-top:160px;
+	&:after{
+		content:"";
+		display:block;
+		@include position(absolute, 0px 0px 0px 0px);
+		background-color:rgba($primary,0.6);
+	}
 	.logo{
 		display:none;
 		.number-one{
@@ -97,7 +103,6 @@
 
 @media all and(min-width:600px){
 	.intro{
-		background-image:none;
 		background-color:$primary;
 		.copy{
 			top:230px;

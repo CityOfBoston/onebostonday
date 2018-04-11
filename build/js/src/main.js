@@ -33,17 +33,17 @@ $(function(){
         }
     });
 
-    if(!Modernizr.touchevents && $(window).width() > 800){
-        var bgVideo = "";
-        bgVideo += '<div class="bg-video">';
-        bgVideo += '    <video autoplay loop muted>';
-        bgVideo += '        <source src="/video/obd-short-2017.mp4" type="video/mp4">';
-        bgVideo += '        <source src="/video/obd-short-2017.webm" type="video/webm">';
-        bgVideo += '    </video>';
-        bgVideo += '</div>';
+    // if(!Modernizr.touchevents && $(window).width() > 800){
+    //     var bgVideo = "";
+    //     bgVideo += '<div class="bg-video">';
+    //     bgVideo += '    <video autoplay loop muted>';
+    //     bgVideo += '        <source src="/video/obd-short-2017.mp4" type="video/mp4">';
+    //     bgVideo += '        <source src="/video/obd-short-2017.webm" type="video/webm">';
+    //     bgVideo += '    </video>';
+    //     bgVideo += '</div>';
 
-        $('section.intro').append(bgVideo);
-    }
+    //     $('section.intro').append(bgVideo);
+    // }
 
     // scroll if there is a hash
     if (location.hash) {
