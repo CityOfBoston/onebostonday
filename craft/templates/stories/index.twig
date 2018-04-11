@@ -74,10 +74,12 @@
                                         <h4>On Behalf of: {{story.onBehalfOf}}</h4>
                                     {% endif %}
                                 </div>
-                                {% if story.questionsBlock|length %}
-                                {{story.questionsBlock[0].answer|slice(0,150)|raw}}...
+                                {% if story.questionsBlock|length > 0 %}
+                                    
+                                    <p>{{story.questionsBlock[0].answer|slice(0,150)|striptags}}...</p>
                                 {% else %}
-                                    {{entry.customTextField|slice(0,150)|raw}}
+
+                                    <p>{{story.customTextField|slice(0,150)|striptags}}...</p>
                                 {% endif %}
                             </a>
                         </li>
