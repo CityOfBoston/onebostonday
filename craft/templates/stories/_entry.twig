@@ -1,5 +1,21 @@
 {% extends '_layout' %}
 
+{% set randomLogoArray = [
+    'OneBostonDay_Logo_01_BlueNavy-square.jpg',
+    'OneBostonDay_Logo_02_BlueWhite-square.jpg',
+    'OneBostonDay_Logo_09_GreenBlue.jpg',
+    'OneBostonDay_Logo_10_NavyWhite.jpg',
+    'OneBostonDay_Logo_14_BlackWhiteTeal.jpg',
+    'OneBostonDay_Logo_15_PurpleBlack.jpg',
+    'OneBostonDay_Logo_13_TealBlack.jpg',
+    'OneBostonDay_Logo_13_Rainbow.jpg',
+    'OneBostonDay_Logo_11_YellowNavy.jpg',
+    'OneBostonDay_Logo_08_GrayWhite.jpg',
+    'OneBostonDay_Logo_07_Black.jpg',
+    'OneBostonDay_Logo_06_GrayWhite.jpg',
+    'OneBostonDay_Logo_04_BlueNavy.jpg'
+] %}
+
 {% block content %}
 
 <main class="story">
@@ -12,10 +28,17 @@
 
     {% set images = entry.galleryImages.find() %}
 
+    {% set firstImage = images[0] ?? null %}
+    {% set firstImageUrl = null %}
 
+    {% if firstImage %}
+        {% set firstImageUrl = firstImage.url %}
+    {% else %}
+        {% set firstImageUrl = "/img/logos/" ~ random(randomLogoArray) %}
+    {% endif %}
 
     <section class="photos">
-        <div class="holder" style="background-image:url({{images[0].url}})"></div>
+        <div class="holder" style="background-image:url({{firstImageUrl}})"></div>
         <ul class="thumbs">
             {% for image in images %}
                 {% set orientation = "" %}
