@@ -1,13 +1,12 @@
 .intro{
 	min-height:500px;
-	height:100%;
-	height:100vh;
+	//max-height:100vh;
 	background-image:url('/img/mobile-homepage.jpg');
 	background-color:$primary;	
 	background-size:cover;
 	background-position:center;
 	position:relative;
-	max-height:530px;
+	padding-top:160px;
 	.logo{
 		display:none;
 		.number-one{
@@ -16,7 +15,6 @@
 		}
 	}
 	.copy{
-		@extend %absolute-middle;
 		top:310px;
 		width:100%;
 		color:#fff;
@@ -24,9 +22,8 @@
 	}
 	.block{
 		position:relative;
-		height:100%;
-		height:100vh;
 		z-index:3;
+		padding-bottom:30px;
 	}
 	p{
 		margin:1em 0;
@@ -36,6 +33,62 @@
 		@include transition(all .6s ease-in);
 		position:relative;
 		top:20px;
+	}
+	ul{
+		text-align:left;
+		padding:0 10px;
+		h4{
+			font-size:1.6em;
+			padding-left:0.5em;
+			padding-right:1.5em;
+		}
+		svg{
+			@include size(2em);
+			use{
+				fill:#fff;
+			}
+		}
+		li{
+			display:block;
+			width:100%;
+			margin-bottom:2em;
+			&:last-child{
+				margin-bottom:0px;
+			}
+		}
+		button{
+			background-color:transparent;
+			color:#fff;
+			border:none;
+			width:100%;
+			display:flex;
+			align-items:center;
+			text-align:left;
+		}
+		div{
+			width:100%;
+			background-size:cover;
+			background-position:center;
+			max-width:120px;
+			position:relative;
+			span{
+				@extend %absolute-middle;
+				@extend %default-transition;
+				background-color:rgba($primary,0.6);
+				padding:1em;
+				border-radius:50%;
+				svg{
+					position:relative;
+					top:0.15em;
+					left:0.25em;
+				}
+			}
+			&:after{
+				content:"";
+				display:block;
+				padding-top:75%;
+			}
+		}
 	}
 }
 
@@ -55,10 +108,8 @@
 		@extend %default-transition;
 	}
 	&:hover{
-		background-color:#fff;
-		color:$primary;
-		svg use{
-			fill:$primary;
+		div span{
+			background-color:rgba($primary,1);
 		}
 	}
 }
@@ -88,10 +139,29 @@
 		position:relative;
 		min-height:530px;
 		max-height:100%;
+		.wrapper{
+			display:flex;
+			max-width:900px;
+			margin:0 auto;
+			& > div:first-child{
+				width:55%;
+				padding-right:2em;
+				margin-right:2em;
+				border-right:1px solid #fff;
+				display:flex;
+				align-items:center;
+			}
+			& > div:last-child{
+				width:45%;
+			}
+			& > div{
+				padding:2em 0px;
+			}
+		}
 		.block{
 			@include outer-container();
-			@include position(absolute, 50% auto auto 50%);
-			@include transform(translateX(-50%) translateY(-50%));
+			//@include position(absolute, 50% auto auto 50%);
+			//@include transform(translateX(-50%) translateY(-50%));
 			height:auto;
 		}
 		.logo{
@@ -109,8 +179,11 @@
 			position:static;
 			@include transform(translateX(0) translateY(0));
 		}
-		.logo,.copy{
-			@include span-columns(6);
-		}
+	}
+}
+
+@media all and(min-height:530px){
+	.intro{
+		min-height:100vh;
 	}
 }
