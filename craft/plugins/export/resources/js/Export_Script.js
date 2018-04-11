@@ -28,7 +28,7 @@ $(function(){
             basicAuthPassword: $this.data('password'),
             emailList: $this.data('emails').split(','),
             siteLocation: $this.data('location'),
-            deliveryType: $this.data('delivery ')
+            deliveryType: $this.data('delivery')
         };
 
         var dataJSON = JSON.stringify(data);

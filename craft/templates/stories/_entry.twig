@@ -38,11 +38,14 @@
         position: 'center-center'
     } %}
 
+    {# TODO REMOVE LOGOS #}
     {% if firstImage %}
         {% set firstImageUrl = firstImage.getUrl(thumb) %}
     {% else %}
         {% set firstImageUrl = "/img/logos/" ~ random(randomLogoArray) %}
     {% endif %}
+
+
 
     <section class="photos">
         <div class="holder" style="background-image:url({{firstImageUrl}})"></div>

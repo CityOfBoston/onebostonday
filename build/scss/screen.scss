@@ -55,11 +55,12 @@ section.photos{
     ul.thumbs{
         margin-top:4px;
         @include display(flex);
-        @include justify-content(space-between);
+        @include justify-content(flex-start);
         li{
             width:20%;
             display:inline-block;
             cursor:pointer;
+            margin-right: 0.75em;
             &.active{
                 border:4px solid $primary;
             }
