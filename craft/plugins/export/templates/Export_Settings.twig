@@ -54,9 +54,11 @@
     value: settings['htaccessPassword']})
 }}
 
+{# TODO: Add in dropdown for delivery type #}
+
 {{ forms.textField({
     label: 'Who should be emailed?',
-    instructions: 'List of people who should be emailed. Seperate with commas.',
+    instructions: 'List of people who should be emailed. Seperate with commas. (Only works if the above field is set to "Zip File".',
     id: 'emails',
     name: 'emails', 
     value: settings['emails']})
