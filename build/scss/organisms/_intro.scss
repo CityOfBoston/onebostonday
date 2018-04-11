@@ -1,11 +1,17 @@
 .intro{
-	min-height:510px;
-	background-image:url('/img/mobile-homepage.jpg');
+	min-height:520px;
+	background-image:url('/img/homepage-background-image.jpg');
 	background-color:$primary;	
 	background-size:cover;
 	background-position:center;
 	position:relative;
 	padding-top:160px;
+	&:after{
+		content:"";
+		display:block;
+		@include position(absolute, 0px 0px 0px 0px);
+		background-color:rgba($primary,0.6);
+	}
 	.logo{
 		display:none;
 		.number-one{
@@ -31,11 +37,15 @@
 		opacity:0;
 		@include transition(all .6s ease-in);
 		position:relative;
-		top:20px;
+		@include transform(translateY(20px));
 	}
 	ul{
 		text-align:left;
 		padding:0 10px;
+		position:relative;
+		opacity:0;
+		@include transform(translateY(20px));
+		@include transition(all 0.8s 1.2s ease-in-out);
 		h4{
 			font-size:1.6em;
 			padding-left:0.5em;
@@ -93,7 +103,6 @@
 
 @media all and(min-width:600px){
 	.intro{
-		background-image:none;
 		background-color:$primary;
 		.copy{
 			top:230px;
@@ -114,9 +123,9 @@
 }
 
 .ready .intro{
-	h1,p,h3{
+	h1,p,h3,ul{
 		opacity:1;
-		top:0px;
+		@include transform(translateY(0px));
 	}
 	h1{
 		@include transition-delay(.5s);
@@ -146,9 +155,10 @@
 				width:55%;
 				padding-right:2em;
 				margin-right:2em;
-				border-right:1px solid #fff;
+				border-right:1px solid rgba(#fff,0);
 				display:flex;
 				align-items:center;
+				@include transition (all 0.6s 1s ease-in-out);
 			}
 			& > div:last-child{
 				width:45%;
@@ -177,6 +187,11 @@
 		.copy{
 			position:static;
 			@include transform(translateX(0) translateY(0));
+		}
+	}
+	.ready .intro{
+		.wrapper > div:first-child{
+			border-right:1px solid rgba(#fff,1);
 		}
 	}
 }
