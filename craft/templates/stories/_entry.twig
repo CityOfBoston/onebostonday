@@ -3,11 +3,16 @@
 {% block content %}
 
 <main class="story">
-    <section class="header-intro short">
+    <section class="header-intro">
         <h1>{{entry.title}}</h1>
+        {% if entry.onBehalfOf %}
+            <h3>On behalf of: {{entry.onBehalfOf}}</h3>
+        {% endif %}
     </section>
 
     {% set images = entry.galleryImages.find() %}
+
+
 
     <section class="photos">
         <div class="holder" style="background-image:url({{images[0].url}})"></div>
@@ -19,7 +24,7 @@
                 {% else %}
                     {% set orientation = "vertical" %}
                 {% endif %}
-                <li class="{% if loop.first %}active{% endif %} {{orientation}}" style="background-image:url({{image.url}})"></li>
+                <li class="{% if loop.first %}active{% endif %} {{orientation}}" data-orientation="{{orientation}}" style="background-image:url({{image.url}})"></li>
             {% endfor %}
         </ul>
     </section>
@@ -35,12 +40,14 @@
     </section>
 
     <section class="links block">
-        <h3>Additional Links:</h3>
-        <ul>
-            {% for link in entry.additionalLinks %}
-                <li><a href="{{link.pageUrl.url}}" target="_blank">{{link.pageUrl.text}}</a></li>
-            {% endfor %}
-        </ul>
+        {% if entry.additionalLinks|length %}
+            <h3>Additional Links:</h3>
+            <ul>
+                {% for link in entry.additionalLinks %}
+                    <li><a href="{{link.pageUrl.url}}" target="_blank">{{link.pageUrl.text}}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
         <h3>Share this story:</h3>
         <ul class="social-share">
             <li>

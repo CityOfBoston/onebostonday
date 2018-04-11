@@ -9,7 +9,7 @@
 
 
 section.story{
-    padding:1em 0px;
+    padding:1em;
     max-width:680px;
 
     h3 {
@@ -25,6 +25,12 @@ section.story{
         a {
             color: $primary;
         }
+    }
+}
+
+@media all and (min-width: 46.25em) {
+    section.story {
+        padding: 1em 0;
     }
 }
 
