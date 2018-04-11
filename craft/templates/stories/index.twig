@@ -61,14 +61,18 @@
                                     {% if image %}
                                         <img src="{{image.url}}">
                                     {% else %}
-                                        <img src="img/{{random(randomLogoArray)}}">
+                                        <img src="/img/{{random(randomLogoArray)}}">
                                     {% endif %}
                                     <h3>{{story.firstName}} {{story.lastName}}</h3>
                                     {% if story.onBehalfOf %}
                                         <h4>On Behalf of: {{story.onBehalfOf}}</h4>
                                     {% endif %}
                                 </div>
+                                {% if story.questionsBlock|length %}
                                 {{story.questionsBlock[0].answer|slice(0,150)|raw}}...
+                                {% else %}
+                                    {{entry.customTextField}}
+                                {% endif %}
                             </a>
                         </li>
                     {% endfor %}
