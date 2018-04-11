@@ -13,7 +13,13 @@
         <div class="holder" style="background-image:url({{images[0].url}})"></div>
         <ul class="thumbs">
             {% for image in images %}
-                <li {% if loop.first %}class="active"{% endif %} style="background-image:url({{image.url}})"></li>
+                {% set orientation = "" %}
+                {% if image.width > image.height  %}
+                    {% set orientation = "horizontal" %}
+                {% else %}
+                    {% set orientation = "vertical" %}
+                {% endif %}
+                <li class="{% if loop.first %}active{% endif %} {{orientation}}" style="background-image:url({{image.url}})"></li>
             {% endfor %}
         </ul>
     </section>

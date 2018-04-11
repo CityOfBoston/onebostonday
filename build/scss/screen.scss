@@ -61,6 +61,15 @@ section.photos{
     }
 }
 
+@media all and (min-width: 50em) {
+    section.photos {
+        div.holder,
+        ul.thumbs {
+            max-width: 450px;
+        }
+    }
+}
+
 section.links{
     text-align:center;
     h3{
