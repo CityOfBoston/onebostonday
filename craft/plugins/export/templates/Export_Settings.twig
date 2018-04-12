@@ -62,10 +62,22 @@
 }}
 
 {{ forms.textField({
+    label: '',
+    instructions: '',
+    id: '',
+    name: '', 
+    value: settings['siteLocation']})
+}}
+
+{{ forms.selectField({
     label: 'Site Location',
     instructions: 'Where the exported version of the site will live. (Only applicable if anything but zip is selected)',
-    id: 'sitelocation',
-    name: 'siteLocation', 
+    id: 'siteLocation',
+    options: {
+        "staging-aws.onebostonday.org": "Staging",
+        "onebostonday.org": "Production"
+    },
+    name: 'siteLocation',
     value: settings['siteLocation']})
 }}
 
