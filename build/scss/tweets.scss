@@ -40,7 +40,7 @@ main{
         width: 90vw;
         height: 60vh;
         @extend %absolute-middle;
-        top:calc(50% + 50px);
+        top:calc(50% + 75px);
         z-index:3;
         opacity:0;
         @extend %default-transition;
@@ -91,12 +91,12 @@ body.loading svg.logo{
 
 .twitter-card,
 .instagram-card{
-    padding:0px 10px;
+    padding:1vw 2vw;
     margin-bottom:0px;
     height:79.7vh;
     background-color:transparent;
     > svg.icon-twitter{
-        top:-17vh;
+        top:-15vh;
     }
     div.content{
         max-height:50vh;
@@ -174,7 +174,7 @@ body.loading svg.logo{
     }
     time{
         font-size:2vw;
-        bottom:0px;
+        //bottom:0px;
     }
 }
 
