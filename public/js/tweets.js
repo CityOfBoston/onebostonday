@@ -1,9 +1,27 @@
 $(function(){
 
+    var getQueryVariable = function(variable){
+        var query = window.location.search.substring(1);
+        var vars = query.split('&');
+        for (var i=0;i<vars.length;i++) {
+            var pair = vars[i].split('=');
+            if(pair[0] === variable){
+                return pair[1];
+            }
+        }
+
+        return(false);
+    };
+
+    var time = 9000;
+    if (getQueryVariable('time')){
+        time = getQueryVariable('time');
+    }
+
     var inOut = function( elem ){
          elem.delay()
              .fadeIn()
-             .delay(9000)
+             .delay(time)
              .fadeOut( 
                        function(){ 
                             inOut( elem.next() ); 
