@@ -1,9 +1,27 @@
 $(function(){
 
+    var getQueryVariable = function(variable){
+        var query = window.location.search.substring(1);
+        var vars = query.split('&');
+        for (var i=0;i<vars.length;i++) {
+            var pair = vars[i].split('=');
+            if(pair[0] === variable){
+                return pair[1];
+            }
+        }
+
+        return(false);
+    };
+
+    var time = 9000;
+    if (getQueryVariable('time')){
+        time = getQueryVariable('time');
+    }
+
     var inOut = function( elem ){
          elem.delay()
              .fadeIn()
-             .delay(9000)
+             .delay(time)
              .fadeOut( 
                        function(){ 
                             inOut( elem.next() ); 
@@ -14,7 +32,7 @@ $(function(){
                                 $('body').addClass('loading');
                                 setTimeout(function(){
                                     loadFeed('https://xapi.wayin.com/xapi/content/3/filter?key=103adfe9-a7b9-4824-9916-052f7339d73a&format=json&max=1000&collectionId=co-2ny8jdhvr07p7ogdqyf');
-                                },5000);
+                                },6000);
                             }
 
                         }
@@ -95,6 +113,10 @@ $(function(){
         else{
             $('main.tweets > ul').prepend(twitterCard);
         }
+
+        $('img').on('error',function(){
+            $(this).remove();
+        });
     };
 
     var instagramTemplate = function(instaImage,instaName,instaUsername,instaTime,instaUrl,instaBody,instaHeadshot){
@@ -138,6 +160,10 @@ $(function(){
         instagramMarkup += "<\/li>";
 
         $('main.tweets > ul').append(instagramMarkup);
+
+        $('img').on('error',function(){
+            $(this).remove();
+        });
     };
 
     var loadFeed = function(feed){
@@ -161,7 +187,7 @@ $(function(){
                             //twitterTemplate(post.author_avatar_url,post.author_name,post.author_handle,post.created_at_long,post.author_id,post.post_message,post.post_media_url,"append");
                         }
                         else if(post.externalservice.label === "Instagram"){
-                            instagramTemplate(post.mainasseturl,post.sourcename,post.sourceprofile,post.createdate,post.link,post.content);
+                            instagramTemplate(post.mainasseturl,post.sourcename,post.sourceprofile,post.createdate,post.link,post.content,post.avatar);
                             //instagramTemplate(post.post_media_url,post.author_name,post.author_handle,post.created_at_long,post.instagram.link,post.post_message,post.author_avatar_url);
                         }
                     }

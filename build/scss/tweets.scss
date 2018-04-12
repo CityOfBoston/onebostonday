@@ -15,7 +15,7 @@ main{
     @include position(fixed, 0px 0px 0px 0px);
     footer.band-footer{
         @include position(absolute, 0px 0px auto 0px);
-        @include size(100% 148px);
+        @include size(100% 17vh);
         background-color:darken($primary,10%);
         span{
             @extend %absolute-middle;
@@ -25,8 +25,10 @@ main{
         }
     }
     ul{
+        position:relative;
+        z-index:2;
         li{
-            @include position(absolute, 148px 0px 20px 20px);
+            @include position(absolute, 17.1vh 0px 10px 10px);
             display:none;
             height:906px;
             &:first-child{
@@ -38,7 +40,7 @@ main{
         width: 90vw;
         height: 60vh;
         @extend %absolute-middle;
-        top:calc(50% + 85px);
+        top:calc(50% + 75px);
         z-index:3;
         opacity:0;
         @extend %default-transition;
@@ -58,16 +60,29 @@ body.loading svg.logo{
 
 .twitter-card>svg.icon-twitter, .twitter-card>svg.icon-instagram, .instagram-card>svg.icon-twitter, .instagram-card>svg.icon-instagram{
     @include size(6vw);
+    top:-13vh;
+    left:10px;
+    use{
+        fill:#fff;
+    }
+
 }
 
 .twitter-card header img, .instagram-card header img{
-    @include size(10vw);
+    @include size(6vw);
+    border:2px solid #bdc2c6;
 }
 
 .twitter-card header, .instagram-card header{
-    padding-bottom:3vh;
-    margin-bottom:1vh;
+    padding-top:1vh;
+    padding-bottom:4vh;
+    margin-bottom:-1.5vh;
     border-bottom:3px solid darken(#bdc2c6,20%);
+    text-align:left;
+    img{
+        margin-right:20px;
+        float:left;
+    }
 }
 
 .twitter-card div.content p a, .instagram-card div.content p a{
@@ -76,12 +91,15 @@ body.loading svg.logo{
 
 .twitter-card,
 .instagram-card{
-    padding:15px;
+    padding:1vw 2vw;
     margin-bottom:0px;
-    height:78vh;
+    height:79.7vh;
     background-color:transparent;
+    > svg.icon-twitter{
+        top:-15vh;
+    }
     div.content{
-        max-height:40vh;
+        max-height:50vh;
         overflow:hidden;
         text-overflow:ellipsis;
     }
@@ -95,32 +113,37 @@ body.loading svg.logo{
     }
     div.content{
         p{
-            font-size:2.5vw;
+            font-size:3vw;
         }
     }
     time{
-        font-size:2vh;
+        font-size:3vh;
+        margin-top:0em;
+        @include position(absolute, auto auto 1em 1em);
         a{
             color:darken(#bdc2c6,20%);
         }
     }
 }
 
-@media all and(min-width:1300px){
-    .twitter-card,
-    .instagram-card{
-        div.content p{
-            font-size:3vw;
-        }
-        time{
-            font-size:2.4vw;
-        }
-    }
-}
+// @media all and(min-width:1300px){
+//     .twitter-card,
+//     .instagram-card{
+//         div.content p{
+//             font-size:3vw;
+//         }
+//         time{
+//             font-size:2.4vw;
+//         }
+//     }
+// }
 
 .twitter-card.has-photo,
 .instagram-card{
     @include clearfix();
+    & > svg.icon-twitter{
+        top:-13vh;
+    }
     header,.content,time{
         width:48%;
         float:left;
@@ -146,23 +169,27 @@ body.loading svg.logo{
     div.content{
         padding-right:20px;
         p{
-            font-size:2vw;
+            font-size:1.9vw;
         }
     }
     time{
         font-size:2vw;
+        //bottom:0px;
     }
 }
 
-@media all and(min-width:1300px){
-    .twitter-card.has-photo,
-    .instagram-card{
-        div.content p{
-            font-size:2.15vw;
-            margin:1vw 0px;
-        }
-        time{
-            font-size:2.15vw;
-        }
-    }
-}
+// @media all and(min-width:1300px){
+//     .twitter-card.has-photo,
+//     .instagram-card{
+//         header{
+//             margin-bottom:2vh;
+//         }
+//         div.content p{
+//             font-size:1.9vw;
+//             margin:1vw 0px;
+//         }
+//         time{
+//             font-size:2.15vw;
+//         }
+//     }
+// }
