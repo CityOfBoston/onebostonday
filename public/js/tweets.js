@@ -3,7 +3,7 @@ $(function(){
     var inOut = function( elem ){
          elem.delay()
              .fadeIn()
-             .delay(2000)
+             .delay(9000)
              .fadeOut( 
                        function(){ 
                             inOut( elem.next() ); 
