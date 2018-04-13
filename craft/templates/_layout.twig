@@ -23,25 +23,7 @@
             <script src="/js/vendor/html5shiv.js"></script>
         <![endif]-->
 
-        <!-- twitter cards -->
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:site" content="@CityofBoston">
-        <meta name="twitter:title" content="One Boston Day | Our City. Our Day.">
-        <meta name="twitter:description" content="#OneBostonDay is a celebration of the resiliency and generosity of the people of Boston. Join your neighbors and share what you will do. ">
-        <meta name="twitter:image" content="http://www.onebostonday.org/img/share.png">
-        {# <meta name="twitter:player" content="https://www.youtube.com/embed/5XLJabL_UfE?autoplay=1&rel=0"> #}
-        {# <meta name="twitter:player:width" content="1600">
-        <meta name="twitter:player:height" content="900"> #}
-        <!-- end twitter cards -->
-
-        <!-- Facebook -->
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="One Boston Day | Our City. Our Day. "/>
-        <meta property="og:url" content="http://www.onebostonday.org/"/>
-        <meta property="og:image" content="http://www.onebostonday.org/img/share.png"/>
-        <meta property="og:site_name" content="One Boston Day"/>
-        <meta property="og:description" content="#OneBostonDay is a celebration of the resiliency and generosity of the people of Boston. Join your neighbors and share what you will do. "/>
-        <!-- end facebook -->
+        {% hook 'seomaticRender' %}
         
     </head>
     <body>
