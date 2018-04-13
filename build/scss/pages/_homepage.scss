@@ -7,7 +7,7 @@ body.video-playing{
         background-color:transparent;
         border:none;
         z-index:9;
-        text-indent:-3000px;
+        text-indent:-9999px;
         @include size(60px);
         &:before,
         &:after{

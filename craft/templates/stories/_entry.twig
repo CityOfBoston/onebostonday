@@ -36,8 +36,8 @@
 
         {% set thumb = {
             mode: 'crop',
-            width: 500,
-            quality: 80,
+            width: 700,
+            quality: 90,
             position: 'center-center'
         } %}
 
@@ -87,17 +87,17 @@
         <h3>Share this story:</h3>
         <ul class="social-share">
             <li>
-                <a href="http://www.facebook.com/sharer/sharer.php?u={{entry.url}}">
+                <a href="http://www.facebook.com/sharer/sharer.php?u=http://onebostonday.org/{{entry.uri}}">
                     <svg class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg>
                 </a>
             </li>
             <li>
-                <a href="http://twitter.com/intent/tweet?status={{entry.url}}">
+                <a href="http://twitter.com/intent/tweet?status=http://onebostonday.org/{{entry.uri}}">
                     <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
                 </a>
             </li>
             <li>
-                <a href="mailto:?subject={{entry.title}}&body={{entry.url}}" class="is-email">
+                <a href="mailto:?subject={{entry.title}}&body=http://onebostonday.org/{{entry.uri}}" class="is-email">
                     <svg class="icon icon-mail"><use xlink:href="#icon-mail"></use></svg>
                 </a>
             </li>

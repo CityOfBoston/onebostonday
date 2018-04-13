@@ -7,6 +7,7 @@ section.stories{
 }
 
 div.story-list{
+    padding:0 1em;
     a{
         color:$dark;
         cursor:pointer;
@@ -32,9 +33,10 @@ div.story-list{
         width:20%;
         background-position: center center;
         background-size: cover;
-        padding-bottom: 20%;
         margin: 0;
         margin-right: 2.5%;
+        width:3.2em;
+        height:3.2em;
     }
     ul{
         @include display(flex);
@@ -44,6 +46,7 @@ div.story-list{
     li{
         display:block;
         width:100%;
+        margin-bottom:2em;
     }
     div{
         @include display(flex);
@@ -74,6 +77,7 @@ div.story-list{
     div.story-list{
         li{
             width:50%;
+            margin-bottom:0px;
         }
     }
 }
