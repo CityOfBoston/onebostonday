@@ -50,6 +50,7 @@
 			font-size:1.6em;
 			padding-left:0.5em;
 			padding-right:1.5em;
+			width:70%;
 		}
 		svg{
 			@include size(2em);
@@ -70,21 +71,21 @@
 			color:#fff;
 			border:none;
 			width:100%;
-			display:flex;
-			align-items:center;
+			@include display(flex);
+			@include align-items(center);
 			text-align:left;
 		}
 		div{
-			width:100%;
 			background-size:cover;
 			background-position:center;
+			width:100%;
 			max-width:120px;
 			position:relative;
 			span{
 				@extend %absolute-middle;
 				@extend %default-transition;
 				background-color:rgba($primary,0.6);
-				padding:1em;
+				padding:.5em;
 				border-radius:50%;
 				svg{
 					position:relative;
@@ -148,7 +149,7 @@
 		min-height:530px;
 		max-height:100%;
 		.wrapper{
-			display:flex;
+			@include display(flex);
 			max-width:900px;
 			margin:0 auto;
 			& > div:first-child{
@@ -156,8 +157,8 @@
 				padding-right:2em;
 				margin-right:2em;
 				border-right:1px solid rgba(#fff,0);
-				display:flex;
-				align-items:center;
+				@include display(flex);
+				@include align-items(center);
 				@include transition (all 0.6s 1s ease-in-out);
 			}
 			& > div:last-child{
