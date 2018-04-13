@@ -287,16 +287,19 @@ $(function(){
         loadNewFeed();
 
         var donezo = false;
-        var number = 43532;
+        var number = 0;
 
         $.ajax({
-            url: 'http://one-boston-day-wayin-api.hhcctech.com/wayin/count.json',
+            url: 'https://metric.wayin.com/xapi/metric/count?apiKey=103adfe9-a7b9-4824-9916-052f7339d73a&id=campaign:6843:127945::aUT30WCpJSjulXZ4,campaign:6843:127945::aYDVSr2FxLE63wT6',
             type: 'GET',
             dataType: 'json',
         })
         .done(function(resp) {
             console.log("success");
-            number = resp.results[0].count;
+            var twitter = resp.content['campaign:6843:127945::aUT30WCpJSjulXZ4'][0]['count'];
+            var facebook = resp.content['campaign:6843:127945::aYDVSr2FxLE63wT6'][0]['count'];
+            number = twitter + facebook;
+            console.log(number);
         })
         .fail(function() {
             console.log("error");
