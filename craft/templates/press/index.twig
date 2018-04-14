@@ -18,7 +18,7 @@
             {% for entry in press %}
                 <li>
                     <a target="_blank" href="{{entry.associatedLink.url}}">{{entry.title}}</a>
-                    <time>{{entry.publishedDate|date('F j')}}</time>
+                    <time>{{entry.publishedDate|date('F j, Y')}}</time>
                     <span>{{entry.source}}</span>
                 </li>
             {% endfor %}
