@@ -17,7 +17,7 @@ return array(
         'postLoginRedirect' => '',
     ),
     '.test' => array(
-        'siteUrl' => 'http://onebostonday.test/',
+        'siteUrl' => 'http://one-boston-day.hhcc.test/',
         'devMode' => true,
         'siteName' => 'One Boston Day Dev',
         'requireMatchingUserAgentForSession' => false,
@@ -27,9 +27,9 @@ return array(
         ),
     ),
     'staging.onebostonday.org' => array(
-        'siteUrl' => 'http://staging.onebostonday.org/',
+        'siteUrl' => 'http://onebostonday.org/',
         'devMode' => true,
-        'siteName' => 'One Boston Day Staging',
+        'siteName' => 'One Boston Day',
         'requireMatchingUserAgentForSession' => false,
         'cache' => false,
         'environmentVariables' => array(
