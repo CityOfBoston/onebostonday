@@ -30,7 +30,7 @@ $(function(){
 
         var dataJSON = JSON.stringify(data);
 
-        if (confirm(areYouSure['Are you sure new files are ready to be exported?'])) {
+        if (confirm('Are you sure new files are ready to be exported?')) {
             $.ajax({
                 url: dest,
                 crossDomain: true,
