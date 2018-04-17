@@ -179,13 +179,14 @@ class ExportPlugin extends BasePlugin
     protected function defineSettings()
     {
         return array(
-            'serviceUrl' => array(AttributeType::String, 'label' => 'Service URL', 'default' => ''),
-            'apiKey' => array(AttributeType::String, 'label' => 'API Key for this website', 'default' => ''),
-            'siteLocation' => array(AttributeType::String, 'label' => 'Site Location', 'default' => ''),
-            'htaccessUsername' => array(AttributeType::String, 'label' => 'htaccessUsername', 'default' => ''),
-            'htaccessPassword' => array(AttributeType::String, 'label' => 'htaccessPassword', 'default' => ''),
-            'emails' => array(AttributeType::String, 'label' => 'emails', 'default' => ''),
-            'deliveryType' => array(AttributeType::String, 'label' => 'deliveryType', 'default' => '')
+            'serviceUrl' => array(AttributeType::String, 'label' => 'Service URL', 'default' => ''), // what is the exporter URL to hit
+            'apiKey' => array(AttributeType::String, 'label' => 'API Key for this website', 'default' => ''), // api key to handshake with the API tool
+            'siteLocation' => array(AttributeType::String, 'label' => 'Site Location', 'default' => ''), // for display only. tells the user where files are going
+            'htaccessUsername' => array(AttributeType::String, 'label' => 'htaccessUsername', 'default' => ''), // optional htaccess username
+            'htaccessPassword' => array(AttributeType::String, 'label' => 'htaccessPassword', 'default' => ''), // optional htaccess password
+            'emails' => array(AttributeType::String, 'label' => 'emails', 'default' => ''), // who should receive emails?
+            'deliveryType' => array(AttributeType::String, 'label' => 'deliveryType', 'default' => ''), // how are files delivered? rackspace, email, s3
+            'apiEndpoint' => array(AttributeType::String, 'label' => 'API Endpoint', 'default' => '') // what is the api endpoint that the exporter should hit to get a list of all assets to crawl?
         );
     }
 

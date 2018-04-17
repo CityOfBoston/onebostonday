@@ -14,6 +14,15 @@
 
 {% import "_includes/forms" as forms %}
 
+<h2>API Information</h2>
+{{ forms.textField({
+    label: 'API to scrape',
+    instructions: 'The location of the JSON API that the export too should scrape. Usually thissite.com/api/v1/content/get.json or something similar',
+    id: 'apiEndpoint',
+    name: 'apiEndpoint', 
+    value: settings['apiEndpoint']})
+}}
+
 {{ forms.textField({
     label: 'Service URL',
     instructions: 'Location of Site Exporter API',
@@ -24,12 +33,14 @@
 
 {{ forms.textField({
     label: 'API Key',
-    instructions: 'API Key related to this website',
+    instructions: 'API Key related to this website from the Site Exporter tool',
     id: 'apiKey',
     name: 'apiKey', 
     value: settings['apiKey']})
 }}
+<br/>
 
+<h2>htaccess Information</h2>
 {{ forms.textField({
     label: 'htaccess Username',
     instructions: 'htaccess username. Leave blank if it does not exist',
@@ -45,7 +56,9 @@
     name: 'htaccessPassword', 
     value: settings['htaccessPassword']})
 }}
+<br/>
 
+<h2>Delivery Information</h2>
 {{ forms.selectField({
     label: 'Delivery Type',
     instructions: 'Should this export be processed as a ZIP or uploaded to S3',
@@ -72,7 +85,6 @@
     name: 'siteLocation',
     value: settings['siteLocation']})
 }}
-
 
 {{ forms.textField({
     label: 'Who should be notified?',

@@ -16,7 +16,7 @@
     {% endif %}
 
 
-    <a class="btn submit run-export" href="{{craft.export.getMySetting('serviceUrl')}}" data-key="{{craft.export.getMySetting('apiKey')}}"  data-username="{{craft.export.getMySetting('htaccessUsername')}}" data-password="{{craft.export.getMySetting("htaccessPassword")}}" data-user="{{currentUser.username}}" data-url="{{siteUrl}}api/v1/assets/get.json" data-emails="{{craft.export.getMySetting('emails')}}" data-delivery="{{craft.export.getMySetting('deliveryType')}}" data-location="{{craft.export.getMySetting('siteLocation')}}">
+    <a class="btn submit run-export" href="{{craft.export.getMySetting('serviceUrl')}}" data-key="{{craft.export.getMySetting('apiKey')}}"  data-username="{{craft.export.getMySetting('htaccessUsername')}}" data-password="{{craft.export.getMySetting("htaccessPassword")}}" data-user="{{currentUser.username}}" data-url="{{craft.export.getMySetting('apiEndpoint')}}" data-emails="{{craft.export.getMySetting('emails')}}" data-delivery="{{craft.export.getMySetting('deliveryType')}}" data-location="{{craft.export.getMySetting('siteLocation')}}">
         Run export
     </a>
     <p>Clicking this button means the existing code on <strong>{{craft.export.getMySetting("siteLocation")}}</strong> will be overwritten, so tread carefully!</p>
