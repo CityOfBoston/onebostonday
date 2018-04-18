@@ -2,81 +2,82 @@
 {% set pages = craft.entries({section:'and, not press, not community'}) %}
 {% set assets = craft.assets.limit(null).kind('image') %}
 
+{% set stagingUrl = 'http://staging.onebostonday.org/' %}
 
 [
     {
         "title": "sitemap.xml",
-        "url": "{{siteUrl}}sitemap.xml"
+        "url": "{{stagingUrl}}sitemap.xml"
     },
     {
         "title": "humans.txt",
-        "url": "{{siteUrl}}humans.txt"
+        "url": "{{stagingUrl}}humans.txt"
     },
     {
         "title": "screen.min.css",
-        "url": "{{siteUrl}}css/screen.min.css"
+        "url": "{{stagingUrl}}css/screen.min.css"
     },
     {
         "title": "print.css",
-        "url": "{{siteUrl}}css/print.min.css"
+        "url": "{{stagingUrl}}css/print.min.css"
     },
     {
         "title": "ie.min.css",
-        "url": "{{siteUrl}}css/ie.min.css"
+        "url": "{{stagingUrl}}css/ie.min.css"
     },
     {
         "title": "kiosk.min.css",
-        "url": "{{siteUrl}}css/kiosk.min.css"
+        "url": "{{stagingUrl}}css/kiosk.min.css"
     },
     {
         "title": "tweets.min.css",
-        "url": "{{siteUrl}}css/tweets.min.css"
+        "url": "{{stagingUrl}}css/tweets.min.css"
     },
     {
         "title": "main.js",
-        "url": "{{siteUrl}}js/main.js"
+        "url": "{{stagingUrl}}js/main.js"
     },
     {
         "title": "tweets.js",
-        "url": "{{siteUrl}}js/tweets.js"
+        "url": "{{stagingUrl}}js/tweets.js"
     },
     {
         "title": "realtime.js",
-        "url": "{{siteUrl}}js/realtime.js"
+        "url": "{{stagingUrl}}js/realtime.js"
     },
     {
         "title": "kiosk.js",
-        "url": "{{siteUrl}}js/kiosk.js"
+        "url": "{{stagingUrl}}js/kiosk.js"
     },
     {
         "title": "plugins.js",
-        "url": "{{siteUrl}}js/plugins.js"
+        "url": "{{stagingUrl}}js/plugins.js"
     },
     {
         "title": "modernizr.js",
-        "url": "{{siteUrl}}js/vendor/modernizr.js"
+        "url": "{{stagingUrl}}js/vendor/modernizr.js"
     },
     {
         "title": "404",
-        "url": "{{siteUrl}}404"
+        "url": "{{stagingUrl}}404"
     },
     {
         "title": "404",
-        "url": "{{siteUrl}}kiosk"
+        "url": "{{stagingUrl}}kiosk"
     },
     {
         "title": "404",
-        "url": "{{siteUrl}}tweets"
+        "url": "{{stagingUrl}}tweets"
     },
     {
         "title": "404",
-        "url": "{{siteUrl}}realtime"
+        "url": "{{stagingUrl}}realtime"
     },
 {% for page in pages %}
     {% if page.url %}
     {
         "title": "{{page.title}}",
-        "url": "{{page.url}}"
+        "url": "{{page.url|replace(siteUrl,stagingUrl)}}"
     {% endif %}
     {% if loop.last%}
     }

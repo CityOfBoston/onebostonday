@@ -13,12 +13,9 @@
 $(function(){
     $('body').on('click','a.run-export', function(event){
         event.preventDefault();
-
         var $this = $(this);
         
-
         var dest = $this.attr('href');
-
 
         var data = {
             key: $this.data('key'),
@@ -32,16 +29,8 @@ $(function(){
         };
 
         var dataJSON = JSON.stringify(data);
-        
-        console.log(data);
 
-        var areYouSure = [
-            'Are you sure new files are ready to be exported?'
-        ];
-
-        var randomSelectioon = Math.floor(Math.random()* areYouSure.length) + 1;
-
-        if (confirm(areYouSure[randomSelectioon])) {
+        if (confirm('Are you sure new files are ready to be exported?')) {
             $.ajax({
                 url: dest,
                 crossDomain: true,
